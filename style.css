@@ -836,3 +836,111 @@
     padding-top:46px;
   }
 }
+
+
+/* =========================================================
+   MOBILE FULLSCREEN MENU FIX V2
+   Reset properties inherited from the older dropdown menu.
+   ========================================================= */
+@media (max-width:760px){
+  .nav{
+    position:fixed !important;
+    inset:0 !important;
+    top:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:0 !important;
+    width:100vw !important;
+    max-width:none !important;
+    min-height:100dvh;
+    height:100dvh;
+    margin:0 !important;
+    padding:
+      calc(92px + env(safe-area-inset-top))
+      28px
+      calc(34px + env(safe-area-inset-bottom)) !important;
+    border:0 !important;
+    border-radius:0 !important;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    justify-content:flex-start !important;
+    align-items:stretch !important;
+    background:
+      radial-gradient(circle at 82% 15%,rgba(135,143,218,.16),transparent 260px),
+      radial-gradient(circle at 10% 92%,rgba(101,70,148,.12),transparent 280px),
+      #060816 !important;
+  }
+
+  .nav::before{
+    inset:
+      calc(78px + env(safe-area-inset-top))
+      18px
+      calc(18px + env(safe-area-inset-bottom));
+    border-color:rgba(231,224,197,.11);
+  }
+
+  .nav-eyebrow{
+    flex:0 0 auto;
+    margin:18px 0 28px 54px !important;
+  }
+
+  .nav a{
+    flex:0 0 auto;
+    grid-template-columns:38px minmax(0,1fr) !important;
+    gap:14px !important;
+    width:100% !important;
+    min-height:78px;
+    padding:14px 12px !important;
+    border-radius:0 !important;
+    background:transparent !important;
+  }
+
+  .nav a > span{
+    min-width:0;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:end !important;
+    gap:12px;
+    font-size:clamp(30px,9vw,42px) !important;
+    line-height:1 !important;
+    white-space:nowrap;
+  }
+
+  .nav a small{
+    writing-mode:horizontal-tb !important;
+    white-space:nowrap;
+    padding-bottom:3px;
+    font-size:9px !important;
+  }
+
+  .nav a[aria-current="page"]::after{
+    top:9px;
+    right:12px;
+  }
+
+  .menu-btn{
+    position:relative;
+    z-index:1003 !important;
+  }
+
+  .site-header{
+    z-index:1002;
+  }
+}
+
+@media (max-width:390px){
+  .nav{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+  .nav::before{inset-left:12px;inset-right:12px}
+  .nav a{
+    grid-template-columns:32px minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+  .nav a > span{
+    font-size:30px !important;
+    letter-spacing:.09em !important;
+  }
+  .nav a small{font-size:8px !important}
+}
