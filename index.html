@@ -41,9 +41,23 @@
 </section>
 
 <section class="section" id="works">
-  <div class="section-heading reveal"><p class="eyebrow">WORKS COLLECTION</p><h2>作品一覧</h2><p>カテゴリを選んで、気になる物語を開いてください。</p></div>
+  <div class="section-heading reveal">
+    <p class="eyebrow">WORKS COLLECTION</p>
+    <h2>作品一覧</h2>
+    <p>検索・カテゴリ・折りたたみで、作品をすぐに探せます。</p>
+  </div>
+
+  <div class="work-tools reveal">
+    <label class="search-box">
+      <span>⌕</span>
+      <input id="workSearch" type="search" placeholder="作品名・シリーズ・タグで検索">
+      <button id="clearSearch" type="button" aria-label="検索を消す">×</button>
+    </label>
+    <div class="result-count" id="resultCount"></div>
+  </div>
+
   <div class="filters reveal" id="filters"></div>
-  <div class="work-grid" id="workGrid"></div>
+  <div id="workArea"></div>
 </section>
 
 <section class="section section-panel" id="news">
@@ -54,6 +68,8 @@
 
 <footer><div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div><small>© LUNO WORKS</small></footer>
 </div>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="上へ戻る">↑</button>
 
 <dialog class="work-dialog" id="workDialog">
 <button class="dialog-close" id="closeDialog">×</button>
