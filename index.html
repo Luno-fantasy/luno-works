@@ -1,133 +1,71 @@
-
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080a19">
-  <meta name="description" content="LUNO WORKS 公式創作アーカイブ">
-  <title>LUNO WORKS｜Moonlit Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUNO WORKS | Moonlit Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="stars stars-a"></div>
-  <div class="stars stars-b"></div>
-  <div class="mist mist-a"></div>
-  <div class="mist mist-b"></div>
+<div class="stars"></div>
 
-  <section id="gate" class="gate">
-    <div class="gate-ring ring-1"></div>
-    <div class="gate-ring ring-2"></div>
-    <div class="gate-content">
-      <p class="gate-kicker">OFFICIAL FANTASY ARCHIVE</p>
-      <h1>LUNO<br><span>WORKS</span></h1>
-      <p class="gate-copy">月下の書庫に、まだ知らない物語が眠っている。</p>
-      <button id="enterBtn" class="enter-btn" type="button">
-        <span>ENTER</span>
-        <small>幻想世界の扉を開く</small>
-      </button>
-    </div>
-    <button id="skipBtn" class="skip-btn" type="button">SKIP</button>
-  </section>
-
-  <div id="site" class="site is-hidden">
-    <header class="site-header">
-      <a href="#home" class="brand">
-        <span class="brand-moon">☾</span>
-        <span><b>LUNO WORKS</b><small>Moonlit Archive</small></span>
-      </a>
-      <button id="menuBtn" class="menu-btn" aria-label="メニューを開く" type="button"><span></span><span></span></button>
-      <nav id="nav" class="nav">
-        <a href="#home">TOP</a>
-        <a href="#library">WORLD</a>
-        <a href="#news">NEWS</a>
-        <a href="#links">LINKS</a>
-      </nav>
-    </header>
-
-    <main>
-      <section id="home" class="hero section">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">WELCOME TO THE MOONLIT ARCHIVE</p>
-          <h2>物語は、<br>あなたが触れた瞬間に始まる。</h2>
-          <p>
-            人外、裏社会、主従、溺愛。<br>
-            キャラクターだけではなく、その人物が生きる世界ごと収蔵する公式創作アーカイブ。
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#library">作品を選ぶ</a>
-            <a class="button ghost" href="#links">リンクを見る</a>
-          </div>
-        </div>
-        <div class="hero-visual reveal">
-          <div class="moon"></div>
-          <div class="sigil sigil-outer"></div>
-          <div class="sigil sigil-inner"></div>
-          <div class="floating-card">
-            <span>ARCHIVE NO. 00</span>
-            <b>LUNO WORKS</b>
-            <small>Original Characters & Worlds</small>
-          </div>
-        </div>
-      </section>
-
-      <section id="library" class="section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">WORLD LIBRARY</p>
-          <h2>幻想書庫</h2>
-          <p>一冊の本を選ぶように、作品世界の扉を開いてください。</p>
-        </div>
-
-        <div id="filters" class="filters reveal"></div>
-        <div id="workGrid" class="work-grid"></div>
-      </section>
-
-      <section id="news" class="section section-panel">
-        <div class="section-heading reveal">
-          <p class="eyebrow">LATEST NEWS</p>
-          <h2>更新記録</h2>
-        </div>
-        <div id="newsList" class="news-list reveal"></div>
-      </section>
-
-      <section id="links" class="section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">PORTALS</p>
-          <h2>外界への扉</h2>
-          <p>作品を読む、感想を送る、最新情報を見る。</p>
-        </div>
-        <div id="linkGrid" class="link-grid reveal"></div>
-      </section>
-    </main>
-
-    <footer>
-      <div>
-        <b>LUNO WORKS</b>
-        <span>Original Character & World Archive</span>
-      </div>
-      <small>© 2026 LUNO WORKS. All rights reserved.</small>
-    </footer>
+<section class="gate" id="gate">
+  <div class="gate-content">
+    <p class="eyebrow">Official Visual Novel Archive</p>
+    <h1>LUNO <span>WORKS</span></h1>
+    <p>月明かりの書架から、物語を選んで。</p>
+    <button class="enter-btn" id="enterBtn"><b>ENTER</b><small>ARCHIVEを開く</small></button>
   </div>
+  <button class="skip-btn" id="skipBtn">SKIP</button>
+</section>
 
-  <dialog id="workDialog" class="work-dialog">
-    <button id="closeDialog" class="dialog-close" type="button" aria-label="閉じる">×</button>
-    <div id="dialogVisual" class="dialog-visual">
-      <div class="dialog-mark"></div>
-    </div>
-    <div class="dialog-body">
-      <p id="dialogCategory" class="eyebrow"></p>
-      <h2 id="dialogTitle"></h2>
-      <p id="dialogCatch" class="dialog-catch"></p>
-      <p id="dialogSummary" class="dialog-summary"></p>
-      <div id="dialogKeywords" class="keyword-list"></div>
-      <div id="dialogActions" class="dialog-actions"></div>
-    </div>
-  </dialog>
+<div class="site is-hidden" id="site">
+<header class="site-header">
+  <a class="brand" href="#home"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
+  <button class="menu-btn" id="menuBtn"><span></span><span></span></button>
+  <nav class="nav" id="nav"><a href="#home">HOME</a><a href="#works">WORKS</a><a href="#news">NEWS</a></nav>
+</header>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+<main>
+<section class="section hero" id="home">
+  <div class="hero-copy reveal">
+    <p class="eyebrow">LUNO WORKS OFFICIAL ARCHIVE</p>
+    <h2>物語の扉を、<br>月明かりの下で。</h2>
+    <p>公開中の作品と、これから始まる物語をまとめた公式アーカイブです。</p>
+    <a class="button primary" href="#works">作品を見る</a>
+  </div>
+  <div class="hero-visual reveal"><div class="moon"></div><div class="floating-card"><small>ARCHIVE STATUS</small><b id="archiveCount">58 WORKS</b></div></div>
+</section>
+
+<section class="section" id="works">
+  <div class="section-heading reveal"><p class="eyebrow">WORKS COLLECTION</p><h2>作品一覧</h2><p>カテゴリを選んで、気になる物語を開いてください。</p></div>
+  <div class="filters reveal" id="filters"></div>
+  <div class="work-grid" id="workGrid"></div>
+</section>
+
+<section class="section section-panel" id="news">
+  <div class="section-heading reveal"><p class="eyebrow">ARCHIVE NEWS</p><h2>更新情報</h2></div>
+  <div class="news-list reveal" id="newsList"></div>
+</section>
+</main>
+
+<footer><div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div><small>© LUNO WORKS</small></footer>
+</div>
+
+<dialog class="work-dialog" id="workDialog">
+<button class="dialog-close" id="closeDialog">×</button>
+<div class="dialog-visual" id="dialogVisual"><span class="dialog-mark"></span></div>
+<div class="dialog-body">
+<p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2>
+<p class="dialog-catch" id="dialogCatch"></p><p class="dialog-summary" id="dialogSummary"></p>
+<div class="keyword-list" id="dialogKeywords"></div><div class="dialog-actions" id="dialogActions"></div>
+</div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
