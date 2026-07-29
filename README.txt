@@ -1,7 +1,20 @@
-修正版です。前回は既存V3のファイル一式を含めていなかったため、真っ黒になる場合がありました。
+LUNO WORKS WORLD 安全修正版
 
-GitHubで行うこと：
-1. index.html / style.css / app.js をこの修正版で置き換える
-2. images の中に worlds フォルダを作る
-3. euphoria.jpg / tenkarasu.jpg / karyukai.jpg を images/worlds に入れる
-4. data.js と images/covers は削除しない
+置き換えるファイル
+・index.html
+・style.css
+・app.js
+
+追加するフォルダ
+・images/worlds
+
+残すファイル
+・data.js
+・images/covers
+・works.json（使用中の場合）
+
+今回の修正
+・JavaScriptに問題が起きても画面を真っ黒にしない
+・WORLDの文章と画像は必ず表示
+・作品データの変数名を複数形式に対応
+・作品一覧でエラーが起きても案内を表示
