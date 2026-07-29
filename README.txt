@@ -1,20 +1,7 @@
-LUNO WORKS WORLD V1
+修正版です。前回は既存V3のファイル一式を含めていなかったため、真っ黒になる場合がありました。
 
-アップロードするもの
-1. index.html（既存のものと置き換え）
-2. world.css（ルートへ追加）
-3. world.js（ルートへ追加）
-4. images/worlds フォルダをそのまま追加
-
-触らなくていいもの
-- style.css
-- app.js
-- data.js
-- 既存の images/covers
-
-追加内容
-- TOP / WORLD / WORKS / NEWS / LINKS に整理
-- ORIGINAL WORLDS：EUPHORIA、天鴉領、華龍会
-- STORY COLLECTIONS：裏社会、現代作品群
-- 作品数は data.js から可能な範囲で自動集計
-- スマホ表示対応
+GitHubで行うこと：
+1. index.html / style.css / app.js をこの修正版で置き換える
+2. images の中に worlds フォルダを作る
+3. euphoria.jpg / tenkarasu.jpg / karyukai.jpg を images/worlds に入れる
+4. data.js と images/covers は削除しない
