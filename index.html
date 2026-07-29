@@ -23,38 +23,79 @@
 </section>
 
 <div class="site is-hidden" id="site">
-<header class="site-header">
+<header class="site-header rail-header">
   <a class="brand" href="#home"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
   <button class="menu-btn" id="menuBtn"><span></span><span></span></button>
   <nav class="nav" id="nav"><a href="#home">HOME</a><a href="#world">WORLD</a><a href="#works">WORKS</a><a href="#news">NEWS</a></nav>
 </header>
 
 <main>
-<section class="section hero" id="home">
-  <div class="hero-copy reveal">
-    <p class="eyebrow">LUNO WORKS OFFICIAL ARCHIVE</p>
-    <h2>物語の扉を、<br>月明かりの下で。</h2>
-    <p>公開中の作品と、これから始まる物語をまとめた公式アーカイブです。</p>
-    <a class="button primary" href="#works">作品を見る</a>
+
+<section class="hero-cinematic" id="home">
+  <div class="hero-gridlines" aria-hidden="true"></div>
+  <div class="hero-comet comet-one" aria-hidden="true"></div>
+  <div class="hero-comet comet-two" aria-hidden="true"></div>
+
+  <aside class="hero-side-index" aria-label="ページ案内">
+    <span class="side-number">00</span>
+    <span class="side-line"></span>
+    <span class="side-label">MOONLIT ARCHIVE</span>
+  </aside>
+
+  <div class="hero-title-panel reveal">
+    <p class="hero-system-label">LUNO WORKS · OFFICIAL ARCHIVE</p>
+    <div class="hero-title-lockup">
+      <span class="hero-title-mark">☾</span>
+      <h1>LUNO <em>WORKS</em></h1>
+      <p>MOONLIT ARCHIVE</p>
+    </div>
+
+    <div class="hero-copy-block">
+      <p class="hero-jp-copy">物語の扉を、<br>月明かりの下で。</p>
+      <p class="hero-subcopy">公開中の作品と、これから始まる世界を収蔵する公式アーカイブ。</p>
+    </div>
+
+    <div class="hero-actions">
+      <a class="title-button title-button-primary" href="#world">
+        <span>WORLD</span><small>世界を選ぶ</small>
+      </a>
+      <a class="title-button" href="#works">
+        <span>WORKS</span><small>作品を見る</small>
+      </a>
+    </div>
+
+    <div class="hero-data-strip">
+      <span><i>ARCHIVE</i><b id="archiveCount">58 WORKS</b></span>
+      <span><i>STATUS</i><b>ONLINE</b></span>
+      <span><i>VERSION</i><b>01.00</b></span>
+    </div>
   </div>
-  <div class="hero-visual reveal">
+
+  <div class="hero-orbit-stage reveal" aria-hidden="true">
+    <div class="orbit-backdrop"></div>
     <div class="moon-aura aura-one"></div>
     <div class="moon-aura aura-two"></div>
     <div class="moon-orbit orbit-one"></div>
     <div class="moon-orbit orbit-two"></div>
+    <div class="moon-orbit orbit-three"></div>
     <div class="moon"></div>
-    <div class="light-particles" aria-hidden="true">
+
+    <div class="orbit-label label-one"><span>01</span><b>WORLD</b></div>
+    <div class="orbit-label label-two"><span>02</span><b>WORKS</b></div>
+    <div class="orbit-label label-three"><span>03</span><b>MEMORY</b></div>
+
+    <div class="light-particles">
       <span style="--x:18%;--delay:0s;--duration:8s"></span>
       <span style="--x:32%;--delay:2.1s;--duration:10s"></span>
       <span style="--x:49%;--delay:4.2s;--duration:9s"></span>
       <span style="--x:64%;--delay:1.3s;--duration:11s"></span>
       <span style="--x:78%;--delay:5.1s;--duration:8.8s"></span>
     </div>
-    <div class="floating-card"><small>ARCHIVE STATUS</small><b id="archiveCount">58 WORKS</b></div>
-    <a class="scroll-cue" href="#world" aria-label="WORLD ARCHIVEへ移動">
-      <span>SCROLL TO EXPLORE</span><i></i>
-    </a>
   </div>
+
+  <a class="scroll-cue title-scroll" href="#world" aria-label="WORLD ARCHIVEへ移動">
+    <span>SCROLL TO EXPLORE</span><i></i>
+  </a>
 </section>
 
 <section class="section world-section" id="world">
