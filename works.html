@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WORKS | LUNO WORKS Moonlit Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage">
+<div class="stars"></div>
+
+<div class="site" id="site">
+<header class="site-header rail-header">
+  <a class="brand" href="index.html#home"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav" id="nav" aria-label="メインメニュー">
+    <span class="nav-eyebrow">LUNO WORKS / MENU</span>
+    <a href="index.html#home"><b>00</b><span>HOME<small>トップへ</small></span></a>
+    <a href="index.html#world"><b>01</b><span>WORLD<small>物語の世界</small></span></a>
+    <a href="works.html" aria-current="page"><b>02</b><span>WORKS<small>作品一覧</small></span></a>
+    <a href="index.html#news"><b>03</b><span>NEWS<small>更新情報</small></span></a>
+  </nav>
+</header>
+
+<main>
+<section class="works-page-hero">
+  <aside class="hero-side-index" aria-label="ページ番号">
+    <span class="side-number">02</span>
+    <span class="side-line"></span>
+    <span class="side-label">WORKS COLLECTION</span>
+  </aside>
+
+  <div class="works-page-heading reveal">
+    <a class="page-back-link" href="index.html#home">← HOME</a>
+    <p class="eyebrow">WORKS COLLECTION</p>
+    <h1>作品一覧</h1>
+    <p>月明かりの書架から、あなたの物語を選んで。</p>
+  </div>
+
+  <div class="works-page-orbit" aria-hidden="true">
+    <div class="moon-aura aura-one"></div>
+    <div class="moon-orbit orbit-one"></div>
+    <div class="moon-orbit orbit-two"></div>
+    <div class="moon"></div>
+    <span>ARCHIVE / 02</span>
+  </div>
+</section>
+
+<section class="section works-collection-page" id="works">
+  <div class="work-tools reveal">
+    <label class="search-box">
+      <span>⌕</span>
+      <input id="workSearch" type="search" placeholder="作品名・シリーズ・タグで検索">
+      <button id="clearSearch" type="button" aria-label="検索を消す">×</button>
+    </label>
+    <div class="result-count" id="resultCount"></div>
+  </div>
+
+  <div class="filters reveal" id="filters"></div>
+  <div id="workArea"></div>
+</section>
+</main>
+
+<footer><div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div><small>© LUNO WORKS</small></footer>
+</div>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="上へ戻る">↑</button>
+
+<dialog class="work-dialog" id="workDialog">
+<button class="dialog-close" id="closeDialog">×</button>
+<div class="dialog-visual" id="dialogVisual"><span class="dialog-mark"></span></div>
+<div class="dialog-body">
+<p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2>
+<p class="dialog-catch" id="dialogCatch"></p><p class="dialog-summary" id="dialogSummary"></p>
+<div class="keyword-list" id="dialogKeywords"></div><div class="dialog-actions" id="dialogActions"></div>
+</div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

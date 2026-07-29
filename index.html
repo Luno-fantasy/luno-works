@@ -24,9 +24,15 @@
 
 <div class="site is-hidden" id="site">
 <header class="site-header rail-header">
-  <a class="brand" href="#home"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
-  <button class="menu-btn" id="menuBtn"><span></span><span></span></button>
-  <nav class="nav" id="nav"><a href="#home">HOME</a><a href="#world">WORLD</a><a href="#works">WORKS</a><a href="#news">NEWS</a></nav>
+  <a class="brand" href="index.html#home"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav" id="nav" aria-label="メインメニュー">
+      <span class="nav-eyebrow">LUNO WORKS / MENU</span>
+      <a href="index.html#home"><b>00</b><span>HOME<small>トップへ</small></span></a>
+      <a href="index.html#world"><b>01</b><span>WORLD<small>物語の世界</small></span></a>
+      <a href="works.html"><b>02</b><span>WORKS<small>作品一覧</small></span></a>
+      <a href="index.html#news"><b>03</b><span>NEWS<small>更新情報</small></span></a>
+    </nav>
 </header>
 
 <main>
@@ -59,7 +65,7 @@
       <a class="title-button title-button-primary" href="#world">
         <span>WORLD</span><small>世界を選ぶ</small>
       </a>
-      <a class="title-button" href="#works">
+      <a class="title-button" href="works.html">
         <span>WORKS</span><small>作品を見る</small>
       </a>
     </div>
@@ -133,25 +139,6 @@
   </div>
 </section>
 
-<section class="section" id="works">
-  <div class="section-heading reveal">
-    <p class="eyebrow">WORKS COLLECTION</p>
-    <h2>作品一覧</h2>
-    <p>検索・カテゴリ・折りたたみで、作品をすぐに探せます。</p>
-  </div>
-
-  <div class="work-tools reveal">
-    <label class="search-box">
-      <span>⌕</span>
-      <input id="workSearch" type="search" placeholder="作品名・シリーズ・タグで検索">
-      <button id="clearSearch" type="button" aria-label="検索を消す">×</button>
-    </label>
-    <div class="result-count" id="resultCount"></div>
-  </div>
-
-  <div class="filters reveal" id="filters"></div>
-  <div id="workArea"></div>
-</section>
 
 <section class="section section-panel" id="news">
   <div class="section-heading reveal"><p class="eyebrow">ARCHIVE NEWS</p><h2>更新情報</h2></div>

@@ -39,8 +39,22 @@
   // Navigation works independently of work data.
   const menu = document.getElementById("menuBtn");
   const nav = document.getElementById("nav");
-  menu?.addEventListener("click", () => nav?.classList.toggle("open"));
-  nav?.addEventListener("click", () => nav.classList.remove("open"));
+
+  function setMenu(open) {
+    nav?.classList.toggle("open", open);
+    menu?.classList.toggle("is-open", open);
+    menu?.setAttribute("aria-expanded", String(open));
+    menu?.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    document.body.classList.toggle("menu-open", open);
+  }
+
+  menu?.addEventListener("click", () => setMenu(!nav?.classList.contains("open")));
+  nav?.addEventListener("click", event => {
+    if (event.target.closest("a")) setMenu(false);
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") setMenu(false);
+  });
 
   const topBtn = document.getElementById("backToTop");
   window.addEventListener("scroll", () => {

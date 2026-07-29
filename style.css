@@ -617,3 +617,222 @@
   .orbit-label{display:none}
   .title-scroll{bottom:18px}
 }
+
+
+/* =========================================================
+   MULTI-PAGE NAVIGATION
+   HOME and WORKS are separate pages.
+   ========================================================= */
+.nav-eyebrow{display:none}
+.nav a b,.nav a small{display:none}
+
+@media(max-width:760px){
+  body.menu-open{overflow:hidden}
+
+  .menu-btn{
+    position:relative;
+    z-index:1002;
+  }
+  .menu-btn span{
+    transition:transform .35s ease, top .35s ease, opacity .25s ease;
+  }
+  .menu-btn.is-open span:first-child{
+    transform:translateY(5px) rotate(45deg);
+  }
+  .menu-btn.is-open span:last-child{
+    transform:translateY(-5px) rotate(-45deg);
+  }
+
+  .nav{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:stretch;
+    gap:0;
+    padding:104px 34px 54px;
+    background:
+      radial-gradient(circle at 82% 20%,rgba(137,144,220,.17),transparent 18rem),
+      radial-gradient(circle at 10% 86%,rgba(104,72,152,.15),transparent 20rem),
+      rgba(5,7,18,.97);
+    backdrop-filter:blur(18px);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-14px);
+    pointer-events:none;
+    transition:opacity .35s ease,visibility .35s ease,transform .35s ease;
+  }
+  .nav::before{
+    content:"";
+    position:absolute;
+    inset:22px;
+    border:1px solid rgba(231,224,197,.13);
+    pointer-events:none;
+  }
+  .nav.open{
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    pointer-events:auto;
+  }
+  .nav-eyebrow{
+    display:block;
+    position:relative;
+    margin:0 0 30px 44px;
+    color:#817d91;
+    font-size:8px;
+    letter-spacing:.28em;
+  }
+  .nav a{
+    position:relative;
+    display:grid;
+    grid-template-columns:44px 1fr;
+    align-items:center;
+    gap:16px;
+    width:100%;
+    padding:17px 8px;
+    border-bottom:1px solid rgba(231,224,197,.1);
+    color:#eeebf5;
+    text-align:left;
+  }
+  .nav a:first-of-type{border-top:1px solid rgba(231,224,197,.1)}
+  .nav a b{
+    display:block;
+    color:var(--gold);
+    font:500 11px "Cormorant Garamond",serif;
+    letter-spacing:.15em;
+  }
+  .nav a>span{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    font:600 clamp(27px,8vw,40px) "Cormorant Garamond",serif;
+    letter-spacing:.12em;
+  }
+  .nav a small{
+    display:block;
+    color:#777487;
+    font:400 10px "Zen Kaku Gothic New",sans-serif;
+    letter-spacing:.08em;
+  }
+  .nav a[aria-current="page"]::after{
+    content:"CURRENT";
+    position:absolute;
+    right:8px;
+    top:8px;
+    color:var(--gold);
+    font-size:6px;
+    letter-spacing:.2em;
+  }
+}
+
+.works-page-hero{
+  position:relative;
+  min-height:470px;
+  display:grid;
+  grid-template-columns:minmax(300px,.85fr) minmax(300px,1.15fr);
+  align-items:center;
+  gap:30px;
+  overflow:hidden;
+  padding:110px max(28px,calc((100vw - 1240px)/2)) 64px;
+  background:
+    radial-gradient(circle at 74% 38%,rgba(137,145,224,.17),transparent 24rem),
+    linear-gradient(115deg,#070916 0 46%,#0b0d20 100%);
+  border-bottom:1px solid var(--line);
+}
+.works-page-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px);
+  background-size:84px 84px;
+  opacity:.35;
+  pointer-events:none;
+}
+.works-page-heading{
+  position:relative;
+  z-index:3;
+  padding-left:clamp(20px,5vw,74px);
+}
+.page-back-link{
+  display:inline-block;
+  margin-bottom:38px;
+  color:#8c879c;
+  font-size:9px;
+  letter-spacing:.22em;
+  transition:.25s ease;
+}
+.page-back-link:hover{color:var(--gold);transform:translateX(-3px)}
+.works-page-heading h1{
+  margin:12px 0 18px;
+  font:600 clamp(54px,7vw,98px)/1 "Noto Serif JP",serif;
+  letter-spacing:.04em;
+}
+.works-page-heading>p:last-child{
+  color:#a5a1b1;
+  font-size:13px;
+}
+.works-page-orbit{
+  position:relative;
+  width:min(480px,44vw);
+  aspect-ratio:1;
+  justify-self:center;
+  display:grid;
+  place-items:center;
+}
+.works-page-orbit .moon{width:36%}
+.works-page-orbit .aura-one{width:52%}
+.works-page-orbit .orbit-one{width:64%}
+.works-page-orbit .orbit-two{width:86%}
+.works-page-orbit>span{
+  position:absolute;
+  right:4%;
+  bottom:22%;
+  padding:6px 10px;
+  border:1px solid rgba(225,231,255,.13);
+  background:rgba(7,9,20,.55);
+  color:#8f8ba0;
+  font-size:7px;
+  letter-spacing:.2em;
+}
+.works-collection-page{
+  padding-top:70px;
+}
+.subpage .site-header{
+  position:fixed;
+  top:0;
+}
+.subpage footer{margin-top:60px}
+
+@media(max-width:760px){
+  .works-page-hero{
+    min-height:410px;
+    grid-template-columns:1fr;
+    padding:112px 22px 42px;
+  }
+  .works-page-heading{
+    padding-left:4px;
+  }
+  .works-page-heading h1{
+    font-size:54px;
+  }
+  .page-back-link{
+    margin-bottom:28px;
+  }
+  .works-page-orbit{
+    position:absolute;
+    width:280px;
+    right:-98px;
+    bottom:-42px;
+    opacity:.55;
+  }
+  .works-page-orbit>span{display:none}
+  .works-page-hero .hero-side-index{display:none}
+  .works-collection-page{
+    padding-top:46px;
+  }
+}
