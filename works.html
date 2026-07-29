@@ -8,7 +8,54 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style-v11.css?v=11">
+<link rel="stylesheet" href="style-v12.css?v=12">
+
+<style id="works-layout-force-v12">
+  #filters.filters{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:visible !important;
+    overflow-x:visible !important;
+    white-space:normal !important;
+    flex-wrap:wrap !important;
+    padding:0 !important;
+    margin:22px 0 28px !important;
+    scrollbar-width:none !important;
+  }
+
+  #filters.filters::before,
+  #filters.filters::after{
+    display:none !important;
+  }
+
+  #filters.filters .filter-btn{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    min-height:48px !important;
+    margin:0 !important;
+    padding:8px 4px !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;
+    text-align:center !important;
+    line-height:1.2 !important;
+    font-size:12px !important;
+    letter-spacing:0 !important;
+  }
+
+  @media (max-width:370px){
+    #filters.filters{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+  }
+</style>
+
 </head>
 <body class="subpage">
 <div class="page-transition" id="pageTransition" aria-hidden="true">
@@ -84,6 +131,6 @@
 <script src="data.js"></script>
 <script src="category-fix-v10.js?v=10"></script>
 <script src="release-update-v11.js?v=11"></script>
-<script src="app-v11.js?v=11"></script>
+<script src="app-v12.js?v=12"></script>
 </body>
 </html>
