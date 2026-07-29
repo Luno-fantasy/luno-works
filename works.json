@@ -1,4 +1,4 @@
-window.BUCANEVE_DATA = {
+{
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
@@ -965,4 +965,4 @@ window.BUCANEVE_DATA = {
       "description": ""
     }
   ]
-};
+}
