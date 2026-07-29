@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LUNO WORKS | Moonlit Archive</title>
+<meta name="description" content="LUNO WORKS公式アーカイブ。月明かりの下で、物語の世界へ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style-v3.css?v=3">
+<link rel="stylesheet" href="style-v4.css?v=4">
 </head>
 <body>
 <div class="stars"></div>
 
 <section class="gate" id="gate">
   <div class="gate-content">
-    <p class="eyebrow">Official Visual Novel Archive</p>
+    <p class="eyebrow">Official Moonlit Archive</p>
     <h1>LUNO <span>WORKS</span></h1>
     <p>月明かりの書架から、物語を選んで。</p>
     <button class="enter-btn" id="enterBtn"><b>ENTER</b><small>ARCHIVEを開く</small></button>
@@ -24,28 +25,21 @@
 
 <div class="site is-hidden" id="site">
 <header class="site-header rail-header">
-  <a class="brand" href="index.html#home"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
+  <a class="brand" href="index.html"><span class="brand-moon">☾</span><span><b>LUNO WORKS</b><small>Moonlit Archive</small></span></a>
   <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
   <nav class="nav" id="nav" aria-label="メインメニュー">
-      <span class="nav-eyebrow">LUNO WORKS / MENU</span>
-      <a href="index.html#home"><b>00</b><span>HOME<small>トップへ</small></span></a>
-      <a href="index.html#world"><b>01</b><span>WORLD<small>物語の世界</small></span></a>
-      <a href="works.html"><b>02</b><span>WORKS<small>作品一覧</small></span></a>
-      <a href="index.html#news"><b>03</b><span>NEWS<small>更新情報</small></span></a>
-    </nav>
+    <span class="nav-eyebrow">LUNO WORKS / MENU</span>
+    <a href="index.html" aria-current="page"><b>00</b><span><i>☾</i>HOME<small>月明かりの入口</small></span></a><a href="world.html"><b>01</b><span><i>◇</i>WORLD<small>物語の世界</small></span></a><a href="works.html"><b>02</b><span><i>▤</i>WORKS<small>作品図鑑</small></span></a><a href="news.html"><b>03</b><span><i>▥</i>NEWS<small>更新情報</small></span></a><a href="profile.html"><b>04</b><span><i>♙</i>PROFILE<small>LUNO WORKS</small></span></a>
+  </nav>
 </header>
-
 <main>
-
-<section class="hero-cinematic" id="home">
+<section class="hero-cinematic home-only" id="home">
   <div class="hero-gridlines" aria-hidden="true"></div>
   <div class="hero-comet comet-one" aria-hidden="true"></div>
   <div class="hero-comet comet-two" aria-hidden="true"></div>
 
   <aside class="hero-side-index" aria-label="ページ案内">
-    <span class="side-number">00</span>
-    <span class="side-line"></span>
-    <span class="side-label">MOONLIT ARCHIVE</span>
+    <span class="side-number">00</span><span class="side-line"></span><span class="side-label">MOONLIT ARCHIVE</span>
   </aside>
 
   <div class="hero-title-panel reveal">
@@ -55,41 +49,29 @@
       <h1>LUNO <em>WORKS</em></h1>
       <p>MOONLIT ARCHIVE</p>
     </div>
-
     <div class="hero-copy-block">
       <p class="hero-jp-copy">物語の扉を、<br>月明かりの下で。</p>
-      <p class="hero-subcopy">公開中の作品と、これから始まる世界を収蔵する公式アーカイブ。</p>
+      <p class="hero-subcopy">幻想と恋愛を収蔵する、LUNO WORKS公式アーカイブ。</p>
     </div>
-
     <div class="hero-actions">
-      <a class="title-button title-button-primary" href="#world">
-        <span>WORLD</span><small>世界を選ぶ</small>
-      </a>
-      <a class="title-button" href="works.html">
-        <span>WORKS</span><small>作品を見る</small>
-      </a>
+      <a class="title-button title-button-primary" href="world.html"><span>WORLD</span><small>世界を巡る</small></a>
+      <a class="title-button" href="works.html"><span>WORKS</span><small>作品を選ぶ</small></a>
     </div>
-
     <div class="hero-data-strip">
-      <span><i>ARCHIVE</i><b id="archiveCount">58 WORKS</b></span>
+      <span><i>ARCHIVE</i><b id="archiveCount">WORKS</b></span>
       <span><i>STATUS</i><b>ONLINE</b></span>
-      <span><i>VERSION</i><b>01.00</b></span>
+      <span><i>ACCESS</i><b>OPEN</b></span>
     </div>
   </div>
 
   <div class="hero-orbit-stage reveal" aria-hidden="true">
     <div class="orbit-backdrop"></div>
-    <div class="moon-aura aura-one"></div>
-    <div class="moon-aura aura-two"></div>
-    <div class="moon-orbit orbit-one"></div>
-    <div class="moon-orbit orbit-two"></div>
-    <div class="moon-orbit orbit-three"></div>
+    <div class="moon-aura aura-one"></div><div class="moon-aura aura-two"></div>
+    <div class="moon-orbit orbit-one"></div><div class="moon-orbit orbit-two"></div><div class="moon-orbit orbit-three"></div>
     <div class="moon"></div>
-
     <div class="orbit-label label-one"><span>01</span><b>WORLD</b></div>
     <div class="orbit-label label-two"><span>02</span><b>WORKS</b></div>
-    <div class="orbit-label label-three"><span>03</span><b>MEMORY</b></div>
-
+    <div class="orbit-label label-three"><span>04</span><b>PROFILE</b></div>
     <div class="light-particles">
       <span style="--x:18%;--delay:0s;--duration:8s"></span>
       <span style="--x:32%;--delay:2.1s;--duration:10s"></span>
@@ -99,69 +81,17 @@
     </div>
   </div>
 
-  <a class="scroll-cue title-scroll" href="#world" aria-label="WORLD ARCHIVEへ移動">
-    <span>SCROLL TO EXPLORE</span><i></i>
+  <a class="scroll-cue title-scroll home-menu-cue" href="world.html">
+    <span>ENTER THE ARCHIVE</span><i></i>
   </a>
 </section>
-
-<section class="section world-section" id="world">
-  <div class="section-heading reveal world-heading">
-    <p class="eyebrow">WORLD ARCHIVE</p>
-    <h2>物語の世界</h2>
-    <p class="world-lead-en">Every story begins with a world.</p>
-    <p>すべての物語は、ひとつの世界から始まる。</p>
-  </div>
-
-  <div class="world-group reveal">
-    <div class="world-group-title"><span>01</span><h3>ORIGINAL WORLDS</h3></div>
-    <div class="world-feature-grid">
-      <article class="world-card">
-        <div class="world-image"><img src="images/worlds/euphoria.jpg" alt="EUPHORIA"><span class="world-type">Series</span></div>
-        <div class="world-content"><div><p class="world-kicker">LOVE / DEPENDENCE</p><h3>EUPHORIA</h3><p>愛は救済か、依存か。<br>歪んだ執着と共依存を描く連作世界。</p></div><div class="world-facts"><span>TYPE<br><b>Series</b></span><span>WORKS<br><b>6</b></span></div></div>
-      </article>
-      <article class="world-card">
-        <div class="world-image"><img src="images/worlds/tenkarasu.jpg" alt="天鴉領"><span class="world-type">World</span></div>
-        <div class="world-content"><div><p class="world-kicker">NIGHT / CONTRACT</p><h3>天鴉領</h3><p>夜と契約に支配された、鴉天狗たちの領域。<br>誇りと義務、その奥に隠された執着が交差する。</p></div><div class="world-facts"><span>TYPE<br><b>Original World</b></span><span>WORKS<br><b>1</b></span></div></div>
-      </article>
-      <article class="world-card">
-        <div class="world-image"><img src="images/worlds/karyukai.jpg" alt="華龍会"><span class="world-type">Organization</span></div>
-        <div class="world-content"><div><p class="world-kicker">LOYALTY / POSSESSION</p><h3>華龍会</h3><p>龍華街を支配する巨大組織。<br>掟に守られた“お姫様”を中心に、六人の愛が絡み合う。</p></div><div class="world-facts"><span>TYPE<br><b>Organization</b></span><span>WORKS<br><b>1</b></span></div></div>
-      </article>
-    </div>
-  </div>
-
-  <div class="world-group reveal">
-    <div class="world-group-title"><span>02</span><h3>STORY COLLECTIONS</h3></div>
-    <div class="collection-grid">
-      <article class="collection-card underworld"><span class="collection-symbol">♠</span><div><span class="world-type">Collection</span><p class="world-kicker">UNDERWORLD STORIES</p><h3>裏社会</h3><p>忠誠と執着が交錯する、危険な世界の物語群。</p></div><div class="world-facts"><span>TYPE<br><b>Story Collection</b></span><span>WORKS<br><b>—</b></span></div></article>
-      <article class="collection-card modern"><span class="collection-symbol">◇</span><div><span class="world-type">Collection</span><p class="world-kicker">MODERN STORIES</p><h3>現代作品群</h3><p>日常のすぐ隣から始まる恋愛作品群。</p></div><div class="world-facts"><span>TYPE<br><b>Story Collection</b></span><span>WORKS<br><b>—</b></span></div></article>
-    </div>
-  </div>
-</section>
-
-
-<section class="section section-panel" id="news">
-  <div class="section-heading reveal"><p class="eyebrow">ARCHIVE NEWS</p><h2>更新情報</h2></div>
-  <div class="news-list reveal" id="newsList"></div>
-</section>
 </main>
-
-<footer><div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div><small>© LUNO WORKS</small></footer>
+<footer>
+  <div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div>
+  <small>© LUNO WORKS</small>
+</footer>
 </div>
-
-<button class="back-to-top" id="backToTop" type="button" aria-label="上へ戻る">↑</button>
-
-<dialog class="work-dialog" id="workDialog">
-<button class="dialog-close" id="closeDialog">×</button>
-<div class="dialog-visual" id="dialogVisual"><span class="dialog-mark"></span></div>
-<div class="dialog-body">
-<p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2>
-<p class="dialog-catch" id="dialogCatch"></p><p class="dialog-summary" id="dialogSummary"></p>
-<div class="keyword-list" id="dialogKeywords"></div><div class="dialog-actions" id="dialogActions"></div>
-</div>
-</dialog>
-
 <script src="data.js"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

@@ -242,7 +242,7 @@
     ) dialog.close();
   });
 
-  if (newsList) {
+  if (newsList && !newsList.querySelector(".news-entry")) {
     newsList.innerHTML =
       `<div class="news-item"><span>ARCHIVE</span><span class="news-label">UPDATE</span><span>${DATA.works.length}作品のデータを公開しました。</span></div>`;
   }
