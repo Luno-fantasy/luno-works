@@ -3393,3 +3393,143 @@ img,svg,video,canvas{
     margin-right:10px !important;
   }
 }
+
+
+/* =========================================================
+   HOME FINAL ALIGNMENT FIX
+   Equal left/right inset + more breathing room above logo.
+   ========================================================= */
+@media(max-width:620px){
+  .hero-cinematic{
+    width:100% !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    overflow:hidden !important;
+  }
+
+  .hero-title-panel{
+    width:100% !important;
+    max-width:100% !important;
+    padding:58px 26px 0 !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .hero-system-label{
+    margin-bottom:26px !important;
+    font-size:9px !important;
+    letter-spacing:.22em !important;
+  }
+
+  .hero-title-lockup{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .hero-title-lockup h1{
+    font-size:60px !important;
+    line-height:.72 !important;
+    letter-spacing:-.045em !important;
+  }
+
+  .hero-title-lockup h1 em{
+    margin-left:32px !important;
+  }
+
+  .hero-title-lockup>p{
+    margin-top:26px !important;
+    margin-left:32px !important;
+    font-size:12px !important;
+    letter-spacing:.26em !important;
+  }
+
+  .hero-copy-block{
+    width:100% !important;
+    max-width:100% !important;
+    margin-top:52px !important;
+    padding:26px 18px 26px 20px !important;
+    box-sizing:border-box !important;
+  }
+
+  .hero-jp-copy{
+    font-size:31px !important;
+    line-height:1.78 !important;
+  }
+
+  .hero-subcopy{
+    font-size:13px !important;
+    line-height:1.85 !important;
+  }
+
+  .hero-actions{
+    width:auto !important;
+    max-width:none !important;
+    margin:26px 0 0 !important;
+    gap:10px !important;
+  }
+
+  .title-button{
+    min-width:0 !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+  .home-new-release{
+    width:auto !important;
+    max-width:none !important;
+    margin:28px 28px 0 !important;
+    padding:17px 0 18px !important;
+    grid-template-columns:1fr !important;
+    grid-template-areas:"label" "date" "title" !important;
+    gap:8px !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+
+  .home-new-label{
+    font-size:12px !important;
+    letter-spacing:.22em !important;
+  }
+
+  .home-new-release small{
+    justify-self:start !important;
+    font-size:11px !important;
+  }
+
+  .home-new-release strong{
+    font-size:15px !important;
+    line-height:1.65 !important;
+    overflow-wrap:anywhere !important;
+  }
+
+  .hero-orbit-stage{
+    width:112vw !important;
+    margin-left:-6vw !important;
+    margin-top:-58px !important;
+  }
+}
+
+@media(max-width:390px){
+  .hero-title-panel{
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+
+  .hero-title-lockup h1{
+    font-size:56px !important;
+  }
+
+  .hero-title-lockup h1 em,
+  .hero-title-lockup>p{
+    margin-left:28px !important;
+  }
+
+  .hero-jp-copy{
+    font-size:28px !important;
+  }
+
+  .home-new-release{
+    margin-left:24px !important;
+    margin-right:24px !important;
+  }
+}
