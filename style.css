@@ -3533,3 +3533,77 @@ img,svg,video,canvas{
     margin-right:24px !important;
   }
 }
+
+
+/* =========================================================
+   CACHE-FIXED HOME ALIGNMENT
+   Fixed filenames; visible revision is added in HTML only.
+   ========================================================= */
+@media(max-width:620px){
+  .hero-title-panel{
+    padding-top:82px !important;
+    padding-left:30px !important;
+    padding-right:30px !important;
+  }
+
+  .hero-title-lockup h1{
+    font-size:54px !important;
+    line-height:.76 !important;
+  }
+
+  .hero-title-lockup h1 em{
+    margin-left:24px !important;
+  }
+
+  .hero-title-lockup > p{
+    margin-left:24px !important;
+  }
+
+  .hero-copy-block{
+    margin-top:44px !important;
+  }
+
+  .hero-actions{
+    width:calc(100% - 56px) !important;
+    max-width:none !important;
+    margin-left:28px !important;
+    margin-right:28px !important;
+    box-sizing:border-box !important;
+  }
+
+  .home-new-release{
+    width:calc(100% - 64px) !important;
+    max-width:none !important;
+    margin-left:32px !important;
+    margin-right:32px !important;
+    box-sizing:border-box !important;
+  }
+
+  .hero-orbit-stage{
+    width:108vw !important;
+    margin-left:-4vw !important;
+  }
+}
+
+@media(max-width:390px){
+  .hero-title-panel{
+    padding-left:26px !important;
+    padding-right:26px !important;
+  }
+
+  .hero-title-lockup h1{
+    font-size:51px !important;
+  }
+
+  .hero-actions{
+    width:calc(100% - 48px) !important;
+    margin-left:24px !important;
+    margin-right:24px !important;
+  }
+
+  .home-new-release{
+    width:calc(100% - 56px) !important;
+    margin-left:28px !important;
+    margin-right:28px !important;
+  }
+}
