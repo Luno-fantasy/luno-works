@@ -3394,216 +3394,343 @@ img,svg,video,canvas{
   }
 }
 
-
 /* =========================================================
-   HOME FINAL ALIGNMENT FIX
-   Equal left/right inset + more breathing room above logo.
+   FANTASY HOME — FINAL OVERRIDES
+   月夜の幻想アーカイブとして、余白・ロゴ・光を再設計。
    ========================================================= */
-@media(max-width:620px){
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+.hero-cinematic{
+  position:relative;
+  width:100%;
+  min-height:auto !important;
+  display:grid;
+  grid-template-columns:minmax(340px,.9fr) minmax(380px,1.1fr);
+  align-items:center;
+  gap:clamp(18px,3.2vw,46px);
+  padding-top:clamp(40px,5vw,68px) !important;
+  padding-bottom:clamp(30px,4vw,48px) !important;
+  background:
+    radial-gradient(circle at 76% 54%,rgba(182,192,255,.15),transparent 25rem),
+    radial-gradient(circle at 30% 30%,rgba(103,77,166,.16),transparent 31rem),
+    linear-gradient(150deg,#070919 0%,#090b1d 58%,#070918 100%) !important;
+}
+
+.hero-cinematic::before{
+  opacity:.22 !important;
+}
+
+.hero-cinematic::after{
+  height:22% !important;
+  background:linear-gradient(transparent,rgba(4,6,16,.72)) !important;
+}
+
+.hero-gridlines{
+  opacity:.5;
+  background:
+    linear-gradient(108deg,transparent 0 65%,rgba(213,222,255,.055) 65.12%,transparent 65.25%),
+    radial-gradient(circle at 74% 54%,rgba(255,255,255,.05) 0 1px,transparent 2px) !important;
+  background-size:auto,110px 110px !important;
+}
+
+.hero-title-panel{
+  max-width:590px !important;
+  padding-left:clamp(8px,2vw,30px) !important;
+}
+
+.hero-system-label{
+  margin-bottom:14px !important;
+  letter-spacing:.26em !important;
+  color:rgba(207,205,225,.58) !important;
+}
+
+.hero-title-lockup{
+  width:max-content;
+  max-width:100%;
+  padding:4px 0 12px !important;
+}
+
+.hero-title-lockup h1{
+  font-size:clamp(62px,7.7vw,112px) !important;
+  line-height:.88 !important;
+  letter-spacing:.015em !important;
+  font-weight:500 !important;
+  text-shadow:0 0 34px rgba(179,188,255,.08) !important;
+}
+
+.hero-title-lockup h1 em{
+  margin-left:clamp(26px,5.2vw,70px) !important;
+  letter-spacing:.055em !important;
+  -webkit-text-stroke:.85px rgba(234,231,246,.78) !important;
+}
+
+.hero-title-mark{
+  left:-18px !important;
+  top:-12px !important;
+  font-size:28px !important;
+  filter:drop-shadow(0 0 16px rgba(240,220,165,.34)) !important;
+}
+
+.hero-title-lockup>p{
+  margin:12px 0 0 clamp(30px,5.4vw,76px) !important;
+  font-size:11px !important;
+  letter-spacing:.38em !important;
+}
+
+.hero-copy-block{
+  max-width:520px !important;
+  margin-top:18px !important;
+  padding:20px 22px 18px !important;
+  border-left-color:rgba(240,220,165,.62) !important;
+  background:
+    linear-gradient(90deg,rgba(20,22,49,.76),rgba(10,12,31,.18) 72%,transparent) !important;
+  box-shadow:inset 0 0 48px rgba(124,135,218,.035);
+}
+
+.hero-jp-copy{
+  font-size:clamp(27px,3.2vw,41px) !important;
+  line-height:1.48 !important;
+  letter-spacing:.045em !important;
+}
+
+.hero-subcopy{
+  margin-top:10px !important;
+  color:rgba(201,199,218,.66) !important;
+  line-height:1.8 !important;
+}
+
+.hero-actions{
+  margin-top:18px !important;
+  gap:10px !important;
+}
+
+.title-button{
+  min-width:174px;
+  padding:14px 17px 14px 20px !important;
+  border-color:rgba(216,224,255,.16) !important;
+  background:linear-gradient(110deg,rgba(19,22,47,.7),rgba(8,11,28,.62)) !important;
+  box-shadow:inset 0 0 34px rgba(150,163,239,.025);
+}
+
+.title-button::before{
+  width:2px !important;
+  background:linear-gradient(var(--gold),rgba(151,212,229,.72),transparent) !important;
+}
+
+.title-button:hover,
+.title-button:focus-visible{
+  border-color:rgba(240,220,165,.42) !important;
+  box-shadow:0 0 24px rgba(139,149,224,.08),inset 0 0 34px rgba(150,163,239,.045) !important;
+}
+
+.home-new-release{
+  width:min(700px,100%) !important;
+  margin:18px 0 0 !important;
+  padding:14px 0 16px !important;
+  border:0 !important;
+  border-top:1px solid rgba(240,220,165,.42) !important;
+  border-bottom:1px solid rgba(221,227,255,.12) !important;
+  background:linear-gradient(90deg,rgba(146,156,228,.035),transparent 68%) !important;
+  box-shadow:none !important;
+}
+
+.home-new-label{
+  padding:0 !important;
+  border:0 !important;
+  color:#f0dda2 !important;
+  letter-spacing:.24em !important;
+}
+
+.home-new-release strong{
+  line-height:1.62 !important;
+}
+
+.hero-orbit-stage{
+  width:min(600px,47vw) !important;
+  margin-top:0 !important;
+}
+
+.hero-orbit-stage .moon{
+  width:43% !important;
+  box-shadow:
+    0 0 76px rgba(235,231,197,.22),
+    0 0 150px rgba(139,149,224,.23),
+    0 0 250px rgba(93,72,154,.12) !important;
+}
+
+.orbit-backdrop{
+  opacity:.8;
+}
+
+.home-scroll-reveal::before{
+  content:"";
+  position:absolute;
+  inset:16%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(219,222,255,.08),transparent 68%);
+  filter:blur(24px);
+  pointer-events:none;
+}
+
+@media(max-width:980px){
   .hero-cinematic{
-    width:100% !important;
-    padding-left:0 !important;
-    padding-right:0 !important;
-    overflow:hidden !important;
+    grid-template-columns:1fr !important;
+    align-items:start !important;
+    gap:12px !important;
+    padding:30px 18px 28px !important;
   }
 
   .hero-title-panel{
     width:100% !important;
     max-width:100% !important;
-    padding:58px 26px 0 !important;
-    margin:0 !important;
-    box-sizing:border-box !important;
+    padding:0 !important;
   }
 
   .hero-system-label{
-    margin-bottom:26px !important;
-    font-size:9px !important;
-    letter-spacing:.22em !important;
+    margin-bottom:10px !important;
+    font-size:8px !important;
+    letter-spacing:.21em !important;
   }
 
   .hero-title-lockup{
-    width:100% !important;
-    max-width:100% !important;
+    max-width:340px !important;
+    padding:2px 0 8px !important;
   }
 
   .hero-title-lockup h1{
-    font-size:60px !important;
-    line-height:.72 !important;
-    letter-spacing:-.045em !important;
+    font-size:clamp(54px,14vw,78px) !important;
+    line-height:.91 !important;
+    letter-spacing:.025em !important;
   }
 
   .hero-title-lockup h1 em{
-    margin-left:32px !important;
+    margin-left:20px !important;
+    letter-spacing:.075em !important;
+  }
+
+  .hero-title-mark{
+    left:-8px !important;
+    top:-10px !important;
+    font-size:23px !important;
   }
 
   .hero-title-lockup>p{
-    margin-top:26px !important;
-    margin-left:32px !important;
-    font-size:12px !important;
-    letter-spacing:.26em !important;
+    margin:9px 0 0 22px !important;
+    font-size:9px !important;
+    letter-spacing:.28em !important;
   }
 
   .hero-copy-block{
-    width:100% !important;
-    max-width:100% !important;
-    margin-top:52px !important;
-    padding:26px 18px 26px 20px !important;
-    box-sizing:border-box !important;
+    margin-top:12px !important;
+    padding:16px 15px 14px !important;
   }
 
   .hero-jp-copy{
-    font-size:31px !important;
-    line-height:1.78 !important;
+    font-size:clamp(22px,7vw,31px) !important;
+    line-height:1.55 !important;
   }
 
   .hero-subcopy{
-    font-size:13px !important;
-    line-height:1.85 !important;
+    margin-top:8px !important;
+    font-size:11px !important;
+    line-height:1.72 !important;
   }
 
   .hero-actions{
-    width:auto !important;
-    max-width:none !important;
-    margin:26px 0 0 !important;
-    gap:10px !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    margin-top:13px !important;
   }
 
   .title-button{
     min-width:0 !important;
-    width:100% !important;
-    box-sizing:border-box !important;
+    padding:13px 13px 13px 16px !important;
+  }
+
+  .title-button span{
+    font-size:13px !important;
+  }
+
+  .title-button small{
+    display:none !important;
   }
 
   .home-new-release{
-    width:auto !important;
-    max-width:none !important;
-    margin:28px 28px 0 !important;
-    padding:17px 0 18px !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:13px 0 0 !important;
+    padding:12px 0 14px !important;
     grid-template-columns:1fr !important;
     grid-template-areas:"label" "date" "title" !important;
-    gap:8px !important;
-    box-sizing:border-box !important;
-    overflow:hidden !important;
+    gap:6px !important;
   }
 
   .home-new-label{
-    font-size:12px !important;
-    letter-spacing:.22em !important;
+    font-size:10px !important;
+    letter-spacing:.19em !important;
   }
 
   .home-new-release small{
     justify-self:start !important;
-    font-size:11px !important;
+    font-size:10px !important;
   }
 
   .home-new-release strong{
-    font-size:15px !important;
-    line-height:1.65 !important;
-    overflow-wrap:anywhere !important;
+    font-size:14px !important;
+    line-height:1.55 !important;
   }
 
   .hero-orbit-stage{
-    width:112vw !important;
-    margin-left:-6vw !important;
-    margin-top:-58px !important;
+    width:min(350px,88vw) !important;
+    margin:0 auto !important;
+    justify-self:center !important;
+  }
+
+  .hero-orbit-stage .moon{
+    width:47% !important;
+  }
+
+  .title-scroll{
+    display:none !important;
   }
 }
 
-@media(max-width:390px){
-  .hero-title-panel{
-    padding-left:22px !important;
-    padding-right:22px !important;
-  }
-
-  .hero-title-lockup h1{
-    font-size:56px !important;
-  }
-
-  .hero-title-lockup h1 em,
-  .hero-title-lockup>p{
-    margin-left:28px !important;
-  }
-
-  .hero-jp-copy{
-    font-size:28px !important;
-  }
-
-  .home-new-release{
-    margin-left:24px !important;
-    margin-right:24px !important;
-  }
-}
-
-
-/* =========================================================
-   CACHE-FIXED HOME ALIGNMENT
-   Fixed filenames; visible revision is added in HTML only.
-   ========================================================= */
 @media(max-width:620px){
-  .hero-title-panel{
-    padding-top:82px !important;
-    padding-left:30px !important;
-    padding-right:30px !important;
+  .hero-cinematic{
+    padding:24px 16px 22px !important;
+    gap:8px !important;
+  }
+
+  .hero-title-lockup{
+    max-width:300px !important;
   }
 
   .hero-title-lockup h1{
-    font-size:54px !important;
-    line-height:.76 !important;
+    font-size:55px !important;
   }
 
   .hero-title-lockup h1 em{
-    margin-left:24px !important;
-  }
-
-  .hero-title-lockup > p{
-    margin-left:24px !important;
+    margin-left:16px !important;
   }
 
   .hero-copy-block{
-    margin-top:44px !important;
+    margin-top:10px !important;
   }
 
-  .hero-actions{
-    width:calc(100% - 56px) !important;
-    max-width:none !important;
-    margin-left:28px !important;
-    margin-right:28px !important;
-    box-sizing:border-box !important;
-  }
-
-  .home-new-release{
-    width:calc(100% - 64px) !important;
-    max-width:none !important;
-    margin-left:32px !important;
-    margin-right:32px !important;
-    box-sizing:border-box !important;
+  .hero-jp-copy{
+    font-size:20px !important;
   }
 
   .hero-orbit-stage{
-    width:108vw !important;
-    margin-left:-4vw !important;
+    width:min(320px,86vw) !important;
   }
 }
 
-@media(max-width:390px){
-  .hero-title-panel{
-    padding-left:26px !important;
-    padding-right:26px !important;
-  }
-
-  .hero-title-lockup h1{
-    font-size:51px !important;
-  }
-
-  .hero-actions{
-    width:calc(100% - 48px) !important;
-    margin-left:24px !important;
-    margin-right:24px !important;
-  }
-
-  .home-new-release{
-    width:calc(100% - 56px) !important;
-    margin-left:28px !important;
-    margin-right:28px !important;
+@media(prefers-reduced-motion:reduce){
+  .home-scroll-reveal::before{
+    filter:none;
   }
 }
