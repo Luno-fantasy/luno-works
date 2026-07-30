@@ -2,15 +2,15 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>LUNO WORKS | Moonlit Archive</title>
-<meta name="description" content="LUNO WORKS公式アーカイブ。月明かりの下で、物語の世界へ。">
+<meta name="description" content="LUNO WORKS公式アーカイブ。夜にひらく、幻想と恋のアーカイブ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260730-one-screen">
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="home-page">
+<body class="home-page home-fixed-page">
 <div class="page-transition" id="pageTransition" aria-hidden="true">
   <div class="transition-moon">☾</div>
   <span class="transition-line"></span>
@@ -27,79 +27,80 @@
   <button class="skip-btn" id="skipBtn">SKIP</button>
 </section>
 
-<div class="site is-hidden" id="site">
-<header class="site-header rail-header">
-  <a class="brand brand-minimal" href="index.html" aria-label="HOME"><span class="brand-moon">☾</span></a>
-  <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
-  <nav class="nav" id="nav" aria-label="メインメニュー">
-    <span class="nav-eyebrow">LUNO WORKS / MENU</span>
-    <a href="index.html" aria-current="page"><b>00</b><span><i>☾</i>HOME<small>月明かりの入口</small></span></a><a href="world.html"><b>01</b><span><i>◇</i>WORLD<small>物語の世界</small></span></a><a href="works.html"><b>02</b><span><i>▤</i>WORKS<small>作品図鑑</small></span></a><a href="news.html"><b>03</b><span><i>▥</i>NEWS<small>更新情報</small></span></a><a href="profile.html"><b>04</b><span><i>♙</i>PROFILE<small>LUNO WORKS</small></span></a>
-  </nav>
-</header>
-<main>
-<section class="hero-cinematic home-only" id="home">
-  <div class="hero-gridlines" aria-hidden="true"></div>
-  <div class="hero-comet comet-one" aria-hidden="true"></div>
-  <div class="hero-comet comet-two" aria-hidden="true"></div>
+<div class="site is-hidden home-site-fixed" id="site">
+  <header class="site-header rail-header">
+    <a class="brand brand-minimal" href="index.html" aria-label="HOME"><span class="brand-moon">☾</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="メインメニュー">
+      <span class="nav-eyebrow">LUNO WORKS / MENU</span>
+      <a href="index.html" aria-current="page"><b>00</b><span><i>☾</i>HOME<small>月明かりの入口</small></span></a>
+      <a href="world.html"><b>01</b><span><i>◇</i>WORLD<small>物語の世界</small></span></a>
+      <a href="works.html"><b>02</b><span><i>▤</i>WORKS<small>作品図鑑</small></span></a>
+      <a href="news.html"><b>03</b><span><i>▥</i>NEWS<small>更新情報</small></span></a>
+      <a href="profile.html"><b>04</b><span><i>♙</i>PROFILE<small>LUNO WORKS</small></span></a>
+    </nav>
+  </header>
 
-  <aside class="hero-side-index" aria-label="ページ案内">
-    <span class="side-number">00</span><span class="side-line"></span><span class="side-label">MOONLIT ARCHIVE</span>
-  </aside>
+  <main class="home-main-fixed">
+    <section class="home-fantasy-screen reveal" id="home">
+      <div class="home-gridlines" aria-hidden="true"></div>
+      <div class="home-glow home-glow-one" aria-hidden="true"></div>
+      <div class="home-glow home-glow-two" aria-hidden="true"></div>
+      <div class="home-diagonal" aria-hidden="true"></div>
+      <div class="home-diagonal home-diagonal-two" aria-hidden="true"></div>
 
-  <div class="hero-title-panel reveal">
-    <p class="hero-system-label">LUNO WORKS · OFFICIAL ARCHIVE</p>
-    <div class="hero-title-lockup">
-      <span class="hero-title-mark">☾</span>
-      <h1>LUNO <em>WORKS</em></h1>
-      <p>MOONLIT ARCHIVE</p>
-    </div>
-    <div class="hero-copy-block">
-      <p class="hero-jp-copy">物語の扉を、<br>月明かりの下で。</p>
-      <p class="hero-subcopy">夜にひらく、幻想と恋のアーカイブ。</p>
-    </div>
-    <div class="hero-actions">
-      <a class="title-button title-button-primary" href="world.html"><span>WORLD</span><small>世界を巡る</small></a>
-      <a class="title-button" href="works.html"><span>WORKS</span><small>作品を選ぶ</small></a>
-    </div>
+      <div class="home-headline-block">
+        <div class="home-system-line">
+          <span class="home-system-rule"></span>
+          <p>LUNO WORKS · OFFICIAL ARCHIVE</p>
+        </div>
 
-    <a class="home-new-release reveal" href="works.html?search=嫌われ俳優">
-      <span class="home-new-label">NEW RELEASE</span>
-      <div>
-        <small>2026.07.30</small>
-        <strong>嫌われ俳優は、君の前でだけ演じない。</strong>
+        <div class="home-logo-lockup">
+          <span class="home-logo-moon">☾</span>
+          <h1>
+            <span class="home-logo-main">LUNO</span>
+            <span class="home-logo-sub">WORKS</span>
+          </h1>
+          <p class="home-logo-caption">MOONLIT ARCHIVE</p>
+        </div>
       </div>
-      <i aria-hidden="true">→</i>
-    </a>
-  </div>
 
-  <div class="hero-orbit-stage home-scroll-reveal" aria-hidden="true">
-    <div class="orbit-backdrop"></div>
-    <div class="moon-aura aura-one"></div><div class="moon-aura aura-two"></div>
-    <div class="moon-orbit orbit-one"></div><div class="moon-orbit orbit-two"></div><div class="moon-orbit orbit-three"></div>
-    <div class="moon"></div>
-    <div class="orbit-label label-one"><span>01</span><b>WORLD</b></div>
-    <div class="orbit-label label-two"><span>02</span><b>WORKS</b></div>
-    <div class="orbit-label label-three"><span>04</span><b>PROFILE</b></div>
-    <div class="light-particles">
-      <span style="--x:18%;--delay:0s;--duration:8s"></span>
-      <span style="--x:32%;--delay:2.1s;--duration:10s"></span>
-      <span style="--x:49%;--delay:4.2s;--duration:9s"></span>
-      <span style="--x:64%;--delay:1.3s;--duration:11s"></span>
-      <span style="--x:78%;--delay:5.1s;--duration:8.8s"></span>
-    </div>
-  </div>
+      <section class="home-copy-panel">
+        <p class="home-copy-title">物語の扉を、<br>月明かりの下で。</p>
+        <p class="home-copy-sub">夜にひらく、幻想と恋のアーカイブ。</p>
+      </section>
 
-  <a class="scroll-cue title-scroll home-menu-cue" href="world.html">
-    <span>ENTER THE ARCHIVE</span><i></i>
-  </a>
-</section>
-</main>
-<footer>
-  <div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div>
-  <small>© LUNO WORKS</small>
-</footer>
+      <nav class="home-entry-grid" aria-label="ホーム内リンク">
+        <a class="home-entry-card" href="world.html"><span>01</span><strong>WORLD</strong><small>物語の世界</small></a>
+        <a class="home-entry-card" href="works.html"><span>02</span><strong>WORKS</strong><small>作品図鑑</small></a>
+        <a class="home-entry-card home-entry-card-small" href="news.html"><span>03</span><strong>NEWS</strong><small>更新情報</small></a>
+        <a class="home-entry-card home-entry-card-small" href="profile.html"><span>04</span><strong>PROFILE</strong><small>LUNO WORKS</small></a>
+      </nav>
+
+      <a class="home-release-panel" href="works.html?search=嫌われ俳優">
+        <div class="home-release-meta">
+          <span class="home-release-label">NEW RELEASE</span>
+          <span class="home-release-date">2026.07.30</span>
+        </div>
+        <strong>嫌われ俳優は、君の前でだけ演じない。</strong>
+        <i aria-hidden="true">→</i>
+      </a>
+
+      <div class="home-moon-overlay" aria-hidden="true">
+        <div class="home-moon-aura"></div>
+        <div class="home-orbit orbit-a"></div>
+        <div class="home-orbit orbit-b"></div>
+        <div class="home-orbit orbit-c"></div>
+        <div class="home-orbit orbit-d"></div>
+        <div class="home-moon-body"></div>
+        <span class="home-star star-a"></span>
+        <span class="home-star star-b"></span>
+        <span class="home-star star-c"></span>
+      </div>
+    </section>
+  </main>
 </div>
 <script src="data.js"></script>
-<script src="app.js?v=20260730-one-screen"></script>
+<script src="app.js"></script>
 </body>
 </html>

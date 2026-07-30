@@ -479,3 +479,27 @@ document.addEventListener("click", event => {
   if (!link) return;
   event.preventDefault();
 });
+
+/* HOME FIXED SCREEN CONTROL */
+(() => {
+  if (!document.body.classList.contains('home-fixed-page')) return;
+
+  const lockScroll = event => {
+    const allowInNav = event.target && event.target.closest && event.target.closest('#nav');
+    if (!allowInNav) event.preventDefault();
+  };
+
+  const lockKeys = event => {
+    const blocked = ['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '];
+    if (blocked.includes(event.key)) event.preventDefault();
+  };
+
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0, 0);
+
+  window.addEventListener('wheel', lockScroll, { passive: false });
+  window.addEventListener('touchmove', lockScroll, { passive: false });
+  window.addEventListener('keydown', lockKeys, { passive: false });
+  window.addEventListener('resize', () => window.scrollTo(0, 0));
+})();
