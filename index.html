@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style-v26.css?v=26">
+<link rel="stylesheet" href="style-v27.css?v=27">
 </head>
 <body>
 <div class="page-transition" id="pageTransition" aria-hidden="true">
@@ -37,56 +37,62 @@
   </nav>
 </header>
 <main>
+<section class="hero-cinematic home-only" id="home">
+  <div class="hero-gridlines" aria-hidden="true"></div>
+  <div class="hero-comet comet-one" aria-hidden="true"></div>
+  <div class="hero-comet comet-two" aria-hidden="true"></div>
 
-<section class="home-rebuild" id="home">
-  <div class="home-rebuild-lines" aria-hidden="true"></div>
-  <div class="home-rebuild-glow" aria-hidden="true"></div>
+  <aside class="hero-side-index" aria-label="ページ案内">
+    <span class="side-number">00</span><span class="side-line"></span><span class="side-label">MOONLIT ARCHIVE</span>
+  </aside>
 
-  <div class="home-rebuild-intro reveal">
-    <p class="home-rebuild-kicker"><span></span>LUNO WORKS · OFFICIAL ARCHIVE</p>
-
-    <div class="home-rebuild-logo">
-      <span class="home-rebuild-mark">☾</span>
+  <div class="hero-title-panel reveal">
+    <p class="hero-system-label">LUNO WORKS · OFFICIAL ARCHIVE</p>
+    <div class="hero-title-lockup">
+      <span class="hero-title-mark">☾</span>
       <h1>LUNO <em>WORKS</em></h1>
       <p>MOONLIT ARCHIVE</p>
     </div>
-
-    <div class="home-rebuild-copy">
-      <h2>物語の扉を、<br>月明かりの下で。</h2>
-      <p>幻想と恋愛を収蔵する、LUNO WORKS公式アーカイブ。</p>
+    <div class="hero-copy-block">
+      <p class="hero-jp-copy">物語の扉を、<br>月明かりの下で。</p>
+      <p class="hero-subcopy">幻想と恋愛を収蔵する、LUNO WORKS公式アーカイブ。</p>
+    </div>
+    <div class="hero-actions">
+      <a class="title-button title-button-primary" href="world.html"><span>WORLD</span><small>世界を巡る</small></a>
+      <a class="title-button" href="works.html"><span>WORKS</span><small>作品を選ぶ</small></a>
     </div>
 
-    <nav class="home-rebuild-actions" aria-label="アーカイブへの入口">
-      <a href="world.html"><span>01</span><strong>WORLD</strong><small>世界を巡る</small></a>
-      <a href="works.html"><span>02</span><strong>WORKS</strong><small>作品を選ぶ</small></a>
-    </nav>
+    <a class="home-new-release reveal" href="works.html?search=嫌われ俳優">
+      <span class="home-new-label">NEW RELEASE</span>
+      <div>
+        <small>2026.07.30</small>
+        <strong>嫌われ俳優は、君の前でだけ演じない。</strong>
+      </div>
+      <i aria-hidden="true">→</i>
+    </a>
   </div>
 
-  <a class="home-rebuild-release reveal" href="works.html?search=嫌われ俳優">
-    <div class="home-release-head">
-      <span>NEW RELEASE</span>
-      <time>2026.07.30</time>
+  <div class="hero-orbit-stage home-scroll-reveal" aria-hidden="true">
+    <div class="orbit-backdrop"></div>
+    <div class="moon-aura aura-one"></div><div class="moon-aura aura-two"></div>
+    <div class="moon-orbit orbit-one"></div><div class="moon-orbit orbit-two"></div><div class="moon-orbit orbit-three"></div>
+    <div class="moon"></div>
+    <div class="orbit-label label-one"><span>01</span><b>WORLD</b></div>
+    <div class="orbit-label label-two"><span>02</span><b>WORKS</b></div>
+    <div class="orbit-label label-three"><span>04</span><b>PROFILE</b></div>
+    <div class="light-particles">
+      <span style="--x:18%;--delay:0s;--duration:8s"></span>
+      <span style="--x:32%;--delay:2.1s;--duration:10s"></span>
+      <span style="--x:49%;--delay:4.2s;--duration:9s"></span>
+      <span style="--x:64%;--delay:1.3s;--duration:11s"></span>
+      <span style="--x:78%;--delay:5.1s;--duration:8.8s"></span>
     </div>
-    <strong>嫌われ俳優は、君の前でだけ演じない。</strong>
-    <small>VIEW WORK <i>↗</i></small>
-  </a>
+  </div>
 
-  <a class="home-rebuild-portal home-scroll-reveal" href="world.html" aria-label="WORLDへ進む">
-    <div class="home-portal-aura"></div>
-    <div class="home-portal-ring ring-a"></div>
-    <div class="home-portal-ring ring-b"></div>
-    <div class="home-portal-ring ring-c"></div>
-    <div class="home-portal-moon"></div>
-    <span class="home-portal-star star-a">✦</span>
-    <span class="home-portal-star star-b">•</span>
-    <span class="home-portal-star star-c">•</span>
-    <div class="home-portal-caption">
-      <span>ENTER THE ARCHIVE</span>
-      <i></i>
-    </div>
+  <a class="scroll-cue title-scroll home-menu-cue" href="world.html">
+    <span>ENTER THE ARCHIVE</span><i></i>
   </a>
 </section>
-
 </main>
 <footer>
   <div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div>
@@ -96,6 +102,6 @@
 <script src="data.js"></script>
 <script src="category-fix-v10.js?v=10"></script>
 <script src="release-update-v11.js?v=11"></script>
-<script src="app-v26.js?v=26"></script>
+<script src="app-v27.js?v=27"></script>
 </body>
 </html>
