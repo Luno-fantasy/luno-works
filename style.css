@@ -4448,3 +4448,297 @@ body.home-page footer,
     font-size: 12px !important;
   }
 }
+
+
+/* =========================================================
+   HOME RECOMMENDED LAYOUT
+   Intentional negative space, calmer logo, and moon/release layering.
+   ========================================================= */
+html.home-fixed-page,
+body.home-fixed-page {
+  height: 100svh;
+}
+body.home-fixed-page {
+  min-height: 100svh;
+  max-height: 100svh;
+}
+.home-site-fixed {
+  height: 100svh;
+  min-height: 100svh;
+}
+.home-main-fixed {
+  height: calc(100svh - 72px);
+}
+.home-fantasy-screen {
+  grid-template-rows: auto auto auto minmax(0,1fr) !important;
+  gap: clamp(10px, 1.55vh, 16px) !important;
+  padding: clamp(14px, 1.7vw, 22px) max(20px, env(safe-area-inset-right)) calc(14px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)) !important;
+}
+.home-headline-block {
+  align-self: start;
+}
+.home-system-line {
+  margin-bottom: 6px !important;
+}
+.home-system-line p {
+  font-size: clamp(9px, 1vw, 11px) !important;
+  letter-spacing: .18em !important;
+}
+.home-logo-lockup {
+  transform: none !important;
+  margin-bottom: 0 !important;
+}
+.home-logo-lockup h1 {
+  line-height: .92 !important;
+  gap: .02em !important;
+  letter-spacing: .02em !important;
+}
+.home-logo-main {
+  font-size: clamp(50px, 10vw, 88px) !important;
+}
+.home-logo-sub {
+  font-size: clamp(44px, 8.6vw, 74px) !important;
+}
+.home-logo-caption {
+  margin: 10px 0 0 18px !important;
+  font-size: clamp(10px, 1.5vw, 14px) !important;
+  letter-spacing: .24em !important;
+}
+.home-logo-moon {
+  left: -12px !important;
+  top: 4px !important;
+  font-size: clamp(16px, 2.7vw, 24px) !important;
+}
+.home-copy-panel {
+  max-width: min(92%, 760px);
+  padding: 16px 18px 14px 20px !important;
+  background: linear-gradient(90deg, rgba(12,16,42,.72), rgba(12,16,42,.36));
+}
+.home-copy-title {
+  font-size: clamp(24px, 4.8vw, 42px) !important;
+  line-height: 1.55 !important;
+  margin-bottom: 6px !important;
+}
+.home-copy-sub {
+  font-size: clamp(11px, 2vw, 15px) !important;
+  line-height: 1.7 !important;
+}
+.home-entry-grid {
+  gap: 10px !important;
+}
+.home-entry-card,
+.home-entry-card-small {
+  min-height: clamp(62px, 8.4vh, 86px) !important;
+  padding: 11px 14px !important;
+  gap: 1px !important;
+}
+.home-entry-card span { font-size: 10px !important; }
+.home-entry-card strong,
+.home-entry-card-small strong {
+  font-size: clamp(22px, 4vw, 30px) !important;
+  line-height: 1.08 !important;
+}
+.home-entry-card small {
+  font-size: 10px !important;
+}
+.home-bottom-stage {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+.home-release-panel {
+  position: absolute !important;
+  inset: 0 0 auto 0;
+  width: min(100%, 720px);
+  gap: 7px !important;
+  padding: 12px 14px !important;
+  border-top: 1px solid rgba(240,220,165,.7) !important;
+  border-bottom: 1px solid rgba(225,231,255,.18) !important;
+  background: linear-gradient(90deg, rgba(12,16,42,.48), rgba(12,16,42,.08)) !important;
+  backdrop-filter: blur(4px) !important;
+}
+.home-release-panel::before {
+  right: -2% !important;
+  top: -28% !important;
+  width: 44% !important;
+  max-width: 300px !important;
+  background: radial-gradient(circle, rgba(241,236,213,.18), rgba(241,236,213,.06) 46%, rgba(241,236,213,0) 72%) !important;
+}
+.home-release-label {
+  font-size: clamp(11px, 1.8vw, 13px) !important;
+}
+.home-release-date {
+  font-size: clamp(10px, 1.55vw, 12px) !important;
+}
+.home-release-panel strong {
+  font-size: clamp(16px, 3.2vw, 24px) !important;
+  line-height: 1.58 !important;
+  max-width: 88%;
+}
+.home-release-panel i {
+  right: 12px !important;
+  font-size: 18px;
+}
+.home-moon-overlay {
+  width: min(58vw, 360px) !important;
+  right: -12vw !important;
+  bottom: -18vw !important;
+  opacity: .92 !important;
+}
+.home-moon-aura {
+  transform: scale(1.44) !important;
+  filter: blur(16px) !important;
+}
+.home-moon-body {
+  width: 52% !important;
+}
+.home-orbit.orbit-a { opacity: .12 !important; }
+.home-orbit.orbit-b { opacity: .17 !important; }
+.home-orbit.orbit-c { opacity: .16 !important; }
+.home-orbit.orbit-d { opacity: .14 !important; }
+.home-star.star-a { left: 8% !important; top: 60% !important; }
+.home-star.star-b { right: 16% !important; top: 22% !important; }
+.home-star.star-c { right: 2% !important; top: 44% !important; }
+
+@media (max-width: 640px) {
+  body.home-fixed-page .site-header {
+    flex: 0 0 68px;
+  }
+  .home-main-fixed {
+    height: calc(100svh - 68px);
+  }
+  .home-fantasy-screen {
+    gap: 8px !important;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) !important;
+  }
+  .home-system-line {
+    gap: 10px !important;
+    margin-bottom: 4px !important;
+  }
+  .home-system-rule {
+    width: 36px !important;
+  }
+  .home-system-line p {
+    font-size: 9px !important;
+    letter-spacing: .16em !important;
+  }
+  .home-logo-main {
+    font-size: 58px !important;
+  }
+  .home-logo-sub {
+    font-size: 48px !important;
+  }
+  .home-logo-caption {
+    margin: 8px 0 0 14px !important;
+    font-size: 11px !important;
+    letter-spacing: .18em !important;
+  }
+  .home-copy-panel {
+    padding: 14px 14px 13px 17px !important;
+    max-width: 100%;
+  }
+  .home-copy-title {
+    font-size: 21px !important;
+    line-height: 1.6 !important;
+  }
+  .home-copy-sub {
+    font-size: 10px !important;
+    line-height: 1.75 !important;
+  }
+  .home-entry-grid {
+    gap: 8px !important;
+  }
+  .home-entry-card,
+  .home-entry-card-small {
+    min-height: 58px !important;
+    padding: 10px 12px !important;
+  }
+  .home-entry-card strong,
+  .home-entry-card-small strong {
+    font-size: 19px !important;
+  }
+  .home-entry-card small {
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+  }
+  .home-bottom-stage {
+    min-height: 0;
+  }
+  .home-release-panel {
+    padding: 10px 12px !important;
+    gap: 5px !important;
+  }
+  .home-release-label {
+    font-size: 10px !important;
+  }
+  .home-release-date {
+    font-size: 9px !important;
+  }
+  .home-release-panel strong {
+    font-size: 13px !important;
+    line-height: 1.52 !important;
+    max-width: 84%;
+    padding-right: 0 !important;
+  }
+  .home-release-panel i {
+    right: 10px !important;
+    font-size: 15px !important;
+  }
+  .home-moon-overlay {
+    width: min(54vw, 220px) !important;
+    right: -11vw !important;
+    bottom: -15vw !important;
+  }
+}
+
+@media (max-height: 760px) and (max-width: 640px) {
+  .home-fantasy-screen {
+    gap: 7px !important;
+    padding-top: 9px !important;
+    padding-bottom: calc(9px + env(safe-area-inset-bottom)) !important;
+  }
+  .home-system-line p {
+    font-size: 8px !important;
+  }
+  .home-logo-main {
+    font-size: 52px !important;
+  }
+  .home-logo-sub {
+    font-size: 43px !important;
+  }
+  .home-logo-caption {
+    font-size: 10px !important;
+  }
+  .home-copy-panel {
+    padding: 12px 13px 11px 15px !important;
+  }
+  .home-copy-title {
+    font-size: 19px !important;
+  }
+  .home-copy-sub {
+    font-size: 9px !important;
+  }
+  .home-entry-card,
+  .home-entry-card-small {
+    min-height: 52px !important;
+    padding: 9px 11px !important;
+  }
+  .home-entry-card strong,
+  .home-entry-card-small strong {
+    font-size: 18px !important;
+  }
+  .home-entry-card small {
+    font-size: 8px !important;
+  }
+  .home-release-panel {
+    padding: 9px 11px !important;
+  }
+  .home-release-panel strong {
+    font-size: 12px !important;
+  }
+  .home-moon-overlay {
+    width: min(48vw, 188px) !important;
+    right: -9vw !important;
+    bottom: -13vw !important;
+  }
+}
