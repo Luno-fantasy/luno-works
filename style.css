@@ -5067,3 +5067,221 @@ body.home-fixed-page {
   .news-twinkle,
   .news-mist { animation: none !important; }
 }
+
+
+/* =========================================================
+   NEWS METEOR FIX
+   Twinkle -> stretch -> fade, instead of a glowing bar slide.
+   ========================================================= */
+.news-shooting-star {
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0;
+  transform: rotate(-28deg) scale(.2);
+  transform-origin: right center;
+  background: none !important;
+  filter: none !important;
+}
+
+.news-shooting-star::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: var(--meteor-tail, 120px);
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(186,202,255,.06) 20%,
+    rgba(224,231,255,.34) 68%,
+    rgba(255,252,229,.96) 100%
+  );
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: right center;
+  filter: blur(.25px);
+  opacity: 0;
+}
+
+.news-shooting-star::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: var(--meteor-head, 5px);
+  height: var(--meteor-head, 5px);
+  border-radius: 50%;
+  background: #fffdeb;
+  transform: translateY(-50%) scale(.25);
+  box-shadow:
+    0 0 5px rgba(255,253,232,.95),
+    0 0 14px rgba(205,218,255,.85),
+    0 0 28px rgba(159,177,255,.36);
+  opacity: 0;
+}
+
+.news-shooting-star-one {
+  --meteor-tail: 150px;
+  --meteor-head: 6px;
+  top: 18%;
+  left: 8%;
+  animation: newsMeteorSparkLarge 18s ease-out infinite !important;
+  animation-delay: 2.8s !important;
+}
+
+.news-shooting-star-two {
+  --meteor-tail: 82px;
+  --meteor-head: 4px;
+  top: 58%;
+  left: 20%;
+  animation: newsMeteorSparkSmall 12s ease-out infinite !important;
+  animation-delay: 7.5s !important;
+}
+
+.news-shooting-star-one::before,
+.news-shooting-star-one::after {
+  animation: newsMeteorLightLarge 18s ease-out infinite;
+  animation-delay: 2.8s;
+}
+
+.news-shooting-star-two::before,
+.news-shooting-star-two::after {
+  animation: newsMeteorLightSmall 12s ease-out infinite;
+  animation-delay: 7.5s;
+}
+
+@keyframes newsMeteorSparkLarge {
+  0%, 76% {
+    opacity: 0;
+    transform: translate3d(0,0,0) rotate(-28deg) scale(.2);
+  }
+  77% {
+    opacity: 1;
+    transform: translate3d(0,0,0) rotate(-28deg) scale(.7);
+  }
+  78.5% {
+    opacity: 1;
+    transform: translate3d(1vw,.5vh,0) rotate(-28deg) scale(1);
+  }
+  86% {
+    opacity: .75;
+    transform: translate3d(72vw,30vh,0) rotate(-28deg) scale(1);
+  }
+  90%, 100% {
+    opacity: 0;
+    transform: translate3d(102vw,43vh,0) rotate(-28deg) scale(.82);
+  }
+}
+
+@keyframes newsMeteorSparkSmall {
+  0%, 68% {
+    opacity: 0;
+    transform: translate3d(0,0,0) rotate(-24deg) scale(.2);
+  }
+  69% {
+    opacity: 1;
+    transform: translate3d(0,0,0) rotate(-24deg) scale(.75);
+  }
+  70.5% {
+    opacity: .95;
+    transform: translate3d(1vw,.5vh,0) rotate(-24deg) scale(1);
+  }
+  78% {
+    opacity: .5;
+    transform: translate3d(46vw,18vh,0) rotate(-24deg) scale(.9);
+  }
+  82%, 100% {
+    opacity: 0;
+    transform: translate3d(68vw,27vh,0) rotate(-24deg) scale(.65);
+  }
+}
+
+@keyframes newsMeteorLightLarge {
+  0%, 76% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+  }
+  77% {
+    opacity: 1;
+  }
+  78.5% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+  }
+  85% {
+    opacity: .7;
+    transform: translateY(-50%) scaleX(.78);
+  }
+  90%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(.12);
+  }
+}
+
+@keyframes newsMeteorLightSmall {
+  0%, 68% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+  }
+  69% {
+    opacity: 1;
+  }
+  70.5% {
+    opacity: .9;
+    transform: translateY(-50%) scaleX(1);
+  }
+  77% {
+    opacity: .5;
+    transform: translateY(-50%) scaleX(.64);
+  }
+  82%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(.08);
+  }
+}
+
+.news-shooting-star::after {
+  animation-name: newsMeteorHeadLarge;
+}
+.news-shooting-star-two::after {
+  animation-name: newsMeteorHeadSmall;
+}
+
+@keyframes newsMeteorHeadLarge {
+  0%, 76% { opacity: 0; transform: translateY(-50%) scale(.15); }
+  77% { opacity: 1; transform: translateY(-50%) scale(1.55); }
+  78.5% { opacity: 1; transform: translateY(-50%) scale(1); }
+  86% { opacity: .7; transform: translateY(-50%) scale(.72); }
+  90%,100% { opacity: 0; transform: translateY(-50%) scale(.15); }
+}
+
+@keyframes newsMeteorHeadSmall {
+  0%, 68% { opacity: 0; transform: translateY(-50%) scale(.15); }
+  69% { opacity: 1; transform: translateY(-50%) scale(1.35); }
+  70.5% { opacity: .95; transform: translateY(-50%) scale(1); }
+  78% { opacity: .45; transform: translateY(-50%) scale(.62); }
+  82%,100% { opacity: 0; transform: translateY(-50%) scale(.15); }
+}
+
+@media (max-width: 720px) {
+  .news-shooting-star-one {
+    --meteor-tail: 105px;
+    top: 19%;
+    left: 4%;
+  }
+  .news-shooting-star-two {
+    --meteor-tail: 62px;
+    top: 56%;
+    left: 12%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-shooting-star,
+  .news-shooting-star::before,
+  .news-shooting-star::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
