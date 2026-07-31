@@ -5624,3 +5624,150 @@ body.home-fixed-page {
   .work-cover-shine{display:none}
   .works-gallery-page .work-card{transition:none}
 }
+
+/* =========================================================
+   WORKS SERIES LIBRARY
+   ========================================================= */
+.works-library-divider{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:end;
+  gap:18px;
+  margin:42px 0 24px;
+  padding:0 0 15px;
+  border-bottom:1px solid rgba(217,226,255,.18);
+}
+.works-library-divider>span{
+  display:grid;
+  place-items:center;
+  min-width:54px;
+  height:54px;
+  border:1px solid rgba(218,228,255,.28);
+  border-radius:50%;
+  color:rgba(239,243,255,.88);
+  font-family:"Cormorant Garamond",serif;
+  font-size:12px;
+  letter-spacing:.15em;
+  box-shadow:0 0 28px rgba(157,178,255,.08),inset 0 0 22px rgba(151,176,255,.04);
+}
+.works-library-divider p,
+.works-series-heading p{
+  margin:0 0 4px;
+  color:rgba(185,199,235,.62);
+  font-size:9px;
+  letter-spacing:.25em;
+}
+.works-library-divider h2{
+  margin:0;
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(22px,4vw,35px);
+  font-weight:500;
+  letter-spacing:.08em;
+}
+.works-library-divider small{
+  padding-bottom:5px;
+  color:rgba(202,213,241,.55);
+  font-size:9px;
+  letter-spacing:.16em;
+}
+.works-series-block{
+  position:relative;
+  margin:0 0 68px;
+}
+.works-series-heading{
+  position:relative;
+  display:grid;
+  grid-template-columns:62px minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+  margin:0 0 22px;
+  padding:22px 24px;
+  overflow:hidden;
+  border:1px solid rgba(204,216,251,.16);
+  background:linear-gradient(120deg,rgba(24,30,57,.82),rgba(13,17,35,.58));
+  box-shadow:0 24px 55px rgba(3,7,20,.18),inset 0 1px rgba(255,255,255,.035);
+}
+.works-series-heading::before{
+  content:"";
+  position:absolute;
+  inset:-80% 48% -80% -15%;
+  background:radial-gradient(circle,rgba(136,160,231,.16),transparent 62%);
+  pointer-events:none;
+}
+.works-series-heading::after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:1px;
+  right:-24px;
+  top:50%;
+  background:linear-gradient(90deg,transparent,rgba(214,225,255,.25),transparent);
+  transform:rotate(-25deg);
+  pointer-events:none;
+}
+.series-heading-mark{
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:58px;
+  height:58px;
+  border:1px solid rgba(213,224,255,.25);
+  border-radius:50%;
+  font-family:"Cormorant Garamond",serif;
+  color:rgba(241,244,255,.86);
+}
+.series-heading-mark::before{
+  content:"☾";
+  position:absolute;
+  font-size:31px;
+  opacity:.15;
+  transform:translate(4px,-2px);
+}
+.series-heading-mark span{position:relative;font-size:12px;letter-spacing:.12em}
+.series-heading-copy{position:relative;z-index:1}
+.series-heading-copy h2{
+  margin:0 0 6px;
+  color:#f1f3fb;
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(19px,3.6vw,29px);
+  font-weight:500;
+  letter-spacing:.08em;
+}
+.series-heading-copy>span{
+  display:block;
+  color:rgba(215,222,242,.64);
+  font-size:11px;
+  line-height:1.75;
+}
+.works-series-heading>small{
+  position:relative;
+  z-index:1;
+  align-self:end;
+  padding-bottom:4px;
+  color:rgba(190,203,234,.54);
+  font-size:8px;
+  letter-spacing:.14em;
+  white-space:nowrap;
+}
+.standalone-series-block{margin-top:84px}
+.standalone-series-note{
+  margin:-12px 0 22px 72px;
+  color:rgba(207,216,238,.58);
+  font-size:11px;
+  line-height:1.8;
+}
+@media(max-width:680px){
+  .works-library-divider{grid-template-columns:46px 1fr;gap:12px;margin-top:34px}
+  .works-library-divider>span{min-width:44px;height:44px;font-size:9px}
+  .works-library-divider small{display:none}
+  .works-series-block{margin-bottom:52px}
+  .works-series-heading{grid-template-columns:48px 1fr;gap:13px;padding:17px 15px}
+  .series-heading-mark{width:46px;height:46px}
+  .series-heading-mark::before{font-size:25px}
+  .series-heading-copy h2{font-size:18px}
+  .series-heading-copy>span{font-size:10px;line-height:1.65}
+  .works-series-heading>small{display:none}
+  .standalone-series-block{margin-top:62px}
+  .standalone-series-note{margin:-10px 0 18px 58px;font-size:10px}
+}

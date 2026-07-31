@@ -223,6 +223,73 @@
     </article>`;
   }
 
+  const SERIES_ORDER = [
+    "EUPHORIA",
+    "華龍会",
+    "アストレイン王国",
+    "カスティリオーネ／フェローネ",
+    "カスティリオーネ",
+    "フェローネ",
+    "一ノ瀬 黎・朔"
+  ];
+
+  const SERIES_DESCRIPTIONS = {
+    "EUPHORIA": "愛は救済か、依存か。歪んだ執着と共依存を描く連作世界。",
+    "華龍会": "龍華街を舞台に、掟と愛に守られた物語。",
+    "アストレイン王国": "剣と誓いが結ぶ、王国ファンタジー作品群。",
+    "カスティリオーネ／フェローネ": "忠誠と硝煙が交差する、同じ世界線のマフィア作品群。",
+    "カスティリオーネ": "ナポリを舞台にした、忠誠と執着のマフィア作品群。",
+    "フェローネ": "影に生きる者たちの、危険な愛を描く作品群。",
+    "一ノ瀬 黎・朔": "昼と夜、異なる顔を持つ双子を巡る物語。"
+  };
+
+  const normalizeSeriesName = work => {
+    const name = String(ser(work) || "").trim();
+    if (!name) return "";
+    if (name === "カスティリオーネ" || name === "フェローネ") {
+      return "カスティリオーネ／フェローネ";
+    }
+    return name;
+  };
+
+  const workPriority = work => {
+    if (work.isNew && work.status !== "draft") return 0;
+    if (work.status !== "draft") return 1;
+    return 2;
+  };
+
+  const sortWorksInsideGroup = list => [...list].sort((a, b) => {
+    const priority = workPriority(a) - workPriority(b);
+    if (priority) return priority;
+    const aDate = String(a.releaseDate || "");
+    const bDate = String(b.releaseDate || "");
+    if (aDate !== bDate) return bDate.localeCompare(aDate, "ja");
+    return String(a.title || "").localeCompare(String(b.title || ""), "ja");
+  });
+
+  function seriesSection(name, list, index) {
+    const sorted = sortWorksInsideGroup(list);
+    const publishedCount = sorted.filter(work => work.status !== "draft").length;
+    const comingCount = sorted.length - publishedCount;
+    const countText = comingCount
+      ? `${publishedCount} RELEASED / ${comingCount} COMING SOON`
+      : `${publishedCount} STORIES`;
+    const description = SERIES_DESCRIPTIONS[name] || "同じ世界と関係性でつながる物語をまとめています。";
+
+    return `<section class="works-series-block" style="--series-index:${index}">
+      <header class="works-series-heading">
+        <div class="series-heading-mark"><span>${String(index + 1).padStart(2, "0")}</span></div>
+        <div class="series-heading-copy">
+          <p>SERIES COLLECTION</p>
+          <h2>${esc(name)}</h2>
+          <span>${esc(description)}</span>
+        </div>
+        <small>${esc(countText)}</small>
+      </header>
+      <div class="work-grid gallery-grid">${sorted.map(cardHtml).join("")}</div>
+    </section>`;
+  }
+
   function renderWorks() {
     if (!workArea) return;
     const items = filteredWorks();
@@ -235,29 +302,57 @@
 
     const isBrowsingAll = activeCategory === "all" && !(searchInput?.value || "").trim();
     if (!isBrowsingAll) {
-      workArea.innerHTML = `<div class="work-grid gallery-grid">${items.map(cardHtml).join("")}</div>`;
+      workArea.innerHTML = `<div class="work-grid gallery-grid">${sortWorksInsideGroup(items).map(cardHtml).join("")}</div>`;
       revealWorkCards(workArea);
       return;
     }
 
-    const released = items.filter(work => work.status !== "draft");
-    const upcoming = items.filter(work => work.status === "draft");
-    const featured = released.filter(work => work.isNew);
-    const archive = released.filter(work => !work.isNew);
+    const groups = new Map();
+    const standalone = [];
 
-    const section = (label, title, note, list, className) => !list.length ? "" : `
-      <section class="works-gallery-section ${className}">
-        <div class="works-gallery-heading">
-          <div><p>${label}</p><h2>${title}</h2></div>
-          <span>${note}</span>
+    items.forEach(work => {
+      const seriesName = normalizeSeriesName(work);
+      if (!seriesName) {
+        standalone.push(work);
+        return;
+      }
+      if (!groups.has(seriesName)) groups.set(seriesName, []);
+      groups.get(seriesName).push(work);
+    });
+
+    const orderedSeries = [...groups.keys()].sort((a, b) => {
+      const aIndex = SERIES_ORDER.indexOf(a);
+      const bIndex = SERIES_ORDER.indexOf(b);
+      if (aIndex !== -1 || bIndex !== -1) {
+        if (aIndex === -1) return 1;
+        if (bIndex === -1) return -1;
+        return aIndex - bIndex;
+      }
+      return a.localeCompare(b, "ja");
+    });
+
+    const seriesIntro = orderedSeries.length ? `
+      <div class="works-library-divider series-library-divider">
+        <span>SERIES</span>
+        <div><p>CONNECTED STORIES</p><h2>シリーズ作品</h2></div>
+        <small>${orderedSeries.length} COLLECTIONS</small>
+      </div>` : "";
+
+    const standaloneHtml = standalone.length ? `
+      <section class="works-series-block standalone-series-block">
+        <div class="works-library-divider">
+          <span>OTHER</span>
+          <div><p>STANDALONE STORIES</p><h2>単独作品</h2></div>
+          <small>${standalone.length} STORIES</small>
         </div>
-        <div class="work-grid gallery-grid">${list.map(cardHtml).join("")}</div>
-      </section>`;
+        <p class="standalone-series-note">ひとつの物語だけで完結する、独立した作品を集めています。</p>
+        <div class="work-grid gallery-grid">${sortWorksInsideGroup(standalone).map(cardHtml).join("")}</div>
+      </section>` : "";
 
     workArea.innerHTML = [
-      section("NEW RELEASE", "新たに開かれた物語", "最新公開作品", featured, "featured-works"),
-      section("MOONLIT ARCHIVE", "公開作品", `${released.length} STORIES`, archive, "published-works"),
-      section("COMING SOON", "月の向こうで待つ物語", `${upcoming.length} STORIES`, upcoming, "upcoming-works")
+      seriesIntro,
+      ...orderedSeries.map((name, index) => seriesSection(name, groups.get(name), index)),
+      standaloneHtml
     ].join("");
     revealWorkCards(workArea);
   }
