@@ -508,6 +508,22 @@
     requestAnimationFrame(() => dialog.classList.add("is-story-open"));
   }
 
+  document.addEventListener("click", event => {
+    const trigger = event.target.closest("[data-open-work]");
+    if (!trigger || !DATA || !Array.isArray(DATA.works)) return;
+    const work = DATA.works.find(item => String(item.id) === String(trigger.dataset.openWork));
+    if (work) openWork(work);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const trigger = event.target.closest("[data-open-work]");
+    if (!trigger || !DATA || !Array.isArray(DATA.works)) return;
+    event.preventDefault();
+    const work = DATA.works.find(item => String(item.id) === String(trigger.dataset.openWork));
+    if (work) openWork(work);
+  });
+
   document.getElementById("closeDialog")?.addEventListener("click", () => dialog?.close());
   dialog?.addEventListener("close", () => dialog.classList.remove("is-story-open"));
   dialog?.addEventListener("click", event => {

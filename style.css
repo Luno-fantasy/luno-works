@@ -5885,3 +5885,15 @@ body.home-fixed-page {
 @keyframes seriesMist{to{transform:translate3d(2%,-1%,0) scale(1.05)}}@keyframes seriesHeroDrift{to{transform:scale(1.09) translate3d(-1%,1%,0)}}@keyframes seriesMeteor{0%,80%{opacity:0;transform:translate3d(0,0,0) rotate(-25deg) scaleX(.2)}82%{opacity:1}86%{opacity:.9;transform:translate3d(-180px,105px,0) rotate(-25deg) scaleX(1)}89%,100%{opacity:0;transform:translate3d(-320px,185px,0) rotate(-25deg) scaleX(.25)}}
 @media(max-width:900px){.series-story-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.series-world-section{grid-template-columns:1fr;gap:40px}.series-route-section{grid-template-columns:auto 1fr}.series-route-actions{grid-column:1/-1}.series-hero-index{display:none}}
 @media(max-width:620px){.series-hero{min-height:76vh;align-items:flex-end}.series-hero-image{background-position:62% center}.series-hero-shade{background:linear-gradient(0deg,#050714 4%,rgba(5,7,20,.58) 54%,rgba(5,7,20,.3) 100%)}.series-hero-content{width:calc(100% - 36px);padding:130px 0 64px}.series-hero-content h1{font-size:clamp(54px,19vw,88px)}.series-main-copy{font-size:21px!important}.series-hero-orbit{width:180px;height:180px;right:-45px;top:16%}.series-world-facts{grid-template-columns:1fr}.series-world-facts div:nth-child(odd){border-right:0}.series-world-facts div:nth-last-child(2){border-bottom:1px solid var(--line)}.series-title-row{align-items:start;gap:18px}.series-story-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.series-story-body{padding:17px 14px}.series-story-body h3{font-size:16px}.series-story-body>span{display:none}.series-story-status{right:10px;bottom:10px;font-size:7px}.series-route-section{grid-template-columns:1fr;padding:28px!important}.series-route-mark{width:72px;height:72px}.series-route-actions{display:grid}.series-route-actions .button{justify-content:center}.series-meteor{display:none}}
+
+
+/* EUPHORIA SERIES PAGE: READABILITY + IN-PAGE STORY POPUP */
+.series-readable-copy span{display:block}
+.series-story-card{width:100%;padding:0;color:inherit;text-align:left;font:inherit;cursor:pointer;-webkit-appearance:none;appearance:none}
+.series-story-card:focus-visible{outline:2px solid rgba(232,216,149,.82);outline-offset:4px}
+.euphoria-series-page:has(#workDialog[open]){overflow:hidden}
+@media(max-width:620px){
+  .series-readable-copy span{margin-bottom:.48em}
+  .series-readable-copy span:last-child{margin-bottom:0}
+  .series-world-copy>p{font-size:15px;line-height:2}
+}
