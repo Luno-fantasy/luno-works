@@ -276,12 +276,13 @@
       : `${publishedCount} STORIES`;
     const description = SERIES_DESCRIPTIONS[name] || SERIES_DESCRIPTIONS[String(name || "").toUpperCase()] || "同じ世界と関係性でつながる物語をまとめています。";
 
+    const dedicatedUrl = String(name || "").toUpperCase() === "EUPHORIA" ? "euphoria.html" : "";
     return `<section class="works-series-block" style="--series-index:${index}">
-      <header class="works-series-heading">
+      <header class="works-series-heading" ${dedicatedUrl ? 'data-series-page="true"' : ''}>
         <div class="series-heading-mark"><span>${String(index + 1).padStart(2, "0")}</span></div>
         <div class="series-heading-copy">
           <p>SERIES COLLECTION</p>
-          <h2>${esc(name)}</h2>
+          <h2>${dedicatedUrl ? `<a href="${dedicatedUrl}">${esc(name)}</a>` : esc(name)}</h2>
           <span>${esc(description)}</span>
         </div>
         <small>${esc(countText)}</small>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EUPHORIA | LUNO WORKS</title>
+<meta name="description" content="愛は、救済か依存か。歪んだ執着と共依存を描く連作世界、EUPHORIA。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20260731-euphoria-series-page">
+</head>
+<body class="subpage series-detail-page euphoria-series-page">
+<div class="page-transition" id="pageTransition" aria-hidden="true"><div class="transition-moon">☾</div><span class="transition-line"></span></div>
+<div class="stars"></div>
+<div class="series-mist" aria-hidden="true"></div>
+<div class="series-meteor meteor-one" aria-hidden="true"></div>
+<div class="series-meteor meteor-two" aria-hidden="true"></div>
+
+<div class="site" id="site">
+<header class="site-header rail-header">
+  <a class="brand brand-minimal" href="index.html" aria-label="HOME"><span class="brand-moon">☾</span></a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav" id="nav" aria-label="メインメニュー">
+    <span class="nav-eyebrow">LUNO WORKS / MENU</span>
+    <a href="index.html"><b>00</b><span><i>☾</i>HOME<small>月明かりの入口</small></span></a>
+    <a href="world.html" aria-current="page"><b>01</b><span><i>◇</i>WORLD<small>物語の世界</small></span></a>
+    <a href="works.html"><b>02</b><span><i>▤</i>WORKS<small>作品図鑑</small></span></a>
+    <a href="news.html"><b>03</b><span><i>▥</i>NEWS<small>更新情報</small></span></a>
+    <a href="profile.html"><b>04</b><span><i>♙</i>PROFILE<small>LUNO WORKS</small></span></a>
+  </nav>
+</header>
+
+<main>
+<section class="series-hero">
+  <div class="series-hero-image" aria-hidden="true"></div>
+  <div class="series-hero-shade" aria-hidden="true"></div>
+  <div class="series-hero-orbit" aria-hidden="true"><span></span><i>☾</i></div>
+  <div class="series-hero-content reveal">
+    <a class="page-back-link" href="world.html">← WORLD</a>
+    <p class="eyebrow">ORIGINAL WORLD / 01</p>
+    <h1>EUPHORIA</h1>
+    <p class="series-main-copy">愛は、救済か依存か。</p>
+    <p class="series-hero-lead">歪んだ執着と共依存を描く連作世界。</p>
+    <a class="series-scroll-link" href="#seriesWorks">STORIES <span>↓</span></a>
+  </div>
+  <div class="series-hero-index" aria-hidden="true"><span>01</span><small>LOVE / DEPENDENCE</small></div>
+</section>
+
+<section class="section series-world-section reveal" id="world">
+  <div class="series-section-heading">
+    <p>WORLD</p>
+    <h2>救済に似た、<br>逃れられない依存。</h2>
+  </div>
+  <div class="series-world-copy">
+    <p>巨大歓楽街「ノクス区」。政財界、海外マフィア、ドラッグカルテル。すべてが溶け合う眠らない街の地下で、新型ドラッグ《Euphoria》は静かに流通を広げている。</p>
+    <p>感情依存を異常増幅させる危険薬物。一度堕ちれば、特定の誰かなしでは生きられなくなる。愛は救済なのか、それとも最も甘い支配なのか。</p>
+    <div class="series-world-facts">
+      <div><span>STAGE</span><b>巨大歓楽街・ノクス区</b></div>
+      <div><span>KEYWORD</span><b>執着／共依存／潜入</b></div>
+      <div><span>DRUG</span><b>Euphoria</b></div>
+      <div><span>THEME</span><b>LOVE OR DEPENDENCE</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="section series-works-section" id="seriesWorks">
+  <div class="series-title-row reveal">
+    <div><p class="eyebrow">STORY ARCHIVE</p><h2>収録作品</h2></div>
+    <span id="euphoriaCount">— STORIES</span>
+  </div>
+  <div class="series-story-grid" id="euphoriaWorks">
+    <div class="empty-state">作品データを読み込んでいます。</div>
+  </div>
+</section>
+
+<section class="section series-route-section reveal">
+  <div class="series-route-mark">E</div>
+  <div><p class="eyebrow">ENTER THE ARCHIVE</p><h2>もっと物語を探す</h2><p>EUPHORIA以外の世界と、独立した物語も月明かりの書架に収録されています。</p></div>
+  <div class="series-route-actions"><a href="works.html" class="button">全作品を見る <span>↗</span></a><a href="world.html" class="button button-ghost">世界を選ぶ</a></div>
+</section>
+</main>
+
+<footer><div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div><small>© LUNO WORKS</small></footer>
+</div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="上へ戻る">↑</button>
+<script src="data.js"></script>
+<script src="app.js?v=20260731-euphoria-series-page"></script>
+<script>
+(() => {
+  const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA;
+  const root = document.getElementById('euphoriaWorks');
+  const count = document.getElementById('euphoriaCount');
+  if (!root || !DATA || !Array.isArray(DATA.works)) {
+    if (root) root.innerHTML = '<div class="empty-state">作品データを読み込めませんでした。</div>';
+    return;
+  }
+  const seriesMap = Object.fromEntries((DATA.series || []).map(s => [typeof s === 'string' ? s : s.id, typeof s === 'string' ? s : s.name]));
+  const seriesName = work => String(seriesMap[work.series] || seriesMap[work.world] || work.series || work.world || '').trim();
+  const works = DATA.works.filter(work => seriesName(work).toUpperCase() === 'EUPHORIA').sort((a,b) => {
+    const pa = a.isNew && a.status !== 'draft' ? 0 : a.status === 'draft' ? 2 : 1;
+    const pb = b.isNew && b.status !== 'draft' ? 0 : b.status === 'draft' ? 2 : 1;
+    return pa-pb || String(b.releaseDate || '').localeCompare(String(a.releaseDate || ''), 'ja');
+  });
+  const esc = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
+  count.textContent = `${works.length} STORIES`;
+  root.innerHTML = works.length ? works.map((work,index) => {
+    const status = work.status === 'draft' ? 'COMING SOON' : work.isNew ? 'NEW RELEASE' : 'NOW AVAILABLE';
+    const copy = work.catchphrase || work.catch || work.tagline || work.description || '愛は、救済か依存か。';
+    const href = `works.html?search=${encodeURIComponent(work.title || '')}`;
+    return `<a class="series-story-card ${work.status === 'draft' ? 'is-draft' : ''}" href="${href}">
+      <div class="series-story-visual" style="--cover:url('${esc(work.cover || '')}')">
+        <span class="series-story-number">${String(index+1).padStart(2,'0')}</span>
+        <span class="series-story-status">${status}</span>
+      </div>
+      <div class="series-story-body"><p>EUPHORIA</p><h3>${esc(work.title)}</h3><span>${esc(copy)}</span><small>VIEW STORY ↗</small></div>
+    </a>`;
+  }).join('') : '<div class="empty-state">EUPHORIA作品はまだ登録されていません。</div>';
+})();
+</script>
+</body>
+</html>
