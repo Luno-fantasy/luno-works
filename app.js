@@ -489,11 +489,29 @@
     if (actions) {
       const link = work.url || work.link || work.zetaUrl || work.zeta || "";
       actions.innerHTML = [
-        link && work.status !== "draft" ? `<a class="button story-primary-action" href="${esc(link)}" target="_blank" rel="noopener">READ ON ZETA <span>↗</span></a>` : "",
+        link && work.status !== "draft" ? `<a class="button story-primary-action" href="${esc(link)}">READ ON ZETA <span>→</span></a>` : "",
         '<button class="button story-secondary-action" type="button" id="dialogBack">作品一覧へ戻る</button>'
       ].join("");
     }
     document.getElementById("dialogBack")?.addEventListener("click", () => dialog.close());
+
+    actions?.querySelector(".story-primary-action")?.addEventListener("click", event => {
+      event.preventDefault();
+      const destination = event.currentTarget.href;
+
+      // Close the modal and release every scroll lock before leaving the page.
+      // Opening zeta in a new in-app browser window on iOS can preserve the
+      // modal viewport and produce a locked or oddly scaled page.
+      if (dialog.open) dialog.close();
+      dialog.classList.remove("is-story-open");
+      document.documentElement.style.removeProperty("overflow");
+      document.body.style.removeProperty("overflow");
+      document.body.classList.remove("menu-open");
+
+      requestAnimationFrame(() => {
+        window.location.assign(destination);
+      });
+    });
 
     relatedBox?.querySelectorAll("[data-related-id]").forEach(button => {
       button.addEventListener("click", () => {
