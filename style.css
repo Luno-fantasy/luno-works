@@ -5771,3 +5771,78 @@ body.home-fixed-page {
   .standalone-series-block{margin-top:62px}
   .standalone-series-note{margin:-10px 0 18px 58px;font-size:10px}
 }
+
+
+/* =========================================================
+   WORK STORY DIALOG / 2026-07-31
+   ========================================================= */
+.story-dialog{
+  width:min(1120px,calc(100vw - 28px));
+  max-width:none;
+  height:min(780px,calc(100dvh - 36px));
+  max-height:none;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(225,235,255,.18);
+  border-radius:26px;
+  background:rgba(8,12,25,.96);
+  color:#f6f3ed;
+  box-shadow:0 32px 90px rgba(0,0,0,.58),0 0 70px rgba(133,162,224,.12);
+}
+.story-dialog::backdrop{
+  background:rgba(2,5,14,.82);
+  backdrop-filter:blur(12px);
+}
+.story-dialog-shell{display:grid;grid-template-columns:minmax(320px,42%) 1fr;height:100%;min-height:0}
+.story-dialog-cover{position:relative;min-height:100%;height:100%;border-radius:0;overflow:hidden;background-image:linear-gradient(180deg,rgba(5,8,18,.02),rgba(5,8,18,.2) 52%,rgba(5,8,18,.92)),var(--cover);background-size:cover;background-position:center}
+.story-dialog-cover::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(238,244,255,.18) 48%,transparent 61%);transform:translateX(-120%);animation:storyCoverLight 8s ease-in-out infinite}
+.story-cover-glow{position:absolute;inset:auto -25% -25% -25%;height:55%;background:radial-gradient(circle,rgba(139,168,226,.22),transparent 68%);filter:blur(18px)}
+.story-cover-number{position:absolute;left:28px;bottom:25px;font:600 64px/1 "Cormorant Garamond",serif;letter-spacing:.08em;color:rgba(255,255,255,.23)}
+.story-dialog .dialog-mark{position:absolute;left:26px;top:26px;z-index:2;padding:8px 12px;border:1px solid rgba(255,255,255,.35);background:rgba(5,9,20,.52);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.2em}
+.story-dialog-body{min-width:0;overflow:auto;padding:58px 54px 42px;scrollbar-width:thin;scrollbar-color:rgba(194,210,244,.28) transparent}
+.story-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.story-dialog-heading .eyebrow{margin:0;color:rgba(214,225,250,.72);letter-spacing:.2em}
+.story-dialog-status{flex:0 0 auto;font-size:11px;letter-spacing:.16em;color:#d9e4fa}
+.story-dialog-body h2{margin:16px 0 10px;font-family:"Noto Serif JP",serif;font-size:clamp(28px,4vw,48px);line-height:1.3;letter-spacing:.035em}
+.story-dialog .dialog-catch{margin:0 0 28px;font-family:"Noto Serif JP",serif;font-size:clamp(14px,1.8vw,19px);line-height:1.9;color:#d8e3f7}
+.story-dialog-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:0 0 32px;border:1px solid rgba(222,232,255,.12);background:rgba(255,255,255,.04)}
+.story-dialog-info>div{display:flex;flex-direction:column;gap:7px;padding:15px 17px;background:rgba(5,9,20,.62)}
+.story-dialog-info span,.story-section-label{font-size:9px;letter-spacing:.22em;color:rgba(198,214,244,.58)}
+.story-dialog-info b{font-size:12px;font-weight:500;line-height:1.5;color:#f3f5fb}
+.story-dialog-section{padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid rgba(221,231,251,.09)}
+.story-dialog-section[hidden]{display:none}
+.story-dialog .dialog-summary{margin:12px 0 0;font-size:14px;line-height:2;color:rgba(238,241,248,.8);white-space:pre-line}
+.story-dialog .keyword-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.story-dialog .keyword{padding:8px 11px;border:1px solid rgba(219,230,253,.16);border-radius:999px;background:rgba(255,255,255,.035);font-size:10px;color:#dfe8fa}
+.related-story-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+.related-story-heading h3{margin:7px 0 0;font:500 17px/1.5 "Noto Serif JP",serif}
+.related-story-heading>span{font-size:9px;letter-spacing:.16em;color:rgba(202,216,243,.55)}
+.related-story-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.related-story-card{display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:12px;min-width:0;padding:8px;text-align:left;color:inherit;border:1px solid rgba(220,230,252,.12);border-radius:12px;background:rgba(255,255,255,.035);cursor:pointer;transition:transform .28s ease,border-color .28s ease,background .28s ease}
+.related-story-card:hover{transform:translateY(-2px);border-color:rgba(218,230,255,.34);background:rgba(255,255,255,.07)}
+.related-story-cover{width:54px;aspect-ratio:3/4;border-radius:7px;background-image:linear-gradient(180deg,transparent,rgba(6,9,18,.22)),var(--cover);background-size:cover;background-position:center}
+.related-story-copy{display:flex;min-width:0;flex-direction:column;gap:5px}
+.related-story-copy small{font-size:8px;letter-spacing:.16em;color:rgba(199,215,245,.56)}
+.related-story-copy b{overflow:hidden;font:500 11px/1.55 "Noto Serif JP",serif;text-overflow:ellipsis;white-space:nowrap}
+.related-story-card i{font-style:normal;color:rgba(217,229,251,.55)}
+.story-dialog .dialog-actions{display:flex;gap:10px;flex-wrap:wrap;padding-top:2px}
+.story-dialog .dialog-actions .button{min-height:48px;padding:13px 18px;border-radius:999px;text-decoration:none}
+.story-primary-action{flex:1;background:linear-gradient(115deg,rgba(210,224,253,.96),rgba(160,184,229,.94));color:#071020!important;border:0!important;text-align:center}
+.story-secondary-action{background:transparent!important;color:#dce6f8!important;border:1px solid rgba(218,229,250,.22)!important}
+.story-dialog .dialog-close{position:fixed;z-index:20;right:max(24px,calc((100vw - min(1120px,calc(100vw - 28px)))/2 + 18px));top:max(26px,calc((100dvh - min(780px,calc(100dvh - 36px)))/2 + 18px));width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(5,9,19,.66);color:#fff;backdrop-filter:blur(10px)}
+@keyframes storyCoverLight{0%,55%{transform:translateX(-130%);opacity:0}68%{opacity:1}84%,100%{transform:translateX(130%);opacity:0}}
+@media(max-width:760px){
+  .story-dialog{width:calc(100vw - 16px);height:calc(100dvh - 16px);border-radius:20px}
+  .story-dialog-shell{display:block;overflow:auto}
+  .story-dialog-cover{height:min(58vh,520px);min-height:390px}
+  .story-dialog-body{overflow:visible;padding:34px 22px 30px}
+  .story-dialog .dialog-close{position:fixed;right:17px;top:17px}
+  .story-dialog-info{grid-template-columns:1fr 1fr}
+  .related-story-list{grid-template-columns:1fr}
+  .story-dialog-body h2{font-size:30px}
+}
+@media(max-width:420px){
+  .story-dialog-info{grid-template-columns:1fr}
+  .story-dialog-cover{min-height:350px;height:52vh}
+}
+@media(prefers-reduced-motion:reduce){.story-dialog-cover::before{animation:none}}

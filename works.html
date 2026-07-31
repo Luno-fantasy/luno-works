@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260731-series-library">
+<link rel="stylesheet" href="style.css?v=20260731-euphoria-copy">
 
 <style id="works-layout-force-v12">
   #filters.filters{
@@ -118,17 +118,48 @@
 
 <button class="back-to-top" id="backToTop" type="button" aria-label="上へ戻る">↑</button>
 
-<dialog class="work-dialog" id="workDialog">
-<button class="dialog-close" id="closeDialog">×</button>
-<div class="dialog-visual" id="dialogVisual"><span class="dialog-mark"></span></div>
-<div class="dialog-body">
-<p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2>
-<p class="dialog-catch" id="dialogCatch"></p><p class="dialog-summary" id="dialogSummary"></p>
-<div class="keyword-list" id="dialogKeywords"></div><div class="dialog-actions" id="dialogActions"></div>
-</div>
+<dialog class="work-dialog story-dialog" id="workDialog">
+  <button class="dialog-close" id="closeDialog" type="button" aria-label="閉じる">×</button>
+  <div class="story-dialog-shell">
+    <div class="dialog-visual story-dialog-cover" id="dialogVisual">
+      <span class="dialog-mark"></span>
+      <span class="story-cover-number" id="dialogNumber"></span>
+      <span class="story-cover-glow" aria-hidden="true"></span>
+    </div>
+    <div class="dialog-body story-dialog-body">
+      <div class="story-dialog-heading">
+        <p class="eyebrow" id="dialogCategory"></p>
+        <span class="story-dialog-status" id="dialogStatus"></span>
+      </div>
+      <h2 id="dialogTitle"></h2>
+      <p class="dialog-catch" id="dialogCatch"></p>
+
+      <div class="story-dialog-info" id="dialogInfo"></div>
+
+      <section class="story-dialog-section">
+        <p class="story-section-label">STORY</p>
+        <p class="dialog-summary" id="dialogSummary"></p>
+      </section>
+
+      <section class="story-dialog-section" id="dialogKeywordSection">
+        <p class="story-section-label">KEYWORDS</p>
+        <div class="keyword-list" id="dialogKeywords"></div>
+      </section>
+
+      <section class="story-dialog-section related-story-section" id="dialogRelatedSection">
+        <div class="related-story-heading">
+          <div><p class="story-section-label">RELATED STORIES</p><h3>同じシリーズの作品</h3></div>
+          <span id="dialogRelatedCount"></span>
+        </div>
+        <div class="related-story-list" id="dialogRelated"></div>
+      </section>
+
+      <div class="dialog-actions" id="dialogActions"></div>
+    </div>
+  </div>
 </dialog>
 
 <script src="data.js"></script>
-<script src="app.js?v=20260731-series-library"></script>
+<script src="app.js?v=20260731-euphoria-copy"></script>
 </body>
 </html>

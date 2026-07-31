@@ -234,7 +234,7 @@
   ];
 
   const SERIES_DESCRIPTIONS = {
-    "EUPHORIA": "愛は救済か、依存か。歪んだ執着と共依存を描く連作世界。",
+    "EUPHORIA": "愛は、救済か依存か。",
     "華龍会": "龍華街を舞台に、掟と愛に守られた物語。",
     "アストレイン王国": "剣と誓いが結ぶ、王国ファンタジー作品群。",
     "カスティリオーネ／フェローネ": "忠誠と硝煙が交差する、同じ世界線のマフィア作品群。",
@@ -395,33 +395,96 @@
 
   function openWork(work) {
     if (!dialog) return;
+
+    const index = DATA.works.findIndex(item => String(item.id) === String(work.id));
+    const seriesName = normalizeSeriesName(work) || ser(work);
+    const statusText = work.status === "draft" ? "COMING SOON" : (work.isNew ? "NEW RELEASE" : "NOW AVAILABLE");
+    const releaseDate = work.releaseDate || work.publishedAt || work.date || "";
+    const character = work.mainCharacter || work.character || work.hero || "";
+    const position = work.position && work.position !== "standalone" ? work.position : "";
+
     document.getElementById("dialogVisual")?.style.setProperty("--cover", `url('${work.cover || ""}')`);
     const mark = document.querySelector(".dialog-mark");
-    if (mark) mark.textContent = work.status === "draft" ? "COMING SOON" : ser(work);
+    if (mark) mark.textContent = statusText;
+
     const set = (id, value) => {
       const el = document.getElementById(id);
       if (el) el.textContent = value || "";
     };
-    set("dialogCategory", cat(work));
-    set("dialogTitle", work.title);
-    set("dialogCatch", ser(work) || STATUS[work.status] || "");
-    set("dialogSummary", work.description || "作品紹介は後から追加できます。");
 
-    const tags = [...(work.tags || [])];
-    const series = ser(work);
-    if (series && !tags.includes(series)) tags.unshift(series);
+    set("dialogNumber", String(index + 1).padStart(2, "0"));
+    set("dialogCategory", [seriesName, cat(work)].filter(Boolean).join(" / "));
+    set("dialogStatus", STATUS[work.status] || work.status || "");
+    set("dialogTitle", work.title);
+    set("dialogCatch", work.catchphrase || work.catch || work.tagline || seriesName || "月明かりの向こうで、物語が待っている。");
+    set("dialogSummary", work.description || work.summary || work.introduction || "作品紹介は後から追加できます。");
+
+    const info = [
+      releaseDate ? ["RELEASE", releaseDate] : null,
+      seriesName ? ["SERIES", seriesName] : null,
+      character ? ["CHARACTER", character] : null,
+      position ? ["TYPE", position] : null
+    ].filter(Boolean);
+    const infoBox = document.getElementById("dialogInfo");
+    if (infoBox) {
+      infoBox.innerHTML = info.map(([label, value]) =>
+        `<div><span>${esc(label)}</span><b>${esc(value)}</b></div>`
+      ).join("");
+      infoBox.hidden = !info.length;
+    }
+
+    const tags = [...(work.tags || [])].filter(Boolean);
+    if (seriesName && !tags.includes(seriesName)) tags.unshift(seriesName);
+    if (cat(work) && !tags.includes(cat(work))) tags.push(cat(work));
     const keywordBox = document.getElementById("dialogKeywords");
-    if (keywordBox) keywordBox.innerHTML =
-      tags.map(tag => `<span class="keyword">${esc(tag)}</span>`).join("");
+    if (keywordBox) keywordBox.innerHTML = tags.map(tag => `<span class="keyword">${esc(tag)}</span>`).join("");
+    const keywordSection = document.getElementById("dialogKeywordSection");
+    if (keywordSection) keywordSection.hidden = !tags.length;
+
+    const related = seriesName
+      ? DATA.works.filter(item => String(item.id) !== String(work.id) && normalizeSeriesName(item) === seriesName)
+      : [];
+    const relatedBox = document.getElementById("dialogRelated");
+    const relatedSection = document.getElementById("dialogRelatedSection");
+    set("dialogRelatedCount", related.length ? `${related.length} STORIES` : "");
+    if (relatedBox) {
+      relatedBox.innerHTML = sortWorksInsideGroup(related).slice(0, 4).map(item => `
+        <button class="related-story-card" type="button" data-related-id="${esc(item.id)}">
+          <span class="related-story-cover" style="--cover:url('${esc(item.cover || "")}')"></span>
+          <span class="related-story-copy">
+            <small>${item.status === "draft" ? "COMING SOON" : "STORY"}</small>
+            <b>${esc(item.title)}</b>
+          </span>
+          <i>↗</i>
+        </button>`).join("");
+    }
+    if (relatedSection) relatedSection.hidden = !related.length;
 
     const actions = document.getElementById("dialogActions");
-    if (actions) actions.innerHTML =
-      '<button class="button" type="button" id="dialogBack">作品一覧へ戻る</button>';
+    if (actions) {
+      const link = work.url || work.link || work.zetaUrl || work.zeta || "";
+      actions.innerHTML = [
+        link && work.status !== "draft" ? `<a class="button story-primary-action" href="${esc(link)}" target="_blank" rel="noopener">Zetaで読む <span>↗</span></a>` : "",
+        '<button class="button story-secondary-action" type="button" id="dialogBack">作品一覧へ戻る</button>'
+      ].join("");
+    }
     document.getElementById("dialogBack")?.addEventListener("click", () => dialog.close());
+
+    relatedBox?.querySelectorAll("[data-related-id]").forEach(button => {
+      button.addEventListener("click", () => {
+        const next = DATA.works.find(item => String(item.id) === button.dataset.relatedId);
+        if (!next) return;
+        openWork(next);
+        document.querySelector(".story-dialog-body")?.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
     dialog.showModal();
+    requestAnimationFrame(() => dialog.classList.add("is-story-open"));
   }
 
   document.getElementById("closeDialog")?.addEventListener("click", () => dialog?.close());
+  dialog?.addEventListener("close", () => dialog.classList.remove("is-story-open"));
   dialog?.addEventListener("click", event => {
     const rect = dialog.getBoundingClientRect();
     if (
