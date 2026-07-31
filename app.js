@@ -489,7 +489,7 @@
     if (actions) {
       const link = work.url || work.link || work.zetaUrl || work.zeta || "";
       actions.innerHTML = [
-        link && work.status !== "draft" ? `<a class="button story-primary-action" href="${esc(link)}" target="_blank" rel="noopener">Zetaで読む <span>↗</span></a>` : "",
+        link && work.status !== "draft" ? `<a class="button story-primary-action" href="${esc(link)}" target="_blank" rel="noopener">READ ON ZETA <span>↗</span></a>` : "",
         '<button class="button story-secondary-action" type="button" id="dialogBack">作品一覧へ戻る</button>'
       ].join("");
     }
