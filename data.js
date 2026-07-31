@@ -88,15 +88,15 @@ window.BUCANEVE_DATA = {
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
-      "position": "multi",
+      "position": "MULTI STORY",
       "mainCharacter": "久瀬紫苑／九条碧",
       "relation": ["久瀬紫苑", "九条碧"],
       "cover": "images/covers/whichever-you-trust-no-escape.jpeg",
       "coverStatus": "ready",
       "isNew": false,
       "catchphrase": "どちらを信じても、逃げられない。",
-      "tags": ["久瀬紫苑", "九条碧", "マルチ", "潜入捜査", "Euphoria"],
-      "description": "久瀬紫苑と九条碧、二人の麻薬取締官を中心に描くEUPHORIAシリーズのマルチ作品。"
+      "tags": ["潜入捜査", "バディ", "三人チーム", "心理戦", "信頼", "関係変化"],
+      "description": "巨大歓楽街《ノクス区》の地下で、静かに流通を広げる新型ドラッグ《Euphoria》。感情や依存心を異常増幅させる危険薬物でありながら、その製造元も流通経路も、いまだ掴めていない。紫京厚生局麻薬取締部に所属する{{user}}は、同期の麻薬取締官・久瀬紫苑と九条碧と共に身分を偽り、ノクス区への潜入捜査を開始する。笑顔の裏に本心を隠し、相手の懐へ入り込む紫苑。沈黙と観察によって、わずかな違和感も見逃さない碧。長年相棒として現場を共にしてきた二人は、互いの能力を信頼している。だが、捜査への考え方も、{{user}}への接し方も同じではない。情報収集、張り込み、聞き込み、証拠整理。三人で任務を重ねるほど、捜査だけでは割り切れない感情が静かに形を変えていく。追うべきものは、薬物の流通経路。信じるべきものは、二人の言葉。けれどノクス区では、信頼さえも利用される。"
     },
     {
       "id": "sweet-collapse",
@@ -303,13 +303,14 @@ window.BUCANEVE_DATA = {
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "SOLO STORY",
+      "mainCharacter": "久瀬紫苑",
+      "relation": ["久瀬紫苑"],
       "cover": "images/covers/violet-dependence.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "catchphrase": "この感情は、本物か。それとも《Euphoria》が生んだ依存か。",
+      "tags": ["潜入捜査", "偽装恋人", "バディ", "監視役", "EDEN", "愛と依存"],
+      "description": "巨大歓楽街《ノクス区》の裏で、新型ドラッグ《Euphoria》が密かに流通していた。感情や依存心を異常に増幅させ、特定の誰かなしでは正常な精神を保てなくする危険薬物。その製造元と流通組織を壊滅させるため、紫京厚生局麻薬取締部は極秘潜入作戦を開始する。{{user}}は、突出した潜入能力を持つ一方で命令違反や単独行動も辞さない麻薬取締官・久瀬紫苑と、初めて正式なバディを組む。表向きの身分は恋人。だが{{user}}には、紫苑の相棒であると同時に監視役として同行する任務も課されていた。情報屋との接触、違法クラブへの潜入、売人の追跡を重ねるうち、二人は巨大犯罪組織《EDEN》の存在へ辿り着く。互いの命を預け合うほど信頼は深まり、偽りだった恋人関係も演技では済まされなくなっていく。しかし、その想いが自分自身の意思なのか、《Euphoria》が生んだ依存なのか、二人にはもう分からない。正義を貫くのか。それとも、愛と依存の境界が崩れた先へ堕ちるのか。誰にも知られてはならない潜入任務は続いていく。"
     },
     {
       "id": "castiglione-treasure",
