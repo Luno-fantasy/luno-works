@@ -665,13 +665,23 @@ window.BUCANEVE_DATA = {
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "SOLO STORY",
+      "mainCharacter": "御影恒一",
+      "relation": [
+        "御影恒一"
+      ],
       "cover": "images/covers/crimson-silence.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "潜入捜査",
+        "上司と部下",
+        "過保護",
+        "EDEN",
+        "贖罪",
+        "愛と責務"
+      ],
+      "description": "巨大歓楽街《ノクス区》。\n\n政財界、海外マフィア、ドラッグカルテルが交錯する街で、\n新型ドラッグ《Euphoria》の流通が急速に拡大していた。\n\n感情への依存を異常に増幅させ、\n特定の誰かなしでは正常な精神を保てなくする危険薬物。\n\nその供給源を突き止めるため、\n紫京厚生局麻薬取締部は大規模な潜入捜査を開始する。\n\n指揮を執るのは、潜入捜査班を率いる課長・御影恒一。\nそして作戦に選ばれたのは、直属の部下である{{user}}だった。\n\n普段の御影は部下を公平に扱い、私情を挟まない。\nそれでも{{user}}に対してだけは確認が異様に多く、\n危険な任務から外そうとすることさえある。\n\nその態度の裏には、かつて潜入捜査で\n守れなかった部下を失った過去があった。\n\n潜入先は、《Euphoria》を裏で操る犯罪組織《EDEN》。\n{{user}}が危険に晒されるたび、\n冷静な指揮官であるはずの御影の感情は少しずつ揺らいでいく。\n\n一方の{{user}}も、誰より非情で完璧だと思っていた上司が、\n自分にだけ見せる過保護な一面と、深い後悔を知っていく。\n\nやがて二人は、《Euphoria》の真実だけでなく、\n御影の過去へ繋がる事件へと辿り着く。\n\n課長として正義を貫くのか。\nそれとも、一人の男として{{user}}を守るのか。\n\n責務と想いの境界で、\n御影恒一は最後の選択を迫られる。",
+      "catchphrase": "厳しく、冷たい。そのすべては、守れなかった後悔の裏返し。"
     },
     {
       "id": "saint-quits",
