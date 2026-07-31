@@ -5897,3 +5897,62 @@ body.home-fixed-page {
   .series-readable-copy span:last-child{margin-bottom:0}
   .series-world-copy>p{font-size:15px;line-height:2}
 }
+
+/* EUPHORIA SERIES PAGE: MOBILE HERO POLISH */
+@media (max-width: 620px){
+  .euphoria-series-page .series-hero{
+    min-height:68svh;
+  }
+  .euphoria-series-page .series-hero-content{
+    width:calc(100% - 44px);
+    padding:108px 0 54px;
+    overflow:visible;
+  }
+  .euphoria-series-page .series-hero-content h1{
+    max-width:100%;
+    margin:10px 0 14px;
+    font-size:clamp(47px,15.2vw,72px);
+    line-height:.92;
+    letter-spacing:.015em;
+    white-space:nowrap;
+  }
+  .euphoria-series-page .series-main-copy{
+    margin-bottom:14px!important;
+    font-size:20px!important;
+    line-height:1.55!important;
+  }
+  .euphoria-series-page .series-hero-lead{
+    max-width:92%;
+    font-size:13px!important;
+    line-height:1.9!important;
+    letter-spacing:.04em;
+  }
+  .euphoria-series-page .series-scroll-link{
+    margin-top:30px;
+    gap:14px;
+  }
+  .euphoria-series-page .series-scroll-link span{
+    width:40px;
+    height:40px;
+  }
+  .euphoria-series-page .series-world-section{
+    gap:28px;
+  }
+  .euphoria-series-page .series-section-heading h2{
+    margin-top:14px;
+    font-size:clamp(34px,10.5vw,47px);
+    line-height:1.55;
+  }
+  .euphoria-series-page .series-world-copy>p{
+    margin-bottom:20px;
+    font-size:14px;
+    line-height:2;
+  }
+}
+
+@media (max-width: 390px){
+  .euphoria-series-page .series-hero-content h1{
+    font-size:clamp(44px,14.5vw,58px);
+    letter-spacing:0;
+  }
+}
