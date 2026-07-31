@@ -2,7 +2,7 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 52,
+    "publishedCount": 53,
     "draftCount": 6
   },
   "categories": [
@@ -33,6 +33,24 @@ window.BUCANEVE_DATA = {
       "name": "Euphoria",
       "type": "series",
       "works": [
+    {
+      "id": "whichever-you-trust-no-escape",
+      "title": "どちらを信じても、逃げられない。",
+      "status": "published",
+      "category": "euphoria",
+      "series": "euphoria",
+      "world": "euphoria",
+      "position": "multi",
+      "mainCharacter": "久瀬紫苑／九条碧",
+      "relation": ["久瀬紫苑", "九条碧"],
+      "cover": "images/covers/whichever-you-trust-no-escape.jpeg",
+      "coverStatus": "ready",
+      "releaseDate": "2026-07-31",
+      "isNew": true,
+      "catchphrase": "どちらを信じても、逃げられない。",
+      "tags": ["久瀬紫苑", "九条碧", "マルチ", "潜入捜査", "Euphoria"],
+      "description": "久瀬紫苑と九条碧、二人の麻薬取締官を中心に描くマルチ作品。巨大歓楽街ノクス区で交錯する、嘘と覚悟と恋愛の物語。"
+    },
         "sweet-collapse",
         "violet-dependence",
         "code-requiem",
