@@ -503,3 +503,23 @@ document.addEventListener("click", event => {
   window.addEventListener('keydown', lockKeys, { passive: false });
   window.addEventListener('resize', () => window.scrollTo(0, 0));
 })();
+
+/* WORLD PORTAL ACCORDION */
+(() => {
+  const cards = [...document.querySelectorAll('[data-world-card]')];
+  if (!cards.length) return;
+  cards.forEach(card => {
+    const button = card.querySelector('.world-portal-visual');
+    button?.addEventListener('click', () => {
+      const willOpen = !card.classList.contains('is-open');
+      cards.forEach(other => {
+        other.classList.remove('is-open');
+        other.querySelector('.world-portal-visual')?.setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        card.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
