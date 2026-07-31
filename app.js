@@ -199,18 +199,25 @@
   }
 
   function cardHtml(work, index) {
-    return `<article class="work-card" data-id="${esc(work.id)}">
+    const status = work.status === "draft" ? "COMING SOON" : "NOW AVAILABLE";
+    const description = String(work.description || "物語の扉を開いて、彼との時間を始めてください。");
+    return `<article class="work-card ${work.status === "draft" ? "is-draft" : "is-published"} ${work.isNew ? "is-new" : ""}" data-id="${esc(work.id)}" tabindex="0" role="button" aria-label="${esc(work.title)}の詳細を見る">
       <div class="work-visual" style="--cover:url('${esc(work.cover || "")}')">
         <span class="work-number">${String(index + 1).padStart(2, "0")}</span>
-        ${work.status === "draft" ? '<span class="work-draft-badge">COMING SOON</span>' : ""}
+        <span class="work-status-ribbon">${status}</span>
         ${work.isNew ? '<span class="work-new-badge">NEW RELEASE</span>' : ""}
+        <span class="work-cover-shine" aria-hidden="true"></span>
       </div>
       <div class="work-body">
-        <span class="work-category">${esc(ser(work) || cat(work))}</span>
+        <div class="work-card-topline">
+          <span class="work-category">${esc(ser(work) || cat(work))}</span>
+          <span class="work-status-dot">${esc(STATUS[work.status] || work.status || "")}</span>
+        </div>
         <h3>${esc(work.title)}</h3>
+        <p class="work-card-description">${esc(description)}</p>
         <div class="work-meta">
           <span>${esc(cat(work))}</span>
-          <span>${esc(STATUS[work.status] || work.status || "")}</span>
+          <span class="work-detail-link">VIEW STORY <i>↗</i></span>
         </div>
       </div>
     </article>`;
@@ -226,30 +233,33 @@
       return;
     }
 
-    if (activeCategory !== "all" || (searchInput?.value || "").trim()) {
-      workArea.innerHTML = `<div class="work-grid">${items.map(cardHtml).join("")}</div>`;
+    const isBrowsingAll = activeCategory === "all" && !(searchInput?.value || "").trim();
+    if (!isBrowsingAll) {
+      workArea.innerHTML = `<div class="work-grid gallery-grid">${items.map(cardHtml).join("")}</div>`;
       revealWorkCards(workArea);
       return;
     }
 
-    const order = categories.map(c => typeof c === "string" ? c : c.id);
-    const grouped = {};
-    items.forEach(work => (grouped[work.category] ??= []).push(work));
+    const released = items.filter(work => work.status !== "draft");
+    const upcoming = items.filter(work => work.status === "draft");
+    const featured = released.filter(work => work.isNew);
+    const archive = released.filter(work => !work.isNew);
 
-    const known = order.filter(id => grouped[id]?.length);
-    const unknown = Object.keys(grouped).filter(id => !order.includes(id));
-    const allGroups = [...known, ...unknown];
+    const section = (label, title, note, list, className) => !list.length ? "" : `
+      <section class="works-gallery-section ${className}">
+        <div class="works-gallery-heading">
+          <div><p>${label}</p><h2>${title}</h2></div>
+          <span>${note}</span>
+        </div>
+        <div class="work-grid gallery-grid">${list.map(cardHtml).join("")}</div>
+      </section>`;
 
-    workArea.innerHTML = allGroups.map((id, index) => {
-      const list = grouped[id];
-      return `<details class="work-group">
-        <summary>
-          <span class="group-title">${esc(CATS[id] || id)}</span>
-          <span class="group-count">${list.length}作品</span>
-        </summary>
-        <div class="work-grid">${list.map(cardHtml).join("")}</div>
-      </details>`;
-    }).join("");
+    workArea.innerHTML = [
+      section("NEW RELEASE", "新たに開かれた物語", "最新公開作品", featured, "featured-works"),
+      section("MOONLIT ARCHIVE", "公開作品", `${released.length} STORIES`, archive, "published-works"),
+      section("COMING SOON", "月の向こうで待つ物語", `${upcoming.length} STORIES`, upcoming, "upcoming-works")
+    ].join("");
+    revealWorkCards(workArea);
   }
 
   const initialSearch = new URLSearchParams(window.location.search).get("search");
@@ -275,6 +285,15 @@
   workArea?.addEventListener("click", event => {
     const card = event.target.closest(".work-card");
     if (!card) return;
+    const work = DATA.works.find(item => String(item.id) === card.dataset.id);
+    if (work) openWork(work);
+  });
+
+  workArea?.addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const card = event.target.closest(".work-card");
+    if (!card) return;
+    event.preventDefault();
     const work = DATA.works.find(item => String(item.id) === card.dataset.id);
     if (work) openWork(work);
   });
