@@ -5834,7 +5834,14 @@ body.home-fixed-page {
 @media(max-width:760px){
   .story-dialog{width:calc(100vw - 16px);height:calc(100dvh - 16px);border-radius:20px}
   .story-dialog-shell{display:block;overflow:auto}
-  .story-dialog-cover{height:min(58vh,520px);min-height:390px}
+  .story-dialog-cover{
+    height:min(54vh,480px);
+    min-height:340px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color:#070a17;
+  }
   .story-dialog-body{overflow:visible;padding:34px 22px 30px}
   .story-dialog .dialog-close{position:fixed;right:17px;top:17px}
   .story-dialog-info{grid-template-columns:1fr 1fr}
@@ -5843,6 +5850,6 @@ body.home-fixed-page {
 }
 @media(max-width:420px){
   .story-dialog-info{grid-template-columns:1fr}
-  .story-dialog-cover{min-height:350px;height:52vh}
+  .story-dialog-cover{min-height:310px;height:48vh}
 }
 @media(prefers-reduced-motion:reduce){.story-dialog-cover::before{animation:none}}

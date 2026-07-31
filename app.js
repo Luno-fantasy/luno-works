@@ -413,11 +413,26 @@
     };
 
     set("dialogNumber", String(index + 1).padStart(2, "0"));
-    set("dialogCategory", [seriesName, cat(work)].filter(Boolean).join(" / "));
+    const categoryName = cat(work);
+    const categoryLabel = categoryName && categoryName.toLowerCase() !== String(seriesName || "").toLowerCase()
+      ? [seriesName, categoryName].filter(Boolean).join(" / ")
+      : (seriesName || categoryName || "");
+    const seriesCopy = {
+      "EUPHORIA": "愛は、救済か依存か。",
+      "天鴉領": "夜と契約に支配された、鴉天狗たちの領域。",
+      "華龍会": "掟に守られた“お姫様”を中心に、六人の愛が絡み合う。"
+    };
+    const seriesSummary = {
+      "EUPHORIA": "歪んだ執着と共依存を描く連作世界。",
+      "天鴉領": "誇りと義務、その奥に隠された執着が交差する。",
+      "華龍会": "龍華街を支配する巨大組織を舞台にした物語。"
+    };
+
+    set("dialogCategory", categoryLabel);
     set("dialogStatus", STATUS[work.status] || work.status || "");
     set("dialogTitle", work.title);
-    set("dialogCatch", work.catchphrase || work.catch || work.tagline || seriesName || "月明かりの向こうで、物語が待っている。");
-    set("dialogSummary", work.description || work.summary || work.introduction || "作品紹介は後から追加できます。");
+    set("dialogCatch", work.catchphrase || work.catch || work.tagline || seriesCopy[String(seriesName || "").toUpperCase()] || "月明かりの向こうで、物語が待っている。");
+    set("dialogSummary", work.description || work.summary || work.introduction || seriesSummary[String(seriesName || "").toUpperCase()] || "物語の詳細は近日公開予定です。");
 
     const info = [
       releaseDate ? ["RELEASE", releaseDate] : null,
