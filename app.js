@@ -393,10 +393,19 @@
     if (work) openWork(work);
   });
 
+  function displayNumberForWork(work) {
+    const seriesName = normalizeSeriesName(work);
+    const group = seriesName
+      ? DATA.works.filter(item => normalizeSeriesName(item) === seriesName)
+      : DATA.works.filter(item => !normalizeSeriesName(item));
+    const sortedGroup = sortWorksInsideGroup(group);
+    const index = sortedGroup.findIndex(item => String(item.id) === String(work.id));
+    return String(Math.max(index, 0) + 1).padStart(2, "0");
+  }
+
   function openWork(work) {
     if (!dialog) return;
 
-    const index = DATA.works.findIndex(item => String(item.id) === String(work.id));
     const seriesName = normalizeSeriesName(work) || ser(work);
     const statusText = work.status === "draft" ? "COMING SOON" : (work.isNew ? "NEW RELEASE" : "NOW AVAILABLE");
     const releaseDate = work.releaseDate || work.publishedAt || work.date || "";
@@ -412,7 +421,7 @@
       if (el) el.textContent = value || "";
     };
 
-    set("dialogNumber", String(index + 1).padStart(2, "0"));
+    set("dialogNumber", displayNumberForWork(work));
     const categoryName = cat(work);
     const categoryLabel = categoryName && categoryName.toLowerCase() !== String(seriesName || "").toLowerCase()
       ? [seriesName, categoryName].filter(Boolean).join(" / ")
