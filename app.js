@@ -274,7 +274,7 @@
     const countText = comingCount
       ? `${publishedCount} RELEASED / ${comingCount} COMING SOON`
       : `${publishedCount} STORIES`;
-    const description = SERIES_DESCRIPTIONS[name] || "同じ世界と関係性でつながる物語をまとめています。";
+    const description = SERIES_DESCRIPTIONS[name] || SERIES_DESCRIPTIONS[String(name || "").toUpperCase()] || "同じ世界と関係性でつながる物語をまとめています。";
 
     return `<section class="works-series-block" style="--series-index:${index}">
       <header class="works-series-heading">

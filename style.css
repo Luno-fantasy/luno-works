@@ -5853,3 +5853,29 @@ body.home-fixed-page {
   .story-dialog-cover{min-height:310px;height:48vh}
 }
 @media(prefers-reduced-motion:reduce){.story-dialog-cover::before{animation:none}}
+
+/* =========================================================
+   STORY DIALOG STATUS LABEL FIX / 2026-07-31
+   Prevent the mobile status label from stretching vertically.
+   ========================================================= */
+.story-dialog .dialog-mark{
+  right:auto;
+  bottom:auto;
+  width:max-content;
+  height:auto;
+  min-width:0;
+  min-height:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1.2;
+}
+@media(max-width:760px){
+  .story-dialog .dialog-mark{
+    left:18px;
+    top:18px;
+    right:auto;
+    bottom:auto;
+    max-width:calc(100% - 92px);
+  }
+}
