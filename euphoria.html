@@ -132,7 +132,7 @@
 </dialog>
 
 <script src="data.js?v=20260731-zeta-links"></script>
-<script src="app.js?v=20260731-zeta-mobile-fix"></script>
+<script src="app.js?v=20260801-case-file-status"></script>
 <script>
 (() => {
   const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA;
@@ -152,14 +152,14 @@
   const esc = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
   count.textContent = `${works.length} STORIES`;
   root.innerHTML = works.length ? works.map((work,index) => {
-    const status = work.status === 'draft' ? 'COMING SOON' : work.isNew ? 'NEW RELEASE' : 'NOW AVAILABLE';
+    const status = work.status === 'draft' ? 'CASE FILE : LOCKED' : 'CASE FILE : OPEN';
     const copy = work.catchphrase || work.catch || work.tagline || work.description || '愛は、救済か依存か。';
     return `<button class="series-story-card ${work.status === 'draft' ? 'is-draft' : ''}" type="button" data-open-work="${esc(work.id)}" aria-label="${esc(work.title)}の詳細を見る">
       <div class="series-story-visual" style="--cover:url('${esc(work.cover || '')}')">
         <span class="series-story-number">${String(index+1).padStart(2,'0')}</span>
-        <span class="series-story-status">${status}</span>
+        <span class="series-story-status">${status}</span>${work.status === 'draft' ? '<span class="series-lock-seal" aria-hidden="true">LOCKED</span>' : ''}
       </div>
-      <div class="series-story-body"><p>EUPHORIA</p><h3>${esc(work.title)}</h3><span>${esc(copy)}</span><small>VIEW STORY ＋</small></div>
+      <div class="series-story-body"><p>EUPHORIA</p><h3>${esc(work.title)}</h3><span>${esc(copy)}</span><small>${work.status === 'draft' ? 'OPEN SEALED FILE ＋' : 'VIEW STORY ＋'}</small></div>
     </button>`;
   }).join('') : '<div class="empty-state">EUPHORIA作品はまだ登録されていません。</div>';
 })();

@@ -408,7 +408,10 @@
     if (!dialog) return;
 
     const seriesName = normalizeSeriesName(work) || ser(work);
-    const statusText = work.status === "draft" ? "COMING SOON" : (work.isNew ? "NEW RELEASE" : "NOW AVAILABLE");
+    const isEuphoria = String(seriesName || "").toUpperCase() === "EUPHORIA";
+    const statusText = isEuphoria
+      ? (work.status === "draft" ? "CASE FILE : LOCKED" : "CASE FILE : OPEN")
+      : (work.status === "draft" ? "COMING SOON" : (work.isNew ? "NEW RELEASE" : "NOW AVAILABLE"));
     const releaseDate = work.releaseDate || work.publishedAt || work.date || "";
     const character = work.mainCharacter || work.character || work.hero || "";
     const position = work.position && work.position !== "standalone" ? work.position : "";
@@ -439,7 +442,9 @@
     };
 
     set("dialogCategory", categoryLabel);
-    set("dialogStatus", STATUS[work.status] || work.status || "");
+    set("dialogStatus", isEuphoria
+      ? (work.status === "draft" ? "CASE FILE : LOCKED" : "CASE FILE : OPEN")
+      : (STATUS[work.status] || work.status || ""));
     set("dialogTitle", work.title);
     set("dialogCatch", work.catchphrase || work.catch || work.tagline || seriesCopy[String(seriesName || "").toUpperCase()] || "月明かりの向こうで、物語が待っている。");
     set("dialogSummary", work.description || work.summary || work.introduction || seriesSummary[String(seriesName || "").toUpperCase()] || "物語の詳細は近日公開予定です。");
@@ -477,7 +482,7 @@
         <button class="related-story-card" type="button" data-related-id="${esc(item.id)}">
           <span class="related-story-cover" style="--cover:url('${esc(item.cover || "")}')"></span>
           <span class="related-story-copy">
-            <small>${item.status === "draft" ? "COMING SOON" : "STORY"}</small>
+            <small>${isEuphoria ? (item.status === "draft" ? "CASE FILE : LOCKED" : "CASE FILE : OPEN") : (item.status === "draft" ? "COMING SOON" : "STORY")}</small>
             <b>${esc(item.title)}</b>
           </span>
           <i>↗</i>
@@ -488,7 +493,15 @@
     const actions = document.getElementById("dialogActions");
     if (actions) {
       const link = work.url || work.link || work.zetaUrl || work.zeta || "";
+      const lockedNotice = isEuphoria && work.status === "draft"
+        ? `<div class="story-lock-panel" role="status">
+            <span>CASE FILE : LOCKED</span>
+            <b>この事件資料は現在封鎖されています。</b>
+            <small>公開までお待ちください。</small>
+          </div>`
+        : "";
       actions.innerHTML = [
+        lockedNotice,
         link && work.status !== "draft" ? `<a class="button story-primary-action" href="${esc(link)}">READ ON ZETA <span>→</span></a>` : "",
         '<button class="button story-secondary-action" type="button" id="dialogBack">作品一覧へ戻る</button>'
       ].join("");

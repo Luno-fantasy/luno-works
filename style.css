@@ -5957,3 +5957,96 @@ body.home-fixed-page {
     letter-spacing:0;
   }
 }
+
+
+/* EUPHORIA CASE FILE STATUS */
+.euphoria-series-page .series-story-card.is-draft{
+  filter:none;
+  border-color:rgba(129,139,180,.3);
+  background:linear-gradient(180deg,rgba(12,15,34,.94),rgba(5,7,18,.98));
+}
+.euphoria-series-page .series-story-card.is-draft .series-story-visual{
+  filter:saturate(.46) brightness(.58);
+}
+.euphoria-series-page .series-story-card.is-draft .series-story-visual::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:repeating-linear-gradient(-35deg,transparent 0 18px,rgba(8,10,25,.12) 18px 20px);
+  pointer-events:none;
+}
+.euphoria-series-page .series-story-status{
+  z-index:3;
+  padding:7px 9px;
+  border:1px solid rgba(232,216,149,.28);
+  background:rgba(5,7,20,.72);
+  backdrop-filter:blur(8px);
+}
+.euphoria-series-page .series-story-card.is-draft .series-story-status{
+  color:#b7bdd4;
+  border-color:rgba(169,178,213,.3);
+}
+.series-lock-seal{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:50%;
+  display:grid;
+  place-items:center;
+  width:clamp(92px,30%,132px);
+  aspect-ratio:1;
+  border:1px solid rgba(205,211,235,.42);
+  border-radius:50%;
+  color:rgba(223,228,246,.72);
+  font:600 11px "Cormorant Garamond",serif;
+  letter-spacing:.24em;
+  transform:translate(-50%,-50%) rotate(-10deg);
+  box-shadow:inset 0 0 0 7px rgba(5,7,20,.34),0 0 25px rgba(93,105,161,.15);
+}
+.series-lock-seal::before,.series-lock-seal::after{
+  content:"";
+  position:absolute;
+  width:70%;
+  height:1px;
+  background:rgba(205,211,235,.35);
+}
+.series-lock-seal::before{top:34%}
+.series-lock-seal::after{bottom:34%}
+.story-lock-panel{
+  grid-column:1/-1;
+  width:100%;
+  padding:22px 20px;
+  border:1px solid rgba(165,176,215,.28);
+  background:linear-gradient(135deg,rgba(23,28,56,.52),rgba(7,9,23,.82));
+  text-align:center;
+}
+.story-lock-panel span{
+  display:block;
+  margin-bottom:13px;
+  color:#b9c2df;
+  font:600 10px "Cormorant Garamond",serif;
+  letter-spacing:.24em;
+}
+.story-lock-panel b{
+  display:block;
+  color:#e1e4ef;
+  font:500 14px/1.8 "Noto Serif JP",serif;
+}
+.story-lock-panel small{
+  display:block;
+  margin-top:7px;
+  color:#858ba1;
+  font-size:11px;
+  letter-spacing:.08em;
+}
+@media(max-width:620px){
+  .euphoria-series-page .series-story-status{
+    max-width:calc(100% - 20px);
+    padding:5px 6px;
+    font-size:6px;
+    letter-spacing:.12em;
+  }
+  .series-lock-seal{width:76px;font-size:8px}
+  .story-lock-panel{padding:19px 14px}
+}
