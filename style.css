@@ -6151,3 +6151,39 @@ body.home-fixed-page {
 .series-story-card.is-draft:disabled{cursor:default;pointer-events:none;user-select:none}
 .series-story-card.is-draft:hover{transform:none;border-color:var(--line);box-shadow:none}
 .series-story-card.is-draft .series-story-visual:after{display:none}
+
+/* COMPLETE CLASSIFICATION FOR NON-EUPHORIA DRAFTS */
+.work-card.is-classified-draft .work-visual{
+  filter:saturate(.12) brightness(.28) contrast(1.18);
+  background-size:cover;
+}
+.work-card.is-classified-draft .work-visual::before{
+  background:
+    linear-gradient(rgba(3,4,12,.80),rgba(3,4,12,.88)),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px);
+}
+.work-card.is-classified-draft .work-visual::after{
+  content:"";
+  display:block;
+  position:absolute;
+  inset:0;
+  z-index:3;
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  background:
+    linear-gradient(90deg,transparent 0 7%,rgba(0,0,0,.68) 7% 93%,transparent 93%),
+    repeating-linear-gradient(0deg,transparent 0 18px,rgba(215,220,255,.035) 19px,transparent 20px);
+  pointer-events:none;
+}
+.work-card.is-classified-draft .classified-lock-stamp{z-index:6;width:84%;background:rgba(3,4,12,.88);border-color:rgba(220,225,255,.26)}
+.work-card.is-classified-draft .classified-lock-stamp em{display:block;margin-top:7px;color:rgba(221,225,245,.52);font-style:normal;font-size:7px;letter-spacing:.18em}
+.work-card.is-classified-draft .work-number{opacity:.3;z-index:7}
+.work-card.is-classified-draft .work-status-ribbon{z-index:7}
+.work-card.is-classified-draft .work-body{background:linear-gradient(180deg,rgba(8,10,25,.98),rgba(5,7,18,.99))}
+.work-card.is-classified-draft .work-body h3{letter-spacing:.12em;color:rgba(231,233,244,.72)}
+.work-card.is-classified-draft .work-card-description{color:rgba(160,160,178,.62)!important}
+.work-card.is-classified-draft .work-category,.work-card.is-classified-draft .work-meta{color:rgba(188,188,205,.55)}
+
+/* EUPHORIA DRAFTS REMAIN PARTIALLY VISIBLE AS SEALED CASE FILES */
+.work-card.is-euphoria-draft .work-visual{filter:saturate(.55) brightness(.58)}
+.work-card.is-euphoria-draft .euphoria-lock-stamp{z-index:6;width:68%;background:rgba(8,10,25,.78)}

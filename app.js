@@ -200,28 +200,34 @@
 
   function cardHtml(work, index) {
     const isDraft = work.status === "draft";
-    const status = isDraft ? "COMING SOON" : "NOW AVAILABLE";
+    const isEuphoria = String(normalizeSeriesName(work) || ser(work) || "").toUpperCase() === "EUPHORIA";
+    const isClassified = isDraft && !isEuphoria;
+    const status = isDraft ? (isEuphoria ? "CASE FILE : LOCKED" : "UNRELEASED") : "NOW AVAILABLE";
     const description = isDraft
-      ? "この作品は現在準備中です。詳細は公開時に解禁されます。"
+      ? (isEuphoria ? "この事件資料は現在封鎖されています。" : "作品情報は公開時に解禁されます。")
       : String(work.description || "物語の扉を開いて、彼との時間を始めてください。");
-    return `<article class="work-card ${work.status === "draft" ? "is-draft" : "is-published"} ${work.isNew ? "is-new" : ""}" data-id="${esc(work.id)}" ${isDraft ? 'aria-disabled="true"' : `tabindex="0" role="button" aria-label="${esc(work.title)}の詳細を見る"`}>
+    const title = isClassified ? "TITLE CLASSIFIED" : work.title;
+    const category = isClassified ? "CLASSIFIED PROJECT" : (ser(work) || cat(work));
+    const meta = isClassified ? "DETAILS SEALED" : cat(work);
+    return `<article class="work-card ${isDraft ? "is-draft" : "is-published"} ${isClassified ? "is-classified-draft" : ""} ${isEuphoria && isDraft ? "is-euphoria-draft" : ""} ${work.isNew ? "is-new" : ""}" data-id="${esc(work.id)}" ${isDraft ? 'aria-disabled="true"' : `tabindex="0" role="button" aria-label="${esc(work.title)}の詳細を見る"`}>
       <div class="work-visual" style="--cover:url('${esc(work.cover || "")}')">
         <span class="work-number">${String(index + 1).padStart(2, "0")}</span>
         <span class="work-status-ribbon">${status}</span>
-        ${work.isNew ? '<span class="work-new-badge">NEW RELEASE</span>' : ""}
-        ${isDraft ? '<span class="draft-lock-stamp" aria-hidden="true"><small>UNRELEASED</small><b>ACCESS DENIED</b></span>' : ""}
+        ${work.isNew && !isDraft ? '<span class="work-new-badge">NEW RELEASE</span>' : ""}
+        ${isClassified ? '<span class="draft-lock-stamp classified-lock-stamp" aria-hidden="true"><small>UNRELEASED PROJECT</small><b>ACCESS DENIED</b><em>ALL DETAILS CLASSIFIED</em></span>' : ""}
+        ${isEuphoria && isDraft ? '<span class="draft-lock-stamp euphoria-lock-stamp" aria-hidden="true"><small>CASE FILE</small><b>LOCKED</b></span>' : ""}
         <span class="work-cover-shine" aria-hidden="true"></span>
       </div>
       <div class="work-body">
         <div class="work-card-topline">
-          <span class="work-category">${esc(ser(work) || cat(work))}</span>
-          <span class="work-status-dot">${esc(STATUS[work.status] || work.status || "")}</span>
+          <span class="work-category">${esc(category)}</span>
+          <span class="work-status-dot">${isClassified ? "非公開" : esc(STATUS[work.status] || work.status || "")}</span>
         </div>
-        <h3>${esc(work.title)}</h3>
+        <h3>${esc(title)}</h3>
         <p class="work-card-description">${esc(description)}</p>
         <div class="work-meta">
-          <span>${esc(cat(work))}</span>
-          <span class="work-detail-link">VIEW STORY <i>↗</i></span>
+          <span>${esc(meta)}</span>
+          <span class="work-detail-link">${isDraft ? "LOCKED" : "VIEW STORY <i>↗</i>"}</span>
         </div>
       </div>
     </article>`;
