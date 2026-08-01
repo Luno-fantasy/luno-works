@@ -199,13 +199,17 @@
   }
 
   function cardHtml(work, index) {
-    const status = work.status === "draft" ? "COMING SOON" : "NOW AVAILABLE";
-    const description = String(work.description || "物語の扉を開いて、彼との時間を始めてください。");
+    const isDraft = work.status === "draft";
+    const status = isDraft ? "COMING SOON" : "NOW AVAILABLE";
+    const description = isDraft
+      ? "この作品は現在準備中です。詳細は公開時に解禁されます。"
+      : String(work.description || "物語の扉を開いて、彼との時間を始めてください。");
     return `<article class="work-card ${work.status === "draft" ? "is-draft" : "is-published"} ${work.isNew ? "is-new" : ""}" data-id="${esc(work.id)}" tabindex="0" role="button" aria-label="${esc(work.title)}の詳細を見る">
       <div class="work-visual" style="--cover:url('${esc(work.cover || "")}')">
         <span class="work-number">${String(index + 1).padStart(2, "0")}</span>
         <span class="work-status-ribbon">${status}</span>
         ${work.isNew ? '<span class="work-new-badge">NEW RELEASE</span>' : ""}
+        ${isDraft ? '<span class="draft-lock-stamp" aria-hidden="true"><small>UNRELEASED</small><b>ACCESS DENIED</b></span>' : ""}
         <span class="work-cover-shine" aria-hidden="true"></span>
       </div>
       <div class="work-body">
@@ -447,7 +451,10 @@
       : (STATUS[work.status] || work.status || ""));
     set("dialogTitle", work.title);
     set("dialogCatch", work.catchphrase || work.catch || work.tagline || seriesCopy[String(seriesName || "").toUpperCase()] || "月明かりの向こうで、物語が待っている。");
-    set("dialogSummary", work.description || work.summary || work.introduction || seriesSummary[String(seriesName || "").toUpperCase()] || "物語の詳細は近日公開予定です。");
+    const protectedDraftSummary = work.status === "draft" && !isEuphoria
+      ? "この作品は現在準備中です。\n\n物語の詳細は、公開時に解禁されます。"
+      : (work.description || work.summary || work.introduction || seriesSummary[String(seriesName || "").toUpperCase()] || "物語の詳細は近日公開予定です。");
+    set("dialogSummary", protectedDraftSummary);
 
     const info = [
       releaseDate ? ["RELEASE", releaseDate] : null,
@@ -493,12 +500,18 @@
     const actions = document.getElementById("dialogActions");
     if (actions) {
       const link = work.url || work.link || work.zetaUrl || work.zeta || "";
-      const lockedNotice = isEuphoria && work.status === "draft"
-        ? `<div class="story-lock-panel" role="status">
-            <span>CASE FILE : LOCKED</span>
-            <b>この事件資料は現在封鎖されています。</b>
-            <small>公開までお待ちください。</small>
-          </div>`
+      const lockedNotice = work.status === "draft"
+        ? (isEuphoria
+          ? `<div class="story-lock-panel" role="status">
+              <span>CASE FILE : LOCKED</span>
+              <b>この事件資料は現在封鎖されています。</b>
+              <small>公開までお待ちください。</small>
+            </div>`
+          : `<div class="story-lock-panel general-lock-panel" role="status">
+              <span>ACCESS DENIED</span>
+              <b>この作品は現在準備中です。</b>
+              <small>詳細は公開時に解禁されます。</small>
+            </div>`)
         : "";
       actions.innerHTML = [
         lockedNotice,

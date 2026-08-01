@@ -6050,3 +6050,94 @@ body.home-fixed-page {
   .series-lock-seal{width:76px;font-size:8px}
   .story-lock-panel{padding:19px 14px}
 }
+
+
+/* GLOBAL UNRELEASED WORK PROTECTION */
+.works-gallery-page .work-card.is-draft .work-visual{
+  filter:saturate(.48) brightness(.52) contrast(.92);
+  background-size:cover;
+}
+.works-gallery-page .work-card.is-draft .work-visual::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:0;
+  pointer-events:none;
+  opacity:.42;
+  background:
+    repeating-linear-gradient(180deg,
+      rgba(255,255,255,.055) 0,
+      rgba(255,255,255,.055) 1px,
+      transparent 1px,
+      transparent 4px),
+    linear-gradient(90deg,transparent 0 47%,rgba(190,205,255,.08) 50%,transparent 53% 100%);
+  background-size:100% 4px,220% 100%;
+  mix-blend-mode:screen;
+  animation:draftScanSweep 7.5s linear infinite;
+}
+.works-gallery-page .work-card.is-draft .work-visual::after{
+  z-index:1;
+  background:
+    linear-gradient(180deg,rgba(4,5,15,.28),rgba(4,5,15,.72)),
+    linear-gradient(90deg,rgba(5,6,17,.32),transparent 35%,rgba(5,6,17,.28));
+}
+.draft-lock-stamp{
+  position:absolute;
+  z-index:5;
+  top:50%;
+  left:50%;
+  width:min(78%,220px);
+  padding:12px 10px 10px;
+  transform:translate(-50%,-50%) rotate(-2deg);
+  border:1px solid rgba(225,231,255,.43);
+  box-shadow:0 0 0 3px rgba(7,8,22,.32),0 12px 34px rgba(0,0,0,.38);
+  color:rgba(240,243,255,.82);
+  background:rgba(8,10,25,.42);
+  backdrop-filter:blur(2px);
+  text-align:center;
+  text-shadow:0 2px 10px rgba(0,0,0,.8);
+  animation:draftGlitchPulse 6.8s steps(1,end) infinite;
+}
+.draft-lock-stamp small{
+  display:block;
+  margin-bottom:6px;
+  font:600 8px/1 "Cormorant Garamond",serif;
+  letter-spacing:.28em;
+}
+.draft-lock-stamp b{
+  display:block;
+  font:600 clamp(13px,1.7vw,18px)/1 "Cormorant Garamond",serif;
+  letter-spacing:.16em;
+}
+.works-gallery-page .work-card.is-draft:hover .work-visual{
+  background-size:cover;
+  filter:saturate(.5) brightness(.55) contrast(.94);
+}
+.works-gallery-page .work-card.is-draft .work-cover-shine{display:none}
+.works-gallery-page .work-card.is-draft .work-status-ribbon{
+  color:rgba(238,241,255,.75);
+  border-top:1px solid rgba(225,230,255,.13);
+  border-left:1px solid rgba(225,230,255,.13);
+}
+.general-lock-panel{
+  border-color:rgba(195,205,242,.19);
+  background:linear-gradient(145deg,rgba(18,21,43,.84),rgba(8,10,26,.94));
+}
+@keyframes draftScanSweep{
+  0%{background-position:0 0,-120% 0}
+  100%{background-position:0 0,120% 0}
+}
+@keyframes draftGlitchPulse{
+  0%,89%,92%,100%{transform:translate(-50%,-50%) rotate(-2deg);clip-path:inset(0)}
+  90%{transform:translate(calc(-50% - 2px),calc(-50% + 1px)) rotate(-2deg);clip-path:inset(12% 0 48% 0)}
+  91%{transform:translate(calc(-50% + 2px),calc(-50% - 1px)) rotate(-2deg);clip-path:inset(58% 0 10% 0)}
+}
+@media(max-width:620px){
+  .draft-lock-stamp{width:74%;padding:10px 8px 9px}
+  .draft-lock-stamp b{font-size:12px;letter-spacing:.12em}
+  .draft-lock-stamp small{font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  .works-gallery-page .work-card.is-draft .work-visual::before,
+  .draft-lock-stamp{animation:none}
+}
