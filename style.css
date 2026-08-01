@@ -6141,3 +6141,13 @@ body.home-fixed-page {
   .work-card.is-draft .work-visual::before,
   .draft-lock-stamp{animation:none}
 }
+
+
+/* DRAFT CARDS: DISPLAY ONLY / NON-INTERACTIVE */
+.work-card.is-draft{cursor:default;pointer-events:none;user-select:none}
+.work-card.is-draft:hover{transform:none;border-color:var(--line)}
+.work-card.is-draft .work-detail-link{opacity:.38}
+.series-story-card.is-draft,
+.series-story-card.is-draft:disabled{cursor:default;pointer-events:none;user-select:none}
+.series-story-card.is-draft:hover{transform:none;border-color:var(--line);box-shadow:none}
+.series-story-card.is-draft .series-story-visual:after{display:none}

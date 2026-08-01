@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260801-draft-lock-v2">
+<link rel="stylesheet" href="style.css?v=20260801-draft-no-click">
 </head>
 <body class="subpage series-detail-page euphoria-series-page">
 <div class="page-transition" id="pageTransition" aria-hidden="true"><div class="transition-moon">☾</div><span class="transition-line"></span></div>
@@ -131,8 +131,8 @@
   </div>
 </dialog>
 
-<script src="data.js?v=20260801-draft-lock-v2"></script>
-<script src="app.js?v=20260801-draft-lock-v2"></script>
+<script src="data.js?v=20260801-draft-no-click"></script>
+<script src="app.js?v=20260801-draft-no-click"></script>
 <script>
 (() => {
   const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA;
@@ -154,7 +154,10 @@
   root.innerHTML = works.length ? works.map((work,index) => {
     const status = work.status === 'draft' ? 'CASE FILE : LOCKED' : 'CASE FILE : OPEN';
     const copy = work.catchphrase || work.catch || work.tagline || work.description || '愛は、救済か依存か。';
-    return `<button class="series-story-card ${work.status === 'draft' ? 'is-draft' : ''}" type="button" data-open-work="${esc(work.id)}" aria-label="${esc(work.title)}の詳細を見る">
+    const cardAttrs = work.status === 'draft'
+      ? 'type="button" disabled aria-disabled="true"'
+      : `type="button" data-open-work="${esc(work.id)}" aria-label="${esc(work.title)}の詳細を見る"`;
+    return `<button class="series-story-card ${work.status === 'draft' ? 'is-draft' : ''}" ${cardAttrs}>
       <div class="series-story-visual" style="--cover:url('${esc(work.cover || '')}')">
         <span class="series-story-number">${String(index+1).padStart(2,'0')}</span>
         <span class="series-story-status">${status}</span>${work.status === 'draft' ? '<span class="series-lock-seal" aria-hidden="true">LOCKED</span>' : ''}

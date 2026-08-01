@@ -204,7 +204,7 @@
     const description = isDraft
       ? "この作品は現在準備中です。詳細は公開時に解禁されます。"
       : String(work.description || "物語の扉を開いて、彼との時間を始めてください。");
-    return `<article class="work-card ${work.status === "draft" ? "is-draft" : "is-published"} ${work.isNew ? "is-new" : ""}" data-id="${esc(work.id)}" tabindex="0" role="button" aria-label="${esc(work.title)}の詳細を見る">
+    return `<article class="work-card ${work.status === "draft" ? "is-draft" : "is-published"} ${work.isNew ? "is-new" : ""}" data-id="${esc(work.id)}" ${isDraft ? 'aria-disabled="true"' : `tabindex="0" role="button" aria-label="${esc(work.title)}の詳細を見る"`}>
       <div class="work-visual" style="--cover:url('${esc(work.cover || "")}')">
         <span class="work-number">${String(index + 1).padStart(2, "0")}</span>
         <span class="work-status-ribbon">${status}</span>
@@ -386,7 +386,7 @@
     const card = event.target.closest(".work-card");
     if (!card) return;
     const work = DATA.works.find(item => String(item.id) === card.dataset.id);
-    if (work) openWork(work);
+    if (work && work.status !== "draft") openWork(work);
   });
 
   workArea?.addEventListener("keydown", event => {
@@ -395,7 +395,7 @@
     if (!card) return;
     event.preventDefault();
     const work = DATA.works.find(item => String(item.id) === card.dataset.id);
-    if (work) openWork(work);
+    if (work && work.status !== "draft") openWork(work);
   });
 
   function displayNumberForWork(work) {
@@ -409,7 +409,7 @@
   }
 
   function openWork(work) {
-    if (!dialog) return;
+    if (!dialog || !work || work.status === "draft") return;
 
     const seriesName = normalizeSeriesName(work) || ser(work);
     const isEuphoria = String(seriesName || "").toUpperCase() === "EUPHORIA";
@@ -556,7 +556,7 @@
     const trigger = event.target.closest("[data-open-work]");
     if (!trigger || !DATA || !Array.isArray(DATA.works)) return;
     const work = DATA.works.find(item => String(item.id) === String(trigger.dataset.openWork));
-    if (work) openWork(work);
+    if (work && work.status !== "draft") openWork(work);
   });
 
   document.addEventListener("keydown", event => {
@@ -565,7 +565,7 @@
     if (!trigger || !DATA || !Array.isArray(DATA.works)) return;
     event.preventDefault();
     const work = DATA.works.find(item => String(item.id) === String(trigger.dataset.openWork));
-    if (work) openWork(work);
+    if (work && work.status !== "draft") openWork(work);
   });
 
   document.getElementById("closeDialog")?.addEventListener("click", () => dialog?.close());
