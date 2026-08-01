@@ -5453,7 +5453,7 @@ body.home-fixed-page {
   pointer-events:none;
 }
 .works-gallery-page .work-card:hover .work-visual{background-size:107%}
-.works-gallery-page .work-card.is-draft .work-visual{
+.work-card.is-draft .work-visual{
   filter:saturate(.68) brightness(.78);
 }
 .works-gallery-page .work-number{
@@ -6053,17 +6053,17 @@ body.home-fixed-page {
 
 
 /* GLOBAL UNRELEASED WORK PROTECTION */
-.works-gallery-page .work-card.is-draft .work-visual{
-  filter:saturate(.48) brightness(.52) contrast(.92);
+.work-card.is-draft .work-visual{
+  filter:saturate(.32) brightness(.40) contrast(.98);
   background-size:cover;
 }
-.works-gallery-page .work-card.is-draft .work-visual::before{
+.work-card.is-draft .work-visual::before{
   content:"";
   position:absolute;
   z-index:2;
   inset:0;
   pointer-events:none;
-  opacity:.42;
+  opacity:.58;
   background:
     repeating-linear-gradient(180deg,
       rgba(255,255,255,.055) 0,
@@ -6075,7 +6075,7 @@ body.home-fixed-page {
   mix-blend-mode:screen;
   animation:draftScanSweep 7.5s linear infinite;
 }
-.works-gallery-page .work-card.is-draft .work-visual::after{
+.work-card.is-draft .work-visual::after{
   z-index:1;
   background:
     linear-gradient(180deg,rgba(4,5,15,.28),rgba(4,5,15,.72)),
@@ -6109,12 +6109,12 @@ body.home-fixed-page {
   font:600 clamp(13px,1.7vw,18px)/1 "Cormorant Garamond",serif;
   letter-spacing:.16em;
 }
-.works-gallery-page .work-card.is-draft:hover .work-visual{
+.work-card.is-draft:hover .work-visual{
   background-size:cover;
   filter:saturate(.5) brightness(.55) contrast(.94);
 }
-.works-gallery-page .work-card.is-draft .work-cover-shine{display:none}
-.works-gallery-page .work-card.is-draft .work-status-ribbon{
+.work-card.is-draft .work-cover-shine{display:none}
+.work-card.is-draft .work-status-ribbon{
   color:rgba(238,241,255,.75);
   border-top:1px solid rgba(225,230,255,.13);
   border-left:1px solid rgba(225,230,255,.13);
@@ -6138,6 +6138,6 @@ body.home-fixed-page {
   .draft-lock-stamp small{font-size:7px}
 }
 @media(prefers-reduced-motion:reduce){
-  .works-gallery-page .work-card.is-draft .work-visual::before,
+  .work-card.is-draft .work-visual::before,
   .draft-lock-stamp{animation:none}
 }
