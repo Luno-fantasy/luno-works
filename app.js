@@ -21,8 +21,15 @@
   });
   if (actor) {
     actor.status = "published";
-    actor.isNew = true;
+    actor.isNew = false;
     actor.releaseDate = "2026.07.30";
+  }
+
+  const summer = DATA.works.find(work => String(work?.title || "").trim() === "君と泳ぐには、夏が足りない。");
+  if (summer) {
+    summer.status = "published";
+    summer.isNew = true;
+    summer.releaseDate = "2026.08.03";
   }
 })();
 
