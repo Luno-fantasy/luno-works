@@ -1001,17 +1001,29 @@ window.BUCANEVE_DATA = {
     {
       "id": "hated-actor",
       "title": "嫌われ俳優は、君の前でだけ演じない。",
-      "status": "draft",
+      "status": "published",
       "category": "modern-romance",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "SOLO STORY",
+      "mainCharacter": "一条朱臣",
+      "relation": [
+        "専属俳優と新任マネージャー"
+      ],
       "cover": "images/covers/hated-actor.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "芸能界",
+        "俳優",
+        "専属マネージャー",
+        "炎上",
+        "毒舌",
+        "唯一の理解者"
+      ],
+      "catchphrase": "嫌われた男が、君の前でだけ本音を見せる。",
+      "releaseDate": "2026.07.30",
+      "isNew": false,
+      "description": "若手俳優への暴力疑惑で炎上し、契約解除寸前となった実力派俳優・一条朱臣。\n\n主演映画の公開まで残り三か月。{{user}}は、彼の新任専属マネージャーに任命される。\n\n無愛想で毒舌な朱臣は、{{user}}を事務所から送り込まれた監視役だと警戒する。\n\nそれでも噂ではなく事実を見て接するうち、{{user}}は誰にも本音を見せなかった彼の、唯一の理解者になっていく。"
     },
     {
       "id": "black-dragon",
