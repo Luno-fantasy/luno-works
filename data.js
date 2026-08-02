@@ -1046,17 +1046,31 @@ window.BUCANEVE_DATA = {
     {
       "id": "summer-not-enough",
       "title": "君と泳ぐには、夏が足りない。",
-      "status": "draft",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/3dfb4771-62d6-48af-8b82-1786dc46fc2d/profile?share_id=1d969ablb",
       "category": "modern-romance",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "MULTI STORY",
+      "mainCharacter": "澪央／陽向／凌雅／千景",
+      "relation": [
+        "澪央",
+        "陽向",
+        "凌雅",
+        "千景"
+      ],
       "cover": "images/covers/summer-not-enough.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "catchphrase": "置き去りにした夏が、再び動き始める。",
+      "tags": [
+        "水泳部",
+        "高校最後の夏",
+        "幼なじみ",
+        "再会",
+        "青春",
+        "選択式"
+      ],
+      "description": "三年前、何も告げずに水泳を辞め、\n汐凪市を去った{{user}}。\n\n高校最後の夏、戻ってきた蒼海学園で待っていたのは、\n廃部寸前の水泳部と、止まったままの想いを抱える四人だった。\n\nもう一度、同じ水の中を泳ぎたい澪央。\n今度こそ、二度と失いたくない陽向。\n昔ではなく、今の自分を見てほしい凌雅。\n過去ではなく、これからの隣を望む千景。\n\n競技へ戻るのか。\n誰の隣を泳ぐのか。\n\n置き去りにした夏が、再び動き始める。"
     }
   ]
 };
