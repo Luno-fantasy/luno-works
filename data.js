@@ -150,21 +150,6 @@ window.BUCANEVE_DATA = {
       "description": ""
     },
     {
-      "id": "contract-bride",
-      "title": "契約満了まで、俺の花嫁。",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/contract-bride.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
       "id": "snake-god-sleepless",
       "title": "蛇神様と、朝まで眠れない。",
       "status": "published",
