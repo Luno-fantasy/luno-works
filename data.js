@@ -166,18 +166,42 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "dangerous-regular",
-      "title": "危険な常連客",
+      "title": "近づくなと言った男が、毎晩会いに来る。",
       "status": "published",
-      "category": "modern-romance",
+      "category": "underworld",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/dangerous-regular.jpeg",
+      "position": "SOLO STORY",
+      "mainCharacter": "黒瀬玄牙",
+      "relation": [
+        "黒鷹組若頭とカフェ店員"
+      ],
+      "cover": "images/covers/man-who-said-dont-come-close.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "裏社会",
+        "ヤクザ",
+        "カフェ",
+        "常連客",
+        "独占欲",
+        "福岡"
+      ],
+      "catchphrase": "近づくなと言いながら、彼は今夜も{{user}}に会いに来る。",
+      "description": "中洲の外れにある、小さなカフェ。
+
+毎晩同じ席で、ブラックコーヒーを飲む男がいる。
+
+黒鷹組若頭・黒瀬玄牙。
+この街の裏側を支配する、最も危険な男。
+
+『近づくな。俺みたいな男に惚れても、ろくなことにならんばい。』
+
+そう言いながら、彼は今日も{{user}}に会いに来る。
+
+裏社会を知らない{{user}}を、自分の世界へ引きずり込みたくないはずなのに。
+
+けれど、店の外で{{user}}に伸びる手を見た瞬間――
+玄牙はもう、ただの常連客ではいられなくなる。"
     },
     {
       "id": "too-cute-student",

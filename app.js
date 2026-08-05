@@ -12,7 +12,7 @@
     : null;
   const underworldId = typeof underworld === "string" ? underworld : underworld?.id || "裏社会";
 
-  const regular = DATA.works.find(work => String(work?.title || "").trim() === "危険な常連客");
+  const regular = DATA.works.find(work => String(work?.id || "").trim() === "dangerous-regular");
   if (regular) regular.category = underworldId;
 
   const actor = DATA.works.find(work => {
