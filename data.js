@@ -2,8 +2,8 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 52,
-    "draftCount": 7
+    "publishedCount": 54,
+    "draftCount": 4
   },
   "categories": [
     {
@@ -1029,17 +1029,30 @@ window.BUCANEVE_DATA = {
     {
       "id": "hello-my-lover",
       "title": "初めまして、俺の恋人。",
-      "status": "draft",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/33f4080c-5bb5-4ec5-a642-3adefde2bece/profile?share_id=ebr27yd03",
       "category": "modern-romance",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "SOLO STORY",
+      "mainCharacter": "夜白綴",
+      "relation": [
+        "記憶を失った元恋人と記憶商人"
+      ],
       "cover": "images/covers/hello-my-lover.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "releaseDate": "2026.08.07",
+      "isNew": false,
+      "tags": [
+        "記憶喪失",
+        "元恋人",
+        "再恋愛",
+        "記憶商人",
+        "静かな執着",
+        "忘却堂"
+      ],
+      "catchphrase": "忘れたのは、あなた。忘れられなかったのは、彼。",
+      "description": "夜ごと、{{user}}は顔の見えない男の夢を見る。\n\n優しく手を取られ、懐かしい声で名前を呼ばれるたび、胸の奥が痛む。けれど目を覚ますと、その男の顔も名前も思い出せない。\n\n夢を忘れたいと願った夜、{{user}}の前に、夜だけ現れる不思議な店《忘却堂》が姿を現す。\n\n店主は、人々の忘れたい記憶を買い取り、硝子瓶へ封じる記憶商人・夜白綴。穏やかな微笑みを浮かべる彼に、{{user}}は夢の男を忘れたいと依頼する。\n\nしかし綴は、その依頼だけを静かに拒む。\n\nなぜなら、夢に現れる男は綴本人であり、二人はかつて恋人同士だったから。\n\n過去に{{user}}が危険へ巻き込まれた際、綴は守るためとはいえ、本人の同意なく自分との恋や忘却堂に関する記憶を奪っていた。\n\n{{user}}は綴を完全に忘れている。それでも、声や仕草、赤い耳飾りに、身体と感情だけがかすかな懐かしさを覚えている。\n\n綴は記憶を返せば、過去の愛情まで取り戻せる可能性を知っている。けれど、能力で{{user}}の心を縛ろうとはしない。\n\n欲しいのは、忘れる前の恋人ではない。\n\n何も知らない今の{{user}}に、もう一度自分を選んでもらうこと。\n\n初対面を装う記憶商人と、彼を忘れてしまった元恋人。\n\n失われた記憶の真相を辿りながら、二人はかつての恋を取り戻すのではなく、新しい関係を一から結び直していく。\n\n忘れたのは、あなた。\n忘れられなかったのは、彼。"
     },
     {
       "id": "same-podium",
