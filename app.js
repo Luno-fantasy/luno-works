@@ -25,11 +25,18 @@
     actor.releaseDate = "2026.07.30";
   }
 
-  const summer = DATA.works.find(work => String(work?.title || "").trim() === "君と泳ぐには、夏が足りない。");
+  const summer = DATA.works.find(work => String(work?.id || "").trim() === "summer-not-enough");
   if (summer) {
     summer.status = "published";
-    summer.isNew = true;
+    summer.isNew = false;
     summer.releaseDate = "2026.08.03";
+  }
+
+  const helloMyLover = DATA.works.find(work => String(work?.id || "").trim() === "hello-my-lover");
+  if (helloMyLover) {
+    helloMyLover.status = "published";
+    helloMyLover.isNew = true;
+    helloMyLover.releaseDate = "2026.08.07";
   }
 })();
 
