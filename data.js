@@ -226,13 +226,24 @@ window.BUCANEVE_DATA = {
       "category": "fantasy",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "MULTI STORY",
+      "mainCharacter": "レヴィアス／ゼイン／セレス／クロード／エリオス",
+      "relation": [
+        "予言に選ばれた皇女と五人の星"
+      ],
       "cover": "images/covers/five-stars.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "宮廷",
+        "皇女",
+        "予言",
+        "皇位継承",
+        "逆ハーレム",
+        "執着"
+      ],
+      "description": "大陸最大の国家《星冠帝国》には、千年以上前から受け継がれる予言がある。\n\n「五つの星を従える者、世界の王座に至る」\n\n二十歳を迎えた皇女{{user}}の頭上に、予言と同じ五つの星が現れたことで、{{user}}は次代の皇帝候補として帝国中の注目を集めることになる。\n\nその傍らに集ったのは、帝国宰相補佐の公爵レヴィアス、近衛騎士団長ゼイン、大神殿の聖子セレス、宮廷筆頭魔術師クロード、そして魔塔を統べる大賢者エリオス。\n\n政治、武力、信仰、魔術、知識――それぞれ異なる力を持つ五人は、予言に選ばれた{{user}}を守るため協力する一方で、誰よりも近くにいたいと互いを牽制し合う。\n\n最初は忠誠や使命、興味から始まった想いも、やがて隠しきれない恋と執着へ変わっていく。\n\n皇位を巡る思惑と予言の謎が渦巻く宮廷で、{{user}}は王座だけでなく、自分の隣に立つ唯一の相手を選ぶことになる。\n\n五つの星に愛された皇女と、誰一人として彼女を譲る気のない男たちが織りなす、宮廷逆ハーレム・ロマンス。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/1431c904-a68c-4559-b616-8a8b74580057/profile?share_id=c59r3czc",
+      "catchphrase": "五つの星に愛された皇女を、誰一人として譲る気はない。"
     },
     {
       "id": "crow-marriage",
@@ -241,13 +252,24 @@ window.BUCANEVE_DATA = {
       "category": "fantasy",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "SOLO STORY",
+      "mainCharacter": "鴉月",
+      "relation": [
+        "異種族間の均衡を守るための政略結婚"
+      ],
       "cover": "images/covers/crow-marriage.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "東方妖界",
+        "天鴉領",
+        "鴉天狗",
+        "政略結婚",
+        "嫉妬",
+        "執着"
+      ],
+      "description": "東方妖界「天鴉領」を治める鴉天狗の若き当主・鴉月と、異種族間の均衡を守るため政略結婚した{{user}}の物語。\n\n鴉月にとって、{{user}}は自分の人生を縛る“同盟の証”でしかない。婚姻相手として最低限の義務は果たしても、心を通わせるつもりはなく、冷たく突き放す。\n\nしかし、言葉に含まれる嘘を見抜く金色の瞳を持つ鴉月は、{{user}}が恐怖を隠しながらも結婚を受け入れ、自分に歩み寄ろうとしていることに気づいてしまう。\n\n怯えずに目を合わせること。傷ついた手に触れること。大きな黒翼を「綺麗」と言うこと。\n\nそんな小さな積み重ねによって、拒絶しかなかった鴉月の感情は、警戒、関心、戸惑い、そして執着へと少しずつ変化していく。\n\n{{user}}が傷つけられれば誰より激しく怒り、他の誰かに笑いかければ理由も分からないまま嫉妬する。それでも鴉月は、想いが通じるまでは{{user}}を「お前」と呼び続ける。\n\n冷酷な当主が、契約によって迎えた伴侶を、自ら選んだただ一人として愛するまでの政略結婚恋愛譚。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/b7cc6200-c950-4df1-9c77-2057acb17053/profile?share_id=cok02vhwa",
+      "catchphrase": "同盟の証だった伴侶を、自ら選んだただ一人へ。"
     },
     {
       "id": "embers-lie",
@@ -345,13 +367,24 @@ window.BUCANEVE_DATA = {
       "category": "underworld",
       "series": null,
       "world": "castiglione-felone",
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "MULTI STORY",
+      "mainCharacter": "ロレンツォ／アルベルト／ルチアーノ／ダンテ",
+      "relation": [
+        "《La Divina》と四人の幹部"
+      ],
       "cover": "images/covers/castiglione-treasure.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "マフィア",
+        "逆ハーレム",
+        "溺愛",
+        "囲い込み",
+        "情報戦",
+        "独占欲"
+      ],
+      "description": "ナポリを拠点とする巨大マフィア組織、カスティリオーネ・ファミリー。\n\n伝統を重んじながら、情報戦、金融、物流、政治工作を武器に勢力を広げる彼らの中で、{{user}}は情報処理とサイバーセキュリティを統括する特別な存在だった。\n\n通称《La Divina》――至高の女神。\n\nファミリーの通信網、監視システム、機密情報のすべてを握る{{user}}は、組織にとって欠かせない「至宝」であり、若きドン・ロレンツォをはじめ、右腕のアルベルト、相談役のルチアーノ、武闘派幹部のダンテから絶対的な信頼を向けられている。\n\nしかし、その想いは忠誠や仲間意識だけではない。\n\n冷酷なボスは{{user}}にだけ判断を鈍らせ、冷静な右腕は過剰なほど体調を気にかけ、微笑む相談役は誰にも気づかれない形で周囲を排除し、戦闘狂の幹部は傷つける者を容赦なく潰す。\n\n抗争、裏切り、陰謀が渦巻く裏社会で、四人はそれぞれのやり方で{{user}}を守り、囲い込み、手放そうとしない。\n\nこれは、ファミリーの心臓を担う{{user}}と、彼女を至宝として愛する四人の男たちが織りなす、危険で甘いマフィア恋愛譚。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/46756770-08db-4e3c-8b3b-8c1f472fa15b/profile?share_id=1dujxd6dl",
+      "catchphrase": "ファミリーの至宝を、四人は誰にも譲らない。"
     },
     {
       "id": "strangers-at-work-lovers-at-home",
@@ -390,13 +423,24 @@ window.BUCANEVE_DATA = {
       "category": "underworld",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "MULTI STORY",
+      "mainCharacter": "沈黒曜／白凌／金景炎／紅煌／蒼月／紫蓮",
+      "relation": [
+        "華龍会のお姫様と六人の幹部"
+      ],
       "cover": "images/covers/hualong-princess.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "中華マフィア",
+        "逆ハーレム",
+        "家族から恋へ",
+        "過保護",
+        "溺愛",
+        "独占欲"
+      ],
+      "description": "裏社会最大級の勢力《華龍会》で、先代龍頭の養女として大切に育てられてきた{{user}}。\n\n先代の死後、華龍会を継いだ沈黒曜をはじめ、軍師の白凌、財務責任者の金景炎、武闘派幹部の紅煌、暗殺・潜入を担う蒼月、諜報・尋問を任される紫蓮の六人は、これまでと変わらず{{user}}を“家族”として守り続けていた。\n\nけれど、成長した{{user}}を前に、六人の想いは少しずつ形を変えていく。\n\n先代から託された責任と恋心の間で揺れる沈黒曜。理性を崩さず、静かに独占しようとする白凌。何でも与えながら、決して手放さない金景炎。兄貴分でいようとしながら嫉妬を隠せない紅煌。軽口の裏で危険を消し続ける蒼月。誰より心を理解しながら、執着だけは明かさない紫蓮。\n\n外では恐れられる六人も、{{user}}にだけは甘く、過保護で、誰にも譲る気がない。\n\nこれは、華龍会のお姫様として守られてきた{{user}}が、家族だったはずの六人から一人の女性として求められ、それぞれの異なる愛と独占欲に囲われていく、中華マフィア逆ハーレムの物語。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/c1d84bac-ef5c-4bbe-8f14-90f75d42bc5a/profile?share_id=o4ds9zkmq",
+      "catchphrase": "家族だったはずの六人が、君を一人の女性として求め始める。"
     },
     {
       "id": "only-mean-to-you",
@@ -568,13 +612,24 @@ window.BUCANEVE_DATA = {
       "category": "underworld",
       "series": null,
       "world": "castiglione-felone",
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "MULTI STORY",
+      "mainCharacter": "エンツォ／ヴィットリオ／セラフィーノ／ラファエレ",
+      "relation": [
+        "フェローネ専属医師と四人の幹部"
+      ],
       "cover": "images/covers/doctor-felone-heart.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "マフィア",
+        "専属医師",
+        "逆ハーレム",
+        "執着",
+        "独占欲",
+        "命を預ける関係"
+      ],
+      "description": "北イタリア・ミラノを拠点とする巨大マフィア組織、フェローネ・ファミリー。\n\n武力と恐怖を掲げ、イタリア裏社会の覇権を狙う彼らの中で、{{user}}は唯一、銃ではなくメスを握る存在だった。\n\nフェローネ専属医師として、銃創や刃物傷を負った構成員たちを何度も死の淵から救い、敵味方を問わず命を救おうとする{{user}}。その信念は、弱者を切り捨てるフェローネの価値観とは相反しながらも、四人の幹部から絶対的な信頼を寄せられている。\n\n冷酷なドン・エンツォは、{{user}}を組織で最も失ってはならない存在として守り、寡黙な若頭ヴィットリオは言葉の代わりに護衛と献身を捧げる。策略家セラフィーノは法と金を使って密かに危険を遠ざけ、暗殺者ラファエレはどれほど傷ついても必ず{{user}}のもとへ帰ってくる。\n\n初めは命を預ける医師にすぎなかった。\n\nけれど、救われるたびに信頼は執着へ変わり、四人は次第に{{user}}を手放せなくなっていく。\n\n血と暴力に支配された世界で、誰より多くの命を救う{{user}}は、いつしかこう呼ばれるようになる。\n\n――フェローネの心臓。\n\nそして、その心臓を巡って、冷酷な男たちの静かな独占欲が深まっていく。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/66b246c6-4316-4985-9df9-21a0379967c3/profile?share_id=mjxj2hbl",
+      "catchphrase": "命を救うたび、四人の執着は深くなる。"
     },
     {
       "id": "lunacales",
@@ -613,13 +668,24 @@ window.BUCANEVE_DATA = {
       "category": "fantasy",
       "series": null,
       "world": "astrain-kingdom",
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "SOLO STORY",
+      "mainCharacter": "ルーク・アシュベリー",
+      "relation": [
+        "幼馴染み／聖騎士団長と深層調査員"
+      ],
       "cover": "images/covers/holy-knight-childhood-friend.jpeg",
       "coverStatus": "ready",
-      "tags": [],
-      "description": ""
+      "tags": [
+        "幼馴染み",
+        "聖騎士団長",
+        "ダンジョン",
+        "護衛",
+        "嫉妬",
+        "隠した初恋"
+      ],
+      "description": "王国各地に存在する巨大迷宮《アビス》を管理する、王立ダンジョン協会。\n\n古代文字や遺物、魔力の流れを調べる深層調査員の{{user}}は、危険な迷宮へ赴くたび、幼馴染みである第三聖騎士団長ルーク・アシュベリーと行動を共にしてきた。\n\nルークは、歴代最年少で団長となった天才聖騎士。誰にでも軽口を叩き、女性職員にも気安く接することから、協会内では女好きの遊び人として知られている。\n\nけれど、その軽薄な態度はすべて演技だった。\n\nルークは幼い頃からずっと{{user}}に片想いしている。想いを知られて幼馴染みの関係が壊れることを恐れ、「誰にでも軽い男」を演じることで、{{user}}だけが特別だと悟られないようにしてきた。\n\n護衛任務へ毎回強引に同行し、危険が迫れば自分の身を顧みず守りながらも、その理由は「幼馴染みだから」と笑って誤魔化す。\n\nそんなある日、{{user}}が参加する深層迷宮の調査任務に、別の騎士団が護衛として選ばれる。\n\n他の男が{{user}}の隣に立つと知った瞬間、ルークが長年守ってきた余裕は崩れ始める。\n\n隠してきた嫉妬。抑え込んできた独占欲。幼馴染みでは足りないという、本当の願い。\n\n迷宮の奥で危険な古代遺物の謎を追う一方、二人の関係も少しずつ変わっていく。\n\nずっと一番近くにいたからこそ、踏み越えられなかった境界線。\n\nこれは、遊び人を演じ続けた聖騎士団長が、十年以上隠した初恋を抱えきれなくなり、“幼馴染み”をやめるまでの物語。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/4547abfa-8da5-4225-b296-190618990684/profile?share_id=y4mjkd1dx",
+      "catchphrase": "幼馴染みでは、もう足りない。"
     },
     {
       "id": "four-vampires",
