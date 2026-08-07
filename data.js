@@ -2,7 +2,7 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 53,
+    "publishedCount": 49,
     "draftCount": 8
   },
   "categories": [
@@ -68,8 +68,7 @@ window.BUCANEVE_DATA = {
       "type": "series",
       "works": [
         "embers-lie",
-        "gunpowder-rain",
-        "sunlight-vow"
+        "gunpowder-rain"
       ]
     },
     {
@@ -340,8 +339,7 @@ window.BUCANEVE_DATA = {
       "position": "main",
       "mainCharacter": "カイン・ヴァレンティノ",
       "relation": [
-        "ディラン・ヴァレンティノ（弟）",
-        "追憶：陽だまりの誓い（スピンオフ）"
+        "ディラン・ヴァレンティノ（弟）"
       ],
       "cover": "images/covers/embers-lie.jpeg",
       "coverStatus": "ready",
@@ -691,36 +689,6 @@ window.BUCANEVE_DATA = {
       "catchphrase": "命を救うたび、四人の執着は深くなる。"
     },
     {
-      "id": "lunacales",
-      "title": "依存の庭、ルナカレス",
-      "status": "published",
-      "category": "underworld",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/lunacales.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
-      "id": "greedy-wolf-white-rabbit",
-      "title": "強欲な狼は白兎を愛でる",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/greedy-wolf-white-rabbit.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
       "id": "holy-knight-childhood-friend",
       "title": "聖騎士団長は“幼馴染み”をやめたい",
       "status": "published",
@@ -1003,38 +971,6 @@ window.BUCANEVE_DATA = {
       "mainCharacter": null,
       "relation": [],
       "cover": "images/covers/senpai-forbidden-tonight.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
-      "id": "kiss-order-violation",
-      "title": "その口づけは、命令違反。",
-      "status": "published",
-      "category": "modern-romance",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/kiss-order-violation.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
-      "id": "sunlight-vow",
-      "title": "追憶：陽だまりの誓い",
-      "status": "published",
-      "category": "fantasy",
-      "series": "valentino",
-      "world": "valentino",
-      "position": "spin-off",
-      "mainCharacter": "カイン・ヴァレンティノ",
-      "relation": [
-        "残り火に、君の嘘を見た（本編）"
-      ],
-      "cover": "images/covers/sunlight-vow.jpeg",
       "coverStatus": "ready",
       "tags": [],
       "description": ""
