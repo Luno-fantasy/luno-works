@@ -45,6 +45,14 @@ window.BUCANEVE_DATA = {
       ]
     },
     {
+      "id": "touhouyoukai",
+      "name": "東方妖界",
+      "type": "series",
+      "works": [
+        "crow-marriage"
+      ]
+    },
+    {
       "id": "astrain-kingdom",
       "name": "アストレイン王国",
       "type": "shared-world",
@@ -308,8 +316,8 @@ window.BUCANEVE_DATA = {
       "title": "鴉との婚姻",
       "status": "published",
       "category": "fantasy",
-      "series": null,
-      "world": null,
+      "series": "touhouyoukai",
+      "world": "touhouyoukai",
       "position": "SOLO STORY",
       "mainCharacter": "鴉月",
       "relation": [

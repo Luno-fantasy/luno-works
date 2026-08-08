@@ -6187,3 +6187,29 @@ body.home-fixed-page {
 /* EUPHORIA DRAFTS REMAIN PARTIALLY VISIBLE AS SEALED CASE FILES */
 .work-card.is-euphoria-draft .work-visual{filter:saturate(.55) brightness(.58)}
 .work-card.is-euphoria-draft .euphoria-lock-stamp{z-index:6;width:68%;background:rgba(8,10,25,.78)}
+
+/* =========================================================
+   TOUHOU YOUKAI SERIES PAGE
+   ========================================================= */
+.touhou-series-page{background:#080907}
+.touhou-series-page .stars{opacity:.42}
+.touhou-mist{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 18% 28%,rgba(105,118,69,.14),transparent 34rem),radial-gradient(circle at 80% 64%,rgba(116,73,52,.13),transparent 32rem);filter:blur(20px)}
+.touhou-hero-image{background-image:url('images/worlds/touhouyoukai.jpg');background-position:center 46%;filter:saturate(.82) contrast(1.03)}
+.touhou-hero-shade{background:linear-gradient(90deg,rgba(8,9,7,.94) 0%,rgba(8,9,7,.65) 42%,rgba(8,9,7,.22) 75%),linear-gradient(0deg,#080907 0%,transparent 48%,rgba(8,9,7,.25) 100%)}
+.touhou-title{font-family:"Noto Serif JP",serif!important;font-size:clamp(54px,10vw,128px)!important;letter-spacing:.12em!important;line-height:1!important;text-shadow:0 0 34px rgba(226,213,169,.15)!important}
+.touhou-crest{position:absolute;right:10%;top:17%;z-index:1;width:250px;height:250px;border:1px solid rgba(229,215,170,.16);border-radius:50%;display:grid;place-items:center;animation:orbitSpin 34s linear infinite}
+.touhou-crest::before,.touhou-crest::after{content:"";position:absolute;inset:25px;border:1px solid rgba(229,215,170,.09);border-radius:50%}.touhou-crest::after{inset:55px}
+.touhou-crest span{font:500 74px "Noto Serif JP",serif;color:rgba(239,229,195,.55);text-shadow:0 0 24px rgba(239,229,195,.18)}
+.touhou-crest i{position:absolute;width:1px;height:122%;background:linear-gradient(transparent,rgba(229,215,170,.22),transparent);transform:rotate(38deg)}
+.touhou-petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}.touhou-petals i{position:absolute;width:7px;height:13px;border-radius:70% 0 70% 0;background:rgba(226,210,179,.18);top:-5%;animation:touhouPetal 17s linear infinite}.touhou-petals i:nth-child(1){left:18%;animation-delay:1s}.touhou-petals i:nth-child(2){left:43%;animation-delay:7s;animation-duration:21s}.touhou-petals i:nth-child(3){left:70%;animation-delay:3s;animation-duration:19s}.touhou-petals i:nth-child(4){left:88%;animation-delay:11s;animation-duration:23s}
+@keyframes touhouPetal{0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}10%{opacity:.55}100%{transform:translate3d(-120px,115vh,0) rotate(520deg);opacity:0}}
+.touhou-world-facts{border-color:rgba(198,185,142,.16)}
+.touhou-domain-section{position:relative}
+.touhou-domain-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.touhou-domain-card{position:relative;overflow:hidden;min-height:430px;padding:42px;border:1px solid rgba(198,185,142,.16);background:linear-gradient(145deg,rgba(19,20,15,.94),rgba(8,9,7,.98));box-shadow:0 22px 60px rgba(0,0,0,.24)}
+.touhou-domain-card::before{content:"";position:absolute;inset:0;opacity:.24;background:radial-gradient(circle at 92% 8%,rgba(229,215,170,.22),transparent 17rem);pointer-events:none}
+.domain-tenkarasu::after{content:"羽";position:absolute;right:-8px;bottom:-42px;font:500 180px "Noto Serif JP",serif;color:rgba(255,255,255,.025);transform:rotate(-8deg)}
+.domain-hakurei::after{content:"蛇";position:absolute;right:-4px;bottom:-40px;font:500 180px "Noto Serif JP",serif;color:rgba(255,255,255,.025);transform:rotate(6deg)}
+.touhou-domain-mark{display:flex;align-items:center;gap:18px;position:relative;z-index:1}.touhou-domain-mark span{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(220,205,158,.28);border-radius:50%;font:600 12px "Cormorant Garamond",serif;color:#d8c99b}.touhou-domain-mark b{font:500 clamp(28px,4vw,44px) "Noto Serif JP",serif;letter-spacing:.08em}.touhou-domain-kana{position:relative;z-index:1;margin:22px 0 34px!important;color:#9a8e6d!important;font:600 9px "Cormorant Garamond",serif!important;letter-spacing:.24em}.touhou-domain-card h3{position:relative;z-index:1;margin:0 0 18px;font:500 19px/1.8 "Noto Serif JP",serif}.touhou-domain-card>p:not(.touhou-domain-kana){position:relative;z-index:1;margin:0;color:#aaa394;font-size:12px;line-height:2}.touhou-domain-tags{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.touhou-domain-tags span{padding:6px 10px;border:1px solid rgba(198,185,142,.16);color:#aaa087;font-size:8px;letter-spacing:.12em}.touhou-domain-card>a,.touhou-sealed-label{position:absolute;left:42px;bottom:36px;z-index:2;color:#d8c99b;font:600 10px "Cormorant Garamond",serif;letter-spacing:.18em}.touhou-domain-card>a i{margin-left:10px;font-style:normal}.touhou-domain-card.is-sealed{filter:saturate(.45);opacity:.72}.touhou-sealed-label{color:#898372}.touhou-story-card .series-story-status{color:#d8c99b}.touhou-story-card .series-story-body p{color:#998b65!important}.touhou-route{background:radial-gradient(circle at 10% 50%,rgba(119,115,66,.13),transparent 24rem),rgba(12,13,10,.76)}
+@media(max-width:760px){.touhou-crest{width:170px;height:170px;right:-20px;top:15%;opacity:.58}.touhou-crest span{font-size:48px}.touhou-domain-grid{grid-template-columns:1fr}.touhou-domain-card{min-height:410px;padding:30px}.touhou-domain-card>a,.touhou-sealed-label{left:30px;bottom:28px}.touhou-title{font-size:clamp(42px,15vw,74px)!important;letter-spacing:.08em!important}}
+@media(prefers-reduced-motion:reduce){.touhou-petals i,.touhou-crest{animation:none}}
