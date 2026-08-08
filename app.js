@@ -35,8 +35,15 @@
   const helloMyLover = DATA.works.find(work => String(work?.id || "").trim() === "hello-my-lover");
   if (helloMyLover) {
     helloMyLover.status = "published";
-    helloMyLover.isNew = true;
+    helloMyLover.isNew = false;
     helloMyLover.releaseDate = "2026.08.07";
+  }
+
+  const sylvester = DATA.works.find(work => String(work?.id || "").trim() === "boss-obey-me");
+  if (sylvester) {
+    sylvester.status = "published";
+    sylvester.isNew = true;
+    sylvester.releaseDate = "2026.08.08";
   }
 })();
 
