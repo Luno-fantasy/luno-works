@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260808-2240">
+<link rel="stylesheet" href="style.css?v=20260808-touhou-v3">
 </head>
 <body class="subpage series-detail-page touhou-series-page">
 <div class="page-transition" id="pageTransition" aria-hidden="true"><div class="transition-moon">☾</div><span class="transition-line"></span></div>
@@ -136,8 +136,8 @@
   </div>
 </dialog>
 
-<script src="data.js?v=20260808-2240"></script>
-<script src="app.js?v=20260808-2240"></script>
+<script src="data.js?v=20260808-touhou-v3"></script>
+<script src="app.js?v=20260808-touhou-v3"></script>
 <script>
 (() => {
   const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA;
@@ -157,12 +157,16 @@
   const esc = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
   count.textContent = `${works.length} STORIES`;
   root.innerHTML = works.length ? works.map((work,index) => {
-    const status = work.status === 'draft' ? 'SEALED RECORD' : 'RECORD : OPEN';
+    const isDraft = work.status === 'draft';
+    const status = isDraft ? 'SEALED RECORD' : 'RECORD : OPEN';
     const copy = work.catchphrase || work.catch || work.tagline || '月夜の境で、縁が結ばれる。';
-    const cardAttrs = work.status === 'draft' ? 'type="button" disabled aria-disabled="true"' : `type="button" data-open-work="${esc(work.id)}" aria-label="${esc(work.title)}の詳細を見る"`;
-    return `<button class="series-story-card touhou-story-card ${work.status === 'draft' ? 'is-draft' : ''}" ${cardAttrs}>
-      <div class="series-story-visual" style="--cover:url('${esc(work.cover || '')}')"><span class="series-story-number">${String(index+1).padStart(2,'0')}</span><span class="series-story-status">${status}</span></div>
-      <div class="series-story-body"><p>東方妖界</p><h3>${esc(work.title)}</h3><span>${esc(copy)}</span><small>${work.status === 'draft' ? 'SEALED RECORD' : 'VIEW TALE ＋'}</small></div>
+    const cardAttrs = isDraft ? 'type="button" disabled aria-disabled="true"' : `type="button" data-open-work="${esc(work.id)}" aria-label="${esc(work.title)}の詳細を見る"`;
+    const title = isDraft ? 'TITLE CLASSIFIED' : esc(work.title);
+    const bodyCopy = isDraft ? 'この記録は現在封印されています。' : esc(copy);
+    const lock = isDraft ? '<span class="touhou-record-lock" aria-hidden="true"><small>SEALED RECORD</small><b>ACCESS DENIED</b><em>DETAILS CLASSIFIED</em></span>' : '';
+    return `<button class="series-story-card touhou-story-card ${isDraft ? 'is-draft is-classified-record' : ''}" ${cardAttrs}>
+      <div class="series-story-visual" style="--cover:url('${esc(work.cover || '')}')"><span class="series-story-number">${String(index+1).padStart(2,'0')}</span><span class="series-story-status">${status}</span>${lock}</div>
+      <div class="series-story-body"><p>東方妖界</p><h3>${title}</h3><span>${bodyCopy}</span><small>${isDraft ? 'SEALED RECORD' : 'VIEW TALE ＋'}</small></div>
     </button>`;
   }).join('') : '<div class="empty-state">東方妖界の物語はまだ登録されていません。</div>';
 })();

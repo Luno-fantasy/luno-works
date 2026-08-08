@@ -6214,3 +6214,72 @@ body.home-fixed-page {
 .touhou-domain-mark{display:flex;align-items:center;gap:18px;position:relative;z-index:1}.touhou-domain-mark span{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(220,205,158,.28);border-radius:50%;font:600 12px "Cormorant Garamond",serif;color:#d8c99b}.touhou-domain-mark b{font:500 clamp(28px,4vw,44px) "Noto Serif JP",serif;letter-spacing:.08em}.touhou-domain-kana{position:relative;z-index:1;margin:22px 0 34px!important;color:#9a8e6d!important;font:600 9px "Cormorant Garamond",serif!important;letter-spacing:.24em}.touhou-domain-card h3{position:relative;z-index:1;margin:0 0 18px;font:500 19px/1.8 "Noto Serif JP",serif}.touhou-domain-card>p:not(.touhou-domain-kana){position:relative;z-index:1;margin:0;color:#aaa394;font-size:12px;line-height:2}.touhou-domain-tags{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.touhou-domain-tags span{padding:6px 10px;border:1px solid rgba(198,185,142,.16);color:#aaa087;font-size:8px;letter-spacing:.12em}.touhou-domain-card>a,.touhou-sealed-label{position:absolute;left:42px;bottom:36px;z-index:2;color:#d8c99b;font:600 10px "Cormorant Garamond",serif;letter-spacing:.18em}.touhou-domain-card>a i{margin-left:10px;font-style:normal}.touhou-domain-card.is-sealed{filter:saturate(.45);opacity:.72}.touhou-sealed-label{color:#898372}.touhou-story-card .series-story-status{color:#d8c99b}.touhou-story-card .series-story-body p{color:#998b65!important}.touhou-route{background:radial-gradient(circle at 10% 50%,rgba(119,115,66,.13),transparent 24rem),rgba(12,13,10,.76)}
 @media(max-width:760px){.touhou-crest{width:170px;height:170px;right:-20px;top:15%;opacity:.58}.touhou-crest span{font-size:48px}.touhou-domain-grid{grid-template-columns:1fr}.touhou-domain-card{min-height:410px;padding:30px}.touhou-domain-card>a,.touhou-sealed-label{left:30px;bottom:28px}.touhou-title{font-size:clamp(42px,15vw,74px)!important;letter-spacing:.08em!important}.touhou-domain-cover{opacity:.5}}
 @media(prefers-reduced-motion:reduce){.touhou-petals i,.touhou-crest{animation:none}}
+
+
+/* TOUHOU YOUKAI: FULL PROTECTION FOR UNRELEASED RECORDS */
+.touhou-story-card.is-classified-record .series-story-visual{
+  background-size:cover;
+  background-position:center;
+  isolation:isolate;
+}
+.touhou-story-card.is-classified-record .series-story-visual::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
+  background:
+    linear-gradient(rgba(3,4,4,.83),rgba(3,4,4,.90)),
+    repeating-linear-gradient(0deg,rgba(229,215,170,.035) 0 1px,transparent 1px 4px),
+    linear-gradient(90deg,rgba(0,0,0,.76),rgba(0,0,0,.48),rgba(0,0,0,.76));
+  -webkit-backdrop-filter:blur(10px) saturate(.15);
+  backdrop-filter:blur(10px) saturate(.15);
+  pointer-events:none;
+}
+.touhou-story-card.is-classified-record .series-story-number,
+.touhou-story-card.is-classified-record .series-story-status{
+  z-index:6;
+  opacity:.58;
+}
+.touhou-record-lock{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:7;
+  width:78%;
+  transform:translate(-50%,-50%) rotate(-2deg);
+  padding:15px 12px 13px;
+  border:1px solid rgba(222,207,157,.28);
+  background:rgba(5,6,5,.88);
+  box-shadow:0 16px 40px rgba(0,0,0,.38);
+  text-align:center;
+  text-shadow:0 2px 10px rgba(0,0,0,.8);
+}
+.touhou-record-lock small,
+.touhou-record-lock em{
+  display:block;
+  color:rgba(216,201,155,.62);
+  font:600 8px/1.2 "Cormorant Garamond",serif;
+  letter-spacing:.22em;
+}
+.touhou-record-lock b{
+  display:block;
+  margin:8px 0;
+  color:rgba(239,232,209,.86);
+  font:600 clamp(13px,1.8vw,18px)/1 "Cormorant Garamond",serif;
+  letter-spacing:.16em;
+}
+.touhou-record-lock em{font-style:normal;font-size:7px;opacity:.72}
+.touhou-story-card.is-classified-record .series-story-body{
+  background:linear-gradient(180deg,rgba(7,8,7,.99),rgba(5,6,5,1));
+}
+.touhou-story-card.is-classified-record .series-story-body h3{
+  color:rgba(231,226,210,.72);
+  letter-spacing:.1em;
+}
+.touhou-story-card.is-classified-record .series-story-body>span{
+  color:rgba(160,156,143,.62);
+}
+@media(max-width:620px){
+  .touhou-record-lock{width:82%;padding:12px 8px 11px}
+  .touhou-record-lock b{font-size:12px}
+}
