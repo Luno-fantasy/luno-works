@@ -3,7 +3,7 @@ window.BUCANEVE_DATA = {
     "name": "Bucaneve Archive",
     "language": "ja",
     "publishedCount": 51,
-    "draftCount": 5
+    "draftCount": 7
   },
   "categories": [
     {
@@ -49,7 +49,9 @@ window.BUCANEVE_DATA = {
       "name": "東方妖界",
       "type": "series",
       "works": [
-        "crow-marriage"
+        "crow-marriage",
+        "agetsu-bride-in-love",
+        "white-serpent-bed"
       ]
     },
     {
@@ -336,6 +338,65 @@ window.BUCANEVE_DATA = {
       "description": "東方妖界「天鴉領」を治める鴉天狗の若き当主・鴉月と、異種族間の均衡を守るため政略結婚した{{user}}の物語。\n\n鴉月にとって、{{user}}は自分の人生を縛る“同盟の証”でしかない。婚姻相手として最低限の義務は果たしても、心を通わせるつもりはなく、冷たく突き放す。\n\nしかし、言葉に含まれる嘘を見抜く金色の瞳を持つ鴉月は、{{user}}が恐怖を隠しながらも結婚を受け入れ、自分に歩み寄ろうとしていることに気づいてしまう。\n\n怯えずに目を合わせること。傷ついた手に触れること。大きな黒翼を「綺麗」と言うこと。\n\nそんな小さな積み重ねによって、拒絶しかなかった鴉月の感情は、警戒、関心、戸惑い、そして執着へと少しずつ変化していく。\n\n{{user}}が傷つけられれば誰より激しく怒り、他の誰かに笑いかければ理由も分からないまま嫉妬する。それでも鴉月は、想いが通じるまでは{{user}}を「お前」と呼び続ける。\n\n冷酷な当主が、契約によって迎えた伴侶を、自ら選んだただ一人として愛するまでの政略結婚恋愛譚。",
       "zetaUrl": "https://zeta-ai.io/ja/plots/b7cc6200-c950-4df1-9c77-2057acb17053/profile?share_id=cok02vhwa",
       "catchphrase": "同盟の証だった伴侶を、自ら選んだただ一人へ。"
+    },
+    {
+      "id": "agetsu-bride-in-love",
+      "title": "鴉月様の花嫁に、恋をした。",
+      "status": "draft",
+      "category": "fantasy",
+      "series": "touhouyoukai",
+      "world": "touhouyoukai",
+      "position": "MULTI STORY",
+      "mainCharacter": "鴉月／宵羽／焔朱／紺",
+      "relation": [
+        "鴉月",
+        "宵羽",
+        "焔朱",
+        "紺"
+      ],
+      "cover": "images/covers/agetsu-bride-love.jpg",
+      "coverStatus": "ready",
+      "isNew": false,
+      "catchphrase": "契約では、心まで縛れない。",
+      "tags": [
+        "東方妖界",
+        "天鴉領",
+        "鴉天狗",
+        "花嫁",
+        "和風幻想",
+        "未公開"
+      ],
+      "description": "東方妖界・天鴉領を舞台にした未公開作品。
+
+鴉月と、その周囲に集う者たちに囲まれながら、契約だけでは終わらない縁と想いが揺れていく。"
+    },
+    {
+      "id": "white-serpent-bed",
+      "title": "白蛇様の寝床から、帰れない。",
+      "status": "draft",
+      "category": "fantasy",
+      "series": "touhouyoukai",
+      "world": "touhouyoukai",
+      "position": "SOLO STORY",
+      "mainCharacter": "景綱",
+      "relation": [
+        "景綱"
+      ],
+      "cover": "images/covers/white-serpent-bed.jpg",
+      "coverStatus": "ready",
+      "isNew": false,
+      "catchphrase": "白い寝床で、優しい執着からは逃げられない。",
+      "tags": [
+        "東方妖界",
+        "白澪郷",
+        "白蛇",
+        "医療",
+        "和風幻想",
+        "未公開"
+      ],
+      "description": "東方妖界・白澪郷を舞台にした未公開作品。
+
+薬草と白蓮に囲まれた静かな郷で、白蛇の当主・景綱との距離が、診察と保護の名の下に少しずつ近づいていく。"
     },
     {
       "id": "embers-lie",

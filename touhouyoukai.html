@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260808-touhou-series">
+<link rel="stylesheet" href="style.css?v=20260808-touhou-v2">
 </head>
 <body class="subpage series-detail-page touhou-series-page">
 <div class="page-transition" id="pageTransition" aria-hidden="true"><div class="transition-moon">☾</div><span class="transition-line"></span></div>
@@ -74,10 +74,11 @@
 <section class="section touhou-domain-section" id="domains">
   <div class="series-title-row reveal">
     <div><p class="eyebrow">DOMAIN RECORDS</p><h2>領地記録</h2></div>
-    <span>02 DOMAINS</span>
+    <span>02 DOMAINS / 03 TALES</span>
   </div>
   <div class="touhou-domain-grid">
     <article class="touhou-domain-card domain-tenkarasu reveal">
+      <div class="touhou-domain-cover"><img src="images/worlds/tenkarasu-domain.jpg" alt="天鴉領"></div>
       <div class="touhou-domain-mark"><span>01</span><b>天鴉領</b></div>
       <p class="touhou-domain-kana">TENKARASU DOMAIN</p>
       <h3>夜と黒翼を統べる、鴉天狗の領地。</h3>
@@ -85,13 +86,14 @@
       <div class="touhou-domain-tags"><span>鴉天狗</span><span>夜</span><span>契約</span><span>政略婚</span></div>
       <a href="#touhouWorks">RECORD : OPEN <i>↓</i></a>
     </article>
-    <article class="touhou-domain-card domain-hakurei reveal is-sealed">
+    <article class="touhou-domain-card domain-hakurei reveal">
+      <div class="touhou-domain-cover"><img src="images/worlds/hakurei-domain.jpg" alt="白澪郷"></div>
       <div class="touhou-domain-mark"><span>02</span><b>白澪郷</b></div>
       <p class="touhou-domain-kana">HAKUREI DOMAIN</p>
       <h3>薬草と白蓮に守られた、白蛇の郷。</h3>
       <p>医療と薬草を司る静かな領地。白を基調とした景色の中、治癒と毒、命を巡る妖の知恵が受け継がれている。</p>
       <div class="touhou-domain-tags"><span>白蛇</span><span>医療</span><span>薬草</span><span>白蓮</span></div>
-      <span class="touhou-sealed-label">SEALED RECORD / 記録準備中</span>
+      <a href="#touhouWorks">RECORD : OPEN <i>↓</i></a>
     </article>
   </div>
 </section>
@@ -134,8 +136,8 @@
   </div>
 </dialog>
 
-<script src="data.js?v=20260808-touhou-series"></script>
-<script src="app.js?v=20260808-touhou-series"></script>
+<script src="data.js?v=20260808-touhou-v2"></script>
+<script src="app.js?v=20260808-touhou-v2"></script>
 <script>
 (() => {
   const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA;

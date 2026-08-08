@@ -256,7 +256,6 @@
 
   const SERIES_ORDER = [
     "EUPHORIA",
-    "東方妖界",
     "華龍会",
     "アストレイン王国",
     "カスティリオーネ／フェローネ",
@@ -267,7 +266,6 @@
 
   const SERIES_DESCRIPTIONS = {
     "EUPHORIA": "愛は、救済か依存か。",
-    "東方妖界": "月夜の領地に、妖と人の縁が結ばれる。",
     "華龍会": "龍華街を舞台に、掟と愛に守られた物語。",
     "アストレイン王国": "剣と誓いが結ぶ、王国ファンタジー作品群。",
     "カスティリオーネ／フェローネ": "忠誠と硝煙が交差する、同じ世界線のマフィア作品群。",
@@ -309,12 +307,7 @@
       : `${publishedCount} STORIES`;
     const description = SERIES_DESCRIPTIONS[name] || SERIES_DESCRIPTIONS[String(name || "").toUpperCase()] || "同じ世界と関係性でつながる物語をまとめています。";
 
-    const seriesKey = String(name || "").toUpperCase();
-    const dedicatedUrl = seriesKey === "EUPHORIA"
-      ? "euphoria.html"
-      : String(name || "") === "東方妖界"
-        ? "touhouyoukai.html"
-        : "";
+    const dedicatedUrl = String(name || "").toUpperCase() === "EUPHORIA" ? "euphoria.html" : "";
     return `<section class="works-series-block" style="--series-index:${index}">
       <header class="works-series-heading" ${dedicatedUrl ? 'data-series-page="true"' : ''}>
         <div class="series-heading-mark"><span>${String(index + 1).padStart(2, "0")}</span></div>
