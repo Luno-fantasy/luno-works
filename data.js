@@ -2,8 +2,8 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 51,
-    "draftCount": 7
+    "publishedCount": 52,
+    "draftCount": 6
   },
   "categories": [
     {
@@ -371,7 +371,8 @@ window.BUCANEVE_DATA = {
     {
       "id": "white-serpent-bed",
       "title": "白蛇様の寝床から、帰れない。",
-      "status": "draft",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/e2833b17-5109-4e4e-b4a1-49d1336c9cf3/profile?share_id=nsaqzb1s",
       "category": "fantasy",
       "series": "touhouyoukai",
       "world": "touhouyoukai",
@@ -382,17 +383,17 @@ window.BUCANEVE_DATA = {
       ],
       "cover": "images/covers/white-serpent-bed.jpg",
       "coverStatus": "ready",
-      "isNew": false,
+      "releaseDate": "2026.08.10",
+      "isNew": true,
       "catchphrase": "白い寝床で、優しい執着からは逃げられない。",
       "tags": [
         "東方妖界",
         "白澪郷",
         "白蛇",
         "医療",
-        "和風幻想",
-        "未公開"
+        "和風幻想"
       ],
-      "description": "東方妖界・白澪郷を舞台にした未公開作品。\n\n薬草と白蓮に囲まれた静かな郷で、白蛇の当主・景綱との距離が、診察と保護の名の下に少しずつ近づいていく。"
+      "description": "東方妖界・白澪郷。\n\n薬草と白蓮に囲まれた静かな郷で、白蛇の医師・景綱との距離が、診察と保護の名の下に少しずつ近づいていく。\n\n穏やかな言葉と丁寧な手つきに包まれるほど、その優しさから逃れる理由を失っていく。"
     },
     {
       "id": "embers-lie",
@@ -1198,7 +1199,7 @@ window.BUCANEVE_DATA = {
         "独占欲"
       ],
       "releaseDate": "2026.08.08",
-      "isNew": true,
+      "isNew": false,
       "description": ""
     },
     {
