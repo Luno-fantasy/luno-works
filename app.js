@@ -42,8 +42,15 @@
   const sylvester = DATA.works.find(work => String(work?.id || "").trim() === "boss-obey-me");
   if (sylvester) {
     sylvester.status = "published";
-    sylvester.isNew = true;
+    sylvester.isNew = false;
     sylvester.releaseDate = "2026.08.08";
+  }
+
+  const whiteSerpent = DATA.works.find(work => String(work?.id || "").trim() === "white-serpent-bed");
+  if (whiteSerpent) {
+    whiteSerpent.status = "published";
+    whiteSerpent.isNew = true;
+    whiteSerpent.releaseDate = "2026.08.10";
   }
 })();
 
