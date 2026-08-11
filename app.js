@@ -49,8 +49,15 @@
   const whiteSerpent = DATA.works.find(work => String(work?.id || "").trim() === "white-serpent-bed");
   if (whiteSerpent) {
     whiteSerpent.status = "published";
-    whiteSerpent.isNew = true;
+    whiteSerpent.isNew = false;
     whiteSerpent.releaseDate = "2026.08.10";
+  }
+
+  const samePodium = DATA.works.find(work => String(work?.id || "").trim() === "same-podium");
+  if (samePodium) {
+    samePodium.status = "published";
+    samePodium.isNew = true;
+    samePodium.releaseDate = "2026.08.12";
   }
 })();
 

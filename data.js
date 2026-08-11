@@ -2,8 +2,8 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 52,
-    "draftCount": 6
+    "publishedCount": 53,
+    "draftCount": 5
   },
   "categories": [
     {
@@ -384,7 +384,7 @@ window.BUCANEVE_DATA = {
       "cover": "images/covers/white-serpent-bed.jpg",
       "coverStatus": "ready",
       "releaseDate": "2026.08.10",
-      "isNew": true,
+      "isNew": false,
       "catchphrase": "白い寝床で、優しい執着からは逃げられない。",
       "tags": [
         "東方妖界",
@@ -1117,21 +1117,33 @@ window.BUCANEVE_DATA = {
     {
       "id": "same-podium",
       "title": "俺たちは、同じ表彰台に立てない。",
-      "status": "draft",
+      "status": "published",
       "category": "modern-romance",
       "series": null,
       "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
+      "position": "MULTI STORY",
+      "mainCharacter": "御影冬真／朝比奈湊／レオ・ヴァレンティ／久世凛生",
+      "relation": [
+        "御影冬真",
+        "朝比奈湊",
+        "レオ・ヴァレンティ",
+        "久世凛生"
+      ],
       "cover": "images/covers/same-podium.jpeg",
       "coverStatus": "ready",
       "tags": [
         "現代",
         "フィギュアスケート",
-        "BL"
+        "BL",
+        "ライバル",
+        "幼馴染み",
+        "青春"
       ],
-      "description": ""
+      "description": "かつて“氷上の語り部”と呼ばれ、将来を期待されていた男子フィギュアスケーター・{{user}}。\n\nしかしシニア転向後は思うような結果を残せず、失敗への恐怖から本来の表現力まで失い、今季結果を出せなければ強化指定を外される瀬戸際に立たされていた。\n\nそんな{{user}}の前にいるのは、世界選手権二連覇中の絶対王者・御影冬真。幼い頃から同じリンクで滑ってきた幼馴染・朝比奈湊。観客を魅了するイタリア代表の人気スター・レオ・ヴァレンティ。そして、かつて{{user}}の演技に救われた天才ルーキー・久世凛生。\n\n四人はそれぞれ違う理由で{{user}}を見つめている。\n\n憧れ、恋心、執着、競争心。\n\nけれど彼らは恋愛対象である以前に、同じ表彰台を争うライバルでもある。\n\n大会、公式練習、遠征、キス・アンド・クライ。\n\n勝ちたい気持ちと、好きな相手の成功を願う気持ちがぶつかるたび、五人の関係は少しずつ変わっていく。\n\nそして{{user}}自身も、四人との競争の中で、失いかけていた“自分の滑り”を取り戻していく。\n\n世界一を目指す氷の上で始まるのは、勝負も恋も譲れない、男子フィギュアスケーターたちの青春BLストーリー。",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/c96a0807-0f6d-457c-9c4c-b3231f152d9f/profile?share_id=nt5g4xk6r",
+      "catchphrase": "勝ちたい。けれど、好きな相手の成功も願ってしまう。",
+      "releaseDate": "2026.08.12",
+      "isNew": true
     },
     {
       "id": "hated-actor",
