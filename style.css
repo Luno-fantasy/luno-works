@@ -6283,3 +6283,26 @@ body.home-fixed-page {
   .touhou-record-lock{width:82%;padding:12px 8px 11px}
   .touhou-record-lock b{font-size:12px}
 }
+
+
+/* PROFILE QUIET EXTERNAL LINK */
+.profile-link-card--quiet{
+  opacity:.68;
+  border-color:rgba(231,224,197,.08);
+  background:rgba(8,10,23,.5);
+}
+.profile-link-card--quiet:hover,
+.profile-link-card--quiet:focus-visible{
+  opacity:.92;
+}
+.profile-link-card--quiet > span,
+.profile-link-card--quiet i{
+  color:rgba(240,221,162,.62);
+  border-color:rgba(240,221,162,.14);
+}
+.profile-link-card--quiet strong{
+  color:rgba(247,243,255,.78);
+}
+.profile-link-card--quiet small{
+  color:rgba(222,220,236,.36);
+}
