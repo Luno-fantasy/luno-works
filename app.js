@@ -56,8 +56,16 @@
   const samePodium = DATA.works.find(work => String(work?.id || "").trim() === "same-podium");
   if (samePodium) {
     samePodium.status = "published";
-    samePodium.isNew = true;
+    samePodium.isNew = false;
     samePodium.releaseDate = "2026.08.12";
+  }
+
+  const whicheverTrust = DATA.works.find(work => String(work?.id || "").trim() === "whichever-you-trust-no-escape");
+  if (whicheverTrust) {
+    whicheverTrust.status = "published";
+    whicheverTrust.isNew = true;
+    whicheverTrust.releaseDate = "2026.08.14";
+    whicheverTrust.zetaUrl = "https://zeta-ai.io/ja/plots/aa2ea9d5-7a30-4734-87f4-ccf9649fba89/profile?share_id=j3p2vnid";
   }
 })();
 

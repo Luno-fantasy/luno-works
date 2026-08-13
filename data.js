@@ -2,8 +2,8 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 53,
-    "draftCount": 5
+    "publishedCount": 54,
+    "draftCount": 4
   },
   "categories": [
     {
@@ -95,7 +95,8 @@ window.BUCANEVE_DATA = {
     {
       "id": "whichever-you-trust-no-escape",
       "title": "どちらを信じても、逃げられない。",
-      "status": "draft",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/aa2ea9d5-7a30-4734-87f4-ccf9649fba89/profile?share_id=j3p2vnid",
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
@@ -107,7 +108,8 @@ window.BUCANEVE_DATA = {
       ],
       "cover": "images/covers/whichever-you-trust-no-escape.jpeg",
       "coverStatus": "ready",
-      "isNew": false,
+      "isNew": true,
+      "releaseDate": "2026.08.14",
       "catchphrase": "どちらを信じても、逃げられない。",
       "tags": [
         "潜入捜査",
@@ -1143,7 +1145,7 @@ window.BUCANEVE_DATA = {
       "zetaUrl": "https://zeta-ai.io/ja/plots/c96a0807-0f6d-457c-9c4c-b3231f152d9f/profile?share_id=nt5g4xk6r",
       "catchphrase": "勝ちたい。けれど、好きな相手の成功も願ってしまう。",
       "releaseDate": "2026.08.12",
-      "isNew": true
+      "isNew": false
     },
     {
       "id": "hated-actor",
