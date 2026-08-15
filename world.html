@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260814-whichever-published">
+<link rel="stylesheet" href="style.css?v=20260815-world-count-auto">
 </head>
 <body class="subpage world-fantasy-page">
 <div class="page-transition" id="pageTransition" aria-hidden="true">
@@ -68,7 +68,7 @@
       </button>
       <div class="world-portal-detail">
         <div><p>歪んだ執着と共依存を描く連作世界。救いを求めるほど深く絡まり、愛と依存の境界が静かに崩れていく。</p></div>
-        <dl><div><dt>TYPE</dt><dd>Series</dd></div><div><dt>WORKS</dt><dd>6</dd></div></dl>
+        <dl><div><dt>TYPE</dt><dd>Series</dd></div><div><dt>WORKS</dt><dd id="euphoriaWorldCount">—</dd></div></dl>
         <a href="euphoria.html">世界へ入る <span>→</span></a>
       </div>
     </article>
@@ -122,5 +122,15 @@
 <footer><div><b>LUNO WORKS</b><span>Official Moonlit Archive</span></div><small>© LUNO WORKS</small></footer>
 </div>
 <button class="back-to-top" id="backToTop" type="button">↑</button>
-<script src="data.js?v=20260814-whichever-published"></script><script src="app.js?v=20260814-whichever-published"></script>
+<script src="data.js?v=20260815-world-count-auto"></script><script src="app.js?v=20260815-world-count-auto"></script>
+<script>
+(() => {
+  const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA;
+  const count = document.getElementById('euphoriaWorldCount');
+  if (!count || !DATA || !Array.isArray(DATA.works)) return;
+  const seriesMap = Object.fromEntries((DATA.series || []).map(s => [typeof s === 'string' ? s : s.id, typeof s === 'string' ? s : s.name]));
+  const seriesName = work => String(seriesMap[work.series] || seriesMap[work.world] || work.series || work.world || '').trim();
+  count.textContent = DATA.works.filter(work => seriesName(work).toUpperCase() === 'EUPHORIA').length;
+})();
+</script>
 </body></html>
