@@ -71,14 +71,22 @@
   const touchEither = DATA.works.find(work => String(work?.id || "").trim() === "touch-either-cant-heal");
   if (touchEither) {
     touchEither.status = "published";
-    touchEither.isNew = true;
+    touchEither.isNew = false;
     touchEither.releaseDate = "2026.08.15";
     touchEither.zetaUrl = "https://zeta-ai.io/ja/plots/4c730599-5be6-4877-b5d9-2038ac9677c2/profile?share_id=2kgvyheft";
   }
 
+  const allFour = DATA.works.find(work => String(work?.id || "").trim() === "all-four-know-your-identity");
+  if (allFour) {
+    allFour.status = "published";
+    allFour.isNew = true;
+    allFour.releaseDate = "2026.08.16";
+    allFour.zetaUrl = "https://zeta-ai.io/ja/plots/e1eb84e8-14ef-40b7-b669-97c8263fcc2e/profile?share_id=ubbp0pnna";
+  }
+
   if (DATA.site && typeof DATA.site === "object") {
-    DATA.site.publishedCount = 55;
-    DATA.site.draftCount = 3;
+    DATA.site.publishedCount = 56;
+    DATA.site.draftCount = 2;
   }
 })();
 
