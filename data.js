@@ -2,8 +2,8 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 54,
-    "draftCount": 4
+    "publishedCount": 55,
+    "draftCount": 2
   },
   "categories": [
     {
@@ -108,7 +108,7 @@ window.BUCANEVE_DATA = {
       ],
       "cover": "images/covers/whichever-you-trust-no-escape.jpeg",
       "coverStatus": "ready",
-      "isNew": true,
+      "isNew": false,
       "releaseDate": "2026.08.14",
       "catchphrase": "どちらを信じても、逃げられない。",
       "tags": [
@@ -124,7 +124,8 @@ window.BUCANEVE_DATA = {
     {
       "id": "touch-either-cant-heal",
       "title": "どちらに触れても、治らない。",
-      "status": "draft",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/4c730599-5be6-4877-b5d9-2038ac9677c2/profile?share_id=2kgvyheft",
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
@@ -137,6 +138,7 @@ window.BUCANEVE_DATA = {
       "cover": "images/covers/touch-either-cant-heal.jpeg",
       "coverStatus": "ready",
       "isNew": false,
+      "releaseDate": "2026.08.15",
       "catchphrase": "どちらに触れても、治らない。",
       "tags": [
         "Euphoria",
@@ -151,7 +153,8 @@ window.BUCANEVE_DATA = {
     {
       "id": "all-four-know-your-identity",
       "title": "潜入先の四人全員に、正体がバレている。",
-      "status": "draft",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/e1eb84e8-14ef-40b7-b669-97c8263fcc2e/profile?share_id=ubbp0pnna",
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
@@ -165,7 +168,8 @@ window.BUCANEVE_DATA = {
       ],
       "cover": "images/covers/all-four-know-your-identity.jpeg",
       "coverStatus": "ready",
-      "isNew": false,
+      "isNew": true,
+      "releaseDate": "2026.08.16",
       "catchphrase": "潜入先の四人全員に、正体がバレている。",
       "tags": [
         "Euphoria",
@@ -202,21 +206,6 @@ window.BUCANEVE_DATA = {
       ],
       "description": "巨大歓楽街《ノクス区》。\n\n政財界、海外マフィア、ドラッグカルテルが交錯する眠らない街で、\n新型ドラッグ《Euphoria》が静かに流通を広げていた。\n\n強烈な幸福感と引き換えに、\n特定の誰かへの依存を異常なまでに増幅させる危険薬物。\n\nその供給源を突き止めるため、\n紫京厚生局麻薬取締部は犯罪シンジケート《EDEN》への潜入捜査を開始する。\n\n任務を命じられた{{user}}が接触したのは、\nEDENの幹部――雪城ルイ。\nコードネーム《SERAPH》。\n\n組織内で勧誘と精神誘導を担い、\n暴力ではなく言葉と信頼によって人を支配する危険人物だった。\n\n初対面であるはずなのに、ルイは{{user}}を穏やかに迎え入れる。\nまるで、ずっと前から会うことを知っていたかのように。\n\n彼は会うたびに気遣い、傷を見つければ手当てをし、\n危険な任務の後には何も問わず隣へ座る。\n\n敵であるはずの男だけが、\n誰より早く{{user}}の心の揺らぎに気づいてしまう。\n\nけれど、その優しさこそがルイの最大の武器だった。\n否定せず、寄り添い、信頼を重ね、\nいつしか「この人だけは失いたくない」と思わせる。\n\n捜査が進むほどEDENの真実へ近づき、\n同時にルイとの距離も縮まっていく。\n\n正義を貫けば、彼を裏切ることになる。\n彼を信じれば、任務を裏切ることになる。\n\nEDENを壊すのか。\nそれとも、雪城ルイと共に甘い破滅を選ぶのか。\n\nその想いが潜入のための偽りだったのか、\n恋だったのかを知る頃には、もう戻れない。",
       "catchphrase": "その優しさは、救いではなく侵食だった。"
-    },
-    {
-      "id": "gods-wont-go-home",
-      "title": "神様たちが帰ってくれません！",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/gods-wont-go-home.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
     },
     {
       "id": "snake-god-sleepless",
