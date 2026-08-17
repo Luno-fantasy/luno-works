@@ -85,7 +85,7 @@
   }
 
   if (DATA.site && typeof DATA.site === "object") {
-    DATA.site.publishedCount = 56;
+    DATA.site.publishedCount = 55;
     DATA.site.draftCount = 2;
   }
 })();
