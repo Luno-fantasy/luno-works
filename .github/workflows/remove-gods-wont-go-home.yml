@@ -1,5 +1,6 @@
 name: Remove retired work
 
+# trigger cleanup once
 on:
   push:
     paths:
