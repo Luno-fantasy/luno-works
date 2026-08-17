@@ -1,0 +1,62 @@
+name: Remove retired work
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-gods-wont-go-home.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Remove work data and cover
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data.js')
+          text = path.read_text(encoding='utf-8')
+          prefix = 'window.BUCANEVE_DATA = '
+          if not text.startswith(prefix):
+              raise SystemExit('Unexpected data.js format')
+
+          payload = text[len(prefix):].strip()
+          if payload.endswith(';'):
+              payload = payload[:-1]
+          data = json.loads(payload)
+
+          target = 'gods-wont-go-home'
+          before = len(data.get('works', []))
+          data['works'] = [w for w in data.get('works', []) if w.get('id') != target]
+          after = len(data['works'])
+          if before == after:
+              raise SystemExit('Target work was not found; refusing to change anything')
+
+          for series in data.get('series', []):
+              if isinstance(series.get('works'), list):
+                  series['works'] = [wid for wid in series['works'] if wid != target]
+
+          if isinstance(data.get('site'), dict):
+              data['site']['publishedCount'] = sum(1 for w in data['works'] if w.get('status') != 'draft')
+              data['site']['draftCount'] = sum(1 for w in data['works'] if w.get('status') == 'draft')
+
+          path.write_text(prefix + json.dumps(data, ensure_ascii=False, indent=2) + ';\n', encoding='utf-8')
+          PY
+          rm -f images/covers/gods-wont-go-home.jpeg
+          rm -f .github/workflows/remove-gods-wont-go-home.yml
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          git config user.name 'LUNO WORKS updater'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore: remove retired work 神様たちが帰ってくれません！'
+          git push origin main
