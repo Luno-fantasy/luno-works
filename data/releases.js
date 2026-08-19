@@ -4,7 +4,8 @@
 
   const removedWorkIds = new Set([
     "snake-god-sleepless",
-    "senpai-forbidden-tonight"
+    "senpai-forbidden-tonight",
+    "saint-quits"
   ]);
 
   DATA.works = DATA.works.filter(work => !removedWorkIds.has(String(work?.id || "").trim()));
