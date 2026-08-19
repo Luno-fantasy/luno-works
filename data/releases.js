@@ -2,6 +2,12 @@
   const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA || null;
   if (!DATA || !Array.isArray(DATA.works)) return;
 
+  const removedWorkIds = new Set([
+    "snake-god-sleepless"
+  ]);
+
+  DATA.works = DATA.works.filter(work => !removedWorkIds.has(String(work?.id || "").trim()));
+
   const releases = [
     {
       id: "bad-signal",
