@@ -22,7 +22,7 @@
       relation: ["久我レン", "城戸臣", "九重イツキ", "天羽ゆら"],
       cover: "images/covers/bad-signal-cover-hq.jpg?v=20260819-hq",
       coverStatus: "ready",
-      isNew: false,
+      isNew: true,
       releaseDate: "2026.08.19",
       catchphrase: "異常値の原因は、アンタだった。",
       tags: ["音楽ユニット", "ストリート", "ライブ", "ECHO", "特殊能力", "マルチストーリー"],
@@ -37,12 +37,12 @@
       series: null,
       world: null,
       position: "MULTI STORY",
-      mainCharacter: "猫／狼／狐／兎／白虎",
-      relation: ["猫", "狼", "狐", "兎", "白虎"],
+      mainCharacter: "ノア／レオン／フィン／ミカ／カイ",
+      relation: ["ノア", "レオン", "フィン", "ミカ", "カイ"],
       cover: "images/covers/oshi-couple-cover.jpg?v=20260819-oshi-couple",
       coverStatus: "ready",
-      isNew: true,
-      releaseDate: "2026.08.19",
+      isNew: false,
+      releaseDate: "2026.08.07",
       catchphrase: "君たち、一体誰が好きなの？",
       tags: ["獣人", "恋愛観察", "推しカプ", "すれ違い", "ファンタジー", "マルチストーリー"],
       description: "獣人たちの恋を応援する{{user}}のもとへ集まった、五人の男たち。\n\n喧嘩ばかりの猫と狼。\nからかってばかりの狐と、振り回される兎。\nそして、誰にも興味がなさそうな白虎。\n\n――うん。この組み合わせ、絶対くっつく。\n\nそう思っていたのに。\n\n「……なんで俺があいつと？」\n「好きな相手なら、別にいる」\n「君、本当に見る目ないね」\n\nあれ？\n待って。\n\n君たち、一体誰が好きなの？\n\n推しカプを成立させたいだけなのに！\n獣人男子五人の、恋愛観察ファンタジー。"
@@ -55,7 +55,7 @@
     }
   };
 
-  const latestReleaseId = "oshi-couple";
+  const latestReleaseId = "bad-signal";
 
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => {
@@ -84,6 +84,5 @@
   });
 
   enforceLatestRelease();
-
   document.addEventListener("DOMContentLoaded", enforceLatestRelease);
 })();
