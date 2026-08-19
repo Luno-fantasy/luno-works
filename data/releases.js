@@ -3,7 +3,8 @@
   if (!DATA || !Array.isArray(DATA.works)) return;
 
   const removedWorkIds = new Set([
-    "snake-god-sleepless"
+    "snake-god-sleepless",
+    "senpai-forbidden-tonight"
   ]);
 
   DATA.works = DATA.works.filter(work => !removedWorkIds.has(String(work?.id || "").trim()));
