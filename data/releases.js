@@ -24,6 +24,12 @@
     }
   ];
 
+  const patches = {
+    "summer-not-enough": {
+      description: "海沿いの町・汐凪市。\n\nかつて同じジュニアスイミングクラブで泳いでいた澪央、陽向、凌雅、{{user}}は、三年前に{{user}}が何も告げず水泳を辞め、町を去ったことで離れ離れになった。\n\n三年後、{{user}}は汐凪市へ戻り、蒼海大学へ進学。止まっていた四人の時間が再び動き始める。\n\n澪央は過去を取り戻したい。\n陽向はもう失いたくない。\n凌雅は勝つことで今の自分を見てほしい。\n千景は過去ではなく、これからの隣を望んでいる。\n\n競技へ戻るのか。誰の隣を泳ぐのか。\n四人との再会をきっかけに、置き去りにした夏が再び動き始める。"
+    }
+  };
+
   DATA.works.forEach(work => {
     if (work && typeof work === "object") work.isNew = false;
   });
@@ -32,6 +38,11 @@
     const index = DATA.works.findIndex(work => String(work?.id || "").trim() === release.id);
     if (index >= 0) DATA.works.splice(index, 1, release);
     else DATA.works.unshift(release);
+  });
+
+  Object.entries(patches).forEach(([id, patch]) => {
+    const work = DATA.works.find(item => String(item?.id || "").trim() === id);
+    if (work) Object.assign(work, patch);
   });
 
   if (DATA.site && typeof DATA.site === "object") {
