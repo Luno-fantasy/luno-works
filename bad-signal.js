@@ -19,7 +19,7 @@
     position: "MULTI STORY",
     mainCharacter: "久我レン／城戸臣／九重イツキ／天羽ゆら",
     relation: ["久我レン", "城戸臣", "九重イツキ", "天羽ゆら"],
-    cover: "images/covers/bad-signal-cover.jpg",
+    cover: "images/covers/bad-signal-cover-hq.jpg?v=20260819-hq",
     coverStatus: "ready",
     isNew: true,
     releaseDate: "2026.08.19",
