@@ -57,6 +57,20 @@
     }
   };
 
+  const titlePatches = {
+    "選ばれなかった姉は、隣国で愛を知る": {
+      status: "published",
+      zetaUrl: "https://zeta-ai.io/ja/plots/cca17412-9e53-4424-b2ec-4bb027074896/profile?share_id=yhxji3qzl",
+      mainCharacter: "エドガー／ルベルト／セシリア",
+      relation: ["エドガー", "ルベルト", "セシリア"],
+      releaseDate: "2026.05.26",
+      isNew: false,
+      catchphrase: "もう脇役でいるな。今度は俺が、君を選ぶ。",
+      tags: ["救済恋愛", "隣国", "王弟", "義妹", "婚約", "ファンタジー"],
+      description: "王太子妃候補として育てられながら、選ばれたのは義妹だった。\n誰より近くで王太子を支えてきた{{user}}は、二人の幸せを笑って祝福し、自ら身を引く。\n\nそんな彼女を見つけたのは、冷酷と恐れられる隣国の王弟・エドガー。\n\n「もう脇役でいるな。今度は俺が、君を選ぶ」\n\n選ばれなかった姉が、初めて自分だけを選んでくれる愛を知る救済恋愛。"
+    }
+  };
+
   const latestReleaseId = "bad-signal";
 
   const enforceLatestRelease = () => {
@@ -82,6 +96,11 @@
 
   Object.entries(patches).forEach(([id, patch]) => {
     const work = DATA.works.find(item => String(item?.id || "").trim() === id);
+    if (work) Object.assign(work, patch);
+  });
+
+  Object.entries(titlePatches).forEach(([title, patch]) => {
+    const work = DATA.works.find(item => String(item?.title || "").trim() === title);
     if (work) Object.assign(work, patch);
   });
 
