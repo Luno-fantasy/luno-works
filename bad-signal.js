@@ -7,6 +7,24 @@
   });
 
   const id = "bad-signal";
+  const coverPath = "images/covers/bad-signal.jpeg?v=20260819-fix";
+  let cover = coverPath;
+
+  // The first GitHub upload accidentally stored the JPEG as Base64 text.
+  // Recover it before app.js renders so the cover is still displayed correctly.
+  try {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", coverPath, false);
+    xhr.overrideMimeType("text/plain; charset=utf-8");
+    xhr.send(null);
+    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 0) {
+      const encoded = String(xhr.responseText || "").replace(/\s+/g, "").trim();
+      if (encoded.length > 1000 && /^[A-Za-z0-9+/=]+$/.test(encoded)) {
+        cover = `data:image/jpeg;base64,${encoded}`;
+      }
+    }
+  } catch (_) {}
+
   const existingIndex = DATA.works.findIndex(work => String(work?.id || "").trim() === id);
   const work = {
     id,
@@ -19,7 +37,7 @@
     position: "MULTI STORY",
     mainCharacter: "久我レン／城戸臣／九重イツキ／天羽ゆら",
     relation: ["久我レン", "城戸臣", "九重イツキ", "天羽ゆら"],
-    cover: "images/covers/bad-signal.jpeg",
+    cover,
     coverStatus: "ready",
     isNew: true,
     releaseDate: "2026.08.19",
