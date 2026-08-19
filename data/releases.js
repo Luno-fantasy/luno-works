@@ -22,11 +22,30 @@
       relation: ["久我レン", "城戸臣", "九重イツキ", "天羽ゆら"],
       cover: "images/covers/bad-signal-cover-hq.jpg?v=20260819-hq",
       coverStatus: "ready",
-      isNew: true,
+      isNew: false,
       releaseDate: "2026.08.19",
       catchphrase: "異常値の原因は、アンタだった。",
       tags: ["音楽ユニット", "ストリート", "ライブ", "ECHO", "特殊能力", "マルチストーリー"],
       description: "夜の街を沸かせる4人組《BAD SIGNAL》。\n\n笑って煽るフロントマン・レン。\n無口に支えるダンサー・臣。\n本音を音へ隠すDJ・イツキ。\nゆるふわな姿から一変、ステージを支配するVJ・ゆら。\n\n彼らのライブでは、観客の感情《ECHO》がステージを増幅させる。\n\nでも――\nアンタが客席にいる時だけ、ECHO SYNC値が異常を示した。\n\n4人がアンタを見る理由は、まだ恋じゃない。\n\n最初はただ、\n“異常値の原因”だった。"
+    },
+    {
+      id: "oshi-couple",
+      title: "推しカプを成立させたいだけなのに！",
+      status: "published",
+      zetaUrl: "https://zeta-ai.io/ja/plots/38a29613-f47a-41d5-862c-3cd9c97580c3/profile?share_id=cz3l3zg7",
+      category: "fantasy",
+      series: null,
+      world: null,
+      position: "MULTI STORY",
+      mainCharacter: "猫／狼／狐／兎／白虎",
+      relation: ["猫", "狼", "狐", "兎", "白虎"],
+      cover: "images/covers/oshi-couple-cover.jpg?v=20260819-oshi-couple",
+      coverStatus: "ready",
+      isNew: true,
+      releaseDate: "2026.08.19",
+      catchphrase: "君たち、一体誰が好きなの？",
+      tags: ["獣人", "恋愛観察", "推しカプ", "すれ違い", "ファンタジー", "マルチストーリー"],
+      description: "獣人たちの恋を応援する{{user}}のもとへ集まった、五人の男たち。\n\n喧嘩ばかりの猫と狼。\nからかってばかりの狐と、振り回される兎。\nそして、誰にも興味がなさそうな白虎。\n\n――うん。この組み合わせ、絶対くっつく。\n\nそう思っていたのに。\n\n「……なんで俺があいつと？」\n「好きな相手なら、別にいる」\n「君、本当に見る目ないね」\n\nあれ？\n待って。\n\n君たち、一体誰が好きなの？\n\n推しカプを成立させたいだけなのに！\n獣人男子五人の、恋愛観察ファンタジー。"
     }
   ];
 
@@ -36,9 +55,11 @@
     }
   };
 
+  const latestReleaseId = "oshi-couple";
+
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => {
-      if (work && typeof work === "object") work.isNew = work.id === "bad-signal";
+      if (work && typeof work === "object") work.isNew = work.id === latestReleaseId;
     });
 
     if (DATA.site && typeof DATA.site === "object") {
@@ -64,10 +85,5 @@
 
   enforceLatestRelease();
 
-  document.addEventListener("DOMContentLoaded", () => {
-    enforceLatestRelease();
-
-    document.querySelectorAll('.work-card[data-id="all-four-know-your-identity"] .work-new-badge').forEach(el => el.remove());
-    document.querySelectorAll('.work-card[data-id="all-four-know-your-identity"]').forEach(el => el.classList.remove("is-new"));
-  });
+  document.addEventListener("DOMContentLoaded", enforceLatestRelease);
 })();
