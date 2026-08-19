@@ -30,6 +30,17 @@
     }
   };
 
+  const enforceLatestRelease = () => {
+    DATA.works.forEach(work => {
+      if (work && typeof work === "object") work.isNew = work.id === "bad-signal";
+    });
+
+    if (DATA.site && typeof DATA.site === "object") {
+      DATA.site.publishedCount = DATA.works.filter(item => item?.status !== "draft").length;
+      DATA.site.draftCount = DATA.works.filter(item => item?.status === "draft").length;
+    }
+  };
+
   DATA.works.forEach(work => {
     if (work && typeof work === "object") work.isNew = false;
   });
@@ -45,8 +56,12 @@
     if (work) Object.assign(work, patch);
   });
 
-  if (DATA.site && typeof DATA.site === "object") {
-    DATA.site.publishedCount = DATA.works.filter(item => item?.status !== "draft").length;
-    DATA.site.draftCount = DATA.works.filter(item => item?.status === "draft").length;
-  }
+  enforceLatestRelease();
+
+  document.addEventListener("DOMContentLoaded", () => {
+    enforceLatestRelease();
+
+    document.querySelectorAll('.work-card[data-id="all-four-know-your-identity"] .work-new-badge').forEach(el => el.remove());
+    document.querySelectorAll('.work-card[data-id="all-four-know-your-identity"]').forEach(el => el.classList.remove("is-new"));
+  });
 })();
