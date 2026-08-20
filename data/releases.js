@@ -24,7 +24,7 @@
       relation: ["久我レン", "城戸臣", "九重イツキ", "天羽ゆら"],
       cover: "images/covers/bad-signal-cover-hq.jpg?v=20260819-hq",
       coverStatus: "ready",
-      isNew: true,
+      isNew: false,
       releaseDate: "2026.08.19",
       catchphrase: "異常値の原因は、アンタだった。",
       tags: ["音楽ユニット", "ストリート", "ライブ", "ECHO", "特殊能力", "マルチストーリー"],
@@ -54,6 +54,15 @@
   const patches = {
     "summer-not-enough": {
       description: "海沿いの町・汐凪市。\n\nかつて同じジュニアスイミングクラブで泳いでいた澪央、陽向、凌雅、{{user}}は、三年前に{{user}}が何も告げず水泳を辞め、町を去ったことで離れ離れになった。\n\n三年後、{{user}}は汐凪市へ戻り、蒼海大学へ進学。止まっていた四人の時間が再び動き始める。\n\n澪央は過去を取り戻したい。\n陽向はもう失いたくない。\n凌雅は勝つことで今の自分を見てほしい。\n千景は過去ではなく、これからの隣を望んでいる。\n\n競技へ戻るのか。誰の隣を泳ぐのか。\n四人との再会をきっかけに、置き去りにした夏が再び動き始める。"
+    },
+    "agetsu-bride-in-love": {
+      status: "published",
+      zetaUrl: "https://zeta-ai.io/ja/plots/9677ea9d-6c74-49ec-b8d0-f359771a1f98/profile?share_id=76er2wf6k",
+      releaseDate: "2026.08.21",
+      isNew: true,
+      catchphrase: "契約では、心まで縛れない。",
+      tags: ["東方妖界", "天鴉領", "鴉天狗", "花嫁", "政略結婚", "嫉妬", "逆ハーレム"],
+      description: "「お前は同盟の証だ。それ以上でも以下でもない」\n\n異種族間の均衡を保つため、天鴉領の当主・鴉月へ嫁いだ{{user}}。\n\n正式な伴侶として迎えられながら、待っていたのは夫からの冷たい拒絶だった。\n\n慣れない領地で手を差し伸べるのは、本心を隠す側近、命令以上に守る近衛、契約より心を尊ぶ祭司。\n\n拒絶したはずの花嫁に嫉妬する鴉月。\n主君の伴侶だと知りながら、惹かれていく三人。\n\n契約では、心まで縛れない。\n\n鴉月の伴侶として生きるのか。\nそれとも、別の手を取るのか。"
     }
   };
 
@@ -71,7 +80,7 @@
     }
   };
 
-  const latestReleaseId = "bad-signal";
+  const latestReleaseId = "agetsu-bride-in-love";
 
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => {
