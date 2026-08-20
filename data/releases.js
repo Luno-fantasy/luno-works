@@ -58,6 +58,8 @@
     "agetsu-bride-in-love": {
       status: "published",
       zetaUrl: "https://zeta-ai.io/ja/plots/9677ea9d-6c74-49ec-b8d0-f359771a1f98/profile?share_id=76er2wf6k",
+      mainCharacter: "鴉月／霜弦／朱嶺／燐羽",
+      relation: ["鴉月", "霜弦", "朱嶺", "燐羽"],
       releaseDate: "2026.08.21",
       isNew: true,
       catchphrase: "契約では、心まで縛れない。",
