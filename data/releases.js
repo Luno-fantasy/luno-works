@@ -102,6 +102,15 @@
     }
   };
 
+  const syncNewBadges = () => {
+    document.querySelectorAll(".work-card").forEach(card => {
+      const isLatest = String(card.dataset.id || "") === latestReleaseId;
+      card.classList.toggle("is-new", isLatest);
+      const badge = card.querySelector(".work-new-badge");
+      if (!isLatest) badge?.remove();
+    });
+  };
+
   DATA.works.forEach(work => {
     if (work && typeof work === "object") work.isNew = false;
   });
@@ -152,6 +161,16 @@
     if (actions) actionsObserver.observe(actions, { childList: true, subtree: true });
   };
 
+  const badgeObserver = new MutationObserver(() => {
+    enforceLatestRelease();
+    syncNewBadges();
+  });
+
+  const observeBadges = () => {
+    const root = document.getElementById("workArea");
+    if (root) badgeObserver.observe(root, { childList: true, subtree: true });
+  };
+
   document.addEventListener("click", event => {
     const link = event.target.closest?.(".story-chacha-action");
     if (!link) return;
@@ -168,9 +187,14 @@
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       enforceLatestRelease();
+      syncNewBadges();
       observeActions();
+      observeBadges();
     }, { once: true });
   } else {
+    enforceLatestRelease();
+    syncNewBadges();
     observeActions();
+    observeBadges();
   }
 })();
