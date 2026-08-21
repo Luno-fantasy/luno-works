@@ -65,6 +65,9 @@
       catchphrase: "契約では、心まで縛れない。",
       tags: ["東方妖界", "天鴉領", "鴉天狗", "花嫁", "政略結婚", "嫉妬", "逆ハーレム"],
       description: "「お前は同盟の証だ。それ以上でも以下でもない」\n\n異種族間の均衡を保つため、天鴉領の当主・鴉月へ嫁いだ{{user}}。\n\n正式な伴侶として迎えられながら、待っていたのは夫からの冷たい拒絶だった。\n\n慣れない領地で手を差し伸べるのは、本心を隠す側近、命令以上に守る近衛、契約より心を尊ぶ祭司。\n\n拒絶したはずの花嫁に嫉妬する鴉月。\n主君の伴侶だと知りながら、惹かれていく三人。\n\n契約では、心まで縛れない。\n\n鴉月の伴侶として生きるのか。\nそれとも、別の手を取るのか。"
+    },
+    "boss-obey-me": {
+      chachaUrl: "https://chacha-ai.io/ja/characters/819e43ec-96e4-4451-8cf7-633ace7e154f"
     }
   };
 
@@ -118,6 +121,55 @@
     if (work) Object.assign(work, patch);
   });
 
+  const syncExternalActions = () => {
+    const actions = document.getElementById("dialogActions");
+    const title = String(document.getElementById("dialogTitle")?.textContent || "").trim();
+    if (!actions || !title) return;
+
+    const work = DATA.works.find(item => String(item?.title || "").trim() === title);
+    if (!work) return;
+
+    const primary = actions.querySelector(".story-primary-action");
+    if (primary && String(primary.href || "").includes("chacha-ai.io")) {
+      primary.innerHTML = 'READ ON CHACHA <span>→</span>';
+    }
+
+    actions.querySelector(".story-chacha-action")?.remove();
+    if (!work.chachaUrl || work.status === "draft") return;
+
+    const back = actions.querySelector("#dialogBack");
+    const chacha = document.createElement("a");
+    chacha.className = "button story-secondary-action story-chacha-action";
+    chacha.href = work.chachaUrl;
+    chacha.innerHTML = 'READ ON CHACHA <span>→</span>';
+    actions.insertBefore(chacha, back || null);
+  };
+
+  const actionsObserver = new MutationObserver(syncExternalActions);
+  const observeActions = () => {
+    const actions = document.getElementById("dialogActions");
+    if (actions) actionsObserver.observe(actions, { childList: true, subtree: true });
+  };
+
+  document.addEventListener("click", event => {
+    const link = event.target.closest?.(".story-chacha-action");
+    if (!link) return;
+    event.preventDefault();
+    const destination = link.href;
+    const dialog = document.getElementById("workDialog");
+    if (dialog?.open) dialog.close();
+    document.documentElement.style.removeProperty("overflow");
+    document.body.style.removeProperty("overflow");
+    requestAnimationFrame(() => window.location.assign(destination));
+  });
+
   enforceLatestRelease();
-  document.addEventListener("DOMContentLoaded", enforceLatestRelease);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enforceLatestRelease();
+      observeActions();
+    }, { once: true });
+  } else {
+    observeActions();
+  }
 })();
