@@ -141,11 +141,22 @@
 
     const primary = actions.querySelector(".story-primary-action");
     if (primary && String(primary.href || "").includes("chacha-ai.io")) {
-      primary.innerHTML = 'READ ON CHACHA <span>→</span>';
+      if (primary.dataset.platform !== "chacha") {
+        primary.dataset.platform = "chacha";
+        primary.innerHTML = 'READ ON CHACHA <span>→</span>';
+      }
     }
 
-    actions.querySelector(".story-chacha-action")?.remove();
-    if (!work.chachaUrl || work.status === "draft") return;
+    const existingChacha = actions.querySelector(".story-chacha-action");
+    if (!work.chachaUrl || work.status === "draft") {
+      existingChacha?.remove();
+      return;
+    }
+
+    if (existingChacha) {
+      if (existingChacha.getAttribute("href") !== work.chachaUrl) existingChacha.href = work.chachaUrl;
+      return;
+    }
 
     const back = actions.querySelector("#dialogBack");
     const chacha = document.createElement("a");
@@ -155,10 +166,10 @@
     actions.insertBefore(chacha, back || null);
   };
 
-  const actionsObserver = new MutationObserver(syncExternalActions);
-  const observeActions = () => {
-    const actions = document.getElementById("dialogActions");
-    if (actions) actionsObserver.observe(actions, { childList: true, subtree: true });
+  let externalSyncFrame = 0;
+  const scheduleExternalActions = () => {
+    window.cancelAnimationFrame(externalSyncFrame);
+    externalSyncFrame = window.requestAnimationFrame(syncExternalActions);
   };
 
   const badgeObserver = new MutationObserver(() => {
@@ -172,15 +183,28 @@
   };
 
   document.addEventListener("click", event => {
-    const link = event.target.closest?.(".story-chacha-action");
-    if (!link) return;
-    event.preventDefault();
-    const destination = link.href;
-    const dialog = document.getElementById("workDialog");
-    if (dialog?.open) dialog.close();
-    document.documentElement.style.removeProperty("overflow");
-    document.body.style.removeProperty("overflow");
-    requestAnimationFrame(() => window.location.assign(destination));
+    const chachaLink = event.target.closest?.(".story-chacha-action");
+    if (chachaLink) {
+      event.preventDefault();
+      const destination = chachaLink.href;
+      const dialog = document.getElementById("workDialog");
+      if (dialog?.open) dialog.close();
+      document.documentElement.style.removeProperty("overflow");
+      document.body.style.removeProperty("overflow");
+      requestAnimationFrame(() => window.location.assign(destination));
+      return;
+    }
+
+    if (event.target.closest?.(".work-card, [data-open-work], [data-related-id]")) {
+      scheduleExternalActions();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    if (event.target.closest?.(".work-card, [data-open-work], [data-related-id]")) {
+      scheduleExternalActions();
+    }
   });
 
   enforceLatestRelease();
@@ -188,13 +212,11 @@
     document.addEventListener("DOMContentLoaded", () => {
       enforceLatestRelease();
       syncNewBadges();
-      observeActions();
       observeBadges();
     }, { once: true });
   } else {
     enforceLatestRelease();
     syncNewBadges();
-    observeActions();
     observeBadges();
   }
 })();
