@@ -1,0 +1,129 @@
+(() => {
+  "use strict";
+
+  const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA || null;
+  const workArea = document.getElementById("workArea");
+  const platformFilters = document.getElementById("platformFilters");
+  const resultCount = document.getElementById("resultCount");
+
+  if (!DATA || !Array.isArray(DATA.works) || !workArea || !platformFilters) return;
+
+  let activePlatform = "all";
+  let syncFrame = 0;
+
+  const platformsForWork = work => {
+    const urls = [work?.url, work?.link, work?.zetaUrl, work?.zeta, work?.chachaUrl]
+      .filter(Boolean)
+      .map(value => String(value));
+
+    const hasZeta = urls.some(url => url.includes("zeta-ai.io"));
+    const hasChacha = urls.some(url => url.includes("chacha-ai.io"));
+
+    if (hasZeta && hasChacha) return ["zeta", "chacha"];
+    if (hasChacha) return ["chacha"];
+    if (hasZeta) return ["zeta"];
+
+    // Legacy works in this archive were published on ZETA unless they were
+    // explicitly migrated to Chacha later.
+    return ["zeta"];
+  };
+
+  const workById = id => DATA.works.find(work => String(work?.id || "") === String(id || ""));
+
+  const addPlatformBadges = card => {
+    const work = workById(card.dataset.id);
+    if (!work) return [];
+
+    const platforms = platformsForWork(work);
+    card.dataset.platforms = platforms.join(" ");
+
+    const body = card.querySelector(".work-body");
+    const title = body?.querySelector("h3");
+    if (!body || !title) return platforms;
+
+    let box = body.querySelector(".work-platform-badges");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "work-platform-badges";
+      body.insertBefore(box, title);
+    }
+
+    const signature = platforms.join("|");
+    if (box.dataset.signature !== signature) {
+      box.dataset.signature = signature;
+      box.innerHTML = platforms.map(platform =>
+        `<span class="work-platform-chip is-${platform}">${platform === "zeta" ? "ZETA" : "CHACHA"}</span>`
+      ).join("");
+    }
+
+    return platforms;
+  };
+
+  const syncSections = visibleCount => {
+    const sections = [...workArea.querySelectorAll("section.works-series-block")];
+    sections.forEach(section => {
+      const hasVisibleCard = [...section.querySelectorAll(".work-card")]
+        .some(card => card.style.display !== "none");
+      section.style.display = hasVisibleCard ? "" : "none";
+    });
+
+    const seriesDivider = workArea.querySelector(":scope > .series-library-divider");
+    if (seriesDivider) {
+      const hasVisibleSeries = sections
+        .filter(section => !section.classList.contains("standalone-series-block"))
+        .some(section => section.style.display !== "none");
+      seriesDivider.style.display = hasVisibleSeries ? "" : "none";
+    }
+
+    let empty = workArea.querySelector(":scope > .platform-empty-state");
+    if (!empty) {
+      empty = document.createElement("div");
+      empty.className = "empty-state platform-empty-state";
+      empty.textContent = "このプラットフォームで読める作品は、現在の絞り込み条件では見つかりませんでした。";
+      workArea.appendChild(empty);
+    }
+    empty.hidden = visibleCount !== 0;
+  };
+
+  const sync = () => {
+    const cards = [...workArea.querySelectorAll(".work-card")];
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const platforms = addPlatformBadges(card);
+      const matches = activePlatform === "all" || platforms.includes(activePlatform);
+      card.style.display = matches ? "" : "none";
+      if (matches) visibleCount += 1;
+    });
+
+    syncSections(visibleCount);
+    if (resultCount) resultCount.textContent = `${visibleCount}作品`;
+  };
+
+  const scheduleSync = () => {
+    window.cancelAnimationFrame(syncFrame);
+    syncFrame = window.requestAnimationFrame(sync);
+  };
+
+  platformFilters.addEventListener("click", event => {
+    const button = event.target.closest("[data-platform]");
+    if (!button) return;
+
+    activePlatform = String(button.dataset.platform || "all");
+    platformFilters.querySelectorAll("[data-platform]").forEach(item => {
+      const active = item === button;
+      item.classList.toggle("active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    scheduleSync();
+  });
+
+  document.getElementById("filters")?.addEventListener("click", scheduleSync);
+  document.getElementById("workSearch")?.addEventListener("input", scheduleSync);
+  document.getElementById("clearSearch")?.addEventListener("click", scheduleSync);
+
+  const observer = new MutationObserver(scheduleSync);
+  observer.observe(workArea, { childList: true, subtree: true });
+
+  scheduleSync();
+})();
