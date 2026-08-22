@@ -8,9 +8,68 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+JP:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260822-black-dragon">
+<link rel="stylesheet" href="style.css?v=20260822-platform-filter">
 
-<style id="works-layout-force-v12">
+<style id="works-layout-force-v13">
+  .platform-filter-shell{
+    margin:20px 0 4px;
+    padding:14px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;
+    background:rgba(255,255,255,.035);
+    backdrop-filter:blur(14px);
+  }
+
+  .platform-filter-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 2px 10px;
+  }
+
+  .platform-filter-head span{
+    font-family:"Cormorant Garamond",serif;
+    font-size:12px;
+    letter-spacing:.18em;
+    opacity:.72;
+  }
+
+  .platform-filter-head small{
+    font-size:10px;
+    letter-spacing:.08em;
+    opacity:.48;
+  }
+
+  .platform-filters{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+  }
+
+  .platform-filter-btn{
+    min-height:44px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:10px;
+    background:rgba(255,255,255,.025);
+    color:inherit;
+    font:600 11px/1 "Zen Kaku Gothic New",sans-serif;
+    letter-spacing:.12em;
+    cursor:pointer;
+    transition:border-color .2s ease,background .2s ease,transform .2s ease;
+  }
+
+  .platform-filter-btn:hover,
+  .platform-filter-btn:focus-visible{
+    border-color:rgba(255,255,255,.35);
+  }
+
+  .platform-filter-btn.active{
+    border-color:rgba(255,255,255,.46);
+    background:rgba(255,255,255,.11);
+    transform:translateY(-1px);
+  }
+
   #filters.filters{
     display:grid !important;
     grid-template-columns:repeat(3,minmax(0,1fr)) !important;
@@ -22,7 +81,7 @@
     white-space:normal !important;
     flex-wrap:wrap !important;
     padding:0 !important;
-    margin:22px 0 28px !important;
+    margin:18px 0 28px !important;
     scrollbar-width:none !important;
   }
 
@@ -49,9 +108,42 @@
     letter-spacing:0 !important;
   }
 
+  .work-platform-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    margin:8px 0 2px;
+  }
+
+  .work-platform-chip{
+    display:inline-flex;
+    align-items:center;
+    min-height:20px;
+    padding:2px 7px;
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;
+    background:rgba(255,255,255,.045);
+    font:700 9px/1 "Zen Kaku Gothic New",sans-serif;
+    letter-spacing:.11em;
+    white-space:nowrap;
+  }
+
+  .work-platform-chip.is-chacha{
+    border-color:rgba(255,255,255,.28);
+    background:rgba(255,255,255,.085);
+  }
+
+  .platform-empty-state{
+    margin-top:20px;
+  }
+
   @media (max-width:370px){
     #filters.filters{
       grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+
+    .platform-filter-head small{
+      display:none;
     }
   }
 </style>
@@ -108,6 +200,18 @@
     <div class="result-count" id="resultCount"></div>
   </div>
 
+  <section class="platform-filter-shell reveal" aria-label="プラットフォームで絞り込む">
+    <div class="platform-filter-head">
+      <span>PLATFORM</span>
+      <small>読む場所で絞り込み</small>
+    </div>
+    <div class="platform-filters" id="platformFilters">
+      <button class="platform-filter-btn active" type="button" data-platform="all" aria-pressed="true">ALL</button>
+      <button class="platform-filter-btn" type="button" data-platform="zeta" aria-pressed="false">ZETA</button>
+      <button class="platform-filter-btn" type="button" data-platform="chacha" aria-pressed="false">CHACHA</button>
+    </div>
+  </section>
+
   <div class="filters reveal" id="filters"></div>
   <div id="workArea"></div>
 </section>
@@ -159,8 +263,9 @@
   </div>
 </dialog>
 
-<script src="data.js?v=20260822-black-dragon"></script>
-<script src="data/releases.js?v=20260822-black-dragon"></script>
-<script src="app.js?v=20260822-black-dragon"></script>
+<script src="data.js?v=20260822-platform-filter"></script>
+<script src="data/releases.js?v=20260822-platform-filter"></script>
+<script src="app.js?v=20260822-platform-filter"></script>
+<script src="data/platform-filter.js?v=20260822-platform-filter"></script>
 </body>
 </html>
