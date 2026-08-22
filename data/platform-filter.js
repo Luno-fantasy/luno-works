@@ -16,8 +16,15 @@
       .filter(Boolean)
       .map(value => String(value));
 
-    const hasZeta = urls.some(url => url.includes("zeta-ai.io"));
+    let hasZeta = urls.some(url => url.includes("zeta-ai.io"));
     const hasChacha = urls.some(url => url.includes("chacha-ai.io"));
+
+    // Older archive entries may not have their original ZETA URL stored.
+    // When a Chacha URL is added via chachaUrl, treat it as an additional
+    // migration target and keep the legacy ZETA classification too.
+    if (!hasZeta && work?.chachaUrl && !work?.zetaUrl && !work?.zeta && !work?.url && !work?.link) {
+      hasZeta = true;
+    }
 
     if (hasZeta && hasChacha) return ["zeta", "chacha"];
     if (hasChacha) return ["chacha"];
