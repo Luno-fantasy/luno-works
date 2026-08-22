@@ -78,6 +78,9 @@
     },
     "boss-obey-me": {
       chachaUrl: "https://chacha-ai.io/ja/characters/819e43ec-96e4-4451-8cf7-633ace7e154f"
+    },
+    "fox-does-not-love-humans": {
+      chachaUrl: "https://chacha-ai.io/ja/characters/cc473d05-4729-49d0-8377-7c1b3cbb4c1a"
     }
   };
 
