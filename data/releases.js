@@ -62,10 +62,19 @@
       mainCharacter: "鴉月／霜弦／朱嶺／燐羽",
       relation: ["鴉月", "霜弦", "朱嶺", "燐羽"],
       releaseDate: "2026.08.21",
-      isNew: true,
+      isNew: false,
       catchphrase: "契約では、心まで縛れない。",
       tags: ["東方妖界", "天鴉領", "鴉天狗", "花嫁", "政略結婚", "嫉妬", "逆ハーレム"],
       description: "「お前は同盟の証だ。それ以上でも以下でもない」\n\n異種族間の均衡を保つため、天鴉領の当主・鴉月へ嫁いだ{{user}}。\n\n正式な伴侶として迎えられながら、待っていたのは夫からの冷たい拒絶だった。\n\n慣れない領地で手を差し伸べるのは、本心を隠す側近、命令以上に守る近衛、契約より心を尊ぶ祭司。\n\n拒絶したはずの花嫁に嫉妬する鴉月。\n主君の伴侶だと知りながら、惹かれていく三人。\n\n契約では、心まで縛れない。\n\n鴉月の伴侶として生きるのか。\nそれとも、別の手を取るのか。"
+    },
+    "black-dragon": {
+      status: "published",
+      zetaUrl: "https://chacha-ai.io/ja/characters/184343d4-746c-4d11-95ce-9b39cd3cb5be",
+      releaseDate: "2026.08.22",
+      isNew: true,
+      catchphrase: "人間が我の龍妃だと？　馬鹿げている",
+      tags: ["黒龍", "龍族", "龍妃", "人外恋愛", "執着", "ファンタジー"],
+      description: "「人間が我の龍妃だと？　馬鹿げている」\n\nそう否定した黒龍は、{{user}}を帰さず、他の龍族にも触れさせない。\n\n龍妃ではないと証明したい男が、一番先に執着していく話。"
     },
     "boss-obey-me": {
       chachaUrl: "https://chacha-ai.io/ja/characters/819e43ec-96e4-4451-8cf7-633ace7e154f"
@@ -89,7 +98,7 @@
     }
   };
 
-  const latestReleaseId = "agetsu-bride-in-love";
+  const latestReleaseId = "black-dragon";
 
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => {
