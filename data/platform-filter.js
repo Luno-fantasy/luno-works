@@ -23,8 +23,6 @@
     if (hasChacha) return ["chacha"];
     if (hasZeta) return ["zeta"];
 
-    // Legacy works in this archive were published on ZETA unless they were
-    // explicitly migrated to Chacha later.
     return ["zeta"];
   };
 
@@ -85,17 +83,31 @@
     empty.hidden = visibleCount !== 0;
   };
 
+  const updatePlatformCounts = counts => {
+    platformFilters.querySelectorAll("[data-platform]").forEach(button => {
+      const platform = String(button.dataset.platform || "all");
+      const label = platform === "all" ? "ALL" : platform.toUpperCase();
+      button.textContent = `${label} · ${counts[platform] ?? 0}`;
+      button.setAttribute("aria-label", `${label} ${counts[platform] ?? 0}作品`);
+    });
+  };
+
   const sync = () => {
     const cards = [...workArea.querySelectorAll(".work-card")];
+    const counts = { all: cards.length, zeta: 0, chacha: 0 };
     let visibleCount = 0;
 
     cards.forEach(card => {
       const platforms = addPlatformBadges(card);
+      if (platforms.includes("zeta")) counts.zeta += 1;
+      if (platforms.includes("chacha")) counts.chacha += 1;
+
       const matches = activePlatform === "all" || platforms.includes(activePlatform);
       card.style.display = matches ? "" : "none";
       if (matches) visibleCount += 1;
     });
 
+    updatePlatformCounts(counts);
     syncSections(visibleCount);
     if (resultCount) resultCount.textContent = `${visibleCount}作品`;
   };
