@@ -8,6 +8,16 @@
 
   if (!DATA || !Array.isArray(DATA.works) || !workArea || !platformFilters) return;
 
+  const chachaMigrations = {
+    "strangers-at-work-lovers-at-home": "https://chacha-ai.io/ja/characters/c0e436db-45e8-41ec-84cf-fc9efe191173",
+    "crow-marriage": "https://chacha-ai.io/ja/characters/06d9edef-f612-4c6a-a0b0-0c99ff5c968e"
+  };
+
+  Object.entries(chachaMigrations).forEach(([id, chachaUrl]) => {
+    const work = DATA.works.find(item => String(item?.id || "").trim() === id);
+    if (work) work.chachaUrl = chachaUrl;
+  });
+
   let activePlatform = "all";
   let syncFrame = 0;
 
