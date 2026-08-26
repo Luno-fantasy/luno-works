@@ -18,6 +18,20 @@
     if (work) work.chachaUrl = chachaUrl;
   });
 
+  const chachaOnlyByTitle = {
+    "深淵に沈む星灯": "https://chacha-ai.io/ja/characters/48bbdd10-2001-4733-a9b0-f96232664695"
+  };
+
+  Object.entries(chachaOnlyByTitle).forEach(([title, chachaUrl]) => {
+    const work = DATA.works.find(item => String(item?.title || "").trim() === title);
+    if (!work) return;
+    work.zetaUrl = chachaUrl;
+    work.chachaUrl = null;
+    work.url = null;
+    work.link = null;
+    work.zeta = null;
+  });
+
   let activePlatform = "all";
   let syncFrame = 0;
 
@@ -29,9 +43,6 @@
     let hasZeta = urls.some(url => url.includes("zeta-ai.io"));
     const hasChacha = urls.some(url => url.includes("chacha-ai.io"));
 
-    // Older archive entries may not have their original ZETA URL stored.
-    // When a Chacha URL is added via chachaUrl, treat it as an additional
-    // migration target and keep the legacy ZETA classification too.
     if (!hasZeta && work?.chachaUrl && !work?.zetaUrl && !work?.zeta && !work?.url && !work?.link) {
       hasZeta = true;
     }
