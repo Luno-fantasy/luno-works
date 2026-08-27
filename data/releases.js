@@ -13,6 +13,42 @@
 
   const releases = [
     {
+      id: "rookie-dont-fall-for-me",
+      title: "新人ちゃん、俺に惚れないでね",
+      status: "published",
+      zetaUrl: "https://zeta-ai.io/ja/plots/c056502e-891d-4ee8-b932-ee510b72128c/profile?share_id=d8onnui6",
+      category: "fantasy",
+      series: null,
+      world: "astrain-kingdom",
+      position: "standalone",
+      mainCharacter: "リュカ",
+      relation: [],
+      cover: "images/covers/shinjinchan-ore-ni-horenaidene.jpeg",
+      coverStatus: "ready",
+      isNew: true,
+      releaseDate: "2026.08.28",
+      tags: ["アストレイン王国", "監獄", "看守", "新人", "ファンタジー", "恋愛"],
+      description: ""
+    },
+    {
+      id: "partner-beyond-contract",
+      title: "相棒以上は、契約外。",
+      status: "published",
+      zetaUrl: "https://zeta-ai.io/ja/plots/670eb5cd-2d67-4ef7-a581-1084302b6d49/profile?share_id=7irhai2yf",
+      category: "underworld",
+      series: null,
+      world: null,
+      position: "standalone",
+      mainCharacter: "周凛",
+      relation: [],
+      cover: "images/covers/aibou-ijou-wa-keiyakugai.jpeg",
+      coverStatus: "ready",
+      isNew: false,
+      releaseDate: "2026.08.25",
+      tags: ["裏社会", "バディ", "相棒", "契約", "執着愛"],
+      description: ""
+    },
+    {
       id: "bad-signal",
       title: "BAD SIGNAL",
       status: "published",
@@ -101,7 +137,7 @@
     }
   };
 
-  const latestReleaseId = "black-dragon";
+  const latestReleaseId = "rookie-dont-fall-for-me";
 
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => {
