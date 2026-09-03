@@ -1,0 +1,1 @@
+(()=>{const D=window.BUCANEVE_DATA;if(!D||!Array.isArray(D.categories))return;const add=(id,name)=>{if(!D.categories.some(c=>(typeof c==='string'?c:c.id)===id))D.categories.push({id,name});};add('velvet-night','VELVET NIGHT');add('astrain-kingdom','アストレイン王国');})();
