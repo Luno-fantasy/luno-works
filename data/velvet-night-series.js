@@ -7,7 +7,7 @@
     id:"velvet-night",
     name:"VELVET NIGHT",
     type:"series",
-    works:["velvet-night-amagi-yo"]
+    works:["velvet-night-mikado-reiji","velvet-night-amagi-yo"]
   };
   if (existing) Object.assign(existing, series);
   else DATA.series.push(series);
