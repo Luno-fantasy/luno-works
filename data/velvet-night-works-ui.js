@@ -1,5 +1,5 @@
 (() => {
-  const LATEST_ID = "velvet-night-mikado-reiji";
+  const LATEST_ID = "velvet-night-shiramine-shizuki";
   const apply = () => {
     const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA || null;
     if (DATA?.works) DATA.works.forEach(work => { if (work) work.isNew = String(work.id || "") === LATEST_ID; });
