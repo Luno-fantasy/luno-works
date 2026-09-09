@@ -48,19 +48,26 @@
     work.zeta = null;
   });
 
+  const explicitChachaOnly = work =>
+    String(work?.id || "") === "fox-does-not-love-humans" ||
+    Object.prototype.hasOwnProperty.call(chachaOnlyByTitle, String(work?.title || "").trim());
+
   let activePlatform = "all";
   let syncFrame = 0;
 
   const platformsForWork = work => {
-    const urls = [work?.url, work?.link, work?.zetaUrl, work?.zeta, work?.chachaUrl]
+    if (!work || work.status === "draft") return [];
+    const urls = [work.url, work.link, work.zetaUrl, work.zeta, work.chachaUrl]
       .filter(Boolean)
-      .map(value => String(value));
+      .map(String);
     const hasZeta = urls.some(url => url.includes("zeta-ai.io"));
     const hasChacha = urls.some(url => url.includes("chacha-ai.io"));
+    if (explicitChachaOnly(work)) return ["chacha"];
     if (hasZeta && hasChacha) return ["zeta", "chacha"];
-    if (hasChacha) return ["chacha"];
+    if (hasChacha && !hasZeta) return ["chacha"];
     if (hasZeta) return ["zeta"];
-    return [];
+    // Older published entries predate per-work URL storage and are ZETA works.
+    return ["zeta"];
   };
 
   const workById = id => DATA.works.find(work => String(work?.id || "") === String(id || ""));
@@ -149,11 +156,12 @@
     const platforms = platformsForWork(work);
     if (platforms.length === 1 && platforms[0] === "chacha") {
       const chachaUrl = [work.chachaUrl, work.zetaUrl, work.url, work.link, work.zeta].filter(Boolean).map(String).find(url => url.includes("chacha-ai.io"));
-      if (chachaUrl) actions.innerHTML = `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>`;
+      const desired = chachaUrl ? `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>` : "";
+      if (actions.innerHTML !== desired) actions.innerHTML = desired;
     }
     if (String(work.id) === "fox-does-not-love-humans") {
       const summary = document.getElementById("dialogSummary");
-      if (summary) summary.textContent = work.description || "";
+      if (summary && summary.textContent !== (work.description || "")) summary.textContent = work.description || "";
       const summarySection = summary?.closest(".story-dialog-section");
       const keywordSection = document.getElementById("dialogKeywordSection");
       const relatedSection = document.getElementById("dialogRelatedSection");
@@ -168,9 +176,9 @@
     if (!button) return;
     activePlatform = String(button.dataset.platform || "all");
     platformFilters.querySelectorAll("[data-platform]").forEach(item => {
-      const active = item === button;
-      item.classList.toggle("active", active);
-      item.setAttribute("aria-pressed", String(active));
+      const isActive = item === button;
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
     });
     scheduleSync();
   });
@@ -182,7 +190,6 @@
 
   const observer = new MutationObserver(scheduleSync);
   observer.observe(workArea, { childList: true, subtree: true });
-  const dialogActions = document.getElementById("dialogActions");
-  if (dialogActions) new MutationObserver(normalizeDialogActions).observe(dialogActions, { childList: true, subtree: true });
+  // Do not observe dialogActions: rewriting it from its own observer can create a mutation loop and lock taps on mobile.
   scheduleSync();
 })();
