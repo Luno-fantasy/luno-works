@@ -25,6 +25,13 @@
     fox.zeta = null;
     fox.url = null;
     fox.link = null;
+    fox.description = `「帰れ。人間に診られるくらいなら、傷を抱えたまま死ぬ」
+
+人間を憎む九尾狐・宵牙と、妖専門の人間医師{{user}}。
+拒絶されても治療を続けるうち、嫌悪は少しずつ執着へ変わっていく。
+
+――人間は嫌いだ。
+それでも、お前だけは手放せない。`;
   }
 
   const chachaOnlyByTitle = {
@@ -145,7 +152,9 @@
       if (chachaUrl) actions.innerHTML = `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>`;
     }
     if (String(work.id) === "fox-does-not-love-humans") {
-      const summarySection = document.getElementById("dialogSummary")?.closest(".story-dialog-section");
+      const summary = document.getElementById("dialogSummary");
+      if (summary) summary.textContent = work.description || "";
+      const summarySection = summary?.closest(".story-dialog-section");
       const keywordSection = document.getElementById("dialogKeywordSection");
       const relatedSection = document.getElementById("dialogRelatedSection");
       if (summarySection) summarySection.hidden = !String(work.description || "").trim();
