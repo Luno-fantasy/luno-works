@@ -40,18 +40,13 @@
       .filter(Boolean)
       .map(value => String(value));
 
-    let hasZeta = urls.some(url => url.includes("zeta-ai.io"));
+    const hasZeta = urls.some(url => url.includes("zeta-ai.io"));
     const hasChacha = urls.some(url => url.includes("chacha-ai.io"));
-
-    if (!hasZeta && work?.chachaUrl && !work?.zetaUrl && !work?.zeta && !work?.url && !work?.link) {
-      hasZeta = true;
-    }
 
     if (hasZeta && hasChacha) return ["zeta", "chacha"];
     if (hasChacha) return ["chacha"];
     if (hasZeta) return ["zeta"];
-
-    return ["zeta"];
+    return [];
   };
 
   const workById = id => DATA.works.find(work => String(work?.id || "") === String(id || ""));
@@ -145,6 +140,21 @@
     syncFrame = window.requestAnimationFrame(sync);
   };
 
+  const normalizeDialogActions = () => {
+    const dialog = document.getElementById("workDialog");
+    const actions = document.getElementById("dialogActions");
+    const title = document.getElementById("dialogTitle")?.textContent?.trim();
+    if (!dialog?.open || !actions || !title) return;
+    const work = DATA.works.find(item => String(item?.title || "").trim() === title);
+    if (!work) return;
+    const platforms = platformsForWork(work);
+    if (platforms.length !== 1 || platforms[0] !== "chacha") return;
+    const chachaUrl = [work.chachaUrl, work.zetaUrl, work.url, work.link, work.zeta]
+      .filter(Boolean).map(String).find(url => url.includes("chacha-ai.io"));
+    if (!chachaUrl) return;
+    actions.innerHTML = `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>`;
+  };
+
   platformFilters.addEventListener("click", event => {
     const button = event.target.closest("[data-platform]");
     if (!button) return;
@@ -161,9 +171,13 @@
   document.getElementById("filters")?.addEventListener("click", scheduleSync);
   document.getElementById("workSearch")?.addEventListener("input", scheduleSync);
   document.getElementById("clearSearch")?.addEventListener("click", scheduleSync);
+  workArea.addEventListener("click", () => setTimeout(normalizeDialogActions, 0));
 
   const observer = new MutationObserver(scheduleSync);
   observer.observe(workArea, { childList: true, subtree: true });
+
+  const dialogActions = document.getElementById("dialogActions");
+  if (dialogActions) new MutationObserver(normalizeDialogActions).observe(dialogActions, { childList: true, subtree: true });
 
   scheduleSync();
 })();
