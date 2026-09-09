@@ -17,4 +17,16 @@
       series.works = series.works.filter(id => !removedIds.has(String(id || '').trim()));
     });
   }
+
+  const fox = DATA.works.find(work =>
+    String(work?.id || '').trim() === 'fox-does-not-love-humans' ||
+    String(work?.title || '').trim() === '狐は人間を愛さない'
+  );
+  if (fox) {
+    fox.zetaUrl = null;
+    fox.zeta = null;
+    fox.url = null;
+    fox.link = null;
+    fox.chachaUrl = 'https://chacha-ai.io/ja/characters/cc473d05-4729-49d0-8377-7c1b3cbb4c1a';
+  }
 })();
