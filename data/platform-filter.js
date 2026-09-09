@@ -18,6 +18,11 @@
     if (work) work.chachaUrl = chachaUrl;
   });
 
+  const officeLovers = DATA.works.find(item => String(item?.id || "").trim() === "strangers-at-work-lovers-at-home");
+  if (officeLovers) {
+    officeLovers.zetaUrl = "https://zeta-ai.io/ja/plots/420826f7-d5f2-4b5e-9d0a-24db036deeea/profile?share_id=5972v03h9";
+  }
+
   const fox = DATA.works.find(item => String(item?.id || "").trim() === "fox-does-not-love-humans");
   if (fox) {
     fox.chachaUrl = "https://chacha-ai.io/ja/characters/cc473d05-4729-49d0-8377-7c1b3cbb4c1a";
@@ -66,7 +71,6 @@
     if (hasZeta && hasChacha) return ["zeta", "chacha"];
     if (hasChacha && !hasZeta) return ["chacha"];
     if (hasZeta) return ["zeta"];
-    // Older published entries predate per-work URL storage and are ZETA works.
     return ["zeta"];
   };
 
@@ -190,6 +194,5 @@
 
   const observer = new MutationObserver(scheduleSync);
   observer.observe(workArea, { childList: true, subtree: true });
-  // Do not observe dialogActions: rewriting it from its own observer can create a mutation loop and lock taps on mobile.
   scheduleSync();
 })();
