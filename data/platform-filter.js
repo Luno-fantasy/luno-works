@@ -18,6 +18,15 @@
     if (work) work.chachaUrl = chachaUrl;
   });
 
+  const fox = DATA.works.find(item => String(item?.id || "").trim() === "fox-does-not-love-humans");
+  if (fox) {
+    fox.chachaUrl = "https://chacha-ai.io/ja/characters/cc473d05-4729-49d0-8377-7c1b3cbb4c1a";
+    fox.zetaUrl = null;
+    fox.zeta = null;
+    fox.url = null;
+    fox.link = null;
+  }
+
   const chachaOnlyByTitle = {
     "深淵に沈む星灯": "https://chacha-ai.io/ja/characters/48bbdd10-2001-4733-a9b0-f96232664695"
   };
@@ -39,10 +48,8 @@
     const urls = [work?.url, work?.link, work?.zetaUrl, work?.zeta, work?.chachaUrl]
       .filter(Boolean)
       .map(value => String(value));
-
     const hasZeta = urls.some(url => url.includes("zeta-ai.io"));
     const hasChacha = urls.some(url => url.includes("chacha-ai.io"));
-
     if (hasZeta && hasChacha) return ["zeta", "chacha"];
     if (hasChacha) return ["chacha"];
     if (hasZeta) return ["zeta"];
@@ -54,48 +61,36 @@
   const addPlatformBadges = card => {
     const work = workById(card.dataset.id);
     if (!work) return [];
-
     const platforms = platformsForWork(work);
     card.dataset.platforms = platforms.join(" ");
-
     const body = card.querySelector(".work-body");
     const title = body?.querySelector("h3");
     if (!body || !title) return platforms;
-
     let box = body.querySelector(".work-platform-badges");
     if (!box) {
       box = document.createElement("div");
       box.className = "work-platform-badges";
       body.insertBefore(box, title);
     }
-
     const signature = platforms.join("|");
     if (box.dataset.signature !== signature) {
       box.dataset.signature = signature;
-      box.innerHTML = platforms.map(platform =>
-        `<span class="work-platform-chip is-${platform}">${platform === "zeta" ? "ZETA" : "CHACHA"}</span>`
-      ).join("");
+      box.innerHTML = platforms.map(platform => `<span class="work-platform-chip is-${platform}">${platform === "zeta" ? "ZETA" : "CHACHA"}</span>`).join("");
     }
-
     return platforms;
   };
 
   const syncSections = visibleCount => {
     const sections = [...workArea.querySelectorAll("section.works-series-block")];
     sections.forEach(section => {
-      const hasVisibleCard = [...section.querySelectorAll(".work-card")]
-        .some(card => card.style.display !== "none");
+      const hasVisibleCard = [...section.querySelectorAll(".work-card")].some(card => card.style.display !== "none");
       section.style.display = hasVisibleCard ? "" : "none";
     });
-
     const seriesDivider = workArea.querySelector(":scope > .series-library-divider");
     if (seriesDivider) {
-      const hasVisibleSeries = sections
-        .filter(section => !section.classList.contains("standalone-series-block"))
-        .some(section => section.style.display !== "none");
+      const hasVisibleSeries = sections.filter(section => !section.classList.contains("standalone-series-block")).some(section => section.style.display !== "none");
       seriesDivider.style.display = hasVisibleSeries ? "" : "none";
     }
-
     let empty = workArea.querySelector(":scope > .platform-empty-state");
     if (!empty) {
       empty = document.createElement("div");
@@ -119,17 +114,14 @@
     const cards = [...workArea.querySelectorAll(".work-card")];
     const counts = { all: cards.length, zeta: 0, chacha: 0 };
     let visibleCount = 0;
-
     cards.forEach(card => {
       const platforms = addPlatformBadges(card);
       if (platforms.includes("zeta")) counts.zeta += 1;
       if (platforms.includes("chacha")) counts.chacha += 1;
-
       const matches = activePlatform === "all" || platforms.includes(activePlatform);
       card.style.display = matches ? "" : "none";
       if (matches) visibleCount += 1;
     });
-
     updatePlatformCounts(counts);
     syncSections(visibleCount);
     if (resultCount) resultCount.textContent = `${visibleCount}作品`;
@@ -148,17 +140,23 @@
     const work = DATA.works.find(item => String(item?.title || "").trim() === title);
     if (!work) return;
     const platforms = platformsForWork(work);
-    if (platforms.length !== 1 || platforms[0] !== "chacha") return;
-    const chachaUrl = [work.chachaUrl, work.zetaUrl, work.url, work.link, work.zeta]
-      .filter(Boolean).map(String).find(url => url.includes("chacha-ai.io"));
-    if (!chachaUrl) return;
-    actions.innerHTML = `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>`;
+    if (platforms.length === 1 && platforms[0] === "chacha") {
+      const chachaUrl = [work.chachaUrl, work.zetaUrl, work.url, work.link, work.zeta].filter(Boolean).map(String).find(url => url.includes("chacha-ai.io"));
+      if (chachaUrl) actions.innerHTML = `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>`;
+    }
+    if (String(work.id) === "fox-does-not-love-humans") {
+      const summarySection = document.getElementById("dialogSummary")?.closest(".story-dialog-section");
+      const keywordSection = document.getElementById("dialogKeywordSection");
+      const relatedSection = document.getElementById("dialogRelatedSection");
+      if (summarySection) summarySection.hidden = !String(work.description || "").trim();
+      if (keywordSection) keywordSection.hidden = !(Array.isArray(work.tags) && work.tags.length);
+      if (relatedSection) relatedSection.hidden = true;
+    }
   };
 
   platformFilters.addEventListener("click", event => {
     const button = event.target.closest("[data-platform]");
     if (!button) return;
-
     activePlatform = String(button.dataset.platform || "all");
     platformFilters.querySelectorAll("[data-platform]").forEach(item => {
       const active = item === button;
@@ -175,9 +173,7 @@
 
   const observer = new MutationObserver(scheduleSync);
   observer.observe(workArea, { childList: true, subtree: true });
-
   const dialogActions = document.getElementById("dialogActions");
   if (dialogActions) new MutationObserver(normalizeDialogActions).observe(dialogActions, { childList: true, subtree: true });
-
   scheduleSync();
 })();
