@@ -1,0 +1,50 @@
+(() => {
+  const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA || null;
+  if (!DATA || !Array.isArray(DATA.works)) return;
+
+  if (Array.isArray(DATA.categories) && !DATA.categories.some(category => String(typeof category === "string" ? category : category?.id) === "secret-menu")) {
+    DATA.categories.push({id:"secret-menu", name:"SECRET MENU"});
+  }
+
+  if (Array.isArray(DATA.series)) {
+    const series = DATA.series.find(item => String(typeof item === "string" ? item : item?.id) === "secret-menu");
+    if (series && typeof series === "object") {
+      series.name = "SECRET MENU";
+      series.type = "series";
+      if (!Array.isArray(series.works)) series.works = [];
+      if (!series.works.includes("secret-menu-iori")) series.works.unshift("secret-menu-iori");
+    } else {
+      DATA.series.push({id:"secret-menu", name:"SECRET MENU", type:"series", works:["secret-menu-iori"]});
+    }
+  }
+
+  const release = {
+    id:"secret-menu-iori",
+    title:"今夜、俺を注文して。",
+    status:"published",
+    zetaUrl:"https://zeta-ai.io/ja/plots/365e7b6c-3ac6-4e42-8bc3-49b7c9e692fe/profile?share_id=68k28c8s",
+    category:"modern-romance",
+    series:"secret-menu",
+    world:"secret-menu",
+    position:"SECRET MENU #01",
+    mainCharacter:"瀬名伊織",
+    relation:[],
+    cover:"images/covers/secret-menu-iori.jpg",
+    coverStatus:"ready",
+    isNew:true,
+    releaseDate:"2026.09.10",
+    catchphrase:"――{{user}}だけが、仕事では済まなくなるまでは。",
+    tags:["SECRET MENU","MELLOW","夜カフェ","付き添い","恋人役","相談","距離近め","仕事から始まる恋"],
+    description:"夜カフェ《MELLOW》には、普通のメニューには載っていない《SECRET MENU》がある。\n\n今夜、{{user}}の相談を引き受けたのは、\n人懐っこくて距離の詰め方が上手い男――瀬名伊織。\n\n付き添いも、恋人役も、「そばにいて」も。\n笑って引き受ける彼にとって、全部ただの仕事だった。\n\n――{{user}}だけが、仕事では済まなくなるまでは。"
+  };
+
+  DATA.works.forEach(work => { if (work) work.isNew = false; });
+  const index = DATA.works.findIndex(work => String(work?.id || "") === release.id || String(work?.title || "").trim() === release.title);
+  if (index >= 0) DATA.works[index] = {...DATA.works[index], ...release};
+  else DATA.works.unshift(release);
+
+  if (DATA.site && typeof DATA.site === "object") {
+    DATA.site.publishedCount = DATA.works.filter(work => work?.status === "published").length;
+    DATA.site.draftCount = DATA.works.filter(work => work?.status === "draft").length;
+  }
+})();
