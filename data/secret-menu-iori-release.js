@@ -29,7 +29,7 @@
     position:"SECRET MENU #01",
     mainCharacter:"瀬名伊織",
     relation:[],
-    cover:"images/covers/secret-menu-iori.jpg",
+    cover:"images/covers/secret-menu-sena-iori.jpeg",
     coverStatus:"ready",
     isNew:true,
     releaseDate:"2026.09.10",
