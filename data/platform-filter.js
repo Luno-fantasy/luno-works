@@ -158,7 +158,15 @@
     const work = DATA.works.find(item => String(item?.title || "").trim() === title);
     if (!work) return;
     const platforms = platformsForWork(work);
-    if (platforms.length === 1 && platforms[0] === "chacha") {
+    if (platforms.includes("zeta") && platforms.includes("chacha")) {
+      const zetaUrl = [work.zetaUrl, work.zeta, work.url, work.link].filter(Boolean).map(String).find(url => url.includes("zeta-ai.io"));
+      const chachaUrl = [work.chachaUrl, work.url, work.link].filter(Boolean).map(String).find(url => url.includes("chacha-ai.io"));
+      const desired = [
+        zetaUrl ? `<a class="button story-primary-action" href="${zetaUrl}">READ ON ZETA <span>→</span></a>` : "",
+        chachaUrl ? `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>` : ""
+      ].filter(Boolean).join("");
+      if (actions.innerHTML !== desired) actions.innerHTML = desired;
+    } else if (platforms.length === 1 && platforms[0] === "chacha") {
       const chachaUrl = [work.chachaUrl, work.zetaUrl, work.url, work.link, work.zeta].filter(Boolean).map(String).find(url => url.includes("chacha-ai.io"));
       const desired = chachaUrl ? `<a class="button story-primary-action" href="${chachaUrl}">READ ON CHACHA <span>→</span></a>` : "";
       if (actions.innerHTML !== desired) actions.innerHTML = desired;

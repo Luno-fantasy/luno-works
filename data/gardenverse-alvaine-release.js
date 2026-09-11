@@ -7,6 +7,7 @@
     title:"君の花だけ、味を覚えた。",
     status:"published",
     zetaUrl:"https://zeta-ai.io/ja/plots/82fb39cc-5093-4eec-9202-850d4538aa50/profile?share_id=cvod5e39m",
+    chachaUrl:"https://chacha-ai.io/ja/characters/2a111288-636f-431a-8968-0fc912e23c32",
     category:"fantasy",
     series:null,
     world:null,
