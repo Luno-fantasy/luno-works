@@ -34,7 +34,7 @@
     }
   };
 
-  const latestReleaseId = "sensei-amayakashisugidesu";
+  const latestReleaseId = "hiiragi-natsume-sonna-kao";
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => { if (work && typeof work === "object") work.isNew = work.id === latestReleaseId; });
     if (DATA.site && typeof DATA.site === "object") {
