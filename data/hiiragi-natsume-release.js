@@ -7,6 +7,7 @@
   "title": "そんな顔、するんだ。",
   "status": "published",
   "zetaUrl": "https://zeta-ai.io/ja/plots/7a8cd5d0-76a4-418f-a820-a0ddc58c20f4/profile?share_id=maarwlwef",
+  "chachaUrl": "https://chacha-ai.io/ja/characters/219cfb77-53dc-4780-8bfa-c652c73f6322?s=kGQ9DAafQl",
   "category": "modern-romance",
   "series": null,
   "world": null,
