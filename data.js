@@ -1183,7 +1183,6 @@ window.BUCANEVE_DATA = {
       "id": "boss-obey-me",
       "title": "ボス、今夜は俺に従え。",
       "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/d4868a7e-971e-4fb0-a0b6-25c2599783e5/profile?share_id=l7ttc8hzp",
       "category": "underworld",
       "series": null,
       "world": null,
