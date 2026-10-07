@@ -22,7 +22,7 @@
     id:"secret-menu-iori",
     title:"今夜、俺を注文して。",
     status:"published",
-    zetaUrl:"https://zeta-ai.io/ja/plots/365e7b6c-3ac6-4e42-8bc3-49b7c9e692fe/profile?share_id=68k28c8s",
+    chachaUrl:"https://chacha-ai.io/ja/characters/ca53fb62-0863-4686-84eb-ea69229db57b?s=QlFtuUdUKC",
     category:"modern-romance",
     series:"secret-menu",
     world:"secret-menu",
