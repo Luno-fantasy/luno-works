@@ -22,7 +22,7 @@
     id:"secret-menu-mido-kei",
     title:"そこ動くな。迎えに行く。",
     status:"published",
-    zetaUrl:"https://zeta-ai.io/ja/plots/b95cbf42-a0f3-434c-b8b7-f1f0d75f164b/profile?share_id=3pqq2pamo",
+    chachaUrl:"https://chacha-ai.io/ja/characters/d44c3ef9-423b-47ea-be5e-fe16fafc389b?s=zrFe09LaOr",
     category:"modern-romance",
     series:"secret-menu",
     world:"secret-menu",
