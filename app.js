@@ -56,8 +56,8 @@
     const draft=w.status==='draft';
     const series=normalizeSeries(w);
     return `<article class="work-card ${draft?'is-draft':'is-published'} ${w.isNew?'is-new':''}" data-id="${esc(w.id)}" ${draft?'aria-disabled="true"':`tabindex="0" role="button" aria-label="${esc(w.title)}の詳細を見る"`}>
-      <div class="work-visual" style="--cover:url('${esc(w.cover||'')}')"><span class="work-number">${String(i+1).padStart(2,'0')}</span><span class="work-status-ribbon">${draft?'UNRELEASED':'NOW AVAILABLE'}</span>${w.isNew&&!draft?'<span class="work-new-badge">NEW RELEASE</span>':''}</div>
-      <div class="work-body"><div class="work-card-topline"><span class="work-category">${esc(series||cat(w))}</span><span class="work-status-dot">${esc(STATUS[w.status]||w.status||'')}</span></div><h3>${esc(w.title)}</h3><p class="work-card-description">${esc(draft?'作品情報は公開時に解禁されます。':w.description||'')}</p><div class="work-meta"><span>${esc(cat(w))}</span><span class="work-detail-link">${draft?'LOCKED':'VIEW STORY <i>↗</i>'}</span></div></div>
+      <div class="work-visual" style="--cover:url('${esc(w.cover||'')}')"><span class="work-number">${String(i+1).padStart(2,'0')}</span><span class="work-status-ribbon">${draft?'UNRELEASED':w.archiveOnly?'ARCHIVE':'NOW AVAILABLE'}</span>${w.isNew&&!draft?'<span class="work-new-badge">NEW RELEASE</span>':''}</div>
+      <div class="work-body"><div class="work-card-topline"><span class="work-category">${esc(series||cat(w))}</span><span class="work-status-dot">${esc(w.archiveOnly?'アーカイブ':STATUS[w.status]||w.status||'')}</span></div><h3>${esc(w.title)}</h3><p class="work-card-description">${esc(draft?'作品情報は公開時に解禁されます。':w.description||'')}</p><div class="work-meta"><span>${esc(cat(w))}</span><span class="work-detail-link">${draft?'LOCKED':w.archiveOnly?'VIEW ARCHIVE <i>↗</i>':'VIEW STORY <i>↗</i>'}</span></div></div>
     </article>`;
   };
 
@@ -91,7 +91,7 @@
   renderFilters(); renderWorks();
 
   const dialog=$('#workDialog');
-  function openWork(w){if(!dialog||!w||w.status==='draft')return; const set=(id,v)=>{const el=$('#'+id);if(el)el.textContent=v||''}; const series=normalizeSeries(w); $('#dialogVisual')?.style.setProperty('--cover',`url('${w.cover||''}')`); set('dialogNumber','01');set('dialogCategory',series||cat(w));set('dialogStatus',w.isNew?'NEW RELEASE':'NOW AVAILABLE');set('dialogTitle',w.title);set('dialogCatch',w.catchphrase||'');set('dialogSummary',w.description||'');const kw=$('#dialogKeywords');if(kw)kw.innerHTML=(w.tags||[]).map(t=>`<span class="keyword">${esc(t)}</span>`).join('');const actions=$('#dialogActions');const link=w.url||w.link||w.zetaUrl||w.zeta||w.chachaUrl||'';if(actions)actions.innerHTML=link?`<a class="button story-primary-action" href="${esc(link)}">READ STORY <span>→</span></a>`:'';dialog.showModal();}
+  function openWork(w){if(!dialog||!w||w.status==='draft')return; const set=(id,v)=>{const el=$('#'+id);if(el)el.textContent=v||''}; const series=normalizeSeries(w); $('#dialogVisual')?.style.setProperty('--cover',`url('${w.cover||''}')`); set('dialogNumber','01');set('dialogCategory',series||cat(w));set('dialogStatus',w.archiveOnly?'ARCHIVE':w.isNew?'NEW RELEASE':'NOW AVAILABLE');set('dialogTitle',w.title);set('dialogCatch',w.catchphrase||'');set('dialogSummary',w.description||'');const kw=$('#dialogKeywords');if(kw)kw.innerHTML=(w.tags||[]).map(t=>`<span class="keyword">${esc(t)}</span>`).join('');const actions=$('#dialogActions');const link=w.archiveOnly?'':w.url||w.link||w.zetaUrl||w.zeta||w.chachaUrl||'';if(actions)actions.innerHTML=link?`<a class="button story-primary-action" href="${esc(link)}">READ STORY <span>→</span></a>`:'';dialog.showModal();}
   workArea?.addEventListener('click',e=>{const c=e.target.closest('.work-card');if(!c)return;openWork(DATA.works.find(w=>String(w.id)===c.dataset.id));});
   $('#closeDialog')?.addEventListener('click',()=>dialog?.close());
 })();
