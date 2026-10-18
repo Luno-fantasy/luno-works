@@ -61,7 +61,7 @@
   let syncFrame = 0;
 
   const platformsForWork = work => {
-    if (!work || work.status === "draft") return [];
+    if (!work || work.status === "draft" || work.archiveOnly) return [];
     const urls = [work.url, work.link, work.zetaUrl, work.zeta, work.chachaUrl]
       .filter(Boolean)
       .map(String);
@@ -90,10 +90,10 @@
       box.className = "work-platform-badges";
       body.insertBefore(box, title);
     }
-    const signature = platforms.join("|");
+    const signature = work.archiveOnly ? "archive" : platforms.join("|");
     if (box.dataset.signature !== signature) {
       box.dataset.signature = signature;
-      box.innerHTML = platforms.map(platform => `<span class="work-platform-chip is-${platform}">${platform === "zeta" ? "ZETA" : "CHACHA"}</span>`).join("");
+      box.innerHTML = work.archiveOnly ? '<span class="work-platform-chip is-archive">ARCHIVE</span>' : platforms.map(platform => `<span class="work-platform-chip is-${platform}">${platform === "zeta" ? "ZETA" : "CHACHA"}</span>`).join("");
     }
     return platforms;
   };
