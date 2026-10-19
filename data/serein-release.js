@@ -6,7 +6,7 @@
       "id": "serein-someday-with-you",
       "title": "その「いつか」を、お前と。",
       "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/3df1a27d-cd83-4134-bc53-2f4dd2bf1c10/profile?share_id=xub5o8o7",
+      "archiveOnly": true,
       "category": "fantasy",
       "series": null,
       "world": null,
@@ -15,7 +15,7 @@
       "relation": [],
       "cover": "images/covers/serein-someday-with-you.jpeg",
       "coverStatus": "ready",
-      "isNew": true,
+      "isNew": false,
       "releaseDate": "2026.09.26",
       "catchphrase": "次の街だ。お前も来るだろ",
       "tags": [
