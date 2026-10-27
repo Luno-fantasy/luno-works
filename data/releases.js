@@ -34,7 +34,7 @@
     }
   };
 
-  const latestReleaseId = "lapin-bunny-nomination";
+  const latestReleaseId = "takase-akira-untamable-mad-dog";
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => { if (work && typeof work === "object") work.isNew = work.id === latestReleaseId; });
     if (DATA.site && typeof DATA.site === "object") {
