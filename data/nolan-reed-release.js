@@ -6,7 +6,7 @@
   "id": "nolan-reed-no-longer-my-mission",
   "title": "もう、俺の任務じゃない。",
   "status": "published",
-  "zetaUrl": "https://zeta-ai.io/ja/plots/09c73632-28bd-418a-a6e7-e6eb3d8a4531/profile?share_id=mjuikkzp",
+  "archiveOnly": true,
   "category": "modern-romance",
   "series": null,
   "world": null,
@@ -15,7 +15,7 @@
   "relation": [],
   "cover": "images/covers/nolan-reed-no-longer-my-mission.jpeg",
   "coverStatus": "ready",
-  "isNew": true,
+  "isNew": false,
   "releaseDate": "2026.10.07",
   "catchphrase": "……あんた、もう俺の任務じゃないんだけどな",
   "tags": [
