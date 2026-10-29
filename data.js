@@ -1007,6 +1007,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "emperor-body-pillow",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/ef09f7c7-79c3-43c0-9342-80811582026e/profile?share_id=1pwe6pclg",
       "chachaUrl": "https://chacha-ai.io/ja/characters/d26b565c-5f02-44c1-9ea0-d87af0b7259b?s=JkMFknhtrc",
       "title": "皇帝の抱き枕係に任命されました。",
       "status": "published",
