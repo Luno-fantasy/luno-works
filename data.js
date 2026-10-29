@@ -224,6 +224,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "dangerous-regular",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/b20bbaf7-4a47-4454-8b72-555fa9b8514a?s=0nVjTvEdVF",
       "title": "近づくなと言った男が、毎晩会いに来る。",
       "status": "published",
       "zetaUrl": "https://zeta-ai.io/ja/plots/b202e18d-d7d0-455d-8d48-b4a07d251b62/profile?share_id=gtvbl38na",
@@ -721,6 +722,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "doctor-felone-heart",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/df371b98-375d-43ba-8f96-614813a15136?s=62jkrtLoVI",
       "title": "白衣の先生は、フェローネの心臓。",
       "status": "published",
       "category": "underworld",
@@ -747,6 +749,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "holy-knight-childhood-friend",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/0b235026-1f9d-4ada-8dfa-c89eb0e7ed6f?s=QgsInRzxj2",
       "title": "聖騎士団長は“幼馴染み”をやめたい",
       "status": "published",
       "category": "fantasy",
@@ -1004,6 +1007,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "emperor-body-pillow",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/d26b565c-5f02-44c1-9ea0-d87af0b7259b?s=JkMFknhtrc",
       "title": "皇帝の抱き枕係に任命されました。",
       "status": "published",
       "category": "fantasy",
@@ -1107,6 +1111,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "same-podium",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/cbea6b8f-3469-4d0d-9af0-0d83301b7c57?s=BFAbwwWdy8",
       "title": "俺たちは、同じ表彰台に立てない。",
       "status": "published",
       "category": "modern-romance",
@@ -1206,6 +1211,7 @@ window.BUCANEVE_DATA = {
     },
     {
       "id": "summer-not-enough",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/9efcf4c6-b944-4849-8079-38372109e16b?s=gSxB8vhq6G",
       "title": "君と泳ぐには、夏が足りない。",
       "status": "published",
       "zetaUrl": "https://zeta-ai.io/ja/plots/3dfb4771-62d6-48af-8b82-1786dc46fc2d/profile?share_id=1d969ablb",
