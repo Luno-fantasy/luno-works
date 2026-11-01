@@ -34,7 +34,7 @@
     }
   };
 
-  const latestReleaseId = "washio-taiga-okusama-ni-muchu";
+  const latestReleaseId = "reve-aikata-fansa";
   const enforceLatestRelease = () => {
     DATA.works.forEach(work => { if (work && typeof work === "object") work.isNew = work.id === latestReleaseId; });
     if (DATA.site && typeof DATA.site === "object") {
