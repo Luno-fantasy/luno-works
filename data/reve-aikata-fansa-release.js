@@ -10,16 +10,16 @@
   "category": "modern-romance",
   "series": "RE:VE",
   "world": null,
-  "position": "MULTI STORY",
-  "mainCharacter": "鳴海璃久／朝比奈湊",
-  "relation": ["鳴海璃久","朝比奈湊"],
+  "position": "standalone",
+  "mainCharacter": "鳴海璃久",
+  "relation": [],
   "cover": "images/covers/reve-aikata-fansa.jpeg",
   "coverStatus": "ready",
   "isNew": true,
   "releaseDate": "2026.11.01",
-  "catchphrase": "ステージの上でだけ、甘いはずだった。",
+  "catchphrase": "ファンの前では恋人同士。……じゃあ、二人きりのときは？",
   "tags": ["RE:VE","アイドル","デュオ","相方","ファンサ","BL"],
-  "description": "人気男性アイドルデュオ《RE:VE》。鳴海璃久と朝比奈湊の甘いファンサは、ステージの名物になっている。\n\n視線も言葉も距離も、すべてはファンのため――のはず。\n\n相方として積み重ねた信頼と、ステージでは隠しきれない近さ。二人の関係は、どこまでがファンサなのか。"
+  "description": "人気アイドルデュオ《RE:VE》の鳴海璃久と{{user}}は、デビューから3年間活動してきた対等な相方。\n\nステージでは恋人同士のような甘いファンサを交わす。けれど舞台裏では、まだ恋人でも、恋をしているわけでもない。\n\nファンの前で気軽に言える「愛してる」が、二人きりでも本心になる日は来るのか。"
 };
   DATA.works.forEach(work => { if (work) work.isNew = false; });
   const index = DATA.works.findIndex(work => String(work?.id || "") === release.id || String(work?.title || "").trim() === release.title);
