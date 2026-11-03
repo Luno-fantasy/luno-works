@@ -2,9 +2,6 @@
   const DATA = window.BUCANEVE_DATA || window.LUNO_DATA || window.SITE_DATA || window.WORKS_DATA || null;
   if (!DATA || !Array.isArray(DATA.works)) return;
 
-  const removedWorkIds = new Set(["snake-god-sleepless","senpai-forbidden-tonight","saint-quits","no1-jealousy"]);
-  DATA.works = DATA.works.filter(work => !removedWorkIds.has(String(work?.id || "").trim()));
-
   const releases = [
     {id:"sensei-amayakashisugidesu",title:"先生、甘やかしすぎです。",status:"published",archiveOnly:true,category:"modern-romance",series:null,world:null,position:"standalone",mainCharacter:"冬城理人",relation:[],cover:"images/covers/sensei-amayakashisugidesu.jpeg",coverStatus:"ready",isNew:false,releaseDate:"2026.09.02",catchphrase:"救命救急医の彼は、恋人にだけ、過保護。",tags:["医者","救命救急医","現代恋愛","溺愛","過保護","年上彼氏"],description:"救命救急の現場では、誰より冷静。\nどんな緊急事態でも表情ひとつ変えない男――冬城理人。\n\nけれど、交際4年。\n同棲中の{{user}}のことになると話は別。\n\n顔色が悪ければすぐ気づく。\n食事を抜けば何も言わず用意する。\n「大丈夫」と笑っても、絶対に誤魔化されてくれない。\n\n「四年一緒にいるのに、まだ隠せると思ってる？」\n\n甘い言葉を並べるタイプじゃない。\nただ、疲れていれば家事を取り上げ、眠る時には自然と腕の中へ入れてくる。\n\n――彼にとって、恋人を甘やかすことは特別じゃない。\n\n「恋人なら、これくらい普通だろ」"},
     {id:"rookie-dont-fall-for-me",title:"新人ちゃん、俺に惚れないでね",status:"published",zetaUrl:"https://zeta-ai.io/ja/plots/c056502e-891d-4ee8-b932-ee510b72128c/profile?share_id=d8onnui6",chachaUrl:"https://chacha-ai.io/ja/characters/003820bc-af9f-44de-aa66-28c109acc4c2?s=QE6tFxR6Gk",category:"fantasy",series:null,world:"astrain-kingdom",position:"standalone",mainCharacter:"リュカ",relation:[],cover:"images/covers/shinjinchan-ore-ni-horenaidene.jpeg",coverStatus:"ready",isNew:false,releaseDate:"2026.08.28",tags:["アストレイン王国","監獄","看守","新人","ファンタジー","恋愛"],description:"王立魔導監獄へ配属された{{user}}の教育係になったのは、軽口ばかりの先輩看守・リュカ。\n\n距離は近いし、褒めるのも自然。\n髪型の変化にも体調不良にもすぐ気付く。\n\nどうせ誰にでもこうなのだと思っていた。\n\nけれど、{{user}}が他の男と親しくなった頃から――\nいつも余裕だった彼の様子が、少しずつおかしくなっていく。\n\n女心には誰より詳しいくせに、自分の恋心だけ分からない。\n\n口説くのは得意。\n恋をするのは、下手。\n\n余裕たっぷりの小悪魔系先輩看守が、本気になった途端に崩れていく恋。"},

@@ -2,7 +2,7 @@ window.BUCANEVE_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 55,
+    "publishedCount": 47,
     "draftCount": 2
   },
   "categories": [
@@ -206,21 +206,6 @@ window.BUCANEVE_DATA = {
       ],
       "description": "巨大歓楽街《ノクス区》。\n\n政財界、海外マフィア、ドラッグカルテルが交錯する眠らない街で、\n新型ドラッグ《Euphoria》が静かに流通を広げていた。\n\n強烈な幸福感と引き換えに、\n特定の誰かへの依存を異常なまでに増幅させる危険薬物。\n\nその供給源を突き止めるため、\n紫京厚生局麻薬取締部は犯罪シンジケート《EDEN》への潜入捜査を開始する。\n\n任務を命じられた{{user}}が接触したのは、\nEDENの幹部――雪城ルイ。\nコードネーム《SERAPH》。\n\n組織内で勧誘と精神誘導を担い、\n暴力ではなく言葉と信頼によって人を支配する危険人物だった。\n\n初対面であるはずなのに、ルイは{{user}}を穏やかに迎え入れる。\nまるで、ずっと前から会うことを知っていたかのように。\n\n彼は会うたびに気遣い、傷を見つければ手当てをし、\n危険な任務の後には何も問わず隣へ座る。\n\n敵であるはずの男だけが、\n誰より早く{{user}}の心の揺らぎに気づいてしまう。\n\nけれど、その優しさこそがルイの最大の武器だった。\n否定せず、寄り添い、信頼を重ね、\nいつしか「この人だけは失いたくない」と思わせる。\n\n捜査が進むほどEDENの真実へ近づき、\n同時にルイとの距離も縮まっていく。\n\n正義を貫けば、彼を裏切ることになる。\n彼を信じれば、任務を裏切ることになる。\n\nEDENを壊すのか。\nそれとも、雪城ルイと共に甘い破滅を選ぶのか。\n\nその想いが潜入のための偽りだったのか、\n恋だったのかを知る頃には、もう戻れない。",
       "catchphrase": "その優しさは、救いではなく侵食だった。"
-    },
-    {
-      "id": "snake-god-sleepless",
-      "title": "蛇神様と、朝まで眠れない。",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/snake-god-sleepless.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
     },
     {
       "id": "dangerous-regular",
@@ -689,21 +674,6 @@ window.BUCANEVE_DATA = {
       "description": ""
     },
     {
-      "id": "sougetsurou",
-      "title": "絢爛たる双月楼",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/sougetsurou.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
       "id": "gunpowder-rain",
       "title": "硝煙は、雨の日の君の香りがした",
       "status": "published",
@@ -775,21 +745,6 @@ window.BUCANEVE_DATA = {
       "catchphrase": "幼馴染みでは、もう足りない。"
     },
     {
-      "id": "four-vampires",
-      "title": "四人の吸血鬼は、君を離さない。",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/four-vampires.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
       "id": "keigaku-arsene",
       "title": "【零学】アルセイン・ルヴェリエ",
       "status": "published",
@@ -855,21 +810,6 @@ window.BUCANEVE_DATA = {
       ],
       "description": "巨大歓楽街《ノクス区》。\n\n政財界、海外マフィア、ドラッグカルテルが交錯する街で、\n新型ドラッグ《Euphoria》の流通が急速に拡大していた。\n\n感情への依存を異常に増幅させ、\n特定の誰かなしでは正常な精神を保てなくする危険薬物。\n\nその供給源を突き止めるため、\n紫京厚生局麻薬取締部は大規模な潜入捜査を開始する。\n\n指揮を執るのは、潜入捜査班を率いる課長・御影恒一。\nそして作戦に選ばれたのは、直属の部下である{{user}}だった。\n\n普段の御影は部下を公平に扱い、私情を挟まない。\nそれでも{{user}}に対してだけは確認が異様に多く、\n危険な任務から外そうとすることさえある。\n\nその態度の裏には、かつて潜入捜査で\n守れなかった部下を失った過去があった。\n\n潜入先は、《Euphoria》を裏で操る犯罪組織《EDEN》。\n{{user}}が危険に晒されるたび、\n冷静な指揮官であるはずの御影の感情は少しずつ揺らいでいく。\n\n一方の{{user}}も、誰より非情で完璧だと思っていた上司が、\n自分にだけ見せる過保護な一面と、深い後悔を知っていく。\n\nやがて二人は、《Euphoria》の真実だけでなく、\n御影の過去へ繋がる事件へと辿り着く。\n\n課長として正義を貫くのか。\nそれとも、一人の男として{{user}}を守るのか。\n\n責務と想いの境界で、\n御影恒一は最後の選択を迫られる。",
       "catchphrase": "厳しく、冷たい。そのすべては、守れなかった後悔の裏返し。"
-    },
-    {
-      "id": "saint-quits",
-      "title": "聖女、辞めます。",
-      "status": "published",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/saint-quits.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
     },
     {
       "id": "fox-does-not-love-humans",
@@ -988,24 +928,6 @@ window.BUCANEVE_DATA = {
       "description": ""
     },
     {
-      "id": "code-scarlet",
-      "title": "CODE SCARLET",
-      "status": "published",
-      "category": "modern-romance",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/code-scarlet.jpeg",
-      "coverStatus": "ready",
-      "tags": [
-        "現代",
-        "警察官"
-      ],
-      "description": ""
-    },
-    {
       "id": "emperor-body-pillow",
       "zetaUrl": "https://zeta-ai.io/ja/plots/ef09f7c7-79c3-43c0-9342-80811582026e/profile?share_id=1pwe6pclg",
       "chachaUrl": "https://chacha-ai.io/ja/characters/d26b565c-5f02-44c1-9ea0-d87af0b7259b?s=JkMFknhtrc",
@@ -1018,51 +940,6 @@ window.BUCANEVE_DATA = {
       "mainCharacter": null,
       "relation": [],
       "cover": "images/covers/emperor-body-pillow.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
-      "id": "senpai-forbidden-tonight",
-      "title": "今夜だけは、先輩禁止。",
-      "status": "published",
-      "category": "modern-romance",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/senpai-forbidden-tonight.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
-      "id": "no1-jealousy",
-      "title": "No.1の嫉妬は、営業じゃない。",
-      "status": "published",
-      "category": "modern-romance",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/no1-jealousy.jpeg",
-      "coverStatus": "ready",
-      "tags": [],
-      "description": ""
-    },
-    {
-      "id": "say-you-like-me",
-      "title": "好きならそう言えよ、同期くん。",
-      "status": "published",
-      "category": "modern-romance",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": null,
-      "relation": [],
-      "cover": "images/covers/say-you-like-me.jpeg",
       "coverStatus": "ready",
       "tags": [],
       "description": ""
