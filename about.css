@@ -31,3 +31,15 @@
  .about-closing{padding:36px 24px 28px;letter-spacing:.025em}
 }
 @media(max-width:359px){.about-chapters{padding-inline:20px}.about-chapter{grid-template-columns:25px minmax(0,1fr);gap:8px}.about-chapter h2{font-size:19px;letter-spacing:.025em}}
+
+/* Mobile reading: retain 14px type, reclaim the number column for prose. */
+@media(max-width:760px){
+ .about-chapter{display:block;position:relative;padding:34px 0 36px}
+ .about-number{position:absolute;top:38px;left:0;padding-top:0}
+ .about-chapter h2{padding-left:44px;margin-bottom:22px}
+ .about-chapter-copy{max-width:none}
+ .about-chapter-copy p{line-height:2.05;margin-bottom:.9em;overflow-wrap:normal}
+ .about-chapter-copy p:last-child{margin-bottom:0}
+ .about-phrase{display:inline-block;max-width:100%;vertical-align:top}
+}
+@media(max-width:359px){.about-chapter h2{padding-left:33px}}
