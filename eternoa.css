@@ -54,3 +54,6 @@ body[data-page="home"] .home-profile>img{border-radius:0}
  body[data-page="enter"] .invitation{flex-direction:row;gap:24px}
  body[data-page="enter"] .entrance-art{width:calc(100% - 192px);max-height:85svh}
 }
+
+/* Six-item navigation for ABOUT; mobile breakpoint and interaction stay unchanged. */
+@media(min-width:761px) and (max-width:1000px){.maison-nav{gap:16px}.maison-header{gap:20px}.maison-nav a{letter-spacing:.1em}}

@@ -1,0 +1,33 @@
+/* ABOUT: a quiet reading page. Shared brand artwork and colours remain unchanged. */
+.about-main{max-width:1440px;margin-inline:auto}
+.about-intro{padding:100px 24px 84px;text-align:center}
+.about-intro .eyebrow{font-size:9px;letter-spacing:.25em;margin-bottom:24px}
+.about-intro h1{font:400 clamp(27px,4.4vw,54px)/1.35 var(--serif);letter-spacing:.06em;margin:0 0 32px}
+.about-main-copy{font:400 clamp(19px,2.1vw,26px)/1.9 var(--jp);letter-spacing:.08em;margin:0}
+.about-main-copy span{display:inline-block}
+.about-chapters{max-width:880px;margin:0 auto;padding-inline:24px}
+.about-chapter{display:grid;grid-template-columns:64px minmax(0,1fr);gap:36px;padding:58px 0 62px;border-top:1px solid var(--line)}
+.about-number{font:400 12px/2 var(--serif);letter-spacing:.15em;color:var(--gold);padding-top:6px}
+.about-chapter h2{font:400 clamp(21px,2.5vw,27px)/1.5 var(--serif);letter-spacing:.08em;color:var(--gold);margin:0 0 30px}
+.about-chapter-copy{max-width:650px;min-width:0}
+.about-chapter-copy p{font-size:15px;line-height:2.4;letter-spacing:.025em;margin:0 0 1.5em;overflow-wrap:break-word;line-break:strict}
+.about-chapter-copy p:last-child{margin-bottom:0}
+.about-creator-name{font:400 38px/1.3 var(--serif);letter-spacing:.05em;margin:0 0 22px}
+.about-profile-link{margin-top:8px;min-height:44px;font-size:10px;letter-spacing:.14em}
+.about-closing{text-align:center;font:400 clamp(17px,2vw,22px)/2 var(--jp);letter-spacing:.09em;padding:52px 24px 46px;margin:0}
+.about-main + .maison-footer{margin-top:28px}
+.about-profile-link .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:760px){
+ .about-intro{padding:64px 22px 52px}
+ .about-intro .eyebrow{font-size:8px;margin-bottom:22px;letter-spacing:.2em}
+ .about-intro h1{margin-bottom:26px}
+ .about-main-copy span{display:block}
+ .about-chapters{padding-inline:24px}
+ .about-chapter{grid-template-columns:32px minmax(0,1fr);gap:12px;padding:34px 0 40px}
+ .about-number{font-size:11px;padding-top:4px}
+ .about-chapter h2{font-size:21px;margin-bottom:24px;letter-spacing:.045em}
+ .about-chapter-copy p{font-size:14px;line-height:2.25;letter-spacing:.015em;margin-bottom:1.4em}
+ .about-creator-name{font-size:32px}
+ .about-closing{padding:36px 24px 28px;letter-spacing:.025em}
+}
+@media(max-width:359px){.about-chapters{padding-inline:20px}.about-chapter{grid-template-columns:25px minmax(0,1fr);gap:8px}.about-chapter h2{font-size:19px;letter-spacing:.025em}}
