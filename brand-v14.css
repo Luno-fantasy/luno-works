@@ -1,0 +1,22 @@
+/* v1.4 display study: original image files and artwork stay unchanged. */
+body[data-page="home"]{
+ --blend-start:420px;--blend-mid:700px;--blend-end:1000px;--blend-base:1400px;
+ background:linear-gradient(to bottom,#230922 0px,#230922 var(--blend-start),#241025 var(--blend-mid),#211628 var(--blend-end),#1b1421 var(--blend-base),#16111c calc(var(--blend-base) + 350px));
+}
+body[data-page="home"] .home-hero{background:transparent}
+/* 12.5% smaller, with the header height retained for a fair comparison. */
+.maison-header{min-height:105px}
+.maison-header .maison-brand img{width:56px;height:70px}
+/* The emblem uses no surrounding color field or pseudo-element. */
+.profile-mark{width:220px;margin:auto}
+.profile-mark img{width:220px;height:auto;border-radius:0;object-fit:contain;filter:url(#profileBackgroundKey)}
+@media(max-width:760px){
+ body[data-page="home"]{--blend-start:280px;--blend-mid:480px;--blend-end:750px;--blend-base:1050px}
+ .maison-header{min-height:96px}
+ .maison-header .maison-brand img{width:45.5px;height:56.875px}
+ .profile-mark{width:125px}
+ .profile-mark img{width:125px}
+}
+/* Preview-only size toggle; selected through the comparison controls. */
+body.header-current .maison-header .maison-brand img{width:64px;height:80px}
+@media(max-width:760px){body.header-current .maison-header .maison-brand img{width:52px;height:65px}}

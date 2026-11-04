@@ -1,69 +1,29 @@
-# LUNO WORKS
+# ÉTERNOA
 
-LUNO WORKS の公開サイト用リポジトリです。
+オリジナルキャラクター、物語、イラスト、音楽を展示する創作メゾン。
 
-## 現在の主な構成
+## 配信構成
 
-- `index.html`：HOME
-- `world.html`：WORLD一覧
-- `works.html`：WORKS一覧
-- `news.html`：NEWS
-- `profile.html`：PROFILE
-- `euphoria.html`：EUPHORIA専用ページ
-- `touhouyoukai.html`：東方妖界専用ページ
-- `data.js`：作品・シリーズ・公開状態・リンク・紹介文などの主要データ
-- `app.js`：表示、検索、モーダル、並び順、各種UI処理
-- `style.css`：サイト全体のデザイン
-- `images/covers/`：作品カバー
-- `images/worlds/`：WORLD用画像
+ENTER / HOME / WORLD / WORKS / NEWS / PROFILEと、3シリーズの計9画面。
+掲載用作品データはdata/catalogue.js、NEWSはdata/news.js。
+HTML・eternoa.js・共通CSS・必要な画像を配信する。
 
-## 新作追加・公開時の更新方針
+## 更新時の確認
 
-基本の更新元は `data.js` です。
+作品ID、分類とURL、初公開日と更新・移植日、公開状態とアーカイブを別々に扱う。
+作品編集だけでNEWSを自動公開しない。
+現在の基準は全69作品、ZETA56、CHACHA21、TALELYNX0、アーカイブ4。
+紹介文23件と確定タイトルを保持し、除外済み8作品を再混入させない。
+URLや日付、現在の公開状態を推測して補完しない。
 
-新作を追加する場合は、作品データとして主に以下を確認します。
-
-- `id`
-- `title`
-- `status`
-- `zetaUrl` / 必要な公開先URL
-- `category`
-- `series`
-- `world`
-- `position`
-- `mainCharacter`
-- `relation`
-- `cover`
-- `coverStatus`
-- `isNew`
-- `releaseDate`
-- `catchphrase`
-- `tags`
-- `description`
-
-シリーズ作品の場合は `series` 内の作品ID一覧にも追加します。
-
-## 更新時に一緒に確認する場所
-
-`data.js` だけで自動反映される箇所が多い一方、WORLDページなどには固定テキストもあります。
-新作公開時は次も確認します。
-
-1. `data.js` の作品情報
-2. シリーズ登録
-3. NEW表示と公開日
-4. 外部リンク
-5. カバー画像
-6. `world.html` の固定表示や世界情報
-7. シリーズ専用ページの固定表示
-8. NEWSに掲載する更新情報
-9. `app.js` に一時的な補正が残っていないか
-
-## 管理方針
-
-作品データの修正は、可能な限り `app.js` の後付け補正ではなく `data.js` の元データへ反映します。
-表示件数など、データから算出できるものは固定値を増やさず自動取得する方針です。
+旧data.jsや旧補正JSは制作記録として保持するが、現行ページの直接の読込元ではない。
+旧入力用の生成スクリプトをこの構成で無条件に実行しない。
+作業ブランチでカタログとNEWSの互換性・件数・参照先を検証してから更新する。
 
 ## 公開
 
-GitHub Pages の `main` / `/root` を公開元として使用します。
-ChatGPTのGitHub接続から直接更新する場合、従来のZIP展開・再アップロードは不要です。
+mainの更新がGitHub Pagesの公開更新につながるため、PRの差分確認と所有者の承認を経て反映する。
+_config.ymlで不要な旧ファイルを配信から除外し、未使用の標準テーマを無効にする。
+正式な公開元の設定値はGitHub Settings / Pagesで確認する。
+
+レビュー専用設定・認証情報・非配信用資料・バックアップを公開リポジトリへ持ち込まない。

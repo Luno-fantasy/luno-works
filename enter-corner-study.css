@@ -1,0 +1,20 @@
+/* Approved ENTER-only refinement, 2026-11-04. No overlay, filter or new mask on the artwork. */
+@media(max-width:760px) and (orientation:portrait){
+ body[data-page="enter"] .invitation{position:relative;isolation:isolate}
+ /* Two feathered background strips meet the measured #221423 corner.
+    Both stop at the image boundary; neither covers the image or gold frame. */
+ body[data-page="enter"] .invitation::before{
+  content:"";position:absolute;pointer-events:none;z-index:-1;
+  left:-16px;top:-24px;width:42%;height:24px;
+  background:linear-gradient(to bottom,transparent,#221423);
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 25%,transparent 100%);
+  mask-image:linear-gradient(to right,#000 0%,#000 25%,transparent 100%);
+ }
+ body[data-page="enter"] .invitation::after{
+  content:"";position:absolute;pointer-events:none;z-index:-1;
+  left:-16px;top:0;width:16px;height:clamp(48px,10vw,76px);
+  background:linear-gradient(to right,transparent,#221423);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,transparent 100%);
+ }
+}

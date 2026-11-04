@@ -1,0 +1,46 @@
+/* Approved series display direction, 2026-11-04. Artwork, prose, data and URLs stay untouched. */
+.euphoria-series-page{--study-accent:#b7a8d0;--study-line:rgba(183,168,208,.28)}
+.touhou-series-page{--study-accent:#cdbb8d;--study-line:rgba(205,187,141,.28)}
+.velvet-page{--study-accent:#c296ad;--study-line:rgba(194,150,173,.28)}
+.eternoa-series .series-world-facts,.eternoa-series .velvet-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;border:0;background:none;margin-top:24px}
+.eternoa-series .series-world-facts>div,.eternoa-series .velvet-facts>div{display:grid;grid-template-columns:82px minmax(0,1fr);gap:12px;padding:14px 0;border:0!important;border-bottom:1px solid var(--study-line)!important;background:none;align-items:baseline}
+.eternoa-series .series-world-facts span,.eternoa-series .velvet-facts span{margin:0;color:var(--study-accent);font:9px/1.8 var(--body);letter-spacing:.12em}
+.eternoa-series .series-world-facts b,.eternoa-series .velvet-facts b{margin:0;color:var(--ivory);font:400 13px/1.9 var(--jp);overflow-wrap:anywhere}
+.eternoa-series .series-title-row,.eternoa-series .velvet-cast-head{margin-bottom:24px;gap:20px;align-items:baseline}
+.eternoa-series .series-title-row h2{font-size:clamp(26px,3.5vw,42px)}
+.eternoa-series .velvet-cast-head h2{font-size:clamp(32px,4vw,50px)}
+.eternoa-series .section.series-works-section,.eternoa-series .section.velvet-cast{padding-top:38px!important;padding-bottom:38px!important}
+.eternoa-series .section.series-route-section,.eternoa-series .section.velvet-route{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;text-align:left;padding:32px 0!important;border:0;border-top:1px solid var(--study-line);background:none;box-shadow:none}
+.eternoa-series .series-route-mark{display:none}
+.eternoa-series .series-route-section h2,.eternoa-series .velvet-route h2{margin:6px 0 10px;font:400 24px/1.7 var(--jp)}
+.eternoa-series .series-route-section p:not(.eyebrow),.eternoa-series .velvet-route>p:not(.eyebrow){font-size:12px;line-height:2;margin:0;color:#bdb1c2}
+.eternoa-series .velvet-route>.eyebrow,.eternoa-series .velvet-route>h2,.eternoa-series .velvet-route>p{grid-column:1}
+.eternoa-series .velvet-route-actions{grid-column:2;grid-row:1/4}
+.eternoa-series .series-route-actions,.eternoa-series .velvet-route-actions{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:16px 25px;margin:0}
+.eternoa-series .series-route-actions .button,.eternoa-series .velvet-route-actions .button{display:inline-flex;justify-content:flex-start;align-items:center;gap:14px;min-height:44px;min-width:0;border-radius:0!important;padding:8px 0;border:0!important;border-bottom:1px solid var(--study-line)!important;background:none;box-shadow:none;color:var(--study-accent);font:12px/1.8 var(--body);letter-spacing:.04em}
+.eternoa-series .series-route-actions .button:hover,.eternoa-series .velvet-route-actions .button:hover{border-bottom-color:var(--study-accent);background:none}
+@media(max-width:900px){
+ .eternoa-series .series-world-facts,.eternoa-series .velvet-facts{grid-template-columns:1fr}
+ .eternoa-series .section.series-route-section,.eternoa-series .section.velvet-route{grid-template-columns:1fr}
+ .eternoa-series .series-route-actions,.eternoa-series .velvet-route-actions{grid-column:1;grid-row:auto}
+}
+@media(max-width:760px){
+ .eternoa-series .series-world-facts>div,.eternoa-series .velvet-facts>div{padding:12px 0;grid-template-columns:72px minmax(0,1fr);gap:12px}
+ .eternoa-series .series-title-row,.eternoa-series .velvet-cast-head{align-items:flex-start;flex-wrap:wrap;gap:12px}
+ .eternoa-series .section.series-works-section,.eternoa-series .section.velvet-cast{padding-top:30px!important;padding-bottom:30px!important}
+ .eternoa-series .section.series-route-section,.eternoa-series .section.velvet-route{padding:26px 0!important;gap:16px}
+ .eternoa-series .series-route-section h2,.eternoa-series .velvet-route h2{font-size:21px}
+}
+
+/* Bound legacy section widths as well as their inherited side margins. */
+@media(max-width:1250px){.eternoa-series .section{width:calc(100% - 12vw)!important}}
+@media(max-width:760px){.eternoa-series .section{width:calc(100% - 48px)!important}}
+.eternoa-series .section.velvet-route{row-gap:8px}
+
+/* Final review: consistent link layout and readable mobile facts. */
+.eternoa-series .velvet-route-actions{flex-direction:row}
+.eternoa-series .series-route-actions .button:hover,.eternoa-series .velvet-route-actions .button:hover{border-bottom-color:var(--study-accent)!important}
+@media(max-width:760px){
+ .eternoa-series .series-world-facts span,.eternoa-series .velvet-facts span{font-size:10px}
+ .eternoa-series .series-world-facts b,.eternoa-series .velvet-facts b{font-size:14px}
+}

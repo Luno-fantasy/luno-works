@@ -1,0 +1,16 @@
+/* Approved background display, 2026-11-04. Original artwork and adopted series rules stay intact. */
+/* One page gradient passes through a transparent shared header. */
+body:not([data-page="enter"]):not([data-page="home"]){background:linear-gradient(to bottom,#2b172a 0px,#281a2b 160px,#241c2c 360px,#211b29 650px,#19141f 1400px,#16121b 2100px);background-color:#16121b}
+.maison-header{background:transparent!important}
+.maison-header .maison-brand img{filter:url(#backgroundEmblemKey)}
+/* Match the invitation's measured outside pixels; fade only outside the gold frame. */
+body[data-page="enter"]{background:linear-gradient(to bottom,#291729 0%,#261527 30%,#261527 65%,#211b29 100%)}
+body[data-page="enter"] .entrance{background:transparent}
+body[data-page="enter"] .entrance-art{
+ -webkit-mask-image:linear-gradient(to right,transparent,#000 .25%,#000 99.75%,transparent),linear-gradient(to bottom,transparent,#000 .5%,#000 99.5%,transparent);
+ mask-image:linear-gradient(to right,transparent,#000 .25%,#000 99.75%,transparent),linear-gradient(to bottom,transparent,#000 .5%,#000 99.5%,transparent);
+ -webkit-mask-composite:source-in;mask-composite:intersect;
+}
+/* Reuse PROFILE's display-only alpha key. No halo or new color field. */
+body[data-page="home"] .home-profile{background:none}
+body[data-page="home"] .home-profile>img{filter:url(#backgroundEmblemKey)}
