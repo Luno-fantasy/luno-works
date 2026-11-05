@@ -1,0 +1,243 @@
+# LOCAL PREPARATION ONLY. No commits, pushes, or Actions execution authorized.
+# Future commit order: B (approved main) -> S (four deletions only) -> T (this file only).
+name: ETERNOA legacy4 verification only (no deploy)
+'on':
+  push:
+    branches:
+    - verify/eternoa-legacy4-local-20261105
+permissions:
+  contents: read
+concurrency:
+  group: eternoa-legacy4-verification-only
+  cancel-in-progress: false
+jobs:
+  verify-only:
+    if: github.repository == 'Luno-fantasy/luno-works' && github.ref == 'refs/heads/verify/eternoa-legacy4-local-20261105' && github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      BASE_SHA: ee6821b343dc6eb1ab33a3f1c334aabafdc70731
+      CI_ROOT: ${{ runner.temp }}/eternoa-legacy4
+      JEKYLL_IMAGE: ghcr.io/actions/jekyll-build-pages@sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041
+      PLAYWRIGHT_IMAGE: mcr.microsoft.com/playwright@sha256:f1e7e01021efd65dd1a2c56064be399f3e4de00fd021ac561325f2bfbb2b837a
+    steps:
+    - name: Checkout validation commit T only
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      with:
+        ref: ${{ github.sha }}
+        fetch-depth: 3
+        persist-credentials: false
+    - name: Verify B-S-T structure and immutable source manifests
+      shell: bash
+      run: |-
+        set -euo pipefail
+        mkdir -p "$CI_ROOT/evidence" "$CI_ROOT/tools"
+        python3 - <<'PY'
+        import subprocess, os, json, hashlib, tarfile, io
+        from pathlib import Path
+        ci = Path(os.environ['CI_ROOT'])
+        base = os.environ['BASE_SHA']
+        top = os.environ['GITHUB_SHA']
+        workflow = '.github/workflows/eternoa-legacy4-verify-only.yml'
+        deleted = ['app.js','data/velvet-night-works-ui.js','images/covers/.gitkeep','images/worlds/.gitkeep']
+        def git(*args): return subprocess.check_output(['git',*args])
+        source = git('rev-parse',top+'^').decode().strip()
+        assert len(git('rev-list','--parents','-n','1',top).split()) == 2, 'T must not be a merge'
+        assert len(git('rev-list','--parents','-n','1',source).split()) == 2, 'S must not be a merge'
+        assert git('rev-parse',source+'^').decode().strip() == base, 'S must be a direct child of approved B'
+        assert git('diff','--name-status',source,top).decode().splitlines() == ['A\t'+workflow], 'T must only add the reviewed workflow'
+        changes = git('diff','--name-status',base,source).decode().splitlines()
+        assert sorted(changes) == sorted('D\t'+p for p in deleted), changes
+        assert git('diff','--numstat',base,source).decode().splitlines() == ['0\t97\tapp.js','0\t18\tdata/velvet-night-works-ui.js','0\t1\timages/covers/.gitkeep','0\t1\timages/worlds/.gitkeep']
+        patch = git('diff','--binary','--full-index',base,source)
+        assert hashlib.sha256(patch).hexdigest() == '3c88d095102bfd35b302d55daeea1706df6335d40631279ac6ce97ae02d2ed9e'
+        manifests = {}
+        for label, sha, count in [('baseline',base,134),('candidate',source,130)]:
+            target = ci/('input-'+label); target.mkdir()
+            # Immutable, validated Git tree: no untracked tooling enters the build source.
+            with tarfile.open(fileobj=io.BytesIO(git('archive',sha))) as archive:
+                for member in archive.getmembers():
+                    assert not member.issym() and not member.islnk()
+                    assert not member.name.startswith('/') and '..' not in Path(member.name).parts
+                archive.extractall(target, filter='data')
+            manifest = {str(p.relative_to(target)):hashlib.sha256(p.read_bytes()).hexdigest() for p in target.rglob('*') if p.is_file()}
+            assert len(manifest) == count
+            manifests[label] = manifest
+        assert set(manifests['baseline'])-set(manifests['candidate']) == set(deleted)
+        assert all(manifests['baseline'][p] == h for p,h in manifests['candidate'].items())
+        (ci/'evidence'/'source.json').write_text(json.dumps({'base':base,'source':source,'workflow_commit':top,'workflow_sha256':hashlib.sha256(Path(workflow).read_bytes()).hexdigest(),'branch':os.environ['GITHUB_REF'],'deleted':deleted,'manifests':manifests},ensure_ascii=False,indent=2))
+        with open(os.environ['GITHUB_ENV'],'a') as f: f.write('SOURCE_SHA='+source+'\n')
+        print('PASS: B -> S deletes exactly 4 files / 117 lines; 130 others identical; S -> T adds only workflow.')
+        PY
+    - name: Build approved baseline and candidate without deployment
+      shell: bash
+      env:
+        INPUT_TOKEN: ${{ github.token }}
+      run: |-
+        set -euo pipefail
+        docker pull "$JEKYLL_IMAGE" > "$CI_ROOT/evidence/jekyll-pull.txt" 2>&1
+        docker image inspect "$JEKYLL_IMAGE" --format '{{json .RepoDigests}}' > "$CI_ROOT/evidence/jekyll-digests.json"
+        for label in baseline candidate; do
+          revision="$BASE_SHA"
+          if [ "$label" = candidate ]; then revision="$SOURCE_SHA"; fi
+          mkdir -p "$CI_ROOT/output-$label"
+          docker run --rm \
+            -v "$CI_ROOT/input-$label:/github/workspace/source:ro" \
+            -v "$CI_ROOT/output-$label:/github/workspace/output" \
+            -e GITHUB_WORKSPACE=/github/workspace \
+            -e GITHUB_REPOSITORY=Luno-fantasy/luno-works \
+            -e GITHUB_API_URL=https://api.github.com \
+            -e INPUT_SOURCE=source -e INPUT_DESTINATION=output \
+            -e INPUT_BUILD_REVISION="$revision" -e INPUT_VERBOSE=true -e INPUT_FUTURE=false \
+            -e INPUT_TOKEN \
+            "$JEKYLL_IMAGE" 2>&1 | tee "$CI_ROOT/evidence/jekyll-$label.log"
+        done
+        python3 - <<'PY'
+        from pathlib import Path
+        import os,json,hashlib,re
+        ci=Path(os.environ['CI_ROOT'])
+        source=json.loads((ci/'evidence/source.json').read_text())
+        def manifest(root): return {str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file()}
+        for label in ['baseline','candidate']:
+            assert manifest(ci/('input-'+label)) == source['manifests'][label], 'Build changed immutable input'
+            log=(ci/('evidence/jekyll-'+label+'.log')).read_text()
+            assert re.search(r'github-pages v232\b',log) and re.search(r'jekyll v3\.10\.0\b',log), 'Unexpected production dependencies'
+        cfg=(ci/'input-baseline/_config.yml').read_text()
+        excluded=re.findall(r'^\s+- "([^"]+)"\s*$',cfg,re.M)
+        expected={p for p in source['manifests']['baseline'] if p != '_config.yml' and not any(p==e or p.startswith(e.rstrip('/')+'/') for e in excluded)}
+        assert len(expected)==102
+        a=manifest(ci/'output-baseline'); b=manifest(ci/'output-candidate')
+        assert set(a)==set(b)==expected
+        assert a==b, 'Candidate output differs from baseline'
+        assert all(a[p]==source['manifests']['baseline'][p] for p in expected), 'Jekyll transformed an approved static file'
+        assert sum(p.endswith('.html') for p in b)==10
+        assert not set(source['deleted']) & set(b)
+        (ci/'evidence/output.json').write_text(json.dumps({'count':len(b),'html_count':10,'expected':sorted(expected),'sha256':b},indent=2))
+        print('PASS: both actual Jekyll builds produced exactly the same 102 approved static files / 10 HTML pages.')
+        PY
+    - name: Verify local output in desktop and mobile Chromium
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p "$CI_ROOT/http-root"
+        ln -s "$CI_ROOT/output-candidate" "$CI_ROOT/http-root/luno-works"
+        python3 -m http.server 4173 --bind 127.0.0.1 --directory "$CI_ROOT/http-root" > "$CI_ROOT/evidence/http.log" 2>&1 &
+        server_pid=$!
+        trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+        ready=false
+        for attempt in $(seq 1 40); do
+          if curl --silent --fail http://127.0.0.1:4173/luno-works/works.html > /dev/null; then ready=true; break; fi
+          sleep 0.25
+        done
+        test "$ready" = true
+        cat > "$CI_ROOT/tools/browser.cjs" <<'JS'
+        const fs=require('node:fs');
+        const vm=require('node:vm');
+        const assert=require('node:assert/strict');
+        const {chromium}=require('playwright');
+        const origin='http://127.0.0.1:4173', prefix='/luno-works/';
+        const result={startedAt:new Date().toISOString(),fixedTime:'2026-11-05T03:00:00.000Z',playwright:require('playwright/package.json').version,checks:[],errors:[],externalFontsStubbed:[]};
+        const box={window:{}};
+        vm.runInNewContext(fs.readFileSync('/site/data/catalogue.js','utf8'),box);
+        vm.runInNewContext(fs.readFileSync('/site/data/news.js','utf8'),box);
+        const data=box.window.ETERNOA_DATA, news=box.window.ETERNOA_NEWS;
+        const all=data.works, published=all.filter(w=>w.status==='published'&&w.publicationStatus!=='private');
+        const excluded=['snake-god-sleepless','sougetsurou','four-vampires','saint-quits','code-scarlet','senpai-forbidden-tonight','no1-jealousy','say-you-like-me'];
+        function check(name,condition){assert.ok(condition,name);result.checks.push(name);}
+        async function until(f,message){for(let n=0;n<80;n++){if(await f())return;await new Promise(r=>setTimeout(r,100));}throw Error(message);}
+        const url=p=>origin+prefix+p;
+        let browser;
+        (async()=>{
+          check('69 works; unique IDs',all.length===69&&new Set(all.map(w=>w.id)).size===69);
+          check('excluded 8 absent from works and series',!all.some(w=>excluded.includes(w.id))&&!(data.series||[]).some(s=>(s.works||[]).some(id=>excluded.includes(id))));
+          const output=JSON.parse(fs.readFileSync('/evidence/output.json'));
+          const source=JSON.parse(fs.readFileSync('/evidence/source.json'));
+          // Intentional deleted-path 404 probes are outside page error collection.
+          for(const p of output.expected){const r=await fetch(url(p));check('HTTP 200 '+p,r.status===200);}
+          for(const p of source.deleted){const r=await fetch(url(p));check('deleted HTTP 404 '+p,r.status===404);}
+          browser=await chromium.launch({headless:true});result.chromium=browser.version();
+          for(const viewport of [{width:1440,height:1000},{width:390,height:844}]){
+            const label=String(viewport.width);
+            const context=await browser.newContext({viewport,timezoneId:'Asia/Tokyo',reducedMotion:'reduce',serviceWorkers:'block'});
+            await context.route('**/*',route=>{
+              const u=new URL(route.request().url());
+              if(u.origin===origin)return route.continue();
+              if(['fonts.googleapis.com','fonts.gstatic.com'].includes(u.hostname)){
+                result.externalFontsStubbed.push(u.hostname);
+                return route.fulfill({status:200,contentType:'text/css',body:''});
+              }
+              result.errors.push('Unexpected external request: '+u.origin+u.pathname);return route.abort();
+            });
+            const page=await context.newPage();page.setDefaultTimeout(10000);
+            await page.clock.setFixedTime(new Date(result.fixedTime));
+            page.on('pageerror',e=>result.errors.push(label+' pageerror: '+e.message));
+            page.on('console',m=>{if(m.type()==='error')result.errors.push(label+' console.error: '+m.text());});
+            page.on('response',r=>{if(r.url().startsWith(origin)&&r.status()>=400)result.errors.push(label+' HTTP '+r.status()+' '+r.url());});
+            page.on('requestfailed',r=>result.errors.push(label+' requestfailed '+r.url()+' '+r.failure()?.errorText));
+            async function go(p){await page.goto(url(p),{waitUntil:'networkidle'});check(label+' visible main '+p,await page.locator('main').isVisible());check(label+' no horizontal overflow '+p,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));}
+            await go('index.html?enter=1');await page.locator('#enterMaison').click();await page.waitForURL('**/home.html');
+            check(label+' entrance navigation',await page.locator('#latestRelease .cover-button').count()===1);
+            for(const p of output.expected.filter(p=>p.endsWith('.html')&&p!=='index.html'))await go(p);
+            await go('works.html');
+            check(label+' initial published cards',await page.locator('#worksGallery .work-item').count()===published.length);
+            const sample=published[0];await page.locator('#workSearch').fill(sample.title);
+            await until(async()=>await page.locator('#worksGallery .cover-button').count()===1,'Title search did not isolate one work');
+            const opener=page.locator('#worksGallery .cover-button');await opener.click();
+            check(label+' correct detail title',(await page.locator('#storyTitle').textContent())===sample.title);
+            check(label+' correct complete description',(await page.locator('#storyContent .description').textContent())===sample.description);
+            await page.keyboard.press('Escape');await until(async()=>!(await page.locator('#storyDialog').evaluate(d=>d.open)),'Escape did not close dialog');
+            check(label+' opener focus restored',await opener.evaluate(e=>document.activeElement===e));
+            await opener.click();await page.locator('.story-close').click();
+            await page.locator('#workSearch').fill('ETERNOA_NO_MATCH_7c682e');
+            check(label+' no match',await page.locator('#worksGallery .work-item').count()===0);
+            await page.locator('#clearSearch').click();check(label+' clear restores cards',await page.locator('#worksGallery .work-item').count()===published.length);
+            const archiveCount=published.filter(w=>w.archiveOnly||w.archiveStatus==='archived').length;
+            await page.locator('#statusFilter').selectOption('archive');check(label+' archive filter',await page.locator('#worksGallery .work-item').count()===archiveCount);
+            await page.reload({waitUntil:'networkidle'});check(label+' URL restores filter',await page.locator('#statusFilter').inputValue()==='archive');
+            await page.locator('#resetFilters').click();
+            check(label+' reset restores all',await page.locator('#worksGallery .work-item').count()===published.length);
+            await page.locator('[data-platform="zeta"]').click();check(label+' platform filter',await page.locator('#worksGallery .work-item').count()===published.filter(w=>(w.platformClassifications||[]).some(c=>c.platform==='zeta')).length);
+            await page.locator('#resetFilters').click();
+            await go('news.html');
+            const expectedNews=news.filter(n=>n.status==='published'&&n.publishedAt<='2026-11-05');
+            check(label+' published NEWS count',await page.locator('#allNews details').count()===expectedNews.length);
+            for(const n of expectedNews){const item=page.locator('#'+n.id);await item.locator('summary').click();check(label+' NEWS open '+n.id,await item.evaluate(e=>e.open));check(label+' NEWS body '+n.id,(await item.locator('.letter-body > p').textContent())===n.body);}
+            check(label+' NEWS accordion',await page.locator('#allNews details[open]').count()<=1);
+            await go('velvet-night.html');check(label+' VELVET four fixed cards',await page.locator('.velvet-card').count()===4);
+            for(let i=0;i<4;i++){
+              const card=page.locator('.velvet-card').nth(i), id=await card.getAttribute('data-work');
+              const work=published.find(w=>w.id===id);check(label+' VELVET mapping '+i,Boolean(work));
+              await card.locator('img').scrollIntoViewIfNeeded();
+              check(label+' VELVET image '+i,await card.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0));
+              await card.click();check(label+' VELVET detail '+i,(await page.locator('#storyTitle').textContent())===work.title);
+              check(label+' VELVET description '+i,(await page.locator('#storyContent .description').textContent())===work.description);
+              await page.locator('.story-close').click();
+            }
+            if(viewport.width<761){await page.locator('.maison-menu').click();check(label+' mobile menu open',await page.locator('.maison-menu').getAttribute('aria-expanded')==='true');await page.keyboard.press('Escape');check(label+' mobile menu close',await page.locator('.maison-menu').getAttribute('aria-expanded')==='false');}
+            await context.close();
+          }
+          check('no runtime, internal HTTP, or unexpected external request errors',result.errors.length===0);
+          result.status='passed';
+        })().catch(e=>{result.status='failed';result.failure=e.stack||String(e);process.exitCode=1;}).finally(async()=>{
+          if(browser)await browser.close();
+          result.finishedAt=new Date().toISOString();fs.writeFileSync('/evidence/browser-results.json',JSON.stringify(result,null,2));
+          console.log(JSON.stringify({status:result.status,checks:result.checks.length,errors:result.errors,failure:result.failure}));
+        });
+        JS
+        docker pull "$PLAYWRIGHT_IMAGE" > "$CI_ROOT/evidence/playwright-pull.txt" 2>&1
+        docker image inspect "$PLAYWRIGHT_IMAGE" --format '{{json .RepoDigests}}' > "$CI_ROOT/evidence/playwright-digests.json"
+        docker run --rm --init --ipc=host --network host \
+          -v "$CI_ROOT/tools:/tools" -v "$CI_ROOT/evidence:/evidence" \
+          -v "$CI_ROOT/output-candidate:/site:ro" \
+          -e PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 -e TZ=Asia/Tokyo -w /tools \
+          "$PLAYWRIGHT_IMAGE" bash -euo pipefail -c \
+          'npm install --ignore-scripts --no-audit --no-fund --save-exact playwright@1.56.1; cp package-lock.json /evidence/playwright-package-lock.json; node -p "JSON.stringify(process.versions)" > /evidence/node-versions.json; node browser.cjs' \
+          2>&1 | tee "$CI_ROOT/evidence/browser.log"
+    - name: Save text-only verification evidence (not Pages artifact)
+      if: ${{ always() }}
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      with:
+        name: eternoa-legacy4-verification-${{ github.run_id }}-${{ github.run_attempt }}
+        path: ${{ runner.temp }}/eternoa-legacy4/evidence/
+        retention-days: 7
+        if-no-files-found: warn
