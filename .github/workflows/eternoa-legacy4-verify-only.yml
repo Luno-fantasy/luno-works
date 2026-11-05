@@ -17,30 +17,34 @@ jobs:
     timeout-minutes: 25
     env:
       BASE_SHA: ee6821b343dc6eb1ab33a3f1c334aabafdc70731
-      CI_ROOT: ${{ runner.temp }}/eternoa-legacy4
       JEKYLL_IMAGE: ghcr.io/actions/jekyll-build-pages@sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041
       PLAYWRIGHT_IMAGE: mcr.microsoft.com/playwright@sha256:f1e7e01021efd65dd1a2c56064be399f3e4de00fd021ac561325f2bfbb2b837a
     steps:
-    - name: Checkout validation commit T only
+    - name: Checkout validation commit U only
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       with:
         ref: ${{ github.sha }}
-        fetch-depth: 3
+        fetch-depth: 4
         persist-credentials: false
     - name: Verify B-S-T structure and immutable source manifests
       shell: bash
       run: |-
         set -euo pipefail
+        export CI_ROOT="$RUNNER_TEMP/eternoa-legacy4"
+        printf 'CI_ROOT=%s\n' "$CI_ROOT" >> "$GITHUB_ENV"
         mkdir -p "$CI_ROOT/evidence" "$CI_ROOT/tools"
         python3 - <<'PY'
         import subprocess, os, json, hashlib, tarfile, io
         from pathlib import Path
         ci = Path(os.environ['CI_ROOT'])
         base = os.environ['BASE_SHA']
-        top = os.environ['GITHUB_SHA']
+        execution = os.environ['GITHUB_SHA']
+        top = 'cd42ab962a2c3675b5ab18a23e8f1c2433387108'
         workflow = '.github/workflows/eternoa-legacy4-verify-only.yml'
         deleted = ['app.js','data/velvet-night-works-ui.js','images/covers/.gitkeep','images/worlds/.gitkeep']
         def git(*args): return subprocess.check_output(['git',*args])
+        assert git('rev-list','--parents','-n','1',execution).decode().strip() == execution+' '+top, 'U must be a direct child of original T'
+        assert git('diff','--name-status',top,execution).decode().splitlines() == ['M\t'+workflow], 'U must only modify this workflow'
         source = git('rev-parse',top+'^').decode().strip()
         assert len(git('rev-list','--parents','-n','1',top).split()) == 2, 'T must not be a merge'
         assert len(git('rev-list','--parents','-n','1',source).split()) == 2, 'S must not be a merge'
@@ -65,7 +69,7 @@ jobs:
             manifests[label] = manifest
         assert set(manifests['baseline'])-set(manifests['candidate']) == set(deleted)
         assert all(manifests['baseline'][p] == h for p,h in manifests['candidate'].items())
-        (ci/'evidence'/'source.json').write_text(json.dumps({'base':base,'source':source,'workflow_commit':top,'workflow_sha256':hashlib.sha256(Path(workflow).read_bytes()).hexdigest(),'branch':os.environ['GITHUB_REF'],'deleted':deleted,'manifests':manifests},ensure_ascii=False,indent=2))
+        (ci/'evidence'/'source.json').write_text(json.dumps({'base':base,'source':source,'workflow_commit':execution,'original_T':top,'workflow_sha256':hashlib.sha256(Path(workflow).read_bytes()).hexdigest(),'branch':os.environ['GITHUB_REF'],'deleted':deleted,'manifests':manifests},ensure_ascii=False,indent=2))
         with open(os.environ['GITHUB_ENV'],'a') as f: f.write('SOURCE_SHA='+source+'\n')
         print('PASS: B -> S deletes exactly 4 files / 117 lines; 130 others identical; S -> T adds only workflow.')
         PY
