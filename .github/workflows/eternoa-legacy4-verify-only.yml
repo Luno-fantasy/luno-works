@@ -20,11 +20,11 @@ jobs:
       JEKYLL_IMAGE: ghcr.io/actions/jekyll-build-pages@sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041
       PLAYWRIGHT_IMAGE: mcr.microsoft.com/playwright@sha256:f1e7e01021efd65dd1a2c56064be399f3e4de00fd021ac561325f2bfbb2b837a
     steps:
-    - name: Checkout validation commit V only
+    - name: Checkout validation commit W only
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       with:
         ref: ${{ github.sha }}
-        fetch-depth: 5
+        fetch-depth: 6
         persist-credentials: false
     - name: Verify B-S-T structure and immutable source manifests
       shell: bash
@@ -41,13 +41,16 @@ jobs:
         execution = os.environ['GITHUB_SHA']
         top = 'cd42ab962a2c3675b5ab18a23e8f1c2433387108'
         previous = '1f230cd24ee58e1bf205a956581e6995cc147284'
+        original_v = '3aff2f754be19c8546a847b920db9931546c8038'
         workflow = '.github/workflows/eternoa-legacy4-verify-only.yml'
         deleted = ['app.js','data/velvet-night-works-ui.js','images/covers/.gitkeep','images/worlds/.gitkeep']
         def git(*args): return subprocess.check_output(['git',*args])
         assert git('rev-list','--parents','-n','1',previous).decode().strip() == previous+' '+top, 'Original U must be a direct child of original T'
-        assert git('rev-list','--parents','-n','1',execution).decode().strip() == execution+' '+previous, 'V must be a direct child of original U'
+        assert git('rev-list','--parents','-n','1',original_v).decode().strip() == original_v+' '+previous, 'Original V must be a direct child of original U'
+        assert git('rev-list','--parents','-n','1',execution).decode().strip() == execution+' '+original_v, 'W must be a direct child of original V'
         assert git('diff','--name-status',top,previous).decode().splitlines() == ['M\t'+workflow], 'U must only modify this workflow'
-        assert git('diff','--name-status',previous,execution).decode().splitlines() == ['M\t'+workflow], 'V must only modify this workflow'
+        assert git('diff','--name-status',previous,original_v).decode().splitlines() == ['M\t'+workflow], 'V must only modify this workflow'
+        assert git('diff','--name-status',original_v,execution).decode().splitlines() == ['M\t'+workflow], 'W must only modify this workflow'
         source = git('rev-parse',top+'^').decode().strip()
         assert len(git('rev-list','--parents','-n','1',top).split()) == 2, 'T must not be a merge'
         assert len(git('rev-list','--parents','-n','1',source).split()) == 2, 'S must not be a merge'
@@ -72,7 +75,7 @@ jobs:
             manifests[label] = manifest
         assert set(manifests['baseline'])-set(manifests['candidate']) == set(deleted)
         assert all(manifests['baseline'][p] == h for p,h in manifests['candidate'].items())
-        (ci/'evidence'/'source.json').write_text(json.dumps({'base':base,'source':source,'workflow_commit':execution,'original_T':top,'original_U':previous,'workflow_sha256':hashlib.sha256(Path(workflow).read_bytes()).hexdigest(),'branch':os.environ['GITHUB_REF'],'deleted':deleted,'manifests':manifests},ensure_ascii=False,indent=2))
+        (ci/'evidence'/'source.json').write_text(json.dumps({'base':base,'source':source,'workflow_commit':execution,'original_T':top,'original_U':previous,'original_V':original_v,'workflow_sha256':hashlib.sha256(Path(workflow).read_bytes()).hexdigest(),'branch':os.environ['GITHUB_REF'],'deleted':deleted,'manifests':manifests},ensure_ascii=False,indent=2))
         with open(os.environ['GITHUB_ENV'],'a') as f: f.write('SOURCE_SHA='+source+'\n')
         print('PASS: B -> S deletes exactly 4 files / 117 lines; 130 others identical; S -> T adds only workflow.')
         PY
@@ -153,6 +156,70 @@ jobs:
         function check(name,condition){assert.ok(condition,name);result.checks.push(name);}
         async function until(f,message){for(let n=0;n<80;n++){if(await f())return;await new Promise(r=>setTimeout(r,100));}throw Error(message);}
         const url=p=>origin+prefix+p;
+        function createImageMonitor(page,label,result,check,timeoutMs=10000){
+          result.network ||= [];
+          const records=new WeakMap(), pending=new Set(), snapshots=new Set();
+          let serial=0, operation='initial page';
+          const stamp=()=>({realTime:new Date().toISOString(),elapsedMs:performance.now()});
+          const pageURL=()=>{try{return page.url();}catch{return null;}};
+          function event(record,state,extra={}){record.events.push({...stamp(),operation,pageURL:pageURL(),state,...extra});record.state=state;}
+          function started(request){
+            let record=records.get(request);
+            if(!record){
+              record={id:label+'-'+(++serial),width:Number(label),url:request.url(),resourceType:request.resourceType(),operationAtStart:operation,pageURLAtStart:pageURL(),httpStatus:null,events:[]};
+              records.set(request,record);result.network.push(record);
+              if(record.resourceType==='image')pending.add(request);
+              event(record,'started');
+            }
+            return record;
+          }
+          async function bounded(promise,ms,message){
+            let timer;
+            try{return await Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error(message)),ms);})]);}
+            finally{clearTimeout(timer);}
+          }
+          page.on('request',started);
+          page.on('response',response=>{const record=started(response.request());record.httpStatus=response.status();event(record,'response',{httpStatus:response.status()});});
+          page.on('requestfinished',request=>{const record=started(request);pending.delete(request);event(record,'completed');});
+          page.on('requestfailed',request=>{
+            const record=started(request);pending.delete(request);event(record,'failed',{errorText:request.failure()?.errorText});
+            if(record.resourceType!=='image')return;
+            const task=(async()=>{
+              try{
+                record.domAtFailure=await bounded(page.locator('img').evaluateAll((images,url)=>images.filter(img=>img.currentSrc===url||img.src===url).map(img=>({connected:img.isConnected,src:img.src,currentSrc:img.currentSrc,complete:img.complete,naturalWidth:img.naturalWidth,loading:img.loading})),record.url),1000,'DOM snapshot timeout');
+                record.domSnapshotStatus='captured';
+              }catch(error){record.domSnapshotStatus='unavailable';record.domSnapshotReason=String(error.message||error);}
+            })();
+            snapshots.add(task);task.finally(()=>snapshots.delete(task));
+          });
+          async function settle(deadline){
+            while(pending.size){
+              if(performance.now()>=deadline)throw Error('Image request wait timeout: '+operation+'; pending='+[...pending].map(r=>records.get(r).id).join(','));
+              await new Promise(resolve=>setTimeout(resolve,20));
+            }
+          }
+          async function before(name,target){
+            operation='prepare: '+name;
+            const deadline=performance.now()+timeoutMs;
+            const remaining=()=>{const left=deadline-performance.now();if(left<=0)throw Error('Image validation timeout: '+name);return left;};
+            try{
+              // Scroll only the element the next existing action needs; never traverse the whole gallery.
+              if(target)await target.scrollIntoViewIfNeeded({timeout:remaining()});
+              await settle(deadline);
+              for(const image of await page.locator('img').all()){
+                if(!(await image.isVisible()))continue;
+                const inViewport=await image.evaluate(img=>{const r=img.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth;});
+                if(!inViewport)continue;
+                const state=await bounded(image.evaluate(async img=>{await img.decode();return {complete:img.complete,naturalWidth:img.naturalWidth,src:img.currentSrc||img.src};}),remaining(),'Visible image decode timeout: '+name);
+                check(label+' decoded visible image '+name+' '+state.src,state.complete&&state.naturalWidth>0);
+              }
+              await settle(deadline);
+              await bounded(Promise.all([...snapshots]),remaining(),'Network evidence wait timeout: '+name);
+              operation=name;
+            }catch(error){result.errors.push(label+' image validation '+name+': '+String(error.message||error));throw error;}
+          }
+          return {before};
+        }
         let browser;
         (async()=>{
           check('69 works; unique IDs',all.length===69&&new Set(all.map(w=>w.id)).size===69);
@@ -181,49 +248,50 @@ jobs:
             page.on('console',m=>{if(m.type()==='error')result.errors.push(label+' console.error: '+m.text());});
             page.on('response',r=>{if(r.url().startsWith(origin)&&r.status()>=400)result.errors.push(label+' HTTP '+r.status()+' '+r.url());});
             page.on('requestfailed',r=>result.errors.push(label+' requestfailed '+r.url()+' '+r.failure()?.errorText));
-            async function go(p){await page.goto(url(p),{waitUntil:'networkidle'});check(label+' visible main '+p,await page.locator('main').isVisible());check(label+' no horizontal overflow '+p,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));}
-            await go('index.html?enter=1');await page.locator('#enterMaison').click();await page.waitForURL('**/home.html');
+            const images=createImageMonitor(page,label,result,check);
+            async function go(p){await images.before('navigate '+p);await page.goto(url(p),{waitUntil:'networkidle'});check(label+' visible main '+p,await page.locator('main').isVisible());check(label+' no horizontal overflow '+p,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));}
+            await go('index.html?enter=1');await images.before('enter maison',page.locator('#enterMaison'));await page.locator('#enterMaison').click();await page.waitForURL('**/home.html');
             check(label+' entrance navigation',await page.locator('#latestRelease .cover-button').count()===1);
             for(const p of output.expected.filter(p=>p.endsWith('.html')&&p!=='index.html'))await go(p);
             await go('works.html');
             check(label+' initial published cards',await page.locator('#worksGallery .work-item').count()===published.length);
-            const sample=published[0];await page.locator('#workSearch').fill(sample.title);
+            const sample=published[0];await images.before('search title',page.locator('#workSearch'));await page.locator('#workSearch').fill(sample.title);
             await until(async()=>await page.locator('#worksGallery .cover-button').count()===1,'Title search did not isolate one work');
-            const opener=page.locator('#worksGallery .cover-button');await opener.click();
+            const opener=page.locator('#worksGallery .cover-button');await images.before('open sample detail',opener);await opener.click();
             check(label+' correct detail title',(await page.locator('#storyTitle').textContent())===sample.title);
             check(label+' correct complete description',(await page.locator('#storyContent .description').textContent())===sample.description);
-            await page.keyboard.press('Escape');await until(async()=>!(await page.locator('#storyDialog').evaluate(d=>d.open)),'Escape did not close dialog');
+            await images.before('press Escape');await page.keyboard.press('Escape');await until(async()=>!(await page.locator('#storyDialog').evaluate(d=>d.open)),'Escape did not close dialog');
             check(label+' opener focus restored',await opener.evaluate(e=>document.activeElement===e));
-            await opener.click();await page.locator('.story-close').click();
-            await page.locator('#workSearch').fill('ETERNOA_NO_MATCH_7c682e');
+            await images.before('open sample detail',opener);await opener.click();await images.before('close detail',page.locator('.story-close'));await page.locator('.story-close').click();
+            await images.before('search no match',page.locator('#workSearch'));await page.locator('#workSearch').fill('ETERNOA_NO_MATCH_7c682e');
             check(label+' no match',await page.locator('#worksGallery .work-item').count()===0);
-            await page.locator('#clearSearch').click();check(label+' clear restores cards',await page.locator('#worksGallery .work-item').count()===published.length);
+            await images.before('clear search',page.locator('#clearSearch'));await page.locator('#clearSearch').click();check(label+' clear restores cards',await page.locator('#worksGallery .work-item').count()===published.length);
             const archiveCount=published.filter(w=>w.archiveOnly||w.archiveStatus==='archived').length;
-            await page.locator('details.advanced > summary').click();
+            await images.before('open advanced filters',page.locator('details.advanced > summary'));await page.locator('details.advanced > summary').click();
             await page.locator('#statusFilter').waitFor({state:'visible'});
-            await page.locator('#statusFilter').selectOption('archive');check(label+' archive filter',await page.locator('#worksGallery .work-item').count()===archiveCount);
-            await page.reload({waitUntil:'networkidle'});check(label+' URL restores filter',await page.locator('#statusFilter').inputValue()==='archive');
-            await page.locator('#resetFilters').click();
+            await images.before('archive filter',page.locator('#statusFilter'));await page.locator('#statusFilter').selectOption('archive');check(label+' archive filter',await page.locator('#worksGallery .work-item').count()===archiveCount);
+            await images.before('reload archive');await page.reload({waitUntil:'networkidle'});check(label+' URL restores filter',await page.locator('#statusFilter').inputValue()==='archive');
+            await images.before('reset filters',page.locator('#resetFilters'));await page.locator('#resetFilters').click();
             check(label+' reset restores all',await page.locator('#worksGallery .work-item').count()===published.length);
-            await page.locator('[data-platform="zeta"]').click();check(label+' platform filter',await page.locator('#worksGallery .work-item').count()===published.filter(w=>(w.platformClassifications||[]).some(c=>c.platform==='zeta')).length);
-            await page.locator('#resetFilters').click();
+            await images.before('zeta filter',page.locator('[data-platform="zeta"]'));await page.locator('[data-platform="zeta"]').click();check(label+' platform filter',await page.locator('#worksGallery .work-item').count()===published.filter(w=>(w.platformClassifications||[]).some(c=>c.platform==='zeta')).length);
+            await images.before('reset filters',page.locator('#resetFilters'));await page.locator('#resetFilters').click();
             await go('news.html');
             const expectedNews=news.filter(n=>n.status==='published'&&n.publishedAt<='2026-11-05');
             check(label+' published NEWS count',await page.locator('#allNews details').count()===expectedNews.length);
-            for(const n of expectedNews){const item=page.locator('#'+n.id);await item.locator('summary').click();check(label+' NEWS open '+n.id,await item.evaluate(e=>e.open));check(label+' NEWS body '+n.id,(await item.locator('.letter-body > p').textContent())===n.body);}
+            for(const n of expectedNews){const item=page.locator('#'+n.id);await images.before('NEWS expand',item.locator('summary'));await item.locator('summary').click();check(label+' NEWS open '+n.id,await item.evaluate(e=>e.open));check(label+' NEWS body '+n.id,(await item.locator('.letter-body > p').textContent())===n.body);}
             check(label+' NEWS accordion',await page.locator('#allNews details[open]').count()<=1);
             await go('velvet-night.html');check(label+' VELVET four fixed cards',await page.locator('.velvet-card').count()===4);
             for(let i=0;i<4;i++){
               const card=page.locator('.velvet-card').nth(i), id=await card.getAttribute('data-work');
               const work=published.find(w=>w.id===id);check(label+' VELVET mapping '+i,Boolean(work));
-              await card.locator('img').scrollIntoViewIfNeeded();
+              await images.before('VELVET image',card.locator('img'));await card.locator('img').scrollIntoViewIfNeeded();
               check(label+' VELVET image '+i,await card.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0));
-              await card.click();check(label+' VELVET detail '+i,(await page.locator('#storyTitle').textContent())===work.title);
+              await images.before('VELVET detail',card);await card.click();check(label+' VELVET detail '+i,(await page.locator('#storyTitle').textContent())===work.title);
               check(label+' VELVET description '+i,(await page.locator('#storyContent .description').textContent())===work.description);
-              await page.locator('.story-close').click();
+              await images.before('close detail',page.locator('.story-close'));await page.locator('.story-close').click();
             }
-            if(viewport.width<761){await page.locator('.maison-menu').click();check(label+' mobile menu open',await page.locator('.maison-menu').getAttribute('aria-expanded')==='true');await page.keyboard.press('Escape');check(label+' mobile menu close',await page.locator('.maison-menu').getAttribute('aria-expanded')==='false');}
-            await context.close();
+            if(viewport.width<761){await images.before('mobile menu',page.locator('.maison-menu'));await page.locator('.maison-menu').click();check(label+' mobile menu open',await page.locator('.maison-menu').getAttribute('aria-expanded')==='true');await images.before('press Escape');await page.keyboard.press('Escape');check(label+' mobile menu close',await page.locator('.maison-menu').getAttribute('aria-expanded')==='false');}
+            await images.before('context close');await context.close();
           }
           check('no runtime, internal HTTP, or unexpected external request errors',result.errors.length===0);
           result.status='passed';
