@@ -1079,6 +1079,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "too-cute-student",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/ade05d09-dbd7-471c-8db3-fb5ddd0292c5/profile?share_id=jjid5j5hp",
       "title": "可愛すぎる僕の、可愛すぎない本性",
       "status": "published",
       "category": "modern-romance",
@@ -1294,6 +1295,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "embers-lie",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/b623d172-2d33-4e46-899d-032f571f3931/profile?share_id=bqofjxgwe",
       "title": "残り火に、君の嘘を見た",
       "status": "published",
       "category": "fantasy",
@@ -1321,6 +1323,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "berry-vamp",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/53d0fb7a-23a3-4180-af77-edfdc860da7e/profile?share_id=dhri7c6i",
       "title": "Berry×Vamp",
       "status": "published",
       "category": "modern-romance",
@@ -1346,6 +1349,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "forget-you-save-world",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/c904fe36-0a56-4298-838e-07da58626f04/profile?share_id=a6y3d8o88",
       "title": "あなたを忘れる日、世界が救われる",
       "status": "published",
       "category": "fantasy",
@@ -1371,6 +1375,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "stellar-academy",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/d3a2f825-7946-4eac-b43e-be250fa2d15a/profile?share_id=s27o10hw",
       "title": "STELLAR ACADEMY",
       "status": "published",
       "category": "fantasy",
@@ -1498,6 +1503,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "absolute-zero-dom",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/69e4a2a3-7a73-47a0-a361-98aab0e3fe38/profile?share_id=yhuu4qrqn",
       "title": "絶対零度のDomは愛し子にだけ溶ける",
       "status": "published",
       "category": "fantasy",
@@ -1558,6 +1564,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "only-mean-to-you",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/0cef7d39-aa82-4226-abcc-e1bdb49bb8bc/profile?share_id=is12kafuo",
       "title": "全員、君にだけ意地悪。",
       "status": "published",
       "category": "modern-romance",
@@ -1583,6 +1590,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "day-and-night",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/5049984e-1f6d-4a0e-a1bd-02d11ed3cf2e/profile?share_id=t0t2gb4ei",
       "title": "昼と夜は、君を譲らない。",
       "status": "published",
       "category": "modern-romance",
@@ -1608,6 +1616,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "fox-waits-thousand-years",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/798d23e8-ccd5-47a5-bc30-57696508528f/profile?share_id=sbu2vw4rd",
       "title": "狐は千年、君を待つ",
       "status": "published",
       "category": "fantasy",
@@ -1633,6 +1642,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "alf-layla",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/2284f1a4-6a72-4b7f-a7f4-567a1699fb8b/profile?share_id=6tmks1aeh",
       "title": "千夜一恋譚《アルフ・ライラ》",
       "status": "published",
       "category": "fantasy",
@@ -1658,6 +1668,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "wicked-lady-black-wolf",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/95dd86bb-5140-4c64-b139-918cad3a9454/profile?share_id=0etg7zc1q",
       "title": "悪女と黒狼公爵の偽装夫婦事情",
       "status": "published",
       "category": "fantasy",
@@ -1718,6 +1729,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "angel-and-four-devils",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/af856457-76ba-43ec-823c-716439ed0971/profile?share_id=ybnjflw6a",
       "title": "天界から逃げた天使は、四人の悪魔に拾われる。",
       "status": "published",
       "category": "fantasy",
@@ -1743,6 +1755,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "perfect-coworker-secret-account",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/5bb9929d-a2ea-42ee-acbe-458fc30f977b/profile?share_id=il60rzk3",
       "title": "完璧な同期は、裏垢男子。",
       "status": "published",
       "category": "modern-romance",
@@ -1768,6 +1781,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "gunpowder-rain",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/84fa4483-b6d6-4daf-bacc-3bee3bea47a1/profile?share_id=gjd9n4sao",
       "title": "硝煙は、雨の日の君の香りがした",
       "status": "published",
       "category": "fantasy",
@@ -1879,6 +1893,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "keigaku-arsene",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/ff669650-c6a7-4740-9de9-090f226241a2/profile?share_id=9qj5dth2",
       "title": "【零学】アルセイン・ルヴェリエ",
       "status": "published",
       "category": "keigaku",
@@ -2032,6 +2047,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "frontier-count-mate",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/2ca71c77-547e-40a6-bdde-dbe0d62d388b/profile?share_id=da4z4c5th",
       "title": "逃がした番を取り戻したい辺境伯の話",
       "status": "published",
       "category": "fantasy",
@@ -2057,6 +2073,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "strongest-childhood-friend",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/7235e9d4-1ec8-4707-a01c-845c7e9ac9e7/profile?share_id=h3cl946ou",
       "title": "世界最強の幼馴染は、落ちこぼれしか見ていない。",
       "status": "published",
       "category": "fantasy",
@@ -2082,6 +2099,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "hide-and-cat",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/74b0575d-7d6a-4b3c-9f46-80242b9e9a8c/profile?share_id=iiq4gbs4",
       "title": "ハイド・アンド・キャット",
       "status": "published",
       "category": "underworld",
@@ -2142,6 +2160,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "keigaku-adrian",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/3987172b-12c9-4dd1-95b5-af693d081b9a/profile?share_id=taup5rpt",
       "title": "【零学】アドリアン・ヴァルハルト",
       "status": "published",
       "category": "keigaku",
