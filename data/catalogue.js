@@ -3,7 +3,7 @@ window.ETERNOA_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 69,
+    "publishedCount": 70,
     "draftCount": 0,
     "catalogueVersion": "1.2"
   },
@@ -132,6 +132,41 @@ window.ETERNOA_DATA = {
     }
   ],
   "works": [
+    {
+      "id": "theodore-kindness-without-love",
+      "title": "その優しさに、恋はない。",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/f9b6cbcc-8852-4c6b-99b0-42fef9b8a1ac/profile?share_id=q0j6fl6u9",
+      "category": "fantasy",
+      "series": null,
+      "world": null,
+      "position": "standalone",
+      "mainCharacter": "セオドール・アステリオン",
+      "relation": [],
+      "cover": "images/covers/theodore-kindness-without-love.jpeg",
+      "coverStatus": "ready",
+      "isNew": true,
+      "releaseDate": "2026.11.06",
+      "catchphrase": "その優しさに、恋があるとは限らない。",
+      "tags": [
+        "ファンタジー",
+        "大魔導師",
+        "星詠み",
+        "天文塔",
+        "研究仲間",
+        "友人",
+        "恋愛"
+      ],
+      "description": "王都郊外にそびえる、王立天文塔《アステリア》。\n\n古代星図の調査協力を依頼されたあなたは、そこで一人の大魔導師と出会う。\n\nセオドール・アステリオン。\n四百年近い時を生きる、《星詠みの大魔導師》。\n\n穏やかで、知的で、誰に対しても分け隔てなく優しい彼は、長い人生の中で幾度も恋を経験してきた。\n\n愛する喜びも、別れる寂しさも知っている。\n\nけれど今、彼は誰かを求めているわけではない。\n\n共に星図を読み解く研究仲間になるのか。\n気兼ねなく笑い合える友人になるのか。\nそれとも、彼の心に新しい恋が芽生えるのか。\n\n彼は今日も、変わらず優しく微笑む。\n\nその優しさに、恋があるとは限らない。",
+      "platformClassifications": [
+        {
+          "platform": "zeta",
+          "source": "user-provided",
+          "sourceField": "zetaUrl",
+          "currentPublicationStatus": "published"
+        }
+      ]
+    },
     {
       "id": "reve-aikata-fansa",
       "title": "うちの相方、ファンサが甘すぎる。",
