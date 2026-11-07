@@ -100,7 +100,7 @@
     cats.forEach(c=>genre.add(new Option(c.name,c.id)));
     series.forEach(s=>sf.add(new Option(s.name,s.id)));
     let platform='all';
-    const applyURL=()=>{const p=new URLSearchParams(location.search);search.value=p.get('search')||'';genre.value=p.get('genre')||'all';if(!genre.value)genre.value='all';sf.value=p.get('series')||'all';if(!sf.value)sf.value='all';sort.value=p.get('sort')||'newest';if(!sort.value)sort.value='newest';status.value=p.get('status')||'all';if(!status.value)status.value='all';platform=['all','talelynx','chacha','zeta'].includes(p.get('platform'))?p.get('platform'):'all'};
+    const applyURL=()=>{const p=new URLSearchParams(location.search);search.value=p.get('search')||'';genre.value=p.get('genre')||'all';if(!genre.value)genre.value='all';sf.value=p.get('series')||'all';if(!sf.value)sf.value='all';sort.value=p.get('sort')||'newest';if(!sort.value)sort.value='newest';status.value=p.get('status')||'all';if(!status.value)status.value='all';platform=['all','chacha','zeta'].includes(p.get('platform'))?p.get('platform'):'all'};
     const saveURL=()=>{const p=new URLSearchParams();for(const [k,v]of [['search',search.value],['genre',genre.value],['series',sf.value],['sort',sort.value],['status',status.value],['platform',platform]])if(v&&v!=='all'&&v!=='newest')p.set(k,v);try{history.replaceState(null,'',location.pathname+(p.size?'?'+p.toString():''))}catch{/* Local file viewers may disallow history updates; filters still work. */}};
     const render=()=>{
       const q=search.value.trim().toLocaleLowerCase('ja');
