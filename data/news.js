@@ -1,5 +1,17 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "release-theodore-20261106",
+    "publishedAt": "2026-11-06",
+    "category": "RELEASE",
+    "title": "『その優しさに、恋はない。』公開",
+    "body": "王立天文塔《アステリア》で出会う、星詠みの大魔導師セオドール・アステリオン。研究仲間、友人、それとも新しい恋。穏やかな優しさの先にある関係を描くファンタジー作品をZETAで公開しました。",
+    "status": "published",
+    "relatedWorkIds": [
+      "theodore-kindness-without-love"
+    ],
+    "externalUrl": null
+  },
+  {
     "id": "legacy-001",
     "publishedAt": "2026-11-01",
     "category": "RELEASE",
