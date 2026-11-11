@@ -57,3 +57,7 @@ body[data-page="home"] .home-profile>img{border-radius:0}
 
 /* Six-item navigation for ABOUT; mobile breakpoint and interaction stay unchanged. */
 @media(min-width:761px) and (max-width:1000px){.maison-nav{gap:16px}.maison-header{gap:20px}.maison-nav a{letter-spacing:.1em}}
+
+.release-feature .cover-button img {
+  aspect-ratio: auto;
+}
