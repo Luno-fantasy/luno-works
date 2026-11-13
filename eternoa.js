@@ -74,7 +74,15 @@
   if($('#latestRelease')&&latest){$('#latestRelease').innerHTML=`<article class="release-feature"><button class="cover-button" data-work="${esc(latest.id)}" aria-label="${esc(latest.title)}の詳細"><img src="${esc(latest.cover)}" alt="${esc(latest.title)}" loading="lazy"></button><div class="release-copy"><p class="eyebrow">${esc(category(latest))} / ${esc(dateLabel(latest.firstPublishedAt||latest.releaseDate))}</p><h3>${esc(latest.title)}</h3><p class="release-catch">${esc(latest.catchphrase||'')}</p><p class="summary">${esc(latest.description)}</p><button class="button" data-work="${esc(latest.id)}">VIEW STORY <span>→</span></button></div></article>`}
   if($('#recentWorks'))$('#recentWorks').innerHTML=sorted.filter(w=>w.id!==latest?.id).slice(0,3).map(card).join('');
   const news=(window.ETERNOA_NEWS||[]).filter(n=>n.status==='published'&&n.publishedAt<=new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Tokyo'})).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt));
-  const newsHTML=n=>`<details name="maison-news" class="letter" id="${esc(n.id)}"><summary><time datetime="${esc(n.publishedAt)}">${esc(dateLabel(n.publishedAt))}</time><span class="news-type">${esc(n.category)}</span><h3>${esc(n.title)}</h3><span aria-hidden="true">＋</span></summary><div class="letter-body"><p>${esc(n.body)}</p>${(n.relatedWorkIds||[]).map(id=>works.find(w=>w.id===id)).filter(Boolean).map(w=>`<button class="text-link" data-work="${esc(w.id)}">${esc(w.title)} →</button>`).join('')}${safeURL(n.externalUrl)?`<a class="text-link" href="${esc(safeURL(n.externalUrl))}" target="_blank" rel="noopener noreferrer">関連リンク ↗</a>`:''}</div></details>`;
+  const newsHTML=n=>{
+    const url=safeURL(n.externalUrl);
+    const body=String(n.body??'');
+    const label=n.bodyLinkText;
+    const linkAt=url&&label?body.indexOf(label):-1;
+    const linkedBody=linkAt<0?esc(body):`${esc(body.slice(0,linkAt))}<a class="letter-inline-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>${esc(body.slice(linkAt+label.length))}`;
+    const bodyHTML=linkedBody.split('\n\n').map(paragraph=>`<p>${paragraph}</p>`).join('');
+    return `<details name="maison-news" class="letter" id="${esc(n.id)}"><summary><time datetime="${esc(n.publishedAt)}">${esc(dateLabel(n.publishedAt))}</time><span class="news-type">${esc(n.category)}</span><h3>${esc(n.title)}</h3><span aria-hidden="true">＋</span></summary><div class="letter-body">${bodyHTML}${(n.relatedWorkIds||[]).map(id=>works.find(w=>w.id===id)).filter(Boolean).map(w=>`<button class="text-link" data-work="${esc(w.id)}">${esc(w.title)} →</button>`).join('')}${url&&linkAt<0?`<a class="text-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">関連リンク ↗</a>`:''}</div></details>`;
+  };
   if($('#homeNews'))$('#homeNews').innerHTML=news.slice(0,2).map(newsHTML).join('');
   if($('#allNews'))$('#allNews').innerHTML=news.map(newsHTML).join('');
   $$('.letters').forEach(list=>list.addEventListener('toggle',e=>{if(e.target.open)list.querySelectorAll('.letter[open]').forEach(el=>{if(el!==e.target)el.open=false})},true));

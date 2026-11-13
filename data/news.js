@@ -1,5 +1,16 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "creative-activity-20261114",
+    "publishedAt": "2026-11-14",
+    "category": "NOTICE",
+    "title": "今後の創作活動について",
+    "body": "いつも作品をご覧いただき、ありがとうございます。\n\n今後の新作・更新作品は、Talelynx向け作品ギャラリー「ÉTERNOA : AMOUR」を中心にご案内していきます。\n\nÉTERNOAは引き続き、創作活動のメインサイトとして運営していきます。作品の世界を楽しんでいただけるよう、少しずつ整えてまいります。\n\nこれからも、Lunoの物語をよろしくお願いいたします。",
+    "status": "published",
+    "relatedWorkIds": [],
+    "externalUrl": "https://luno-fantasy.github.io/eternoa-amour/",
+    "bodyLinkText": "ÉTERNOA : AMOUR"
+  },
+  {
     "id": "release-rowen-20261111",
     "publishedAt": "2026-11-11",
     "category": "RELEASE",

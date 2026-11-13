@@ -61,3 +61,5 @@ body[data-page="home"] .home-profile>img{border-radius:0}
 .release-feature .cover-button img {
   aspect-ratio: auto;
 }
+
+.letter-inline-link{color:var(--gold);text-decoration:underline;text-underline-offset:.18em}
