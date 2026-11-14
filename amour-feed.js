@@ -15,8 +15,8 @@
     .then(response => { if (!response.ok) throw new Error('feed unavailable'); return response.json(); })
     .then(items => {
       if (!Array.isArray(items)) return;
-      const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-      const latest = items.filter(item => item && /^\\d{4}-\\d{2}-\\d{2}$/.test(item.date) && item.date <= today && typeof item.title === 'string' && item.title.trim())
+      const today = new Intl.DateTimeFormat('sv-SE', {timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+      const latest = items.filter(item => item && /^\d{4}-\d{2}-\d{2}$/.test(item.date) && item.date <= today && typeof item.title === 'string' && item.title.trim())
         .sort((a,b) => b.date.localeCompare(a.date))[0];
       if (!latest) return;
       const href = new URL(latest.url || '/eternoa-amour/news/', origin);
@@ -26,7 +26,7 @@
       const meta = text('p','amour-feature-meta',latest.date.replaceAll('-','.') + ' · ' + (latest.category || 'NEWS'));
       const link = text('a','amour-feature-title',latest.title);
       link.href = href.href;
-      const description = text('p','amour-feature-description',String(latest.body || '').split('\\n')[0]);
+      const description = text('p','amour-feature-description',String(latest.body || '').split('\n')[0]);
       article.append(meta,link,description);
       target.replaceChildren(article);
       section.hidden = false;
