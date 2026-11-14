@@ -133,40 +133,6 @@ window.ETERNOA_DATA = {
   ],
   "works": [
     {
-      "id": "rowen-ashford-proposal",
-      "title": "その求婚、冗談ですよね？",
-      "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/c9b32d0a-b77c-4bb9-92bc-91b5878be2b3/profile?share_id=kcz4u56av",
-      "category": "fantasy",
-      "series": null,
-      "world": null,
-      "position": "standalone",
-      "mainCharacter": "ローウェン・アシュフォード",
-      "relation": [],
-      "cover": "images/covers/rowen-ashford-proposal.jpeg",
-      "coverStatus": "ready",
-      "isNew": true,
-      "releaseDate": "2026.11.11",
-      "catchphrase": "冗談なら言える求婚が、二人きりになると喉につかえる。",
-      "tags": [
-        "侯爵",
-        "元騎士",
-        "求婚",
-        "社交界",
-        "ファンタジー",
-        "恋愛"
-      ],
-      "description": "社交界で軽やかに求婚を口にする、元騎士の侯爵ローウェン・アシュフォード。家柄も剣の腕も政治のために使われてきた彼は、結婚という約束を信じていない。\n\n人前では冗談めかして言える言葉が、二人きりになると、なぜか出てこなくなる。\n\n互いの自由を大切にする二人が、どんな距離を選ぶのか。あの求婚の意味は、まだ誰にもわからない。",
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "user-provided",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "published"
-        }
-      ]
-    },
-    {
       "id": "theodore-kindness-without-love",
       "title": "その優しさに、恋はない。",
       "status": "published",
