@@ -11,18 +11,6 @@ window.ETERNOA_NEWS = [
     "bodyLinkText": "ÉTERNOA : AMOUR"
   },
   {
-    "id": "release-rowen-20261111",
-    "publishedAt": "2026-11-11",
-    "category": "RELEASE",
-    "title": "『その求婚、冗談ですよね？』公開",
-    "body": "冗談めかして求婚する、元騎士の侯爵ローウェン・アシュフォード。二人きりになると、その言葉だけが出てこない。彼との距離を少しずつ探るファンタジー恋愛作品をZETAで公開しました。",
-    "status": "published",
-    "relatedWorkIds": [
-      "rowen-ashford-proposal"
-    ],
-    "externalUrl": null
-  },
-  {
     "id": "release-theodore-20261106",
     "publishedAt": "2026-11-06",
     "category": "RELEASE",
