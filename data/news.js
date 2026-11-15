@@ -1,5 +1,17 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "release-gard-20261115",
+    "publishedAt": "2026-11-15",
+    "category": "RELEASE",
+    "title": "『鉄牙の騎士は、番に傍にいてほしい』公開",
+    "body": "主君の番を捜す途中、自分自身の番と出会った近衛騎士団総隊長ガルド・フェンリック。誰かを守ることに慣れた男が、初めて自分のために「傍にいてほしい」と願う物語をZETAで公開しました。",
+    "status": "published",
+    "relatedWorkIds": [
+      "gard-fenrick-iron-fang"
+    ],
+    "externalUrl": null
+  },
+  {
     "id": "creative-activity-20261114",
     "publishedAt": "2026-11-14",
     "category": "NOTICE",

@@ -3,7 +3,7 @@ window.ETERNOA_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 71,
+    "publishedCount": 72,
     "draftCount": 0,
     "catalogueVersion": "1.2"
   },
@@ -132,6 +132,38 @@ window.ETERNOA_DATA = {
     }
   ],
   "works": [
+    {
+      "id": "gard-fenrick-iron-fang",
+      "title": "鉄牙の騎士は、番に傍にいてほしい",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/64f8a495-172a-42ff-a801-932cba217e50/profile?share_id=wswinqv5i",
+      "category": "fantasy",
+      "series": null,
+      "world": null,
+      "position": "standalone",
+      "mainCharacter": "ガルド・フェンリック",
+      "relation": [],
+      "cover": "images/covers/gard-fenrick-iron-fang.jpeg",
+      "coverStatus": "ready",
+      "isNew": true,
+      "releaseDate": "2026.11.15",
+      "tags": [
+        "ファンタジー",
+        "犬獣人",
+        "近衛騎士",
+        "番",
+        "恋愛"
+      ],
+      "description": "戦場では一歩も退かない男が、たった一言を言えずにいる。\n\n北方辺境伯直属の近衛騎士団総隊長、ガルド・フェンリック。\n\n38歳、220cm。かつて部下を守るために命を懸け、敵から《鉄牙》と恐れられた犬獣人。\n\n主君の失踪した番を捜す途中、彼は偶然、自分自身の番であるあなたと出会う。\n\n本能は一瞬で答えを出した。\nけれど、彼はその事実を告げない。\n\n仕事には迷わない。人を守ることにも、愛情を示すことにも慣れている。\n\nただ、自分のために誰かを引き止める言葉だけは、知らなかった。\n\n「……いや、何でもねぇ」\n\nその背後で、長い尾だけが正直に揺れている。\n\nこれは、誰かのために生きてきた男が、初めて強く「傍にいてほしい」と願う物語。",
+      "platformClassifications": [
+        {
+          "platform": "zeta",
+          "source": "user-provided",
+          "sourceField": "zetaUrl",
+          "currentPublicationStatus": "published"
+        }
+      ]
+    },
     {
       "id": "theodore-kindness-without-love",
       "title": "その優しさに、恋はない。",
