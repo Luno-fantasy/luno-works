@@ -1648,9 +1648,9 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "fox-waits-thousand-years",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/798d23e8-ccd5-47a5-bc30-57696508528f/profile?share_id=sbu2vw4rd",
       "title": "狐は千年、君を待つ",
       "status": "published",
+      "archiveOnly": true,
       "category": "fantasy",
       "series": null,
       "world": null,
@@ -1662,15 +1662,7 @@ window.ETERNOA_DATA = {
       "tags": [],
       "description": "何千年もの時を生きる妖狐・黒曜には、忘れられない人がいた。\n\n遠い昔に失い、どれほど探しても見つけられなかった最愛の人。\n\nそして、ある雨の夜。黒曜は、その人と同じ魂を持つあなたと再会する。\n\n顔も、声も、記憶も違う。あなたにとっては初対面のはずなのに、黒曜だけが失われた過去を覚えていた。\n\n「どこかで会った？」\n\n果たされなかった約束。消えることのなかった想い。そして、千年を越えて巡り合った二人。\n\nこれは、待ち続けた妖狐と、すべてを忘れたあなたが紡ぐ再会の物語。\n\n――君が忘れても、私はずっと君を待っていた。",
       "isNew": false,
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "legacy-zeta-classification",
-          "sourceFile": "data/platform-filter.js",
-          "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": []
     },
     {
       "id": "alf-layla",
@@ -1700,9 +1692,9 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "wicked-lady-black-wolf",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/95dd86bb-5140-4c64-b139-918cad3a9454/profile?share_id=0etg7zc1q",
       "title": "悪女と黒狼公爵の偽装夫婦事情",
       "status": "published",
+      "archiveOnly": true,
       "category": "fantasy",
       "series": null,
       "world": null,
@@ -1714,15 +1706,7 @@ window.ETERNOA_DATA = {
       "tags": [],
       "description": "大陸最大の帝国《ヴァルディア》。\n\n「黒狼公」と恐れられる冷酷な公爵、アシュレイ・ヴァン・ルーベルト。\n\n悪女と呼ばれるあなたとの結婚は、互いの利益だけを目的とした偽装夫婦の契約だった。\n\n愛も、干渉も必要ない。一年後には離婚する――そのはずだった。\n\nけれど、無表情な公爵は、なぜかあなたにだけ異常なほど過保護になる。\n\n危険が迫れば冷静さを失い、他の男が近づけば嫉妬を隠せない。\n\n「お前は、俺の妻だ」\n\n離婚するはずの妻を、誰よりも必死に守ろうとする男。\n\nこれは契約を守るためなのか。それとも、彼自身もまだ気づいていない愛なのか。\n\n偽りの結婚から始まる、不器用で独占欲の強い公爵との恋物語。",
       "isNew": false,
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "legacy-zeta-classification",
-          "sourceFile": "data/platform-filter.js",
-          "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": []
     },
     {
       "id": "code-requiem",
