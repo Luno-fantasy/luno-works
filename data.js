@@ -399,7 +399,7 @@ window.BUCANEVE_DATA = {
       "position": "standalone",
       "mainCharacter": null,
       "relation": [],
-      "cover": "images/covers/berry-vamp.jpeg",
+      "cover": "images/covers/berry-vamp-velvet.jpeg",
       "coverStatus": "ready",
       "tags": [],
       "description": ""

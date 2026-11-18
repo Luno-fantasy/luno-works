@@ -13,7 +13,7 @@
   "position": "standalone",
   "mainCharacter": "鳴海璃久",
   "relation": [],
-  "cover": "images/covers/reve-aikata-fansa.jpeg",
+  "cover": "images/covers/reve-aikata-fansa-velvet.jpeg",
   "coverStatus": "ready",
   "isNew": true,
   "releaseDate": "2026.11.01",
