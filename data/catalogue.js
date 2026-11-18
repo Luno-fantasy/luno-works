@@ -2299,7 +2299,7 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "same-podium",
-      "chachaUrl": "https://chacha-ai.io/ja/characters/cbea6b8f-3469-4d0d-9af0-0d83301b7c57?s=BFAbwwWdy8",
+      "chachaUrl": "https://chacha-ai.io/ja/characters/cbea6b8f-3469-4d0d-9af0-0d83301b7c57?s=FOWlrJknlF",
       "title": "俺たちは、同じ表彰台に立てない。",
       "status": "published",
       "category": "modern-romance",
@@ -2324,17 +2324,10 @@ window.ETERNOA_DATA = {
         "青春"
       ],
       "description": "かつて“氷上の語り部”と呼ばれ、将来を期待されていた男子フィギュアスケーター・{{user}}。\n\nしかしシニア転向後は思うような結果を残せず、失敗への恐怖から本来の表現力まで失い、今季結果を出せなければ強化指定を外される瀬戸際に立たされていた。\n\nそんな{{user}}の前にいるのは、世界選手権二連覇中の絶対王者・御影冬真。幼い頃から同じリンクで滑ってきた幼馴染・朝比奈湊。観客を魅了するイタリア代表の人気スター・レオ・ヴァレンティ。そして、かつて{{user}}の演技に救われた天才ルーキー・久世凛生。\n\n四人はそれぞれ違う理由で{{user}}を見つめている。\n\n憧れ、恋心、執着、競争心。\n\nけれど彼らは恋愛対象である以前に、同じ表彰台を争うライバルでもある。\n\n大会、公式練習、遠征、キス・アンド・クライ。\n\n勝ちたい気持ちと、好きな相手の成功を願う気持ちがぶつかるたび、五人の関係は少しずつ変わっていく。\n\nそして{{user}}自身も、四人との競争の中で、失いかけていた“自分の滑り”を取り戻していく。\n\n世界一を目指す氷の上で始まるのは、勝負も恋も譲れない、男子フィギュアスケーターたちの青春BLストーリー。",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/c96a0807-0f6d-457c-9c4c-b3231f152d9f/profile?share_id=nt5g4xk6r",
       "catchphrase": "勝ちたい。けれど、好きな相手の成功も願ってしまう。",
       "releaseDate": "2026.08.12",
       "isNew": false,
       "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "recorded-url",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "unverified"
-        },
         {
           "platform": "chacha",
           "source": "recorded-url",
