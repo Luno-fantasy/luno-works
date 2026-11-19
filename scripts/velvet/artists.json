@@ -10,7 +10,7 @@
     "feature": "lux-cover.webp",
     "portrait": "lux-artist.webp",
     "catchphrase": "君にだけ、|ファンサじゃない。",
-    "work": {"title":"マネージャーさん、俺に恋してよ。","intro":"何万人も|虜にしてきた俺が、|君一人を落とせない。","platform":"ZETA","links":[
+    "work": {"title":"マネージャーさん、俺に恋してよ。","intro":"何万人も|虜にしてきた俺が、|君一人を落とせない。","platform":"ZETA","status":"published","links":[
       {"platform":"ZETA","url":"https://zeta-ai.io/ja/plots/725cfe14-3577-4b1b-9d7e-83330423fdcd/profile?share_id=0pvbghrga"}
     ]}
   },
@@ -22,11 +22,10 @@
       "bio": ["17歳で芸能界入りし、|数々の作品で評価を獲得。|出演作での歌唱を|きっかけに|音楽活動を始め、|現在は俳優業と|NOIRでの活動を両立する。", "穏やかで|物腰が柔らかく、|観察力が鋭い。|親しくなると|少し意地悪な一面を|覗かせる。"],
       "facts": {"年齢":"28歳","身長":"187cm","メンバーカラー":"Burgundy Red","趣味":"映画鑑賞、読書","好きなもの":"静かな夜、コーヒー","特技":"演技、歌唱、人物観察"}
     }],
-    "feature": "noir-cover.webp",
     "portrait": "noir-stage.jpg",
     "portrait_size": [1280, 720],
     "catchphrase": "役の感情を|鮮やかに生きる。",
-    "work": {"title":"愛してる、は役の台詞。","intro":"何度も愛を演じてきた|俺が、|君への恋だけ|演じられない。","platform":"ZETA","upcoming":true,"links":[]}
+    "work": {"status":"unpublished"}
   },
   {
     "id": "raze", "unit": "RAZE", "color": "#ecab7c", "type": "ロックパフォーマンス",
@@ -36,10 +35,9 @@
       "bio": ["力強い歌声と|鋭いダンス、|挑発的なステージングで|人気を集める。", "自信家で負けず嫌い。|軽口や皮肉で|からかうこともあるが、|音楽とステージには真剣。|練習熱心で、|認めた相手の意見には|耳を傾ける。"],
       "facts": {"年齢":"27歳","身長":"186cm","メンバーカラー":"Burnt Orange","趣味":"音楽鑑賞、ダンス動画の研究","好きなもの":"ライブ、辛い料理、自由な時間","特技":"歌唱、ダンス、即興パフォーマンス"}
     }],
-    "feature": "raze-cover.webp",
     "portrait": "raze-artist.webp",
     "catchphrase": "ロックとダンスで、|観客を熱狂させる。",
-    "work": {"title":"俺を躍らせてみろよ、先生。","intro":"挑発したのは俺の方。|先に本気になったのも、|俺だった。","platform":"ZETA","upcoming":true,"links":[]}
+    "work": {"status":"unpublished"}
   },
   {
     "id": "veil", "unit": "VEIL", "color": "#c2a4ef", "type": "コンセプチュアルユニット",
@@ -49,10 +47,9 @@
       "bio": ["学生時代から音楽と映像を制作し、19歳で自主制作MVが注目を集める。デモ歌唱をきっかけにアーティストとしてデビュー。", "現在は楽曲コンセプトやMV、ライブ演出も担当する。", "インタビューでは|穏やかで知的。|親しい相手には|気さくで、|少しいたずら好きな|素顔を見せる。"],
       "facts": {"年齢":"28歳","身長":"184cm","メンバーカラー":"Amethyst Violet","趣味":"美術館巡り、香水の調香、夜の散歩","好きなもの":"雨の日、紅茶、ガラス工芸品","特技":"作詞、映像演出、色彩構成"}
     }],
-    "feature": "veil-cover.webp",
     "portrait": "veil-artist.webp",
     "catchphrase": "音楽と映像で、|幻想的なステージを。",
-    "work": {"title":"俺に触れるのは、仕事だけ？","intro":"幻想的アーティスト| × 専属ヘアメイク。","platform":"ZETA","upcoming":true,"links":[]}
+    "work": {"status":"unpublished"}
   },
   {
     "id": "reve", "unit": "RE:VE", "color": "#9cb6fb", "type": "アイドルデュオ",
@@ -66,7 +63,7 @@
     "feature": "reve-cover.webp",
     "portrait": "reve-portrait.webp",
     "caption": "あなたは、デビューから|一緒に活動してきた~璃久の相方。",
-    "work": {"title":"うちの相方、ファンサが甘すぎる。","intro":"ファンの前では恋人同士。^……じゃあ、|二人きりのときは？","links":[
+    "work": {"title":"うちの相方、ファンサが甘すぎる。","intro":"ファンの前では恋人同士。^……じゃあ、|二人きりのときは？","status":"published","links":[
       {"platform":"ZETA","url":"https://zeta-ai.io/ja/plots/4edfcb6d-0d82-451a-ad2b-bab5bc1b8a45/profile?share_id=bex9iyjk3","cover":"reve-cover.webp"},
       {"platform":"Talelynx","url":"https://talelynx.ai/chats/51365/info","cover":"reve-talelynx-cover.webp"}
     ]}
@@ -82,7 +79,7 @@
     "portrait": "berry-vamp-eyes.jpg",
     "portrait_size": [1179, 663],
     "caption": "可憐な衣装と甘い笑顔で|観客を魅了する、|4人組の女装アイドルグループ。",
-    "work": {"title":"Berry×Vamp","intro":"ねえ、知ってる？| 甘いイチゴには、|鋭い棘があるんだって。","links":[
+    "work": {"title":"Berry×Vamp","intro":"ねえ、知ってる？| 甘いイチゴには、|鋭い棘があるんだって。","status":"published","links":[
       {"platform":"ZETA","url":"https://zeta-ai.io/ja/plots/53d0fb7a-23a3-4180-af77-edfdc860da7e/profile?share_id=dhri7c6i"}
     ]}
   }

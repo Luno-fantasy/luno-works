@@ -131,8 +131,7 @@ def work_actions(work, lead_cover):
         links.append(f'<a class="work-link" href="{escape(link["url"])}">{cover}{label}で読む</a>')
     if links:
         return '<div class="work-links">' + "".join(links) + '</div>'
-    status = "作品公開予定" if work.get("upcoming") else f'{work["platform"]}リンクは未設定です。'
-    return f'<p class="unset">{escape(status)}</p>'
+    return f'<p class="unset">{escape(work["platform"])}リンクは未設定です。</p>'
 
 
 def editorial_text(value):
@@ -195,16 +194,36 @@ def editorial_profiles(members):
     return '<div class="editorial-roster">\n      ' + "\n      ".join(profiles) + '\n    </div>'
 
 
+def work_section(unit):
+    work = unit["work"]
+    if work.get("status") != "published":
+        return """<section class="editorial-work" aria-labelledby="work-title">
+    <div class="wrap editorial-release editorial-release--upcoming">
+      <h2 id="work-title" lang="en">COMING SOON</h2>
+    </div>
+  </section>"""
+    work_title = escape(work["title"])
+    if "、" in work["title"]:
+        first, rest = work["title"].split("、", 1)
+        work_title = f'<span>{escape(first)}、</span><wbr><span>{escape(rest)}</span>'
+    return f"""<section class="editorial-work" aria-labelledby="work-title">
+    <div class="wrap editorial-release">
+      {img('../', unit['feature'], f'『{work["title"]}』のカバー')}
+      <div class="editorial-release-copy">
+        <p class="editorial-label" lang="en">WORK</p>
+        <h2 id="work-title">{work_title}</h2>
+        <p class="editorial-work-intro">{editorial_text(work['intro'])}</p>
+      </div>
+      <div class="editorial-platform">{work_actions(work, unit['feature'])}</div>
+    </div>
+  </section>"""
+
+
 def detail(unit):
     key = unit["id"]
     members = unit["members"]
     group = len(members) > 1
     member = members[0]
-    work = unit["work"]
-    work_title = escape(work["title"])
-    if "、" in work["title"]:
-        first, rest = work["title"].split("、", 1)
-        work_title = f'<span>{escape(first)}、</span><wbr><span>{escape(rest)}</span>'
     name = unit["unit"] if group else member["name"]
     roman = member.get("roman")
     name_text = escape(name)
@@ -235,17 +254,7 @@ def detail(unit):
       <p class="editorial-catch">{editorial_text(catch)}</p>
     </div>
   </section>
-  <section class="editorial-work" aria-labelledby="work-title">
-    <div class="wrap editorial-release">
-      {img('../', unit['feature'], f'『{work["title"]}』のカバー')}
-      <div class="editorial-release-copy">
-        <p class="editorial-label" lang="en">WORK</p>
-        <h2 id="work-title">{work_title}</h2>
-        <p class="editorial-work-intro">{editorial_text(work['intro'])}</p>
-      </div>
-      <div class="editorial-platform">{work_actions(work, unit['feature'])}</div>
-    </div>
-  </section>
+  {work_section(unit)}
   <section class="wrap editorial-profile" aria-labelledby="profile-heading">
     <h2 id="profile-heading" lang="en">PROFILE</h2>
     {editorial_profiles(members)}
