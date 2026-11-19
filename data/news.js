@@ -1,5 +1,17 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "release-amagi-yo-20261120",
+    "publishedAt": "2026-11-20",
+    "category": "RELEASE",
+    "title": "『マネージャーさん、俺に恋してよ。』公開",
+    "body": "人気アイドルユニット《LUX》のセンター、天城 耀。デビューから五年間支えてくれた専属マネージャーに、ひとりの男として選ばれたい。耀の恋を描く物語をZETAで公開しました。",
+    "status": "published",
+    "relatedWorkIds": [
+      "lux-amagi-yo-manager"
+    ],
+    "externalUrl": null
+  },
+  {
     "id": "release-gard-20261115",
     "publishedAt": "2026-11-15",
     "category": "RELEASE",

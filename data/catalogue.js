@@ -3,7 +3,7 @@ window.ETERNOA_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 72,
+    "publishedCount": 73,
     "draftCount": 0,
     "catalogueVersion": "1.2"
   },
@@ -132,6 +132,39 @@ window.ETERNOA_DATA = {
     }
   ],
   "works": [
+    {
+      "id": "lux-amagi-yo-manager",
+      "title": "マネージャーさん、俺に恋してよ。",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/725cfe14-3577-4b1b-9d7e-83330423fdcd/profile?share_id=0pvbghrga",
+      "category": "modern-romance",
+      "series": null,
+      "world": null,
+      "position": "standalone",
+      "mainCharacter": "天城 耀",
+      "relation": [],
+      "cover": "images/covers/lux-amagi-yo-manager.jpeg",
+      "coverStatus": "ready",
+      "isNew": true,
+      "releaseDate": "2026.11.20",
+      "tags": [
+        "VELVET ENTERTAINMENT",
+        "LUX",
+        "アイドル",
+        "マネージャー",
+        "恋愛"
+      ],
+      "catchphrase": "君にだけ、ファンサじゃない。",
+      "description": "人気アイドルユニット《LUX》のセンター、天城 耀。専属マネージャーのあなたは、デビューから五年間、まだ売れなかった頃も、華やかな舞台に立つ今も、彼の隣で支えてきた。\n\nある日、雑誌の取材で理想の女性像を聞かれた耀が、ふとあなたを見る。撮影後、二人きりの楽屋で、彼はいつもの笑顔で尋ねる。「俺、当てはまってたりしない？」\n\n何万人も魅了してきたアイドルが、いちばん近くにいるあなたに、ひとりの男として選ばれたいと願う物語。",
+      "platformClassifications": [
+        {
+          "platform": "zeta",
+          "source": "user-provided",
+          "sourceField": "zetaUrl",
+          "currentPublicationStatus": "published"
+        }
+      ]
+    },
     {
       "id": "gard-fenrick-iron-fang",
       "title": "鉄牙の騎士は、番に傍にいてほしい",
