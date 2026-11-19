@@ -36,7 +36,9 @@
   }));
   const DATA=window.ETERNOA_DATA;
   if(!DATA)return;
-  const series=DATA.series||[],cats=DATA.categories||[];
+  const isWorks=document.body.dataset.page==='works';
+  const included=item=>!isWorks||!item.excludeFromWorks;
+  const series=(DATA.series||[]).filter(included),cats=(DATA.categories||[]).filter(included);
   const nameFor=(items,id)=>items.find(x=>(x.id||x)===id)?.name||id||'';
   const seriesFor=w=>series.filter(s=>s.id===w.series||s.id===w.world||s.works?.includes(w.id));
   const seriesLabel=w=>seriesFor(w).map(s=>s.name).join(' / ');
@@ -67,7 +69,7 @@
     return (ascending?ad.localeCompare(bd):bd.localeCompare(ad))||String(a.title).localeCompare(b.title,'ja');
   };
   const newest=byDate(firstDate);
-  const works=DATA.works.filter(published);
+  const works=DATA.works.filter(w=>included(w)&&published(w));
   const sorted=[...works].sort(newest);
   const card=w=>`<article class="work-item"><button class="cover-button" data-work="${esc(w.id)}" aria-label="${esc(w.title)}の詳細"><img src="${esc(w.cover)}" alt="${esc(w.title)}" loading="lazy"><span class="cover-label">${archived(w)?'ARCHIVE':'VIEW STORY'}</span></button><p class="meta">${esc(seriesLabel(w)||category(w))}</p><h3><button data-work="${esc(w.id)}">${esc(w.title)}</button></h3>${firstDate(w)?`<time datetime="${esc(firstDate(w))}">${esc(dateLabel(firstDate(w)))}</time>`:'<span class="undated">公開日未登録</span>'}</article>`;
   const latest=sorted.find(w=>!archived(w)&&linksFor(w).some(l=>l.availability!=='unavailable'));

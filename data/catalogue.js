@@ -30,7 +30,12 @@ window.ETERNOA_DATA = {
     },
     {
       "id": "velvet-night",
-      "name": "VELVET NIGHT"
+      "name": "VELVET NIGHT",
+      "excludeFromWorks": true
+    },
+    {
+      "id": "velvet-entertainment",
+      "name": "VELVET ENTERTAINMENT"
     },
     {
       "id": "astrain-kingdom",
@@ -116,10 +121,16 @@ window.ETERNOA_DATA = {
       "id": "velvet-night",
       "name": "VELVET NIGHT",
       "type": "series",
+      "excludeFromWorks": true,
       "works": [
         "velvet-night-mikado-reiji",
         "velvet-night-amagi-yo"
       ]
+    },
+    {
+      "id": "velvet-entertainment",
+      "name": "VELVET ENTERTAINMENT",
+      "type": "series"
     },
     {
       "id": "secret-menu",
@@ -138,7 +149,7 @@ window.ETERNOA_DATA = {
       "status": "published",
       "zetaUrl": "https://zeta-ai.io/ja/plots/725cfe14-3577-4b1b-9d7e-83330423fdcd/profile?share_id=0pvbghrga",
       "category": "modern-romance",
-      "series": null,
+      "series": "velvet-entertainment",
       "world": null,
       "position": "standalone",
       "mainCharacter": "天城 耀",
@@ -238,7 +249,7 @@ window.ETERNOA_DATA = {
       "status": "published",
       "zetaUrl": "https://zeta-ai.io/ja/plots/4edfcb6d-0d82-451a-ad2b-bab5bc1b8a45/profile?share_id=bex9iyjk3",
       "category": "modern-romance",
-      "series": "RE:VE",
+      "series": "velvet-entertainment",
       "world": null,
       "position": "standalone",
       "mainCharacter": "鳴海璃久",
@@ -631,6 +642,7 @@ window.ETERNOA_DATA = {
       "id": "velvet-night-shiramine-shizuki",
       "title": "それ、台本にないよ。",
       "status": "published",
+      "excludeFromWorks": true,
       "zetaUrl": "https://zeta-ai.io/ja/plots/2a749224-6ee2-4024-938f-1615c583706d/profile?share_id=qj6x3mx7g",
       "category": "modern-romance",
       "series": "VELVET NIGHT",
@@ -667,6 +679,7 @@ window.ETERNOA_DATA = {
       "id": "velvet-night-kiryu-jin",
       "title": "その顔、俺が崩してやる。",
       "status": "published",
+      "excludeFromWorks": true,
       "zetaUrl": "https://zeta-ai.io/ja/plots/c87bfd31-d5ce-424e-829b-c3c5bd1ffac5/profile?share_id=3yk98sdne",
       "category": "modern-romance",
       "series": "VELVET NIGHT",
@@ -702,6 +715,7 @@ window.ETERNOA_DATA = {
       "id": "velvet-night-mikado-reiji",
       "title": "愛してる、は役の台詞。",
       "status": "published",
+      "excludeFromWorks": true,
       "zetaUrl": "https://zeta-ai.io/ja/plots/e2f71f39-d840-4349-a16f-6b51fe44734d/profile?share_id=1vw5uvxw",
       "category": "modern-romance",
       "series": "VELVET NIGHT",
@@ -736,6 +750,7 @@ window.ETERNOA_DATA = {
       "id": "velvet-night-amagi-yo",
       "title": "一回くらい、俺を推してみない？",
       "status": "published",
+      "excludeFromWorks": true,
       "zetaUrl": "https://zeta-ai.io/ja/plots/a67d3df7-acc7-488e-aa8c-9e5c21609ea7/profile?share_id=fwya9m9qj",
       "category": "modern-romance",
       "series": "VELVET NIGHT",
@@ -1392,7 +1407,7 @@ window.ETERNOA_DATA = {
       "title": "Berry×Vamp",
       "status": "published",
       "category": "modern-romance",
-      "series": null,
+      "series": "velvet-entertainment",
       "world": null,
       "position": "standalone",
       "mainCharacter": null,
