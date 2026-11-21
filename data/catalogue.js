@@ -1161,7 +1161,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.03.12"
     },
     {
       "id": "too-cute-student",
@@ -1187,7 +1188,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.04.10"
     },
     {
       "id": "unchosen-sister",
@@ -1854,7 +1856,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.23"
     },
     {
       "id": "gunpowder-rain",
@@ -2126,7 +2129,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.08.25"
     },
     {
       "id": "frontier-count-mate",
