@@ -1118,7 +1118,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.11"
     },
     {
       "id": "dangerous-regular",
@@ -1787,7 +1788,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.15"
     },
     {
       "id": "angel-and-four-devils",
@@ -1867,7 +1869,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.04.24"
     },
     {
       "id": "doctor-felone-heart",
@@ -2012,7 +2015,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.11"
     },
     {
       "id": "crimson-silence",
@@ -2047,7 +2051,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.11"
     },
     {
       "id": "fox-does-not-love-humans",
@@ -2157,7 +2162,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.06"
     },
     {
       "id": "hide-and-cat",
@@ -2183,7 +2189,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.03.11"
     },
     {
       "id": "lilium-dependence",
@@ -2218,7 +2225,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.13"
     },
     {
       "id": "keigaku-adrian",
@@ -2276,7 +2284,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.20"
     },
     {
       "id": "love-meter-max",
@@ -2522,7 +2531,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.08.03"
     }
   ],
   "sourceFiles": [
