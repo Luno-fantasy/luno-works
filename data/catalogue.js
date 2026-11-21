@@ -1305,7 +1305,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.02.28"
     },
     {
       "id": "agetsu-bride-in-love",
@@ -1482,7 +1483,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.04.17"
     },
     {
       "id": "violet-dependence",
@@ -2100,7 +2102,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.08.23"
     },
     {
       "id": "star-lamp-in-abyss",
@@ -2336,7 +2339,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.09.02"
     },
     {
       "id": "hello-my-lover",
