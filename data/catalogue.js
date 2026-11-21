@@ -1546,7 +1546,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.03.22"
     },
     {
       "id": "strangers-at-work-lovers-at-home",
@@ -1604,7 +1605,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.03.30"
     },
     {
       "id": "hualong-princess",
@@ -1665,7 +1667,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.29"
     },
     {
       "id": "day-and-night",
@@ -1691,7 +1694,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.21"
     },
     {
       "id": "fox-waits-thousand-years",
@@ -1735,7 +1739,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.20"
     },
     {
       "id": "wicked-lady-black-wolf",
@@ -1815,7 +1820,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.25"
     },
     {
       "id": "perfect-coworker-secret-account",
@@ -1912,7 +1918,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.08"
     },
     {
       "id": "holy-knight-childhood-friend",
@@ -1954,7 +1961,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.08"
     },
     {
       "id": "keigaku-arsene",
@@ -1980,7 +1988,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.20"
     },
     {
       "id": "nocturne-code",
@@ -2136,7 +2145,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.03"
     },
     {
       "id": "strongest-childhood-friend",
