@@ -1,5 +1,17 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "release-mikado-reiji-20261121",
+    "publishedAt": "2026-11-21",
+    "category": "RELEASE",
+    "title": "『愛してる、は役の台詞。』公開",
+    "body": "恋愛ドラマで初共演する、実力派俳優・御門 怜士と恋人役のあなた。カメラの外でもあなたに惹かれていく怜士の物語をZETAで公開しました。",
+    "status": "published",
+    "relatedWorkIds": [
+      "noir-mikado-reiji"
+    ],
+    "externalUrl": null
+  },
+  {
     "id": "release-amagi-yo-20261120",
     "publishedAt": "2026-11-20",
     "category": "RELEASE",

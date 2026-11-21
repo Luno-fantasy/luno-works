@@ -3,7 +3,7 @@ window.ETERNOA_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 73,
+    "publishedCount": 74,
     "draftCount": 0,
     "catalogueVersion": "1.2"
   },
@@ -143,6 +143,39 @@ window.ETERNOA_DATA = {
     }
   ],
   "works": [
+    {
+      "id": "noir-mikado-reiji",
+      "title": "愛してる、は役の台詞。",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/78f0e66a-8e50-42a7-a520-eba69e09996d/profile?share_id=hay5w6vs9",
+      "category": "modern-romance",
+      "series": null,
+      "world": null,
+      "position": "standalone",
+      "mainCharacter": "御門 怜士",
+      "relation": [],
+      "cover": "velvet/assets/noir-cover.webp",
+      "coverStatus": "ready",
+      "isNew": true,
+      "releaseDate": "2026.11.21",
+      "tags": [
+        "VELVET ENTERTAINMENT",
+        "NOIR",
+        "俳優",
+        "共演者",
+        "恋愛ドラマ"
+      ],
+      "catchphrase": "何度も愛を演じてきた俺が、君への恋だけ演じられない。",
+      "description": "実力派俳優で、《NOIR》の看板ボーカリストでもある御門 怜士。恋愛ドラマ『夜が明けるまで、君と。』で、女優のあなたと初めて共演する。二人が演じるのは、互いに惹かれ合う恋人同士。\n\n本読みで、怜士は台本にないあなたの沈黙に耳を留める。芝居を重ねるうちに、カメラが止まったあとも、あなたのことが気になり始める。何度も愛を演じてきた彼が、自分の言葉で想いを伝えようとする物語。",
+      "platformClassifications": [
+        {
+          "platform": "zeta",
+          "source": "user-provided",
+          "sourceField": "zetaUrl",
+          "currentPublicationStatus": "published"
+        }
+      ]
+    },
     {
       "id": "lux-amagi-yo-manager",
       "title": "マネージャーさん、俺に恋してよ。",

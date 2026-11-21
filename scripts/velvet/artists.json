@@ -25,7 +25,10 @@
     "portrait": "noir-stage.jpg",
     "portrait_size": [1280, 720],
     "catchphrase": "役の感情を|鮮やかに生きる。",
-    "work": {"status":"unpublished"}
+    "feature": "noir-cover.webp",
+    "work": {"title":"愛してる、は役の台詞。","intro":"何度も愛を|演じてきた俺が、|君への恋だけ|演じられない。","platform":"ZETA","status":"published","links":[
+      {"platform":"ZETA","url":"https://zeta-ai.io/ja/plots/78f0e66a-8e50-42a7-a520-eba69e09996d/profile?share_id=hay5w6vs9"}
+    ]}
   },
   {
     "id": "raze", "unit": "RAZE", "color": "#ecab7c", "type": "ロックパフォーマンス",
