@@ -904,8 +904,6 @@ window.ETERNOA_DATA = {
       "id": "rookie-dont-fall-for-me",
       "title": "新人ちゃん、俺に惚れないでね",
       "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/c056502e-891d-4ee8-b932-ee510b72128c/profile?share_id=d8onnui6",
-      "chachaUrl": "https://chacha-ai.io/ja/characters/003820bc-af9f-44de-aa66-28c109acc4c2?s=QE6tFxR6Gk",
       "category": "fantasy",
       "series": null,
       "world": "astrain-kingdom",
@@ -925,20 +923,8 @@ window.ETERNOA_DATA = {
         "恋愛"
       ],
       "description": "王立魔導監獄へ配属された{{user}}の教育係になったのは、軽口ばかりの先輩看守・リュカ。\n\n距離は近いし、褒めるのも自然。\n髪型の変化にも体調不良にもすぐ気付く。\n\nどうせ誰にでもこうなのだと思っていた。\n\nけれど、{{user}}が他の男と親しくなった頃から――\nいつも余裕だった彼の様子が、少しずつおかしくなっていく。\n\n女心には誰より詳しいくせに、自分の恋心だけ分からない。\n\n口説くのは得意。\n恋をするのは、下手。\n\n余裕たっぷりの小悪魔系先輩看守が、本気になった途端に崩れていく恋。",
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "recorded-url",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "unverified"
-        },
-        {
-          "platform": "chacha",
-          "source": "recorded-url",
-          "sourceField": "chachaUrl",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": [],
+      "archiveOnly": true
     },
     {
       "id": "sensei-amayakashisugidesu",
