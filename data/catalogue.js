@@ -964,7 +964,6 @@ window.ETERNOA_DATA = {
       "id": "whichever-you-trust-no-escape",
       "title": "どちらを信じても、逃げられない。",
       "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/aa2ea9d5-7a30-4734-87f4-ccf9649fba89/profile?share_id=j3p2vnid",
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
@@ -988,20 +987,13 @@ window.ETERNOA_DATA = {
         "関係変化"
       ],
       "description": "巨大歓楽街《ノクス区》。\n\n眠らない街の地下では、\n新型ドラッグ《Euphoria》が静かに流通を広げている。\n\n感情や依存心を異常増幅させる危険薬物。\nその製造元も流通経路も、いまだ掴めていない。\n\n紫京厚生局麻薬取締部に所属する{{user}}は、\n同期の麻薬取締官・久瀬紫苑、九条碧と共に身分を偽り、\nノクス区への潜入捜査を開始する。\n\n笑顔の裏に本心を隠し、相手の懐へ入り込む紫苑。\n沈黙と観察によって、わずかな違和感も見逃さない碧。\n\n長年相棒として現場を共にしてきた二人は、\n互いの能力を信頼している。\n\nだが、捜査への考え方も、\n{{user}}への接し方も同じではない。\n\n情報収集、張り込み、聞き込み、証拠整理。\n三人で任務を重ねるほど、\n捜査だけでは割り切れない感情が静かに形を変えていく。\n\n追うべきものは、薬物の流通経路。\n信じるべきものは、二人の言葉。\n\nけれどノクス区では、\n信頼さえも利用される。",
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "recorded-url",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": [],
+      "archiveOnly": true
     },
     {
       "id": "touch-either-cant-heal",
       "title": "どちらに触れても、治らない。",
       "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/4c730599-5be6-4877-b5d9-2038ac9677c2/profile?share_id=2kgvyheft",
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
@@ -1025,20 +1017,13 @@ window.ETERNOA_DATA = {
         "依存"
       ],
       "description": "巨大歓楽街《ノクス区》。\n\n潜入捜査の最中、{{user}}は《Euphoria》の影響を受けてしまう。\n\n直属の上司・御影恒一は、\n{{user}}を正規の病院ではなく、\nノクス区の外れにある看板のない闇診療所へ運び込む。\n\nそこにいたのは、かつて御影と共に《Euphoria》の異常症例を追っていた元医師・鷺沢朔臣。\n\n依存反応を見せた潜入捜査官をどう扱うかを巡り、\n二人は過去に決裂していた。\n\n御影は、症状を管理しながらでも{{user}}の意思と捜査復帰の可能性を残そうとする。\n一方の鷺沢は、同じ過ちを繰り返さないために、\n{{user}}を任務から完全に遠ざけようとする。\n\n御影は近くに置くことで守り、\n鷺沢は遠ざけることで守る。\n\n正反対の方法で{{user}}を守ろうとする二人だったが、\n治療を続けるうち、鷺沢自身にも異変が現れ始める。\n\n{{user}}の声に安堵し、姿が見えないと集中できず、\n御影が{{user}}へ触れるだけで不要な苛立ちを覚える。\n\n何人もの《Euphoria》患者を診てきた医師だからこそ、\n鷺沢は誰より早く自分の変化に気づいてしまう。\n\nこれは恋なのか。\nそれとも、《Euphoria》による依存なのか。\n\n{{user}}を手放す気のない御影と、\n必要とするほど遠ざけようとする鷺沢。\n\n過去の因縁、治療方針、そして抑えきれない執着が絡み合う中、\n{{user}}は二人の間に立つことになる。",
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "recorded-url",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": [],
+      "archiveOnly": true
     },
     {
       "id": "all-four-know-your-identity",
       "title": "潜入先の四人全員に、正体がバレている。",
       "status": "published",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/e1eb84e8-14ef-40b7-b669-97c8263fcc2e/profile?share_id=ubbp0pnna",
       "category": "euphoria",
       "series": "euphoria",
       "world": "euphoria",
@@ -1064,14 +1049,8 @@ window.ETERNOA_DATA = {
         "マルチルート"
       ],
       "description": "巨大歓楽街《ノクス区》の地下で、\n新型ドラッグ《Euphoria》を流通させる犯罪シンジケート《EDEN》。\n\n{{user}}は、その実態を暴くため\n紫京厚生局麻薬取締部から送り込まれた潜入捜査官だった。\n\n任務は順調だった。\n組織内部へ入り込み、少しずつ情報を集め、\nあと一歩で核心へ辿り着ける――そう思っていたある夜、\n{{user}}はEDEN本部最上階へ呼び出される。\n\nそこで待っていたのは、EDENを支配する四人の男たち。\n\n選択肢そのものを支配する創設者・アベル。\n情報と監視で逃げ道を消していくNo.2・イヴァン。\n優しさと安心で心へ入り込むルイ。\n敵対者を容赦なく排除する処刑人・ヴァレン。\n\nそして彼らの前には、\n{{user}}の本名と所属が記されたファイルが置かれていた。\n\n潜入していたことは、最初から知られていた。\n\nそれなのに四人は{{user}}を捕らえず、殺そうともしない。\n\nアベルはすべてを知りながら{{user}}をEDENへ招き入れ、\nイヴァンは監視対象として管理し、\nルイは秘密ごと受け入れるように寄り添い、\nヴァレンは排除すべき敵でありながら処分を先延ばしにする。\n\n四人それぞれの思惑に囲まれるうち、\n潜入任務だったはずの関係は少しずつ変わり始める。\n\n誰を信じるのか。\n誰を利用するのか。\nそれとも、最後まで誰にも心を許さないのか。\n\n{{user}}の選択次第で、四人との関係も、\nEDENで迎える結末も変わっていく――\n\n正体が最初から暴かれていた潜入捜査官と、\nEDENを支配する四人の危険な男たちを巡る、\nマルチルート・サスペンス恋愛ストーリー。",
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "recorded-url",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": [],
+      "archiveOnly": true
     },
     {
       "id": "sweet-collapse",
