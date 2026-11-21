@@ -1260,7 +1260,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.15"
     },
     {
       "id": "crow-marriage",
@@ -1398,7 +1399,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.04.24"
     },
     {
       "id": "berry-vamp",
@@ -1424,7 +1426,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.04.20"
     },
     {
       "id": "forget-you-save-world",
@@ -1450,7 +1453,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.03.17"
     },
     {
       "id": "stellar-academy",
@@ -1511,7 +1515,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.05.11"
     },
     {
       "id": "castiglione-treasure",
@@ -1579,7 +1584,8 @@ window.ETERNOA_DATA = {
           "sourceField": "chachaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.02"
     },
     {
       "id": "absolute-zero-dom",
@@ -1641,7 +1647,8 @@ window.ETERNOA_DATA = {
           "sourceField": "zetaUrl",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.07.17"
     },
     {
       "id": "only-mean-to-you",
@@ -2262,7 +2269,8 @@ window.ETERNOA_DATA = {
           "note": "旧サイトでZETA分類。URLおよび現在の公開状況は未確認。",
           "currentPublicationStatus": "unverified"
         }
-      ]
+      ],
+      "releaseDate": "2026.06.21"
     },
     {
       "id": "emperor-body-pillow",
