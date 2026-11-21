@@ -1327,16 +1327,9 @@ window.ETERNOA_DATA = {
         "逆ハーレム"
       ],
       "description": "「お前は同盟の証だ。それ以上でも以下でもない」\n\n異種族間の均衡を保つため、天鴉領の当主・鴉月へ嫁いだ{{user}}。\n\n正式な伴侶として迎えられながら、待っていたのは夫からの冷たい拒絶だった。\n\n慣れない領地で手を差し伸べるのは、本心を隠す側近、命令以上に守る近衛、契約より心を尊ぶ祭司。\n\n拒絶したはずの花嫁に嫉妬する鴉月。\n主君の伴侶だと知りながら、惹かれていく三人。\n\n契約では、心まで縛れない。\n\n鴉月の伴侶として生きるのか。\nそれとも、別の手を取るのか。",
-      "zetaUrl": "https://zeta-ai.io/ja/plots/9677ea9d-6c74-49ec-b8d0-f359771a1f98/profile?share_id=76er2wf6k",
       "releaseDate": "2026.08.21",
-      "platformClassifications": [
-        {
-          "platform": "zeta",
-          "source": "recorded-url",
-          "sourceField": "zetaUrl",
-          "currentPublicationStatus": "unverified"
-        }
-      ]
+      "platformClassifications": [],
+      "archiveOnly": true
     },
     {
       "id": "white-serpent-bed",
