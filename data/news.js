@@ -1,5 +1,17 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "release-kiryu-jin-20261124",
+    "publishedAt": "2026-11-24",
+    "category": "RELEASE",
+    "title": "『俺を躍らせてみろよ、先生。』公開",
+    "body": "《RAZE》の看板パフォーマー・桐生 迅と、新ライブを任された振付師のあなた。先に挑発した男が、先に本気になる恋をZETAで公開しました。",
+    "status": "published",
+    "relatedWorkIds": [
+      "raze-kiryu-jin"
+    ],
+    "externalUrl": null
+  },
+  {
     "id": "release-mikado-reiji-20261121",
     "publishedAt": "2026-11-21",
     "category": "RELEASE",

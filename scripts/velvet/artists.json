@@ -40,7 +40,10 @@
     }],
     "portrait": "raze-artist.webp",
     "catchphrase": "ロックとダンスで、|観客を熱狂させる。",
-    "work": {"status":"unpublished"}
+    "feature": "raze-cover.webp",
+    "work": {"title":"俺を躍らせてみろよ、先生。","intro":"挑発したのは|俺の方。^先に本気に|なったのも、|俺だった。","platform":"ZETA","status":"published","links":[
+      {"platform":"ZETA","url":"https://zeta-ai.io/ja/plots/efd578d6-a371-49ae-96ae-0ece392ef6ef/profile?share_id=tlzp326y"}
+    ]}
   },
   {
     "id": "veil", "unit": "VEIL", "color": "#c2a4ef", "type": "コンセプチュアルユニット",

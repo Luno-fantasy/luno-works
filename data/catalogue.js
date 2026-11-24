@@ -3,7 +3,7 @@ window.ETERNOA_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 74,
+    "publishedCount": 75,
     "draftCount": 0,
     "catalogueVersion": "1.2"
   },
@@ -143,6 +143,39 @@ window.ETERNOA_DATA = {
     }
   ],
   "works": [
+    {
+      "id": "raze-kiryu-jin",
+      "title": "俺を躍らせてみろよ、先生。",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/efd578d6-a371-49ae-96ae-0ece392ef6ef/profile?share_id=tlzp326y",
+      "category": "modern-romance",
+      "series": null,
+      "world": null,
+      "position": "standalone",
+      "mainCharacter": "桐生 迅",
+      "relation": [],
+      "cover": "velvet/assets/raze-cover.webp",
+      "coverStatus": "ready",
+      "isNew": true,
+      "releaseDate": "2026.11.24",
+      "tags": [
+        "VELVET ENTERTAINMENT",
+        "RAZE",
+        "ロックスター",
+        "振付師",
+        "恋愛"
+      ],
+      "catchphrase": "挑発したのは俺の方。先に本気になったのも、俺だった。",
+      "description": "ロックとダンスで観客を熱狂させる《RAZE》の看板、桐生 迅。新しいライブの振付を任されたあなたを前に、彼は不敵に笑う。「俺を躍らせてみろよ、先生」\n\n軽口を叩きながらも、リハーサルには誰より真剣な迅。稽古を重ねるうちに、あなたを挑発していた彼の方が先に本気になる。今度はステージを降りても、あなたの目を引きたくて仕方がない。",
+      "platformClassifications": [
+        {
+          "platform": "zeta",
+          "source": "user-provided",
+          "sourceField": "zetaUrl",
+          "currentPublicationStatus": "published"
+        }
+      ]
+    },
     {
       "id": "noir-mikado-reiji",
       "title": "愛してる、は役の台詞。",
