@@ -55,7 +55,10 @@
     }],
     "portrait": "veil-artist.webp",
     "catchphrase": "音楽と映像で、|幻想的なステージを。",
-    "work": {"status":"unpublished"}
+    "feature": "veil-cover.webp",
+    "work": {"title":"俺に触れるのは、仕事だけ？","intro":"メイクを|落としても、|君がいい。","platform":"ZETA","status":"published","links":[
+      {"platform":"ZETA","url":"https://zeta-ai.io/ja/plots/45482001-8582-4585-b735-994ec840f0d0/profile?share_id=68o0cqyuk"}
+    ]}
   },
   {
     "id": "reve", "unit": "RE:VE", "color": "#9cb6fb", "type": "アイドルデュオ",

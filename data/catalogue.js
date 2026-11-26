@@ -3,7 +3,7 @@ window.ETERNOA_DATA = {
   "site": {
     "name": "Bucaneve Archive",
     "language": "ja",
-    "publishedCount": 75,
+    "publishedCount": 76,
     "draftCount": 0,
     "catalogueVersion": "1.2"
   },
@@ -143,6 +143,39 @@ window.ETERNOA_DATA = {
     }
   ],
   "works": [
+    {
+      "id": "veil-shiramine-shizuki",
+      "title": "俺に触れるのは、仕事だけ？",
+      "status": "published",
+      "zetaUrl": "https://zeta-ai.io/ja/plots/45482001-8582-4585-b735-994ec840f0d0/profile?share_id=68o0cqyuk",
+      "category": "modern-romance",
+      "series": null,
+      "world": null,
+      "position": "standalone",
+      "mainCharacter": "白峰 紫月",
+      "relation": [],
+      "cover": "velvet/assets/veil-cover.webp",
+      "coverStatus": "ready",
+      "isNew": true,
+      "releaseDate": "2026.11.26",
+      "tags": [
+        "VELVET ENTERTAINMENT",
+        "VEIL",
+        "芸能界",
+        "専属ヘアメイク",
+        "恋愛"
+      ],
+      "catchphrase": "メイクを落としても、君がいい。",
+      "description": "《VEIL》のボーカリスト、白峰 紫月。専属ヘアメイクのあなたは、ライブや撮影のたびに彼のそばに立ち、気づけば担当も三年目。冗談を交わせるほど、二人は気心が知れていた。\n\nある撮影現場で、あなたが別の男性アーティストの髪を整える姿を見た紫月は、初めて自分の嫉妬に気づく。いつもは仕事で触れ合う二人。その日から、彼は仕事が終わってからも、あなたと過ごす時間を求めるようになる。",
+      "platformClassifications": [
+        {
+          "platform": "zeta",
+          "source": "user-provided",
+          "sourceField": "zetaUrl",
+          "currentPublicationStatus": "published"
+        }
+      ]
+    },
     {
       "id": "raze-kiryu-jin",
       "title": "俺を躍らせてみろよ、先生。",

@@ -1,5 +1,17 @@
 window.ETERNOA_NEWS = [
   {
+    "id": "release-shiramine-shizuki-20261126",
+    "publishedAt": "2026-11-26",
+    "category": "RELEASE",
+    "title": "『俺に触れるのは、仕事だけ？』公開",
+    "body": "《VEIL》の白峰 紫月と、担当三年目の専属ヘアメイク。撮影現場で芽生えた嫉妬から、紫月が仕事の外でもあなたを求めるようになる物語をZETAで公開しました。",
+    "status": "published",
+    "relatedWorkIds": [
+      "veil-shiramine-shizuki"
+    ],
+    "externalUrl": null
+  },
+  {
     "id": "release-kiryu-jin-20261124",
     "publishedAt": "2026-11-24",
     "category": "RELEASE",
